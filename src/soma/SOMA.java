@@ -4,6 +4,8 @@
  */
 package soma;
 
+import view.FrmMenu;
+
 /**
  *
  * @author Takeshi
@@ -14,7 +16,7 @@ public class SOMA {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        new FrmMenu().setVisible(true);
     }
     
 }
