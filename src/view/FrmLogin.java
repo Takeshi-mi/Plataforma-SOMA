@@ -18,6 +18,7 @@ public class FrmLogin extends javax.swing.JFrame {
     public FrmLogin() {
         initComponents();
         getRootPane().setDefaultButton(btnAcess);
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -42,6 +43,7 @@ public class FrmLogin extends javax.swing.JFrame {
         LogoSoma = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setLocation(new java.awt.Point(0, 0));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
