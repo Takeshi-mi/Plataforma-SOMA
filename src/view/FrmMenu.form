@@ -128,14 +128,6 @@
                           </Group>
                           <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
                       </Group>
-<<<<<<< HEAD
-                      <Group type="102" attributes="0">
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jButton2" min="-2" pref="48" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
-                          <Component id="jComboBox1" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="32767" attributes="0"/>
-=======
                       <Group type="102" alignment="0" attributes="0">
                           <Group type="103" groupAlignment="1" attributes="0">
                               <Component id="UserIcon" min="-2" max="-2" attributes="0"/>
@@ -159,7 +151,7 @@
                                   <EmptySpace max="32767" attributes="0"/>
                               </Group>
                           </Group>
->>>>>>> 10b94f9667b988d4f498a2eb39a9f5745990eae5
+
                       </Group>
                   </Group>
                   <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
