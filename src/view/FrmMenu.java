@@ -5,7 +5,11 @@
 package view;
 
 import java.awt.CardLayout;
+import java.awt.Desktop;
 import java.beans.PropertyVetoException;
+import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
@@ -58,6 +62,19 @@ public class FrmMenu extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
+        quemSomosPaneScroll = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        quemSomosScroll = new javax.swing.JPanel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("SOMA");
@@ -185,6 +202,11 @@ public class FrmMenu extends javax.swing.JFrame {
         btnSaibaMais.setFont(new java.awt.Font("Arial Black", 0, 24)); // NOI18N
         btnSaibaMais.setForeground(new java.awt.Color(255, 255, 255));
         btnSaibaMais.setText("SAIBA MAIS");
+        btnSaibaMais.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSaibaMaisActionPerformed(evt);
+            }
+        });
         homePane.add(btnSaibaMais, new org.netbeans.lib.awtextra.AbsoluteConstraints(943, 253, 237, 57));
 
         cardPane.add(homePane, "home");
@@ -198,14 +220,14 @@ public class FrmMenu extends javax.swing.JFrame {
             .addGroup(cadastroPaneLayout.createSequentialGroup()
                 .addGap(630, 630, 630)
                 .addComponent(jLabel1)
-                .addContainerGap(923, Short.MAX_VALUE))
+                .addContainerGap(1309, Short.MAX_VALUE))
         );
         cadastroPaneLayout.setVerticalGroup(
             cadastroPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(cadastroPaneLayout.createSequentialGroup()
                 .addGap(49, 49, 49)
                 .addComponent(jLabel1)
-                .addContainerGap(520, Short.MAX_VALUE))
+                .addContainerGap(2701, Short.MAX_VALUE))
         );
 
         cardPane.add(cadastroPane, "card3");
@@ -247,6 +269,117 @@ public class FrmMenu extends javax.swing.JFrame {
 
         cardPane.add(quemSomosPane, "card4");
 
+        jScrollPane1.setBorder(new javax.swing.border.MatteBorder(null));
+
+        jLabel10.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        jLabel10.setText("na busca por empresas homologadas próximas.");
+
+        jLabel11.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        jLabel11.setText("de resíduos inorgânicos, otimizando processos internos e economizando tempo");
+
+        jLabel12.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        jLabel12.setText("transporte.  Essas características convergem para a missão de auxiliar na gestão");
+
+        jLabel13.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        jLabel13.setText("a cadeia  de fornecedores e  compradores, controle  de  produção e  rastreio  de ");
+
+        jLabel14.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        jLabel14.setText("reciclagem. Tem como campo de atuação o descarte sustentável, incluindo toda");
+
+        jLabel15.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        jLabel15.setText("resíduos inorgânicos com empresas interessadas em adquirir tais resíduos para");
+
+        jLabel16.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        jLabel16.setText("A plataforma tem como objetivo conectar indivíduos e/ou indústrias que geram");
+
+        jLabel17.setFont(new java.awt.Font("Arial Black", 1, 36)); // NOI18N
+        jLabel17.setForeground(new java.awt.Color(255, 102, 0));
+        jLabel17.setText("QUEM SOMOS?");
+
+        jButton1.setBackground(new java.awt.Color(242, 242, 242));
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/instagramIcon.png"))); // NOI18N
+        jButton1.setToolTipText("Visite nossa página do instagram");
+        jButton1.setBorder(null);
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        jButton2.setBackground(new java.awt.Color(242, 242, 242));
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/instagramIconVerde.png"))); // NOI18N
+        jButton2.setBorder(null);
+
+        javax.swing.GroupLayout quemSomosScrollLayout = new javax.swing.GroupLayout(quemSomosScroll);
+        quemSomosScroll.setLayout(quemSomosScrollLayout);
+        quemSomosScrollLayout.setHorizontalGroup(
+            quemSomosScrollLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(quemSomosScrollLayout.createSequentialGroup()
+                .addGroup(quemSomosScrollLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(quemSomosScrollLayout.createSequentialGroup()
+                        .addGap(204, 204, 204)
+                        .addGroup(quemSomosScrollLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel15)
+                            .addComponent(jLabel16)
+                            .addComponent(jLabel14)
+                            .addComponent(jLabel13)
+                            .addComponent(jLabel12)
+                            .addComponent(jLabel11)
+                            .addComponent(jLabel10)
+                            .addGroup(quemSomosScrollLayout.createSequentialGroup()
+                                .addComponent(jButton1)
+                                .addGap(50, 50, 50)
+                                .addComponent(jButton2))))
+                    .addGroup(quemSomosScrollLayout.createSequentialGroup()
+                        .addGap(146, 146, 146)
+                        .addComponent(jLabel17)))
+                .addContainerGap(231, Short.MAX_VALUE))
+        );
+        quemSomosScrollLayout.setVerticalGroup(
+            quemSomosScrollLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(quemSomosScrollLayout.createSequentialGroup()
+                .addGap(31, 31, 31)
+                .addComponent(jLabel17)
+                .addGap(52, 52, 52)
+                .addComponent(jLabel16)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel15)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel14)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel13)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel12)
+                .addGap(10, 10, 10)
+                .addComponent(jLabel11)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel10)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 78, Short.MAX_VALUE)
+                .addGroup(quemSomosScrollLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jButton2, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addGap(62, 62, 62))
+        );
+
+        jScrollPane1.setViewportView(quemSomosScroll);
+
+        javax.swing.GroupLayout quemSomosPaneScrollLayout = new javax.swing.GroupLayout(quemSomosPaneScroll);
+        quemSomosPaneScroll.setLayout(quemSomosPaneScrollLayout);
+        quemSomosPaneScrollLayout.setHorizontalGroup(
+            quemSomosPaneScrollLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(quemSomosPaneScrollLayout.createSequentialGroup()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1361, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 661, Short.MAX_VALUE))
+        );
+        quemSomosPaneScrollLayout.setVerticalGroup(
+            quemSomosPaneScrollLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(quemSomosPaneScrollLayout.createSequentialGroup()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 548, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 2218, Short.MAX_VALUE))
+        );
+
+        cardPane.add(quemSomosPaneScroll, "card5");
+
         mainLayeredPane.add(cardPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(1, 216, -1, -1));
 
         painelDesktopMain.setLayer(mainLayeredPane, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -287,7 +420,7 @@ public class FrmMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCadastroVerdeActionPerformed
 
     private void btnSuporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSuporteActionPerformed
-        quemSomosPane.setVisible(true);
+        quemSomosPaneScroll.setVisible(true);
         homePane.setVisible(false);
         cadastroPane.setVisible(false);
     }//GEN-LAST:event_btnSuporteActionPerformed
@@ -320,6 +453,21 @@ public class FrmMenu extends javax.swing.JFrame {
         ImageIcon icone = new ImageIcon(getClass().getResource("/images/menuIcon.png"));
         btn3Pontos.setIcon(icone);
     }//GEN-LAST:event_btn3PontosMouseExited
+
+    private void btnSaibaMaisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaibaMaisActionPerformed
+        quemSomosPaneScroll.setVisible(true);
+        homePane.setVisible(false);
+        cadastroPane.setVisible(false);
+    }//GEN-LAST:event_btnSaibaMaisActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        try{
+            URI link = new URI("https://www.instagram.com/somabrampssol/");
+            Desktop.getDesktop().browse(link);
+        }catch(IOException | URISyntaxException erro){
+            System.out.println(erro);
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -397,7 +545,17 @@ public class FrmMenu extends javax.swing.JFrame {
     private javax.swing.JPanel cadastroPane;
     private javax.swing.JPanel cardPane;
     private javax.swing.JLayeredPane homePane;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -407,12 +565,15 @@ public class FrmMenu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanelBarraVerde;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel logoSoma;
     private javax.swing.JLayeredPane mainLayeredPane;
     private javax.swing.JLabel mundoMelhor;
     private javax.swing.JLabel nomeUsuario;
     private javax.swing.JDesktopPane painelDesktopMain;
     private javax.swing.JPanel quemSomosPane;
+    private javax.swing.JPanel quemSomosPaneScroll;
+    private javax.swing.JPanel quemSomosScroll;
     private javax.swing.JLabel vamosTornar;
     // End of variables declaration//GEN-END:variables
 }
