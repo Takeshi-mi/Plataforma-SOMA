@@ -83,7 +83,6 @@ public class FrmLogin extends javax.swing.JFrame {
 
         lblImagePadlock.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         lblImagePadlock.setForeground(new java.awt.Color(102, 102, 102));
-        lblImagePadlock.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/greypadlock.png"))); // NOI18N
         lblImagePadlock.setText("Login");
         lblImagePadlock.setToolTipText("");
 
@@ -149,7 +148,7 @@ public class FrmLogin extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnExit)
                     .addComponent(btnClear))
-                .addContainerGap(45, Short.MAX_VALUE))
+                .addContainerGap(60, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -187,8 +186,11 @@ public class FrmLogin extends javax.swing.JFrame {
         if((new String(txtUser.getText()).equals(nome ) || new String(txtUser.getText()).equals("" )) && (new String(pwdPassword.getPassword()).equals(senha))||
             new String(txtUser.getText()).equals("")){
             JOptionPane.showMessageDialog(this, "Bem vindo!");
+            
             FrmMenu menu = new FrmMenu();
             menu.setVisible(true);
+            
+            
             dispose();
         }
         else {

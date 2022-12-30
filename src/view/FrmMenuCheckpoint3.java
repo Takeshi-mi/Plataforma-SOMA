@@ -10,12 +10,12 @@ import java.awt.CardLayout;
  *
  * @author Takeshi
  */
-public class FrmMenu extends javax.swing.JFrame {
+public class FrmMenuCheckpoint3 extends javax.swing.JFrame {
 
     /**
      * Creates new form FrmMenu1
      */
-    public FrmMenu() {
+    public FrmMenuCheckpoint3() {
         initComponents();
     }
 
@@ -28,40 +28,24 @@ public class FrmMenu extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        painelDesktopMain = new javax.swing.JDesktopPane();
         mainLayeredPane = new javax.swing.JLayeredPane();
-        btn3Pontos = new javax.swing.JButton();
         UserIcon = new javax.swing.JLabel();
         nomeUsuario = new javax.swing.JLabel();
         jPanelBarraVerde = new javax.swing.JPanel();
-        btnCadastroVerde = new javax.swing.JButton();
+        btnInicio2 = new javax.swing.JButton();
+        btnCadastro = new javax.swing.JButton();
         btnSuporte = new javax.swing.JButton();
-        btnInicio = new javax.swing.JButton();
         cardPane = new javax.swing.JPanel();
         homePane = new javax.swing.JLayeredPane();
         vamosTornar = new javax.swing.JLabel();
         mundoMelhor = new javax.swing.JLabel();
         logoSoma = new javax.swing.JLabel();
         btnSaibaMais = new javax.swing.JButton();
-        cadastroPane = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("SOMA");
 
-        mainLayeredPane.setBackground(new java.awt.Color(242, 242, 242));
+        mainLayeredPane.setBackground(new java.awt.Color(255, 153, 204));
         mainLayeredPane.setBorder(new javax.swing.border.MatteBorder(null));
-        mainLayeredPane.setPreferredSize(new java.awt.Dimension(1366, 768));
-        mainLayeredPane.setRequestFocusEnabled(false);
-
-        btn3Pontos.setBackground(new java.awt.Color(225, 219, 219));
-        btn3Pontos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/menuIcon.png"))); // NOI18N
-        btn3Pontos.setBorder(null);
-        btn3Pontos.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn3PontosActionPerformed(evt);
-            }
-        });
 
         UserIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/profile-user 64px.png"))); // NOI18N
 
@@ -71,36 +55,36 @@ public class FrmMenu extends javax.swing.JFrame {
         jPanelBarraVerde.setBackground(new java.awt.Color(7, 99, 36));
         jPanelBarraVerde.setForeground(new java.awt.Color(7, 99, 36));
 
-        btnCadastroVerde.setBackground(new java.awt.Color(0, 102, 0));
-        btnCadastroVerde.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        btnCadastroVerde.setForeground(new java.awt.Color(255, 255, 255));
-        btnCadastroVerde.setText("CADASTRO");
-        btnCadastroVerde.setBorder(null);
-        btnCadastroVerde.addActionListener(new java.awt.event.ActionListener() {
+        btnInicio2.setBackground(new java.awt.Color(0, 102, 0));
+        btnInicio2.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        btnInicio2.setForeground(new java.awt.Color(255, 255, 255));
+        btnInicio2.setText("CADASTRO");
+        btnInicio2.setBorder(null);
+        btnInicio2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCadastroVerdeActionPerformed(evt);
+                btnInicio2ActionPerformed(evt);
+            }
+        });
+
+        btnCadastro.setBackground(new java.awt.Color(0, 102, 0));
+        btnCadastro.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        btnCadastro.setForeground(new java.awt.Color(255, 255, 255));
+        btnCadastro.setText("SUPORTE");
+        btnCadastro.setBorder(null);
+        btnCadastro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCadastroActionPerformed(evt);
             }
         });
 
         btnSuporte.setBackground(new java.awt.Color(0, 102, 0));
         btnSuporte.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         btnSuporte.setForeground(new java.awt.Color(255, 255, 255));
-        btnSuporte.setText("SUPORTE");
+        btnSuporte.setText("INICIO");
         btnSuporte.setBorder(null);
         btnSuporte.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSuporteActionPerformed(evt);
-            }
-        });
-
-        btnInicio.setBackground(new java.awt.Color(0, 102, 0));
-        btnInicio.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        btnInicio.setForeground(new java.awt.Color(255, 255, 255));
-        btnInicio.setText("INICIO");
-        btnInicio.setBorder(null);
-        btnInicio.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnInicioActionPerformed(evt);
             }
         });
 
@@ -110,11 +94,11 @@ public class FrmMenu extends javax.swing.JFrame {
             jPanelBarraVerdeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelBarraVerdeLayout.createSequentialGroup()
                 .addGap(126, 126, 126)
-                .addComponent(btnInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(33, 33, 33)
-                .addComponent(btnCadastroVerde, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(40, 40, 40)
                 .addComponent(btnSuporte, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(33, 33, 33)
+                .addComponent(btnInicio2, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(40, 40, 40)
+                .addComponent(btnCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanelBarraVerdeLayout.setVerticalGroup(
@@ -122,15 +106,13 @@ public class FrmMenu extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelBarraVerdeLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addGroup(jPanelBarraVerdeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnCadastroVerde, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnSuporte, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(btnInicio2, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnSuporte, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
         cardPane.setBorder(new javax.swing.border.MatteBorder(null));
         cardPane.setLayout(new java.awt.CardLayout());
-
-        homePane.setBackground(new java.awt.Color(255, 255, 255));
 
         vamosTornar.setFont(new java.awt.Font("Arial Black", 1, 36)); // NOI18N
         vamosTornar.setForeground(new java.awt.Color(7, 99, 36));
@@ -165,58 +147,34 @@ public class FrmMenu extends javax.swing.JFrame {
                 .addComponent(logoSoma)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 284, Short.MAX_VALUE)
                 .addGroup(homePaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, homePaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, homePaneLayout.createSequentialGroup()
-                            .addComponent(vamosTornar)
-                            .addGap(107, 107, 107))
-                        .addGroup(homePaneLayout.createSequentialGroup()
-                            .addComponent(mundoMelhor, javax.swing.GroupLayout.PREFERRED_SIZE, 392, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(99, 99, 99)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, homePaneLayout.createSequentialGroup()
-                        .addComponent(btnSaibaMais, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(182, 182, 182))))
+                        .addComponent(vamosTornar)
+                        .addGap(8, 8, 8))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, homePaneLayout.createSequentialGroup()
+                        .addComponent(btnSaibaMais, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(106, 106, 106))
+                    .addComponent(mundoMelhor, javax.swing.GroupLayout.PREFERRED_SIZE, 392, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(99, 99, 99))
         );
         homePaneLayout.setVerticalGroup(
             homePaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(homePaneLayout.createSequentialGroup()
                 .addGroup(homePaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(homePaneLayout.createSequentialGroup()
-                        .addGap(52, 52, 52)
-                        .addComponent(logoSoma, javax.swing.GroupLayout.PREFERRED_SIZE, 317, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(homePaneLayout.createSequentialGroup()
                         .addGap(112, 112, 112)
                         .addComponent(vamosTornar, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(mundoMelhor, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(btnSaibaMais, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(180, Short.MAX_VALUE))
+                        .addComponent(btnSaibaMais, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(homePaneLayout.createSequentialGroup()
+                        .addGap(52, 52, 52)
+                        .addComponent(logoSoma, javax.swing.GroupLayout.PREFERRED_SIZE, 317, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(140, Short.MAX_VALUE))
         );
 
         cardPane.add(homePane, "home");
 
-        jLabel1.setText("tela de cadastro");
-
-        javax.swing.GroupLayout cadastroPaneLayout = new javax.swing.GroupLayout(cadastroPane);
-        cadastroPane.setLayout(cadastroPaneLayout);
-        cadastroPaneLayout.setHorizontalGroup(
-            cadastroPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(cadastroPaneLayout.createSequentialGroup()
-                .addGap(630, 630, 630)
-                .addComponent(jLabel1)
-                .addContainerGap(649, Short.MAX_VALUE))
-        );
-        cadastroPaneLayout.setVerticalGroup(
-            cadastroPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(cadastroPaneLayout.createSequentialGroup()
-                .addGap(49, 49, 49)
-                .addComponent(jLabel1)
-                .addContainerGap(484, Short.MAX_VALUE))
-        );
-
-        cardPane.add(cadastroPane, "card3");
-
-        mainLayeredPane.setLayer(btn3Pontos, javax.swing.JLayeredPane.DEFAULT_LAYER);
         mainLayeredPane.setLayer(UserIcon, javax.swing.JLayeredPane.DEFAULT_LAYER);
         mainLayeredPane.setLayer(nomeUsuario, javax.swing.JLayeredPane.DEFAULT_LAYER);
         mainLayeredPane.setLayer(jPanelBarraVerde, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -227,9 +185,7 @@ public class FrmMenu extends javax.swing.JFrame {
         mainLayeredPaneLayout.setHorizontalGroup(
             mainLayeredPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, mainLayeredPaneLayout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addComponent(btn3Pontos)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(nomeUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(UserIcon)
@@ -240,75 +196,49 @@ public class FrmMenu extends javax.swing.JFrame {
         mainLayeredPaneLayout.setVerticalGroup(
             mainLayeredPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(mainLayeredPaneLayout.createSequentialGroup()
-                .addGroup(mainLayeredPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(mainLayeredPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(mainLayeredPaneLayout.createSequentialGroup()
-                            .addGap(46, 46, 46)
-                            .addComponent(UserIcon))
-                        .addGroup(mainLayeredPaneLayout.createSequentialGroup()
-                            .addGap(43, 43, 43)
-                            .addComponent(nomeUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGroup(mainLayeredPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(mainLayeredPaneLayout.createSequentialGroup()
-                        .addGap(29, 29, 29)
-                        .addComponent(btn3Pontos, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(31, 31, 31)
+                        .addGap(46, 46, 46)
+                        .addComponent(UserIcon))
+                    .addGroup(mainLayeredPaneLayout.createSequentialGroup()
+                        .addGap(43, 43, 43)
+                        .addComponent(nomeUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGap(51, 51, 51)
                 .addComponent(jPanelBarraVerde, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(cardPane, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        painelDesktopMain.setLayer(mainLayeredPane, javax.swing.JLayeredPane.DEFAULT_LAYER);
-
-        javax.swing.GroupLayout painelDesktopMainLayout = new javax.swing.GroupLayout(painelDesktopMain);
-        painelDesktopMain.setLayout(painelDesktopMainLayout);
-        painelDesktopMainLayout.setHorizontalGroup(
-            painelDesktopMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(mainLayeredPane, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        painelDesktopMainLayout.setVerticalGroup(
-            painelDesktopMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(mainLayeredPane, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
+        jPanelBarraVerde.getAccessibleContext().setAccessibleName("");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(painelDesktopMain)
+            .addComponent(mainLayeredPane, javax.swing.GroupLayout.Alignment.TRAILING)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(painelDesktopMain)
+            .addComponent(mainLayeredPane, javax.swing.GroupLayout.Alignment.TRAILING)
         );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnCadastroVerdeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastroVerdeActionPerformed
-//        CardLayout cl = (CardLayout) cardPane.getLayout();
-//        cl.show(cardPane, "cadastroPane");
-        cadastroPane.setVisible(true);
-        homePane.setVisible(false);
-
-    }//GEN-LAST:event_btnCadastroVerdeActionPerformed
-
     private void btnSuporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSuporteActionPerformed
-
+        //CardLayout cl = (CardLayout) cardPane.getLayout();
+        //cl.show(cardPane, "home");
     }//GEN-LAST:event_btnSuporteActionPerformed
 
-    private void btnInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInicioActionPerformed
-//        CardLayout cl = (CardLayout) cardPane.getLayout();
-//        cl.show(cardPane, "homePane");
-        homePane.setVisible(true);
-        cadastroPane.setVisible(false);
-    }//GEN-LAST:event_btnInicioActionPerformed
+    private void btnCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastroActionPerformed
+        CardLayout cl = (CardLayout) cardPane.getLayout();
+        cl.show(cardPane, "cadastroPane");
+    }//GEN-LAST:event_btnCadastroActionPerformed
 
-    private void btn3PontosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn3PontosActionPerformed
-        InFrmMais mais = new InFrmMais();
-        painelDesktopMain.add(mais);
-        mais.setVisible(true);
-    }//GEN-LAST:event_btn3PontosActionPerformed
+    private void btnInicio2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInicio2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnInicio2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -327,13 +257,13 @@ public class FrmMenu extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(FrmMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmMenuCheckpoint3.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(FrmMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmMenuCheckpoint3.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(FrmMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmMenuCheckpoint3.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(FrmMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmMenuCheckpoint3.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
         //</editor-fold>
@@ -371,28 +301,24 @@ public class FrmMenu extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new FrmMenu().setVisible(true);
+                new FrmMenuCheckpoint3().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel UserIcon;
-    private javax.swing.JButton btn3Pontos;
-    private javax.swing.JButton btnCadastroVerde;
-    private javax.swing.JButton btnInicio;
+    private javax.swing.JButton btnCadastro;
+    private javax.swing.JButton btnInicio2;
     private javax.swing.JButton btnSaibaMais;
     private javax.swing.JButton btnSuporte;
-    private javax.swing.JPanel cadastroPane;
     private javax.swing.JPanel cardPane;
     private javax.swing.JLayeredPane homePane;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanelBarraVerde;
     private javax.swing.JLabel logoSoma;
     private javax.swing.JLayeredPane mainLayeredPane;
     private javax.swing.JLabel mundoMelhor;
     private javax.swing.JLabel nomeUsuario;
-    private javax.swing.JDesktopPane painelDesktopMain;
     private javax.swing.JLabel vamosTornar;
     // End of variables declaration//GEN-END:variables
 }

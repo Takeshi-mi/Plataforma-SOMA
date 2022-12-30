@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
  */
 package soma;
-
+import view.FrmLogin;
 import view.FrmMenu;
 
 /**
@@ -16,7 +16,7 @@ public class SOMA {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        new FrmMenu().setVisible(true);
+        new FrmLogin().setVisible(true);
     }
     
 }
