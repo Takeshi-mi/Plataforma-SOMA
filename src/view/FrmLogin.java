@@ -185,7 +185,7 @@ public class FrmLogin extends javax.swing.JFrame {
         String senha = "ifg";
         if((new String(txtUser.getText()).equals(nome ) || new String(txtUser.getText()).equals("" )) && (new String(pwdPassword.getPassword()).equals(senha))||
             new String(txtUser.getText()).equals("")){
-            JOptionPane.showMessageDialog(this, "Bem vindo!");
+            //JOptionPane.showMessageDialog(this, "Bem vindo!");
             
             FrmMenu menu = new FrmMenu();
             menu.setVisible(true);

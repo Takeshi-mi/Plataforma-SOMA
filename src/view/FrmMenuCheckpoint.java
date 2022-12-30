@@ -43,6 +43,7 @@ public class FrmMenuCheckpoint extends javax.swing.JFrame {
         mundoMelhor = new javax.swing.JLabel();
         logoSoma = new javax.swing.JLabel();
         btnSaibaMais = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
         cadastroPane = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
 
@@ -131,67 +132,34 @@ public class FrmMenuCheckpoint extends javax.swing.JFrame {
         cardPane.setLayout(new java.awt.CardLayout());
 
         homePane.setBackground(new java.awt.Color(255, 255, 255));
+        homePane.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         vamosTornar.setFont(new java.awt.Font("Arial Black", 1, 36)); // NOI18N
         vamosTornar.setForeground(new java.awt.Color(7, 99, 36));
         vamosTornar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         vamosTornar.setText("VAMOS TORNAR O\n");
         vamosTornar.setToolTipText("");
+        homePane.add(vamosTornar, new org.netbeans.lib.awtextra.AbsoluteConstraints(871, 112, -1, 65));
 
         mundoMelhor.setFont(new java.awt.Font("Arial Black", 1, 36)); // NOI18N
         mundoMelhor.setForeground(new java.awt.Color(7, 99, 36));
         mundoMelhor.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         mundoMelhor.setText("MUNDO MELHOR?");
         mundoMelhor.setToolTipText("");
+        homePane.add(mundoMelhor, new org.netbeans.lib.awtextra.AbsoluteConstraints(871, 183, 392, -1));
 
         logoSoma.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Logo verde.png"))); // NOI18N
+        homePane.add(logoSoma, new org.netbeans.lib.awtextra.AbsoluteConstraints(47, 52, -1, 317));
 
         btnSaibaMais.setBackground(new java.awt.Color(7, 99, 36));
         btnSaibaMais.setFont(new java.awt.Font("Arial Black", 0, 24)); // NOI18N
         btnSaibaMais.setForeground(new java.awt.Color(255, 255, 255));
         btnSaibaMais.setText("SAIBA MAIS");
+        homePane.add(btnSaibaMais, new org.netbeans.lib.awtextra.AbsoluteConstraints(943, 253, 237, 57));
 
-        homePane.setLayer(vamosTornar, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        homePane.setLayer(mundoMelhor, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        homePane.setLayer(logoSoma, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        homePane.setLayer(btnSaibaMais, javax.swing.JLayeredPane.DEFAULT_LAYER);
-
-        javax.swing.GroupLayout homePaneLayout = new javax.swing.GroupLayout(homePane);
-        homePane.setLayout(homePaneLayout);
-        homePaneLayout.setHorizontalGroup(
-            homePaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, homePaneLayout.createSequentialGroup()
-                .addGap(47, 47, 47)
-                .addComponent(logoSoma)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 284, Short.MAX_VALUE)
-                .addGroup(homePaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, homePaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, homePaneLayout.createSequentialGroup()
-                            .addComponent(vamosTornar)
-                            .addGap(107, 107, 107))
-                        .addGroup(homePaneLayout.createSequentialGroup()
-                            .addComponent(mundoMelhor, javax.swing.GroupLayout.PREFERRED_SIZE, 392, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(99, 99, 99)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, homePaneLayout.createSequentialGroup()
-                        .addComponent(btnSaibaMais, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(182, 182, 182))))
-        );
-        homePaneLayout.setVerticalGroup(
-            homePaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(homePaneLayout.createSequentialGroup()
-                .addGroup(homePaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(homePaneLayout.createSequentialGroup()
-                        .addGap(52, 52, 52)
-                        .addComponent(logoSoma, javax.swing.GroupLayout.PREFERRED_SIZE, 317, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(homePaneLayout.createSequentialGroup()
-                        .addGap(112, 112, 112)
-                        .addComponent(vamosTornar, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(mundoMelhor, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnSaibaMais, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(180, Short.MAX_VALUE))
-        );
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/3TraçosLaranja.png"))); // NOI18N
+        jLabel2.setText("jLabel2");
+        homePane.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 40, 180, 170));
 
         cardPane.add(homePane, "home");
 
@@ -254,7 +222,7 @@ public class FrmMenuCheckpoint extends javax.swing.JFrame {
                 .addGap(31, 31, 31)
                 .addComponent(jPanelBarraVerde, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(26, 26, 26)
-                .addComponent(cardPane, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(cardPane, javax.swing.GroupLayout.DEFAULT_SIZE, 551, Short.MAX_VALUE))
         );
 
         painelDesktopMain.setLayer(mainLayeredPane, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -267,7 +235,7 @@ public class FrmMenuCheckpoint extends javax.swing.JFrame {
         );
         painelDesktopMainLayout.setVerticalGroup(
             painelDesktopMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(mainLayeredPane, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(mainLayeredPane, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 797, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -419,6 +387,7 @@ public class FrmMenuCheckpoint extends javax.swing.JFrame {
     private javax.swing.JPanel cardPane;
     private javax.swing.JLayeredPane homePane;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanelBarraVerde;
     private javax.swing.JLabel logoSoma;
     private javax.swing.JLayeredPane mainLayeredPane;

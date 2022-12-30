@@ -5,6 +5,10 @@
 package view;
 
 import java.awt.CardLayout;
+import java.beans.PropertyVetoException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.ImageIcon;
 
 /**
  *
@@ -53,20 +57,35 @@ public class FrmMenu extends javax.swing.JFrame {
         mainLayeredPane.setBorder(new javax.swing.border.MatteBorder(null));
         mainLayeredPane.setPreferredSize(new java.awt.Dimension(1366, 768));
         mainLayeredPane.setRequestFocusEnabled(false);
+        mainLayeredPane.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btn3Pontos.setBackground(new java.awt.Color(225, 219, 219));
+        btn3Pontos.setForeground(new java.awt.Color(255, 255, 255));
         btn3Pontos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/menuIcon.png"))); // NOI18N
-        btn3Pontos.setBorder(null);
+        btn3Pontos.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        btn3Pontos.setContentAreaFilled(false);
+        btn3Pontos.setDisabledIcon(null);
+        btn3Pontos.setFocusCycleRoot(true);
+        btn3Pontos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btn3PontosMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btn3PontosMouseExited(evt);
+            }
+        });
         btn3Pontos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn3PontosActionPerformed(evt);
             }
         });
+        mainLayeredPane.add(btn3Pontos, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 30, -1, 53));
 
         UserIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/profile-user 64px.png"))); // NOI18N
+        mainLayeredPane.add(UserIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(1256, 47, -1, -1));
 
         nomeUsuario.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         nomeUsuario.setText("Olá, Nome do Usuário");
+        mainLayeredPane.add(nomeUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(1058, 44, 192, 67));
 
         jPanelBarraVerde.setBackground(new java.awt.Color(7, 99, 36));
         jPanelBarraVerde.setForeground(new java.awt.Color(7, 99, 36));
@@ -127,71 +146,37 @@ public class FrmMenu extends javax.swing.JFrame {
                     .addComponent(btnInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
+        mainLayeredPane.add(jPanelBarraVerde, new org.netbeans.lib.awtextra.AbsoluteConstraints(1, 142, 1364, -1));
+
+        cardPane.setBackground(new java.awt.Color(255, 255, 255));
         cardPane.setBorder(new javax.swing.border.MatteBorder(null));
         cardPane.setLayout(new java.awt.CardLayout());
 
         homePane.setBackground(new java.awt.Color(255, 255, 255));
+        homePane.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         vamosTornar.setFont(new java.awt.Font("Arial Black", 1, 36)); // NOI18N
         vamosTornar.setForeground(new java.awt.Color(7, 99, 36));
         vamosTornar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         vamosTornar.setText("VAMOS TORNAR O\n");
         vamosTornar.setToolTipText("");
+        homePane.add(vamosTornar, new org.netbeans.lib.awtextra.AbsoluteConstraints(871, 112, -1, 65));
 
         mundoMelhor.setFont(new java.awt.Font("Arial Black", 1, 36)); // NOI18N
         mundoMelhor.setForeground(new java.awt.Color(7, 99, 36));
         mundoMelhor.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         mundoMelhor.setText("MUNDO MELHOR?");
         mundoMelhor.setToolTipText("");
+        homePane.add(mundoMelhor, new org.netbeans.lib.awtextra.AbsoluteConstraints(871, 183, 392, -1));
 
         logoSoma.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Logo verde.png"))); // NOI18N
+        homePane.add(logoSoma, new org.netbeans.lib.awtextra.AbsoluteConstraints(47, 52, -1, 317));
 
         btnSaibaMais.setBackground(new java.awt.Color(7, 99, 36));
         btnSaibaMais.setFont(new java.awt.Font("Arial Black", 0, 24)); // NOI18N
         btnSaibaMais.setForeground(new java.awt.Color(255, 255, 255));
         btnSaibaMais.setText("SAIBA MAIS");
-
-        homePane.setLayer(vamosTornar, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        homePane.setLayer(mundoMelhor, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        homePane.setLayer(logoSoma, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        homePane.setLayer(btnSaibaMais, javax.swing.JLayeredPane.DEFAULT_LAYER);
-
-        javax.swing.GroupLayout homePaneLayout = new javax.swing.GroupLayout(homePane);
-        homePane.setLayout(homePaneLayout);
-        homePaneLayout.setHorizontalGroup(
-            homePaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, homePaneLayout.createSequentialGroup()
-                .addGap(47, 47, 47)
-                .addComponent(logoSoma)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 284, Short.MAX_VALUE)
-                .addGroup(homePaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, homePaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, homePaneLayout.createSequentialGroup()
-                            .addComponent(vamosTornar)
-                            .addGap(107, 107, 107))
-                        .addGroup(homePaneLayout.createSequentialGroup()
-                            .addComponent(mundoMelhor, javax.swing.GroupLayout.PREFERRED_SIZE, 392, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(99, 99, 99)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, homePaneLayout.createSequentialGroup()
-                        .addComponent(btnSaibaMais, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(182, 182, 182))))
-        );
-        homePaneLayout.setVerticalGroup(
-            homePaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(homePaneLayout.createSequentialGroup()
-                .addGroup(homePaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(homePaneLayout.createSequentialGroup()
-                        .addGap(52, 52, 52)
-                        .addComponent(logoSoma, javax.swing.GroupLayout.PREFERRED_SIZE, 317, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(homePaneLayout.createSequentialGroup()
-                        .addGap(112, 112, 112)
-                        .addComponent(vamosTornar, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(mundoMelhor, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnSaibaMais, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(180, Short.MAX_VALUE))
-        );
+        homePane.add(btnSaibaMais, new org.netbeans.lib.awtextra.AbsoluteConstraints(943, 253, 237, 57));
 
         cardPane.add(homePane, "home");
 
@@ -216,46 +201,7 @@ public class FrmMenu extends javax.swing.JFrame {
 
         cardPane.add(cadastroPane, "card3");
 
-        mainLayeredPane.setLayer(btn3Pontos, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        mainLayeredPane.setLayer(UserIcon, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        mainLayeredPane.setLayer(nomeUsuario, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        mainLayeredPane.setLayer(jPanelBarraVerde, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        mainLayeredPane.setLayer(cardPane, javax.swing.JLayeredPane.DEFAULT_LAYER);
-
-        javax.swing.GroupLayout mainLayeredPaneLayout = new javax.swing.GroupLayout(mainLayeredPane);
-        mainLayeredPane.setLayout(mainLayeredPaneLayout);
-        mainLayeredPaneLayout.setHorizontalGroup(
-            mainLayeredPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, mainLayeredPaneLayout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addComponent(btn3Pontos)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(nomeUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(UserIcon)
-                .addGap(45, 45, 45))
-            .addComponent(jPanelBarraVerde, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(cardPane, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        mainLayeredPaneLayout.setVerticalGroup(
-            mainLayeredPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(mainLayeredPaneLayout.createSequentialGroup()
-                .addGroup(mainLayeredPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(mainLayeredPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(mainLayeredPaneLayout.createSequentialGroup()
-                            .addGap(46, 46, 46)
-                            .addComponent(UserIcon))
-                        .addGroup(mainLayeredPaneLayout.createSequentialGroup()
-                            .addGap(43, 43, 43)
-                            .addComponent(nomeUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addGroup(mainLayeredPaneLayout.createSequentialGroup()
-                        .addGap(29, 29, 29)
-                        .addComponent(btn3Pontos, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(31, 31, 31)
-                .addComponent(jPanelBarraVerde, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26)
-                .addComponent(cardPane, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+        mainLayeredPane.add(cardPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(1, 216, -1, -1));
 
         painelDesktopMain.setLayer(mainLayeredPane, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
@@ -263,11 +209,11 @@ public class FrmMenu extends javax.swing.JFrame {
         painelDesktopMain.setLayout(painelDesktopMainLayout);
         painelDesktopMainLayout.setHorizontalGroup(
             painelDesktopMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(mainLayeredPane, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(mainLayeredPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         painelDesktopMainLayout.setVerticalGroup(
             painelDesktopMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(mainLayeredPane, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(mainLayeredPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -308,7 +254,22 @@ public class FrmMenu extends javax.swing.JFrame {
         InFrmMais mais = new InFrmMais();
         painelDesktopMain.add(mais);
         mais.setVisible(true);
+        try {
+            mais.setSelected(true);
+        } catch (PropertyVetoException ex) {
+            Logger.getLogger(FrmMenu.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_btn3PontosActionPerformed
+
+    private void btn3PontosMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn3PontosMouseEntered
+        ImageIcon icone = new ImageIcon(getClass().getResource("/images/menuIconSelected.png"));
+        btn3Pontos.setIcon(icone);
+    }//GEN-LAST:event_btn3PontosMouseEntered
+
+    private void btn3PontosMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn3PontosMouseExited
+        ImageIcon icone = new ImageIcon(getClass().getResource("/images/menuIcon.png"));
+        btn3Pontos.setIcon(icone);
+    }//GEN-LAST:event_btn3PontosMouseExited
 
     /**
      * @param args the command line arguments
