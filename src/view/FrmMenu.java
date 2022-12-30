@@ -52,7 +52,16 @@ public class FrmMenu extends javax.swing.JFrame {
         logoSoma = new javax.swing.JLabel();
         btnSaibaMais = new javax.swing.JButton();
         cadastroPane = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        pessoaJuridicaPane = new javax.swing.JPanel();
+        lblTituloPessoaJuridica = new javax.swing.JLabel();
+        txtNomeEmpresa = new javax.swing.JTextField();
+        txtEndereco = new javax.swing.JTextField();
+        txtEmail = new javax.swing.JTextField();
+        txtTelefone = new javax.swing.JTextField();
+        txtSenha = new javax.swing.JTextField();
+        txtConfirmarSenha = new javax.swing.JTextField();
+        jButtonRound2 = new Swing.JButtonRound();
+        jLabel18 = new javax.swing.JLabel();
         quemSomosPane = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -211,26 +220,89 @@ public class FrmMenu extends javax.swing.JFrame {
 
         cardPane.add(homePane, "home");
 
-        jLabel1.setText("tela de cadastro");
+        cadastroPane.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        javax.swing.GroupLayout cadastroPaneLayout = new javax.swing.GroupLayout(cadastroPane);
-        cadastroPane.setLayout(cadastroPaneLayout);
-        cadastroPaneLayout.setHorizontalGroup(
-            cadastroPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(cadastroPaneLayout.createSequentialGroup()
-                .addGap(630, 630, 630)
-                .addComponent(jLabel1)
-                .addContainerGap(1309, Short.MAX_VALUE))
+        pessoaJuridicaPane.setBackground(new java.awt.Color(255, 255, 255));
+        pessoaJuridicaPane.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 153, 0), 2));
+
+        lblTituloPessoaJuridica.setBackground(new java.awt.Color(255, 255, 255));
+        lblTituloPessoaJuridica.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
+        lblTituloPessoaJuridica.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblTituloPessoaJuridica.setText("PESSOA JURÍDICA");
+
+        txtNomeEmpresa.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true), "NOME DA EMPRESA", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 14))); // NOI18N
+
+        txtEndereco.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true), "ENDEREÇO", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 14))); // NOI18N
+
+        txtEmail.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true), "EMAIL", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 14))); // NOI18N
+
+        txtTelefone.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true), "TELEFONE", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 14))); // NOI18N
+
+        txtSenha.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true), "SENHA", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 14))); // NOI18N
+
+        txtConfirmarSenha.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true), "CONFIRMAR SENHA", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 14))); // NOI18N
+
+        jButtonRound2.setText("CADASTRAR");
+        jButtonRound2.setArc(20);
+
+        javax.swing.GroupLayout pessoaJuridicaPaneLayout = new javax.swing.GroupLayout(pessoaJuridicaPane);
+        pessoaJuridicaPane.setLayout(pessoaJuridicaPaneLayout);
+        pessoaJuridicaPaneLayout.setHorizontalGroup(
+            pessoaJuridicaPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pessoaJuridicaPaneLayout.createSequentialGroup()
+                .addGroup(pessoaJuridicaPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pessoaJuridicaPaneLayout.createSequentialGroup()
+                        .addGap(260, 260, 260)
+                        .addComponent(lblTituloPessoaJuridica, javax.swing.GroupLayout.PREFERRED_SIZE, 650, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(pessoaJuridicaPaneLayout.createSequentialGroup()
+                        .addGap(104, 104, 104)
+                        .addComponent(txtNomeEmpresa, javax.swing.GroupLayout.PREFERRED_SIZE, 937, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(pessoaJuridicaPaneLayout.createSequentialGroup()
+                        .addGap(104, 104, 104)
+                        .addGroup(pessoaJuridicaPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(pessoaJuridicaPaneLayout.createSequentialGroup()
+                                .addComponent(txtEmail)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(txtTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 441, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, 937, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(pessoaJuridicaPaneLayout.createSequentialGroup()
+                                .addComponent(txtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 462, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(txtConfirmarSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 463, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(95, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pessoaJuridicaPaneLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jButtonRound2, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(472, 472, 472))
         );
-        cadastroPaneLayout.setVerticalGroup(
-            cadastroPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(cadastroPaneLayout.createSequentialGroup()
-                .addGap(49, 49, 49)
-                .addComponent(jLabel1)
-                .addContainerGap(2701, Short.MAX_VALUE))
+        pessoaJuridicaPaneLayout.setVerticalGroup(
+            pessoaJuridicaPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pessoaJuridicaPaneLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lblTituloPessoaJuridica, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(46, 46, 46)
+                .addComponent(txtNomeEmpresa, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(txtEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(pessoaJuridicaPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(pessoaJuridicaPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtConfirmarSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(jButtonRound2, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(46, Short.MAX_VALUE))
         );
 
-        cardPane.add(cadastroPane, "card3");
+        cadastroPane.add(pessoaJuridicaPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 30, 1140, 460));
+
+        jLabel18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/cadastroFundo.png"))); // NOI18N
+        cadastroPane.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(-50, 0, -1, -1));
+
+        cardPane.add(cadastroPane, "cadastro");
 
         quemSomosPane.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -378,7 +450,7 @@ public class FrmMenu extends javax.swing.JFrame {
                 .addGap(0, 2218, Short.MAX_VALUE))
         );
 
-        cardPane.add(quemSomosPaneScroll, "card5");
+        cardPane.add(quemSomosPaneScroll, "quemSomos");
 
         mainLayeredPane.add(cardPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(1, 216, -1, -1));
 
@@ -411,26 +483,18 @@ public class FrmMenu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCadastroVerdeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastroVerdeActionPerformed
-//        CardLayout cl = (CardLayout) cardPane.getLayout();
-//        cl.show(cardPane, "cadastroPane");
-        cadastroPane.setVisible(true);
-        homePane.setVisible(false);
-        quemSomosPane.setVisible(false);
-
+        CardLayout cl = (CardLayout) cardPane.getLayout();
+        cl.show(cardPane, "cadastro");
     }//GEN-LAST:event_btnCadastroVerdeActionPerformed
 
     private void btnSuporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSuporteActionPerformed
-        quemSomosPaneScroll.setVisible(true);
-        homePane.setVisible(false);
-        cadastroPane.setVisible(false);
+        CardLayout cl = (CardLayout) cardPane.getLayout();;
+        cl.show(cardPane, "quemSomos");
     }//GEN-LAST:event_btnSuporteActionPerformed
 
     private void btnInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInicioActionPerformed
-//        CardLayout cl = (CardLayout) cardPane.getLayout();
-//        cl.show(cardPane, "homePane");
-        homePane.setVisible(true);
-        cadastroPane.setVisible(false);
-        quemSomosPane.setVisible(false);
+        CardLayout cl = (CardLayout) cardPane.getLayout();;
+        cl.show(cardPane, "home");
     }//GEN-LAST:event_btnInicioActionPerformed
 
     private void btn3PontosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn3PontosActionPerformed
@@ -547,7 +611,7 @@ public class FrmMenu extends javax.swing.JFrame {
     private javax.swing.JLayeredPane homePane;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JLabel jLabel1;
+    private Swing.JButtonRound jButtonRound2;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
@@ -556,6 +620,7 @@ public class FrmMenu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -566,14 +631,22 @@ public class FrmMenu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanelBarraVerde;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lblTituloPessoaJuridica;
     private javax.swing.JLabel logoSoma;
     private javax.swing.JLayeredPane mainLayeredPane;
     private javax.swing.JLabel mundoMelhor;
     private javax.swing.JLabel nomeUsuario;
     private javax.swing.JDesktopPane painelDesktopMain;
+    private javax.swing.JPanel pessoaJuridicaPane;
     private javax.swing.JPanel quemSomosPane;
     private javax.swing.JPanel quemSomosPaneScroll;
     private javax.swing.JPanel quemSomosScroll;
+    private javax.swing.JTextField txtConfirmarSenha;
+    private javax.swing.JTextField txtEmail;
+    private javax.swing.JTextField txtEndereco;
+    private javax.swing.JTextField txtNomeEmpresa;
+    private javax.swing.JTextField txtSenha;
+    private javax.swing.JTextField txtTelefone;
     private javax.swing.JLabel vamosTornar;
     // End of variables declaration//GEN-END:variables
 }

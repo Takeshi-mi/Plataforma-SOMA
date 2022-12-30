@@ -16,13 +16,13 @@ public class JButtonOutLine extends JButton{
     public JButtonOutLine (){
         setContentAreaFilled (false);
         setBorder (new EmptyBorder (5, 0, 5, 0));
-        setBackground (Color. WHITE);
         setCursor (new Cursor(Cursor.HAND_CURSOR));
     }
     
     protected void paintComponent (Graphics g) {
         int widht = getWidth();
         int height = getHeight();
+        g.setColor(getBackground());
         Graphics2D g2 = (Graphics2D) g;
         g2.setRenderingHint (RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
         g2.drawRoundRect (0, 0, widht - 1, height - 1, height, height);
