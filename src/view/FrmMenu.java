@@ -242,8 +242,11 @@ public class FrmMenu extends javax.swing.JFrame {
 
         txtConfirmarSenha.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true), "CONFIRMAR SENHA", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 14))); // NOI18N
 
+        jButtonRound2.setBackground(new java.awt.Color(255, 153, 0));
+        jButtonRound2.setForeground(new java.awt.Color(255, 255, 255));
         jButtonRound2.setText("CADASTRAR");
         jButtonRound2.setArc(20);
+        jButtonRound2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
 
         javax.swing.GroupLayout pessoaJuridicaPaneLayout = new javax.swing.GroupLayout(pessoaJuridicaPane);
         pessoaJuridicaPane.setLayout(pessoaJuridicaPaneLayout);
@@ -272,8 +275,8 @@ public class FrmMenu extends javax.swing.JFrame {
                 .addContainerGap(95, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pessoaJuridicaPaneLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jButtonRound2, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(472, 472, 472))
+                .addComponent(jButtonRound2, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(454, 454, 454))
         );
         pessoaJuridicaPaneLayout.setVerticalGroup(
             pessoaJuridicaPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -293,8 +296,8 @@ public class FrmMenu extends javax.swing.JFrame {
                     .addComponent(txtConfirmarSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(jButtonRound2, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(46, Short.MAX_VALUE))
+                .addComponent(jButtonRound2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(31, Short.MAX_VALUE))
         );
 
         cadastroPane.add(pessoaJuridicaPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 30, 1140, 460));

@@ -400,8 +400,8 @@
                               </Group>
                               <Group type="102" alignment="1" attributes="0">
                                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                                  <Component id="jButtonRound2" min="-2" pref="188" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="472" max="-2" attributes="0"/>
+                                  <Component id="jButtonRound2" min="-2" pref="219" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="454" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                         </DimensionLayout>
@@ -425,8 +425,8 @@
                                       <Component id="txtSenha" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="jButtonRound2" min="-2" pref="35" max="-2" attributes="0"/>
-                                  <EmptySpace pref="46" max="32767" attributes="0"/>
+                                  <Component id="jButtonRound2" min="-2" pref="50" max="-2" attributes="0"/>
+                                  <EmptySpace pref="31" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                         </DimensionLayout>
@@ -530,8 +530,17 @@
                         </Component>
                         <Component class="Swing.JButtonRound" name="jButtonRound2">
                           <Properties>
+                            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                              <Color blue="0" green="99" red="ff" type="rgb"/>
+                            </Property>
+                            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                            </Property>
                             <Property name="text" type="java.lang.String" value="CADASTRAR"/>
                             <Property name="arc" type="int" value="20"/>
+                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                              <Font name="Segoe UI" size="18" style="1"/>
+                            </Property>
                           </Properties>
                         </Component>
                       </SubComponents>
