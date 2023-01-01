@@ -31,14 +31,14 @@ public class InFrmMais extends javax.swing.JInternalFrame {
         btnSair = new javax.swing.JButton();
         lblFundo = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(0, 153, 0));
+        setBackground(new java.awt.Color(7, 99, 36));
         setBorder(null);
         setClosable(true);
         setForeground(java.awt.Color.lightGray);
         setVisible(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(153, 153, 153));
+        jPanel1.setBackground(new java.awt.Color(7, 99, 36));
         jPanel1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 jPanel1MouseExited(evt);
@@ -54,17 +54,18 @@ public class InFrmMais extends javax.swing.JInternalFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 660, 70, 60));
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 620, 70, 60));
 
         btnSair.setBackground(new java.awt.Color(59, 56, 58));
         btnSair.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         btnSair.setForeground(new java.awt.Color(255, 255, 255));
         btnSair.setText("Sair");
         btnSair.setBorder(null);
-        jPanel1.add(btnSair, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 670, 50, 40));
+        jPanel1.add(btnSair, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 630, 50, 40));
 
+        lblFundo.setBackground(new java.awt.Color(0, 102, 51));
         lblFundo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/internalFrameMenuFundo.png"))); // NOI18N
-        jPanel1.add(lblFundo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 730));
+        jPanel1.add(lblFundo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, -1, 740));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 6, -1, -1));
 
