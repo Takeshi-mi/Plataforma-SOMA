@@ -62,7 +62,7 @@ public class InFrmMais extends javax.swing.JInternalFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 640, 120, 60));
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 640, 120, 60));
 
         lblFundo.setBackground(new java.awt.Color(0, 102, 51));
         lblFundo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/internalFrameMenuFundo.png"))); // NOI18N
