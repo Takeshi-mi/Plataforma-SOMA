@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package view;
+import java.awt.Color;
 import view.FrmMenu;
 import javax.swing.JOptionPane;
 
@@ -36,11 +37,10 @@ public class FrmLogin extends javax.swing.JFrame {
         txtUser = new javax.swing.JTextField();
         pwdPassword = new javax.swing.JPasswordField();
         btnAcess = new javax.swing.JButton();
-        btnExit = new javax.swing.JButton();
         lblImagePadlock = new javax.swing.JLabel();
-        btnClear = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JSeparator();
         LogoSoma = new javax.swing.JLabel();
+        btnCadastre = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocation(new java.awt.Point(0, 0));
@@ -74,29 +74,36 @@ public class FrmLogin extends javax.swing.JFrame {
             }
         });
 
-        btnExit.setText("Sair");
-        btnExit.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnExitActionPerformed(evt);
-            }
-        });
-
         lblImagePadlock.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         lblImagePadlock.setForeground(new java.awt.Color(102, 102, 102));
         lblImagePadlock.setText("Login");
         lblImagePadlock.setToolTipText("");
 
-        btnClear.setText("Limpar");
-        btnClear.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnClearActionPerformed(evt);
-            }
-        });
-
         jSeparator1.setBackground(new java.awt.Color(102, 102, 102));
         jSeparator1.setForeground(new java.awt.Color(102, 102, 102));
 
         LogoSoma.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Logo verde.png"))); // NOI18N
+        LogoSoma.setToolTipText("logo");
+
+        btnCadastre.setForeground(new java.awt.Color(0, 102, 153));
+        btnCadastre.setText("Não tem uma conta? Cadastre-se");
+        btnCadastre.setToolTipText("Clique para cadastrar");
+        btnCadastre.setBorder(null);
+        btnCadastre.setBorderPainted(false);
+        btnCadastre.setContentAreaFilled(false);
+        btnCadastre.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnCadastreMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnCadastreMouseExited(evt);
+            }
+        });
+        btnCadastre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCadastreActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -113,24 +120,24 @@ public class FrmLogin extends javax.swing.JFrame {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jSeparator1, javax.swing.GroupLayout.DEFAULT_SIZE, 255, Short.MAX_VALUE)
                                 .addGap(7, 7, 7))
-                            .addComponent(lblPassword)
                             .addComponent(btnAcess, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(pwdPassword)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addComponent(btnClear)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnExit))
                             .addComponent(txtUser, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(lblUser)
-                            .addComponent(lblImagePadlock, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblPassword)
+                                    .addComponent(lblUser)
+                                    .addComponent(lblImagePadlock, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addComponent(btnCadastre, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(130, 130, 130)))
                 .addGap(66, 66, 66))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(46, Short.MAX_VALUE)
-                .addComponent(LogoSoma, javax.swing.GroupLayout.PREFERRED_SIZE, 260, Short.MAX_VALUE)
+                .addContainerGap(49, Short.MAX_VALUE)
+                .addComponent(LogoSoma, javax.swing.GroupLayout.PREFERRED_SIZE, 263, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(lblImagePadlock)
                 .addGap(2, 2, 2)
@@ -145,11 +152,9 @@ public class FrmLogin extends javax.swing.JFrame {
                 .addComponent(pwdPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnAcess, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnExit)
-                    .addComponent(btnClear))
-                .addGap(60, 60, 60))
+                .addGap(18, 18, 18)
+                .addComponent(btnCadastre)
+                .addGap(48, 48, 48))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -172,15 +177,6 @@ public class FrmLogin extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClearActionPerformed
-        txtUser.setText("");
-        pwdPassword.setText("");
-    }//GEN-LAST:event_btnClearActionPerformed
-
-    private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
-        System.exit(0);
-    }//GEN-LAST:event_btnExitActionPerformed
-
     private void btnAcessActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAcessActionPerformed
         String nome = "Takeshi";
         String senha = "ifg";
@@ -202,6 +198,19 @@ public class FrmLogin extends javax.swing.JFrame {
     private void txtUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUserActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtUserActionPerformed
+
+    private void btnCadastreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastreActionPerformed
+       FrmCadastro cadastro = new FrmCadastro();
+       cadastro.setVisible(true);
+    }//GEN-LAST:event_btnCadastreActionPerformed
+
+    private void btnCadastreMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCadastreMouseEntered
+        btnCadastre.setForeground(new Color(0, 204, 204));
+    }//GEN-LAST:event_btnCadastreMouseEntered
+
+    private void btnCadastreMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCadastreMouseExited
+        btnCadastre.setForeground(new Color(0, 102, 153));
+    }//GEN-LAST:event_btnCadastreMouseExited
 
     /**
      * @param args the command line arguments
@@ -248,8 +257,7 @@ public class FrmLogin extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel LogoSoma;
     private javax.swing.JButton btnAcess;
-    private javax.swing.JButton btnClear;
-    private javax.swing.JButton btnExit;
+    private javax.swing.JButton btnCadastre;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JLabel lblImagePadlock;
