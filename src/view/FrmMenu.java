@@ -163,13 +163,13 @@ public class FrmMenu extends javax.swing.JFrame {
         jPanelBarraVerdeLayout.setHorizontalGroup(
             jPanelBarraVerdeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelBarraVerdeLayout.createSequentialGroup()
-                .addGap(126, 126, 126)
+                .addGap(42, 42, 42)
                 .addComponent(btnInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(33, 33, 33)
                 .addComponent(btnCadastroVerde, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(40, 40, 40)
                 .addComponent(btnSuporte, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(733, Short.MAX_VALUE))
         );
         jPanelBarraVerdeLayout.setVerticalGroup(
             jPanelBarraVerdeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -504,7 +504,6 @@ public class FrmMenu extends javax.swing.JFrame {
         InFrmMais mais = new InFrmMais();
         painelDesktopMain.add(mais);
         mais.setSize(400, getHeight());
-        mais.setVisible(true);
         try {
             mais.setSelected(true);
         } catch (PropertyVetoException ex) {

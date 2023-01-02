@@ -28,43 +28,45 @@ public class InFrmMais extends javax.swing.JInternalFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
-        btnSair = new javax.swing.JButton();
         lblFundo = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(7, 99, 36));
         setBorder(null);
-        setClosable(true);
         setForeground(java.awt.Color.lightGray);
+        setFrameIcon(null);
+        try {
+            setSelected(true);
+        } catch (java.beans.PropertyVetoException e1) {
+            e1.printStackTrace();
+        }
         setVisible(true);
+        addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                formMouseExited(evt);
+            }
+        });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(7, 99, 36));
-        jPanel1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                jPanel1MouseExited(evt);
-            }
-        });
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jButton1.setBackground(new java.awt.Color(59, 56, 58));
+        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/iconExit.png"))); // NOI18N
+        jButton1.setText("Sair");
         jButton1.setBorder(null);
+        jButton1.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 620, 70, 60));
-
-        btnSair.setBackground(new java.awt.Color(59, 56, 58));
-        btnSair.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
-        btnSair.setForeground(new java.awt.Color(255, 255, 255));
-        btnSair.setText("Sair");
-        btnSair.setBorder(null);
-        jPanel1.add(btnSair, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 630, 50, 40));
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 640, 120, 60));
 
         lblFundo.setBackground(new java.awt.Color(0, 102, 51));
         lblFundo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/internalFrameMenuFundo.png"))); // NOI18N
+        lblFundo.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
         jPanel1.add(lblFundo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, -1, 740));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 6, -1, -1));
@@ -76,13 +78,14 @@ public class InFrmMais extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jPanel1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel1MouseExited
-        this.dispose();
-    }//GEN-LAST:event_jPanel1MouseExited
+    private void formMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseExited
+        if (this.getMousePosition(true)==null) {
+            this.dispose();
+        }
+    }//GEN-LAST:event_formMouseExited
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnSair;
     private javax.swing.JButton jButton1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblFundo;
