@@ -59,7 +59,7 @@ public class FrmCadastro extends javax.swing.JFrame {
 
         txtNomeEmpresa.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true), "NOME DA EMPRESA", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 14))); // NOI18N
 
-        txtEndereco.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true), "ENDEREÇO", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 14))); // NOI18N
+        txtEndereco.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true), "SITE (opicional)", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 14))); // NOI18N
 
         txtEmail.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true), "EMAIL", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 14))); // NOI18N
 
@@ -79,31 +79,32 @@ public class FrmCadastro extends javax.swing.JFrame {
         pessoaJuridicaPane.setLayout(pessoaJuridicaPaneLayout);
         pessoaJuridicaPaneLayout.setHorizontalGroup(
             pessoaJuridicaPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pessoaJuridicaPaneLayout.createSequentialGroup()
-                .addGroup(pessoaJuridicaPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pessoaJuridicaPaneLayout.createSequentialGroup()
-                        .addGap(260, 260, 260)
-                        .addComponent(lblTituloPessoaJuridica, javax.swing.GroupLayout.PREFERRED_SIZE, 650, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(pessoaJuridicaPaneLayout.createSequentialGroup()
-                        .addGap(104, 104, 104)
-                        .addComponent(txtNomeEmpresa, javax.swing.GroupLayout.PREFERRED_SIZE, 937, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(pessoaJuridicaPaneLayout.createSequentialGroup()
-                        .addGap(104, 104, 104)
-                        .addGroup(pessoaJuridicaPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addGroup(pessoaJuridicaPaneLayout.createSequentialGroup()
-                                .addComponent(txtEmail)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(txtTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 441, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(txtEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, 937, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(pessoaJuridicaPaneLayout.createSequentialGroup()
-                                .addComponent(txtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 462, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(txtConfirmarSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 463, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(95, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pessoaJuridicaPaneLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jButtonRound2, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(454, 454, 454))
+            .addGroup(pessoaJuridicaPaneLayout.createSequentialGroup()
+                .addGroup(pessoaJuridicaPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(txtEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, 937, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(pessoaJuridicaPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(pessoaJuridicaPaneLayout.createSequentialGroup()
+                            .addGap(260, 260, 260)
+                            .addComponent(lblTituloPessoaJuridica, javax.swing.GroupLayout.PREFERRED_SIZE, 650, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(pessoaJuridicaPaneLayout.createSequentialGroup()
+                            .addGap(104, 104, 104)
+                            .addComponent(txtNomeEmpresa, javax.swing.GroupLayout.PREFERRED_SIZE, 937, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(pessoaJuridicaPaneLayout.createSequentialGroup()
+                            .addGap(104, 104, 104)
+                            .addGroup(pessoaJuridicaPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addGroup(pessoaJuridicaPaneLayout.createSequentialGroup()
+                                    .addComponent(txtEmail)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(txtTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 441, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(pessoaJuridicaPaneLayout.createSequentialGroup()
+                                    .addComponent(txtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 462, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(txtConfirmarSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 463, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                .addContainerGap(65, Short.MAX_VALUE))
         );
         pessoaJuridicaPaneLayout.setVerticalGroup(
             pessoaJuridicaPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -127,7 +128,7 @@ public class FrmCadastro extends javax.swing.JFrame {
                 .addContainerGap(31, Short.MAX_VALUE))
         );
 
-        cadastroPane.add(pessoaJuridicaPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 30, 1140, 460));
+        cadastroPane.add(pessoaJuridicaPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 30, 1110, 460));
 
         jLabel18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/cadastroFundo.png"))); // NOI18N
         cadastroPane.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(-50, 0, -1, -1));
