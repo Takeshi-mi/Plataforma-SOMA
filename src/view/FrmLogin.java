@@ -203,7 +203,7 @@ public class FrmLogin extends javax.swing.JFrame {
     }//GEN-LAST:event_txtUserActionPerformed
 
     private void btnCadastreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastreActionPerformed
-       FrmCadastro cadastro = new FrmCadastro();
+       FrmCadastrar cadastro = new FrmCadastrar();
        cadastro.setVisible(true);
     }//GEN-LAST:event_btnCadastreActionPerformed
 
