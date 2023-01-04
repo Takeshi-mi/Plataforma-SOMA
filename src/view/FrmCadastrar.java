@@ -6,6 +6,7 @@ package view;
 
 import java.awt.CardLayout;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -29,6 +30,7 @@ public class FrmCadastrar extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroupResiduos = new javax.swing.ButtonGroup();
         cardPane = new javax.swing.JPanel();
         pessoaJuridica = new javax.swing.JPanel();
         pessoaJuridicaPane = new javax.swing.JPanel();
@@ -64,8 +66,28 @@ public class FrmCadastrar extends javax.swing.JFrame {
         btnProximoEndereco = new Swing.JButtonRound();
         btnVoltarEndereco = new javax.swing.JLabel();
         lblFundoLocalizacao = new javax.swing.JLabel();
+        tipoResiduos = new javax.swing.JPanel();
+        rbtnVidro = new javax.swing.JRadioButton();
+        rbtnMetal = new javax.swing.JRadioButton();
+        rbtnPapel = new javax.swing.JRadioButton();
+        rbtnPlastico = new javax.swing.JRadioButton();
+        lblTitleTiposResiduos = new javax.swing.JLabel();
+        lblTitleTiposResiduos1 = new javax.swing.JLabel();
+        lblCapacidadeMax = new javax.swing.JLabel();
+        lblKgMetal = new javax.swing.JLabel();
+        txtCapMetal = new javax.swing.JTextField();
+        lblTipos1 = new javax.swing.JLabel();
+        txtCapPapel = new javax.swing.JTextField();
+        lblKgPapel = new javax.swing.JLabel();
+        txtCapPlastico = new javax.swing.JTextField();
+        lblKgPlastico = new javax.swing.JLabel();
+        txtCapVidro = new javax.swing.JTextField();
+        lblKgVidro = new javax.swing.JLabel();
+        btnProximoTipoResiduos = new Swing.JButtonRound();
+        btnVoltarTipoResiduos = new javax.swing.JLabel();
+        lblFundoTipoResiduos = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(1370, 750));
 
         cardPane.setPreferredSize(new java.awt.Dimension(1366, 750));
@@ -157,7 +179,7 @@ public class FrmCadastrar extends javax.swing.JFrame {
                 .addContainerGap(31, Short.MAX_VALUE))
         );
 
-        pessoaJuridica.add(pessoaJuridicaPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 200, 1110, 460));
+        pessoaJuridica.add(pessoaJuridicaPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 140, 1110, 460));
 
         btnVoltarCadastro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/voltarVerde.png"))); // NOI18N
         btnVoltarCadastro.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -200,6 +222,9 @@ public class FrmCadastrar extends javax.swing.JFrame {
         btnAdquirir.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnAdquirir.setPreferredSize(new java.awt.Dimension(50, 20));
         btnAdquirir.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnAdquirirMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 btnAdquirirMouseEntered(evt);
             }
@@ -214,6 +239,9 @@ public class FrmCadastrar extends javax.swing.JFrame {
         btnDescartar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnDescartar.setPreferredSize(new java.awt.Dimension(50, 20));
         btnDescartar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnDescartarMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 btnDescartarMouseEntered(evt);
             }
@@ -234,6 +262,7 @@ public class FrmCadastrar extends javax.swing.JFrame {
         cardPane.add(seuInteresse, "interesse");
 
         endereco.setBackground(new java.awt.Color(255, 255, 255));
+        endereco.setPreferredSize(new java.awt.Dimension(1366, 750));
         endereco.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lblTitleLocalizacao.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
@@ -372,11 +401,113 @@ public class FrmCadastrar extends javax.swing.JFrame {
 
         cardPane.add(endereco, "endereco");
 
+        tipoResiduos.setBackground(new java.awt.Color(255, 255, 255));
+        tipoResiduos.setPreferredSize(new java.awt.Dimension(1366, 750));
+        tipoResiduos.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        buttonGroupResiduos.add(rbtnVidro);
+        rbtnVidro.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        rbtnVidro.setText("VIDRO");
+        tipoResiduos.add(rbtnVidro, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 430, 210, 40));
+
+        buttonGroupResiduos.add(rbtnMetal);
+        rbtnMetal.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        rbtnMetal.setText("METAL");
+        tipoResiduos.add(rbtnMetal, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 280, 210, 40));
+
+        buttonGroupResiduos.add(rbtnPapel);
+        rbtnPapel.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        rbtnPapel.setText("PAPEL");
+        tipoResiduos.add(rbtnPapel, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 330, 210, 40));
+
+        buttonGroupResiduos.add(rbtnPlastico);
+        rbtnPlastico.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        rbtnPlastico.setText("PLÁSTICO");
+        tipoResiduos.add(rbtnPlastico, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 380, 210, 40));
+
+        lblTitleTiposResiduos.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
+        lblTitleTiposResiduos.setText("QUE SUA EMPRESA TRABALHA:");
+        tipoResiduos.add(lblTitleTiposResiduos, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 140, 780, -1));
+
+        lblTitleTiposResiduos1.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
+        lblTitleTiposResiduos1.setText("INFORME OS TIPOS DE RESÍDUOS");
+        tipoResiduos.add(lblTitleTiposResiduos1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 80, 810, -1));
+
+        lblCapacidadeMax.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        lblCapacidadeMax.setText("CAPACIDADE MÁXIMA:");
+        lblCapacidadeMax.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        tipoResiduos.add(lblCapacidadeMax, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 230, 260, -1));
+
+        lblKgMetal.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        lblKgMetal.setText("kg");
+        tipoResiduos.add(lblKgMetal, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 280, 70, -1));
+
+        txtCapMetal.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        tipoResiduos.add(txtCapMetal, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 280, 160, -1));
+
+        lblTipos1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        lblTipos1.setText("   TIPOS:");
+        lblTipos1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        tipoResiduos.add(lblTipos1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 230, 120, -1));
+
+        txtCapPapel.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        tipoResiduos.add(txtCapPapel, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 330, 160, -1));
+
+        lblKgPapel.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        lblKgPapel.setText("kg");
+        tipoResiduos.add(lblKgPapel, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 330, 70, -1));
+
+        txtCapPlastico.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        tipoResiduos.add(txtCapPlastico, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 380, 160, -1));
+
+        lblKgPlastico.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        lblKgPlastico.setText("kg");
+        tipoResiduos.add(lblKgPlastico, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 380, 70, -1));
+
+        txtCapVidro.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        tipoResiduos.add(txtCapVidro, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 430, 160, -1));
+
+        lblKgVidro.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        lblKgVidro.setText("kg");
+        tipoResiduos.add(lblKgVidro, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 430, 70, -1));
+
+        btnProximoTipoResiduos.setBackground(new java.awt.Color(0, 102, 51));
+        btnProximoTipoResiduos.setForeground(new java.awt.Color(255, 255, 255));
+        btnProximoTipoResiduos.setText("Próximo");
+        btnProximoTipoResiduos.setArc(20);
+        btnProximoTipoResiduos.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        btnProximoTipoResiduos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnProximoTipoResiduosMouseClicked(evt);
+            }
+        });
+        tipoResiduos.add(btnProximoTipoResiduos, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 560, 310, 120));
+
+        btnVoltarTipoResiduos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/voltarLaranja.png"))); // NOI18N
+        btnVoltarTipoResiduos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnVoltarTipoResiduosMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnVoltarTipoResiduosMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnVoltarTipoResiduosMouseExited(evt);
+            }
+        });
+        tipoResiduos.add(btnVoltarTipoResiduos, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 90, 70));
+
+        lblFundoTipoResiduos.setBackground(new java.awt.Color(255, 255, 255));
+        lblFundoTipoResiduos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/fundoTiposResiduo.png"))); // NOI18N
+        tipoResiduos.add(lblFundoTipoResiduos, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, 1350, -1));
+
+        cardPane.add(tipoResiduos, "tipoResiduos");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(cardPane, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(cardPane, javax.swing.GroupLayout.DEFAULT_SIZE, 1376, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -428,12 +559,12 @@ public class FrmCadastrar extends javax.swing.JFrame {
     }//GEN-LAST:event_btnVoltarCadastroMouseExited
 
     private void btnCadastrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCadastrarMouseClicked
-        CardLayout cl = (CardLayout) cardPane.getLayout();;
+        CardLayout cl = (CardLayout) cardPane.getLayout();
         cl.show(cardPane, "endereco");
     }//GEN-LAST:event_btnCadastrarMouseClicked
 
     private void btnVoltarInteresseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVoltarInteresseMouseClicked
-        CardLayout cl = (CardLayout) cardPane.getLayout();;
+        CardLayout cl = (CardLayout) cardPane.getLayout();
         cl.show(cardPane, "endereco");
     }//GEN-LAST:event_btnVoltarInteresseMouseClicked
 
@@ -449,17 +580,56 @@ public class FrmCadastrar extends javax.swing.JFrame {
     }//GEN-LAST:event_btnVoltarEnderecoMouseClicked
 
     private void btnVoltarEnderecoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVoltarEnderecoMouseEntered
-        // TODO add your handling code here:
+        ImageIcon icone = new ImageIcon(getClass().getResource("/images/voltarVerdeSelected.png"));
+        btnVoltarEndereco.setIcon(icone);
     }//GEN-LAST:event_btnVoltarEnderecoMouseEntered
 
     private void btnVoltarEnderecoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVoltarEnderecoMouseExited
-        // TODO add your handling code here:
+        ImageIcon icone = new ImageIcon(getClass().getResource("/images/voltarVerde.png"));
+        btnVoltarEndereco.setIcon(icone);
     }//GEN-LAST:event_btnVoltarEnderecoMouseExited
 
     private void btnProximoEnderecoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnProximoEnderecoMouseClicked
-        CardLayout cl = (CardLayout) cardPane.getLayout();;
+        CardLayout cl = (CardLayout) cardPane.getLayout();
         cl.show(cardPane, "interesse");
     }//GEN-LAST:event_btnProximoEnderecoMouseClicked
+
+    private void btnProximoTipoResiduosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnProximoTipoResiduosMouseClicked
+        this.dispose();
+        FrmMenu menu = new FrmMenu();
+        menu.setVisible(true);
+        JOptionPane.showMessageDialog(this, "Conta criada com sucesso! Bem vindo. Para negociar clique em 'Procurar Empresas'. ");
+    }//GEN-LAST:event_btnProximoTipoResiduosMouseClicked
+
+    private void btnVoltarTipoResiduosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVoltarTipoResiduosMouseClicked
+        CardLayout cl = (CardLayout) cardPane.getLayout();
+        cl.show(cardPane, "interesse");
+    }//GEN-LAST:event_btnVoltarTipoResiduosMouseClicked
+
+    private void btnVoltarTipoResiduosMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVoltarTipoResiduosMouseEntered
+        ImageIcon icone = new ImageIcon(getClass().getResource("/images/voltarLaranjaSelected.png"));
+        btnVoltarTipoResiduos.setIcon(icone);
+    }//GEN-LAST:event_btnVoltarTipoResiduosMouseEntered
+
+    private void btnVoltarTipoResiduosMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVoltarTipoResiduosMouseExited
+        ImageIcon icone = new ImageIcon(getClass().getResource("/images/voltarLaranja.png"));
+        btnVoltarTipoResiduos.setIcon(icone);
+    }//GEN-LAST:event_btnVoltarTipoResiduosMouseExited
+
+    private void btnAdquirirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAdquirirMouseClicked
+        // Takeshi-Naoki Ação para aparecer a tela de seleção dos tipos de resíduos que a empresa recicla ao selecionar o botão 
+        // de que quer adquirir resíduos. Card Layout muda a prioridade dos frames que aparecem na tela.
+        CardLayout cl = (CardLayout) cardPane.getLayout();
+        cl.show(cardPane, "tipoResiduos");
+    }//GEN-LAST:event_btnAdquirirMouseClicked
+
+    private void btnDescartarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnDescartarMouseClicked
+        // Na tela seuInteresse se a pessoa clicar que é produtora de resíduos ela já conclui o cadastro e é levada direto ao menu principal. 
+        this.dispose();
+        FrmMenu menu = new FrmMenu();
+        menu.setVisible(true);
+        JOptionPane.showMessageDialog(this, "Conta criada com sucesso! Bem vindo. Para negociar clique em 'Procurar Empresas'. ");
+    }//GEN-LAST:event_btnDescartarMouseClicked
 
     /**
      * @param args the command line arguments
@@ -504,9 +674,12 @@ public class FrmCadastrar extends javax.swing.JFrame {
     private Swing.JButtonRound btnCadastrar;
     private javax.swing.JLabel btnDescartar;
     private Swing.JButtonRound btnProximoEndereco;
+    private Swing.JButtonRound btnProximoTipoResiduos;
     private javax.swing.JLabel btnVoltarCadastro;
     private javax.swing.JLabel btnVoltarEndereco;
     private javax.swing.JLabel btnVoltarInteresse;
+    private javax.swing.JLabel btnVoltarTipoResiduos;
+    private javax.swing.ButtonGroup buttonGroupResiduos;
     private javax.swing.JPanel cardPane;
     private javax.swing.JPanel endereco;
     private javax.swing.JFormattedTextField jFormattedTextField1;
@@ -519,16 +692,34 @@ public class FrmCadastrar extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
+    private javax.swing.JLabel lblCapacidadeMax;
     private javax.swing.JLabel lblCep;
     private javax.swing.JLabel lblFundo;
     private javax.swing.JLabel lblFundoLocalizacao;
+    private javax.swing.JLabel lblFundoTipoResiduos;
+    private javax.swing.JLabel lblKgMetal;
+    private javax.swing.JLabel lblKgPapel;
+    private javax.swing.JLabel lblKgPlastico;
+    private javax.swing.JLabel lblKgVidro;
+    private javax.swing.JLabel lblTipos1;
     private javax.swing.JLabel lblTitle;
     private javax.swing.JLabel lblTitleLocalizacao;
+    private javax.swing.JLabel lblTitleTiposResiduos;
+    private javax.swing.JLabel lblTitleTiposResiduos1;
     private javax.swing.JLabel lblTituloPessoaJuridica;
     private javax.swing.JLabel lblfundoCadastro;
     private javax.swing.JPanel pessoaJuridica;
     private javax.swing.JPanel pessoaJuridicaPane;
+    private javax.swing.JRadioButton rbtnMetal;
+    private javax.swing.JRadioButton rbtnPapel;
+    private javax.swing.JRadioButton rbtnPlastico;
+    private javax.swing.JRadioButton rbtnVidro;
     private javax.swing.JPanel seuInteresse;
+    private javax.swing.JPanel tipoResiduos;
+    private javax.swing.JTextField txtCapMetal;
+    private javax.swing.JTextField txtCapPapel;
+    private javax.swing.JTextField txtCapPlastico;
+    private javax.swing.JTextField txtCapVidro;
     private javax.swing.JTextField txtConfirmarSenha;
     private javax.swing.JTextField txtEmail;
     private javax.swing.JTextField txtEndereco;
