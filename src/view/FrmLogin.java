@@ -18,8 +18,11 @@ public class FrmLogin extends javax.swing.JFrame {
      */
     public FrmLogin() {
         initComponents();
-        getRootPane().setDefaultButton(btnAcess);
+        getRootPane().setDefaultButton(btnAcess); // Tk Para que o botão acessar seja selecionado por padrão. Assim é só apertar ENTER depois de colocar a senha
         this.setLocationRelativeTo(null);
+        
+        FrmMenu menu = new FrmMenu();
+        menu.setVisible(false);
     }
 
     /**

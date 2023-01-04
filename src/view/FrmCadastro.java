@@ -15,6 +15,7 @@ public class FrmCadastro extends javax.swing.JFrame {
      */
     public FrmCadastro() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**

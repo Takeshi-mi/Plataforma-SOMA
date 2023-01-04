@@ -85,8 +85,9 @@ public class FrmMenu extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("SOMA");
+        setLocationByPlatform(true);
 
         mainLayeredPane.setBackground(new java.awt.Color(242, 242, 242));
         mainLayeredPane.setBorder(new javax.swing.border.MatteBorder(null));
@@ -139,7 +140,7 @@ public class FrmMenu extends javax.swing.JFrame {
         btnSuporte.setBackground(new java.awt.Color(0, 102, 0));
         btnSuporte.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         btnSuporte.setForeground(new java.awt.Color(255, 255, 255));
-        btnSuporte.setText("SUPORTE");
+        btnSuporte.setText("PROCURAR EMPRESAS");
         btnSuporte.setBorder(null);
         btnSuporte.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -168,8 +169,8 @@ public class FrmMenu extends javax.swing.JFrame {
                 .addGap(33, 33, 33)
                 .addComponent(btnCadastroVerde, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(40, 40, 40)
-                .addComponent(btnSuporte, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(733, Short.MAX_VALUE))
+                .addComponent(btnSuporte, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(605, Short.MAX_VALUE))
         );
         jPanelBarraVerdeLayout.setVerticalGroup(
             jPanelBarraVerdeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -491,8 +492,11 @@ public class FrmMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCadastroVerdeActionPerformed
 
     private void btnSuporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSuporteActionPerformed
-        CardLayout cl = (CardLayout) cardPane.getLayout();;
-        cl.show(cardPane, "quemSomos");
+      FrmDescartar descartar = new FrmDescartar();
+      descartar.setVisible(true);
+            
+            
+            dispose();
     }//GEN-LAST:event_btnSuporteActionPerformed
 
     private void btnInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInicioActionPerformed

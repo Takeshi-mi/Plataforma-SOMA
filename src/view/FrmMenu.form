@@ -2,8 +2,9 @@
 
 <Form version="1.9" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <Properties>
-    <Property name="defaultCloseOperation" type="int" value="3"/>
+    <Property name="defaultCloseOperation" type="int" value="2"/>
     <Property name="title" type="java.lang.String" value="SOMA"/>
+    <Property name="locationByPlatform" type="boolean" value="true"/>
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
@@ -148,8 +149,8 @@
                           <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
                           <Component id="btnCadastroVerde" min="-2" pref="172" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
-                          <Component id="btnSuporte" min="-2" pref="172" max="-2" attributes="0"/>
-                          <EmptySpace pref="733" max="32767" attributes="0"/>
+                          <Component id="btnSuporte" min="-2" pref="300" max="-2" attributes="0"/>
+                          <EmptySpace pref="605" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -198,7 +199,7 @@
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="SUPORTE"/>
+                    <Property name="text" type="java.lang.String" value="PROCURAR EMPRESAS"/>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                       <Border info="null"/>
                     </Property>
