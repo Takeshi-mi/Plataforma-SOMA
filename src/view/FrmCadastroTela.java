@@ -29,7 +29,8 @@ public class FrmCadastroTela extends javax.swing.JFrame {
     private void initComponents() {
 
         cardPane = new javax.swing.JPanel();
-        jPanel1 = new javax.swing.JPanel();
+        seuInteresse = new javax.swing.JPanel();
+        btnVoltar = new javax.swing.JLabel();
         btnAdquirir = new javax.swing.JLabel();
         btnDescartar = new javax.swing.JLabel();
         lblTitle = new javax.swing.JLabel();
@@ -37,7 +38,18 @@ public class FrmCadastroTela extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        seuInteresse.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        btnVoltar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/voltarVerde.png"))); // NOI18N
+        btnVoltar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnVoltarMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnVoltarMouseExited(evt);
+            }
+        });
+        seuInteresse.add(btnVoltar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 90, 70));
 
         btnAdquirir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/AdquirirIcon.png"))); // NOI18N
         btnAdquirir.setToolTipText("Clique");
@@ -51,7 +63,7 @@ public class FrmCadastroTela extends javax.swing.JFrame {
                 btnAdquirirMouseExited(evt);
             }
         });
-        jPanel1.add(btnAdquirir, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 300, 310, 290));
+        seuInteresse.add(btnAdquirir, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 300, 310, 290));
 
         btnDescartar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/DescartarIcon.png"))); // NOI18N
         btnDescartar.setToolTipText("Clique");
@@ -65,14 +77,14 @@ public class FrmCadastroTela extends javax.swing.JFrame {
                 btnDescartarMouseExited(evt);
             }
         });
-        jPanel1.add(btnDescartar, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 300, 310, 290));
+        seuInteresse.add(btnDescartar, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 300, 310, 290));
 
         lblTitle.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
         lblTitle.setText("SEU INTERESSE É:");
-        jPanel1.add(lblTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 90, 540, 110));
+        seuInteresse.add(lblTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 90, 540, 110));
 
         lblFundo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/seuInteresseFundo.png"))); // NOI18N
-        jPanel1.add(lblFundo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        seuInteresse.add(lblFundo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         javax.swing.GroupLayout cardPaneLayout = new javax.swing.GroupLayout(cardPane);
         cardPane.setLayout(cardPaneLayout);
@@ -80,13 +92,13 @@ public class FrmCadastroTela extends javax.swing.JFrame {
             cardPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 1366, Short.MAX_VALUE)
             .addGroup(cardPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(seuInteresse, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         cardPaneLayout.setVerticalGroup(
             cardPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 767, Short.MAX_VALUE)
             .addGroup(cardPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(seuInteresse, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -123,6 +135,16 @@ public class FrmCadastroTela extends javax.swing.JFrame {
         ImageIcon icone = new ImageIcon(getClass().getResource("/images/AdquirirIcon.png"));
         btnAdquirir.setIcon(icone);
     }//GEN-LAST:event_btnAdquirirMouseExited
+
+    private void btnVoltarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVoltarMouseEntered
+        ImageIcon icone = new ImageIcon(getClass().getResource("/images/voltarVerdeSelected.png"));
+        btnVoltar.setIcon(icone);
+    }//GEN-LAST:event_btnVoltarMouseEntered
+
+    private void btnVoltarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVoltarMouseExited
+        ImageIcon icone = new ImageIcon(getClass().getResource("/images/voltarVerde.png"));
+        btnVoltar.setIcon(icone);
+    }//GEN-LAST:event_btnVoltarMouseExited
 
     /**
      * @param args the command line arguments
@@ -162,9 +184,10 @@ public class FrmCadastroTela extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel btnAdquirir;
     private javax.swing.JLabel btnDescartar;
+    private javax.swing.JLabel btnVoltar;
     private javax.swing.JPanel cardPane;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblFundo;
     private javax.swing.JLabel lblTitle;
+    private javax.swing.JPanel seuInteresse;
     // End of variables declaration//GEN-END:variables
 }
