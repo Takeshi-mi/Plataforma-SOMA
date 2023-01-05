@@ -28,6 +28,8 @@ public class InFrmMais extends javax.swing.JInternalFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
+        btnSuporte = new javax.swing.JButton();
+        btnSaibaMais = new javax.swing.JButton();
         lblFundo = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(7, 99, 36));
@@ -64,6 +66,29 @@ public class InFrmMais extends javax.swing.JInternalFrame {
         });
         jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 640, 120, 60));
 
+        btnSuporte.setBackground(new java.awt.Color(0, 102, 0));
+        btnSuporte.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        btnSuporte.setForeground(new java.awt.Color(255, 255, 255));
+        btnSuporte.setText("PROCURAR EMPRESAS");
+        btnSuporte.setBorder(null);
+        btnSuporte.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSuporteActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnSuporte, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 230, 350, -1));
+
+        btnSaibaMais.setBackground(new java.awt.Color(7, 99, 36));
+        btnSaibaMais.setFont(new java.awt.Font("Arial Black", 0, 24)); // NOI18N
+        btnSaibaMais.setForeground(new java.awt.Color(255, 255, 255));
+        btnSaibaMais.setText("SAIBA MAIS");
+        btnSaibaMais.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSaibaMaisActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnSaibaMais, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 320, 237, 57));
+
         lblFundo.setBackground(new java.awt.Color(0, 102, 51));
         lblFundo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/internalFrameMenuFundo.png"))); // NOI18N
         lblFundo.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
@@ -85,8 +110,20 @@ public class InFrmMais extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_formMouseExited
 
+    private void btnSuporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSuporteActionPerformed
+        FrmTransacao descartar = new FrmTransacao();
+        descartar.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_btnSuporteActionPerformed
+
+    private void btnSaibaMaisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaibaMaisActionPerformed
+
+    }//GEN-LAST:event_btnSaibaMaisActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnSaibaMais;
+    private javax.swing.JButton btnSuporte;
     private javax.swing.JButton jButton1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblFundo;

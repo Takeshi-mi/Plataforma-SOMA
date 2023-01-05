@@ -43,9 +43,9 @@ public class FrmMenu extends javax.swing.JFrame {
         UserIcon = new javax.swing.JLabel();
         nomeUsuario = new javax.swing.JLabel();
         jPanelBarraVerde = new javax.swing.JPanel();
-        btnCadastroVerde = new javax.swing.JButton();
         btnSuporte = new javax.swing.JButton();
         btnInicio = new javax.swing.JButton();
+        btnInicio1 = new javax.swing.JButton();
         cardPane = new javax.swing.JPanel();
         homePane = new javax.swing.JLayeredPane();
         vamosTornar = new javax.swing.JLabel();
@@ -63,15 +63,6 @@ public class FrmMenu extends javax.swing.JFrame {
         txtConfirmarSenha = new javax.swing.JTextField();
         jButtonRound2 = new Swing.JButtonRound();
         jLabel18 = new javax.swing.JLabel();
-        quemSomosPane = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
         quemSomosPaneScroll = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         quemSomosScroll = new javax.swing.JPanel();
@@ -84,7 +75,6 @@ public class FrmMenu extends javax.swing.JFrame {
         jLabel16 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("SOMA");
@@ -137,17 +127,6 @@ public class FrmMenu extends javax.swing.JFrame {
         jPanelBarraVerde.setBackground(new java.awt.Color(7, 99, 36));
         jPanelBarraVerde.setForeground(new java.awt.Color(7, 99, 36));
 
-        btnCadastroVerde.setBackground(new java.awt.Color(0, 102, 0));
-        btnCadastroVerde.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        btnCadastroVerde.setForeground(new java.awt.Color(255, 255, 255));
-        btnCadastroVerde.setText("CADASTRO");
-        btnCadastroVerde.setBorder(null);
-        btnCadastroVerde.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCadastroVerdeActionPerformed(evt);
-            }
-        });
-
         btnSuporte.setBackground(new java.awt.Color(0, 102, 0));
         btnSuporte.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         btnSuporte.setForeground(new java.awt.Color(255, 255, 255));
@@ -170,30 +149,39 @@ public class FrmMenu extends javax.swing.JFrame {
             }
         });
 
+        btnInicio1.setBackground(new java.awt.Color(0, 102, 0));
+        btnInicio1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        btnInicio1.setForeground(new java.awt.Color(255, 255, 255));
+        btnInicio1.setText("INFORMAÇÕES");
+        btnInicio1.setBorder(null);
+        btnInicio1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnInicio1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanelBarraVerdeLayout = new javax.swing.GroupLayout(jPanelBarraVerde);
         jPanelBarraVerde.setLayout(jPanelBarraVerdeLayout);
         jPanelBarraVerdeLayout.setHorizontalGroup(
             jPanelBarraVerdeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelBarraVerdeLayout.createSequentialGroup()
-                .addGap(42, 42, 42)
+                .addGap(85, 85, 85)
                 .addComponent(btnInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(33, 33, 33)
-                .addComponent(btnCadastroVerde, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(40, 40, 40)
+                .addGap(43, 43, 43)
                 .addComponent(btnSuporte, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(605, Short.MAX_VALUE))
+                .addGap(41, 41, 41)
+                .addComponent(btnInicio1, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(518, Short.MAX_VALUE))
         );
         jPanelBarraVerdeLayout.setVerticalGroup(
             jPanelBarraVerdeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelBarraVerdeLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addGroup(jPanelBarraVerdeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnCadastroVerde, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnSuporte, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelBarraVerdeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addComponent(btnSuporte, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(btnInicio1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
         );
 
-        mainLayeredPane.add(jPanelBarraVerde, new org.netbeans.lib.awtextra.AbsoluteConstraints(1, 142, 1364, -1));
+        mainLayeredPane.add(jPanelBarraVerde, new org.netbeans.lib.awtextra.AbsoluteConstraints(1, 142, 1364, 50));
 
         cardPane.setBackground(new java.awt.Color(255, 255, 255));
         cardPane.setBorder(new javax.swing.border.MatteBorder(null));
@@ -319,43 +307,6 @@ public class FrmMenu extends javax.swing.JFrame {
 
         cardPane.add(cadastroPane, "cadastro");
 
-        quemSomosPane.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel3.setFont(new java.awt.Font("Arial Black", 1, 36)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 102, 0));
-        jLabel3.setText("QUEM SOMOS?");
-        quemSomosPane.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(155, 55, -1, -1));
-
-        jLabel2.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
-        jLabel2.setText("na busca por empresas homologadas próximas.");
-        quemSomosPane.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 370, 950, 40));
-
-        jLabel4.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
-        jLabel4.setText("A plataforma tem como objetivo conectar indivíduos e/ou indústrias que geram");
-        quemSomosPane.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 140, 971, 30));
-
-        jLabel5.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
-        jLabel5.setText("resíduos inorgânicos com empresas interessadas em adquirir tais resíduos para");
-        quemSomosPane.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 180, 950, 30));
-
-        jLabel6.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
-        jLabel6.setText("reciclagem. Tem como campo de atuação o descarte sustentável, incluindo toda");
-        quemSomosPane.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 210, 950, 40));
-
-        jLabel7.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
-        jLabel7.setText("a cadeia  de fornecedores e  compradores, controle  de  produção e  rastreio  de ");
-        quemSomosPane.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 250, 950, 40));
-
-        jLabel8.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
-        jLabel8.setText("transporte.  Essas características convergem para a missão de auxiliar na gestão");
-        quemSomosPane.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 290, 950, 40));
-
-        jLabel9.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
-        jLabel9.setText("de respiduos inorgânicos, otimizando processos internos e economizando tempo");
-        quemSomosPane.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 330, 950, 40));
-
-        cardPane.add(quemSomosPane, "card4");
-
         jScrollPane1.setBorder(new javax.swing.border.MatteBorder(null));
 
         jLabel10.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
@@ -393,10 +344,6 @@ public class FrmMenu extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setBackground(new java.awt.Color(242, 242, 242));
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/instagramIconVerde.png"))); // NOI18N
-        jButton2.setBorder(null);
-
         javax.swing.GroupLayout quemSomosScrollLayout = new javax.swing.GroupLayout(quemSomosScroll);
         quemSomosScroll.setLayout(quemSomosScrollLayout);
         quemSomosScrollLayout.setHorizontalGroup(
@@ -413,10 +360,7 @@ public class FrmMenu extends javax.swing.JFrame {
                             .addComponent(jLabel12)
                             .addComponent(jLabel11)
                             .addComponent(jLabel10)
-                            .addGroup(quemSomosScrollLayout.createSequentialGroup()
-                                .addComponent(jButton1)
-                                .addGap(50, 50, 50)
-                                .addComponent(jButton2))))
+                            .addComponent(jButton1)))
                     .addGroup(quemSomosScrollLayout.createSequentialGroup()
                         .addGap(146, 146, 146)
                         .addComponent(jLabel17)))
@@ -442,9 +386,7 @@ public class FrmMenu extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel10)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 78, Short.MAX_VALUE)
-                .addGroup(quemSomosScrollLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jButton2, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addComponent(jButton1)
                 .addGap(62, 62, 62))
         );
 
@@ -497,11 +439,6 @@ public class FrmMenu extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnCadastroVerdeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastroVerdeActionPerformed
-        CardLayout cl = (CardLayout) cardPane.getLayout();
-        cl.show(cardPane, "cadastro");
-    }//GEN-LAST:event_btnCadastroVerdeActionPerformed
-
     private void btnSuporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSuporteActionPerformed
         FrmTransacao descartar = new FrmTransacao();
         descartar.setVisible(true);
@@ -536,9 +473,8 @@ public class FrmMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_btn3PontosMouseExited
 
     private void btnSaibaMaisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaibaMaisActionPerformed
-        quemSomosPaneScroll.setVisible(true);
-        homePane.setVisible(false);
-        cadastroPane.setVisible(false);
+        CardLayout cl = (CardLayout) cardPane.getLayout();;
+        cl.show(cardPane, "quemSomos");
     }//GEN-LAST:event_btnSaibaMaisActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -561,6 +497,11 @@ public class FrmMenu extends javax.swing.JFrame {
         FrmPerfil perfil = new FrmPerfil();
         perfil.setVisible(true);
     }//GEN-LAST:event_nomeUsuarioMouseClicked
+
+    private void btnInicio1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInicio1ActionPerformed
+        CardLayout cl = (CardLayout) cardPane.getLayout();;
+        cl.show(cardPane, "quemSomos");
+    }//GEN-LAST:event_btnInicio1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -631,15 +572,14 @@ public class FrmMenu extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel UserIcon;
     private javax.swing.JButton btn3Pontos;
-    private javax.swing.JButton btnCadastroVerde;
     private javax.swing.JButton btnInicio;
+    private javax.swing.JButton btnInicio1;
     private javax.swing.JButton btnSaibaMais;
     private javax.swing.JButton btnSuporte;
     private javax.swing.JPanel cadastroPane;
     private javax.swing.JPanel cardPane;
     private javax.swing.JLayeredPane homePane;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private Swing.JButtonRound jButtonRound2;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -650,14 +590,6 @@ public class FrmMenu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanelBarraVerde;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblTituloPessoaJuridica;
@@ -667,7 +599,6 @@ public class FrmMenu extends javax.swing.JFrame {
     private javax.swing.JLabel nomeUsuario;
     private javax.swing.JDesktopPane painelDesktopMain;
     private javax.swing.JPanel pessoaJuridicaPane;
-    private javax.swing.JPanel quemSomosPane;
     private javax.swing.JPanel quemSomosPaneScroll;
     private javax.swing.JPanel quemSomosScroll;
     private javax.swing.JTextField txtConfirmarSenha;

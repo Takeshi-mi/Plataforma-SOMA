@@ -192,7 +192,6 @@ public class FrmPerfil extends javax.swing.JFrame {
         perfil.add(btnEditarFoto, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 280, -1, -1));
 
         lblFundoPerfil.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/fundoPerfil.png"))); // NOI18N
-        lblFundoPerfil.setText("eDI");
         perfil.add(lblFundoPerfil, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, -1, -1));
 
         cardPane.add(perfil, "card2");
