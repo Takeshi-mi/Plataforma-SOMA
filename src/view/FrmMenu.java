@@ -52,6 +52,7 @@ public class FrmMenu extends javax.swing.JFrame {
         mundoMelhor = new javax.swing.JLabel();
         logoSoma = new javax.swing.JLabel();
         btnSaibaMais = new javax.swing.JButton();
+        jFileChooser1 = new javax.swing.JFileChooser();
         cadastroPane = new javax.swing.JPanel();
         pessoaJuridicaPane = new javax.swing.JPanel();
         lblTituloPessoaJuridica = new javax.swing.JLabel();
@@ -219,6 +220,7 @@ public class FrmMenu extends javax.swing.JFrame {
             }
         });
         homePane.add(btnSaibaMais, new org.netbeans.lib.awtextra.AbsoluteConstraints(943, 253, 237, 57));
+        homePane.add(jFileChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 100, -1, -1));
 
         cardPane.add(homePane, "home");
 
@@ -619,6 +621,7 @@ public class FrmMenu extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private Swing.JButtonRound jButtonRound2;
+    private javax.swing.JFileChooser jFileChooser1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;

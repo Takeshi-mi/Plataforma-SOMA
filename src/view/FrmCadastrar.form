@@ -87,33 +87,30 @@
                           <Component id="btnCadastrar" min="-2" pref="219" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="454" max="-2" attributes="0"/>
                       </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <Group type="103" groupAlignment="1" attributes="0">
-                              <Component id="txtEndereco" alignment="1" min="-2" pref="937" max="-2" attributes="0"/>
-                              <Group type="103" alignment="1" groupAlignment="0" attributes="0">
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace min="-2" pref="260" max="-2" attributes="0"/>
-                                      <Component id="lblTituloPessoaJuridica" min="-2" pref="650" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace min="-2" pref="104" max="-2" attributes="0"/>
-                                      <Component id="txtNomeEmpresa" min="-2" pref="937" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace min="104" pref="104" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                          <Group type="102" alignment="1" attributes="0">
-                                              <Component id="txtEmail" max="32767" attributes="0"/>
-                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                              <Component id="txtTelefone" min="-2" pref="441" max="-2" attributes="0"/>
-                                          </Group>
-                                          <Group type="102" alignment="1" attributes="0">
-                                              <Component id="txtSenha" min="-2" pref="462" max="-2" attributes="0"/>
-                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                              <Component id="txtConfirmarSenha" min="-2" pref="463" max="-2" attributes="0"/>
-                                          </Group>
-                                      </Group>
-                                  </Group>
+                      <Group type="102" alignment="1" attributes="0">
+                          <EmptySpace max="32767" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="txtEndereco" linkSize="2" alignment="0" min="-2" pref="474" max="-2" attributes="0"/>
+                              <Component id="txtEmail" linkSize="2" alignment="0" min="-2" pref="467" max="-2" attributes="0"/>
+                              <Component id="txtSenha" linkSize="2" alignment="0" min="-2" pref="462" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="txtConfirmarSenha" linkSize="2" alignment="0" pref="463" max="32767" attributes="0"/>
+                              <Component id="txtTelefone" linkSize="2" alignment="0" max="32767" attributes="0"/>
+                              <Component id="txtEndereco1" linkSize="2" alignment="0" min="-2" pref="464" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="104" max="-2" attributes="0"/>
+                                  <Component id="txtNomeEmpresa" min="-2" pref="937" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="260" max="-2" attributes="0"/>
+                                  <Component id="lblTituloPessoaJuridica" min="-2" pref="650" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace pref="65" max="32767" attributes="0"/>
@@ -128,7 +125,10 @@
                           <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
                           <Component id="txtNomeEmpresa" min="-2" pref="50" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="txtEndereco" min="-2" pref="50" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="txtEndereco" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
+                              <Component id="txtEndereco1" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
+                          </Group>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="txtEmail" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
@@ -177,7 +177,7 @@
                   <Properties>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                       <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-                        <TitledBorder title="SITE (opicional)">
+                        <TitledBorder title="CNPJ">
                           <Border PropertyName="innerBorder" info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
                             <LineBorder roundedCorners="true" thickness="2"/>
                           </Border>
@@ -260,6 +260,20 @@
                   <Events>
                     <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnCadastrarMouseClicked"/>
                   </Events>
+                </Component>
+                <Component class="javax.swing.JTextField" name="txtEndereco1">
+                  <Properties>
+                    <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                      <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
+                        <TitledBorder title="SITE (opicional)">
+                          <Border PropertyName="innerBorder" info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
+                            <LineBorder roundedCorners="true" thickness="2"/>
+                          </Border>
+                          <Font PropertyName="font" name="Segoe UI" size="14" style="1"/>
+                        </TitledBorder>
+                      </Border>
+                    </Property>
+                  </Properties>
                 </Component>
               </SubComponents>
             </Container>
@@ -459,7 +473,6 @@
                                       <Component id="jTextField4" linkSize="1" alignment="1" min="-2" max="-2" attributes="0"/>
                                       <Component id="jTextField5" linkSize="1" alignment="1" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <EmptySpace max="32767" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace min="-2" pref="164" max="-2" attributes="0"/>
