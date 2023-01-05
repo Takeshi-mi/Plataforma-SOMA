@@ -8,12 +8,12 @@ package view;
  *
  * @author Takeshi
  */
-public class FrmDescartar extends javax.swing.JFrame {
+public class FrmTransacao extends javax.swing.JFrame {
 
     /**
      * Creates new form FrmMovimentacao
      */
-    public FrmDescartar() {
+    public FrmTransacao() {
         initComponents();
         this.setLocationRelativeTo(null);  // Tk Para surgir no centro da tela
     }
@@ -27,6 +27,7 @@ public class FrmDescartar extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
         painelDeCima = new javax.swing.JPanel();
         lblLocalizacao = new javax.swing.JLabel();
         lblQuantidade = new javax.swing.JLabel();
@@ -58,11 +59,16 @@ public class FrmDescartar extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         btnPesquisar = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
+        jToggleButton1 = new javax.swing.JToggleButton();
+        jToggleButton2 = new javax.swing.JToggleButton();
+        jToggleButton3 = new javax.swing.JToggleButton();
+        jToggleButton4 = new javax.swing.JToggleButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocation(new java.awt.Point(0, 0));
 
         painelDeCima.setBackground(new java.awt.Color(255, 255, 255));
+        painelDeCima.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         painelDeCima.setPreferredSize(new java.awt.Dimension(1366, 768));
 
         lblLocalizacao.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -165,7 +171,7 @@ public class FrmDescartar extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblSite)
                     .addComponent(lblSiteAzul))
-                .addContainerGap(13, Short.MAX_VALUE))
+                .addContainerGap(11, Short.MAX_VALUE))
         );
 
         lblKg.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -263,6 +269,19 @@ public class FrmDescartar extends javax.swing.JFrame {
         jButton3.setForeground(new java.awt.Color(255, 255, 255));
         jButton3.setText("CONFIRMAR");
 
+        buttonGroup1.add(jToggleButton1);
+        jToggleButton1.setText("PAPEL");
+
+        jToggleButton2.setBackground(new java.awt.Color(255, 204, 204));
+        buttonGroup1.add(jToggleButton2);
+        jToggleButton2.setText("METAL");
+
+        buttonGroup1.add(jToggleButton3);
+        jToggleButton3.setText("VIDRO");
+
+        buttonGroup1.add(jToggleButton4);
+        jToggleButton4.setText("PLASTICO");
+
         javax.swing.GroupLayout painelDeCimaLayout = new javax.swing.GroupLayout(painelDeCima);
         painelDeCima.setLayout(painelDeCimaLayout);
         painelDeCimaLayout.setHorizontalGroup(
@@ -283,7 +302,16 @@ public class FrmDescartar extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(painelDeCimaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(txtLocalizacao, javax.swing.GroupLayout.PREFERRED_SIZE, 406, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(cbxTipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(painelDeCimaLayout.createSequentialGroup()
+                                        .addComponent(cbxTipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(33, 33, 33)
+                                        .addComponent(jToggleButton1)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jToggleButton2)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jToggleButton3)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jToggleButton4))
                                     .addGroup(painelDeCimaLayout.createSequentialGroup()
                                         .addComponent(txtFormatedQtd, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -310,7 +338,11 @@ public class FrmDescartar extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(painelDeCimaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cbxTipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblTipo))
+                    .addComponent(lblTipo)
+                    .addComponent(jToggleButton1)
+                    .addComponent(jToggleButton2)
+                    .addComponent(jToggleButton3)
+                    .addComponent(jToggleButton4))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(painelDeCimaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblQuantidade)
@@ -319,7 +351,7 @@ public class FrmDescartar extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollTabela, javax.swing.GroupLayout.DEFAULT_SIZE, 296, Short.MAX_VALUE)
+                .addComponent(jScrollTabela, javax.swing.GroupLayout.DEFAULT_SIZE, 288, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addGroup(painelDeCimaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -351,10 +383,11 @@ public class FrmDescartar extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField6ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-    FrmMenu menu = new FrmMenu();
-    menu.setVisible(true);
+        FrmMenu menu = new FrmMenu();
+        menu.setVisible(true);
+        menu.setExtendedState(this.getExtendedState());
 
-    dispose();
+        dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void btnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarActionPerformed
@@ -378,27 +411,30 @@ public class FrmDescartar extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(FrmDescartar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmTransacao.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(FrmDescartar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmTransacao.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(FrmDescartar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmTransacao.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(FrmDescartar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmTransacao.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new FrmDescartar().setVisible(true);
+                new FrmTransacao().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnPesquisar;
+    private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JComboBox<String> cbxTipo;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton3;
@@ -410,6 +446,10 @@ public class FrmDescartar extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField6;
     private javax.swing.JTextField jTextField7;
+    private javax.swing.JToggleButton jToggleButton1;
+    private javax.swing.JToggleButton jToggleButton2;
+    private javax.swing.JToggleButton jToggleButton3;
+    private javax.swing.JToggleButton jToggleButton4;
     private javax.swing.JLabel lblDistancia;
     private javax.swing.JLabel lblEmail;
     private javax.swing.JLabel lblEmailAdress;

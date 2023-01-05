@@ -6,6 +6,7 @@ package view;
 
 import java.awt.CardLayout;
 import java.awt.Desktop;
+import java.awt.Frame;
 import java.beans.PropertyVetoException;
 import java.io.IOException;
 import java.net.URI;
@@ -85,7 +86,7 @@ public class FrmMenu extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("SOMA");
         setLocationByPlatform(true);
 
@@ -492,11 +493,10 @@ public class FrmMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCadastroVerdeActionPerformed
 
     private void btnSuporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSuporteActionPerformed
-      FrmDescartar descartar = new FrmDescartar();
-      descartar.setVisible(true);
-            
-            
-            dispose();
+        FrmTransacao descartar = new FrmTransacao();
+        descartar.setVisible(true);
+        descartar.setExtendedState(this.getExtendedState());
+        dispose();
     }//GEN-LAST:event_btnSuporteActionPerformed
 
     private void btnInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInicioActionPerformed
