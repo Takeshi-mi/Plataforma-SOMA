@@ -4,6 +4,8 @@
  */
 package view;
 
+import javax.swing.SwingUtilities;
+
 /**
  *
  * @author Admin
@@ -119,6 +121,7 @@ public class InFrmMais extends javax.swing.JInternalFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         FrmLogin login = new FrmLogin();
         login.setVisible(true);
+        SwingUtilities.getWindowAncestor(this).dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void formMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseExited
@@ -130,19 +133,19 @@ public class InFrmMais extends javax.swing.JInternalFrame {
     private void btnTransacoesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTransacoesActionPerformed
         FrmTransacao transacao = new FrmTransacao();
         transacao.setVisible(true);
-        dispose();
+        SwingUtilities.getWindowAncestor(this).dispose();
     }//GEN-LAST:event_btnTransacoesActionPerformed
 
     private void btnProcurarEmpresasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProcurarEmpresasActionPerformed
         FrmTransacao transacao = new FrmTransacao();
         transacao.setVisible(true);
-        dispose();
+        SwingUtilities.getWindowAncestor(this).dispose();
     }//GEN-LAST:event_btnProcurarEmpresasActionPerformed
 
     private void btnPerfilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPerfilActionPerformed
         FrmPerfil perfil  = new FrmPerfil();
         perfil.setVisible(true);
-        dispose();
+        SwingUtilities.getWindowAncestor(this).dispose();
     }//GEN-LAST:event_btnPerfilActionPerformed
 
 
