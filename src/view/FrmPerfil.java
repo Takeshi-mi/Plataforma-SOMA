@@ -4,6 +4,9 @@
  */
 package view;
 
+import java.awt.CardLayout;
+import javax.swing.ImageIcon;
+
 /**
  *
  * @author Takeshi
@@ -26,20 +29,171 @@ public class FrmPerfil extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
         cardPane = new javax.swing.JPanel();
         perfil = new javax.swing.JPanel();
+        fotoPerfil = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        txtEmail = new javax.swing.JTextField();
+        txtEndereco = new javax.swing.JTextField();
+        txtTelefone = new javax.swing.JTextField();
+        txtNomeEmpresa = new javax.swing.JTextField();
+        txtNomeEmpresa1 = new javax.swing.JTextField();
+        jFormattedTextField1 = new javax.swing.JFormattedTextField();
+        btnEditar = new javax.swing.JButton();
+        jRadioButton1 = new javax.swing.JRadioButton();
+        jRadioButton2 = new javax.swing.JRadioButton();
+        btnHistorico = new javax.swing.JButton();
+        btnVoltarPerfil = new javax.swing.JLabel();
+        btnEditarFoto = new javax.swing.JButton();
         lblFundoPerfil = new javax.swing.JLabel();
-        jFileChooser1 = new javax.swing.JFileChooser();
-
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         cardPane.setLayout(new java.awt.CardLayout());
 
+        perfil.setBackground(new java.awt.Color(235, 218, 193));
         perfil.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        fotoPerfil.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/profile-user.png"))); // NOI18N
+        fotoPerfil.setText("             Upload a photo here");
+        fotoPerfil.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        perfil.add(fotoPerfil, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 40, 260, 230));
+
+        jPanel1.setBackground(new java.awt.Color(235, 218, 193));
+        jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
+        txtEmail.setBackground(new java.awt.Color(235, 218, 193));
+        txtEmail.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true), "EMAIL", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 14))); // NOI18N
+
+        txtEndereco.setBackground(new java.awt.Color(235, 218, 193));
+        txtEndereco.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true), "SITE (opicional)", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 14))); // NOI18N
+
+        txtTelefone.setBackground(new java.awt.Color(235, 218, 193));
+        txtTelefone.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true), "TELEFONE", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 14))); // NOI18N
+
+        txtNomeEmpresa.setBackground(new java.awt.Color(235, 218, 193));
+        txtNomeEmpresa.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true), "NOME DA EMPRESA", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 14))); // NOI18N
+
+        txtNomeEmpresa1.setBackground(new java.awt.Color(235, 218, 193));
+        txtNomeEmpresa1.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true), "ENDEREÇO", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 14))); // NOI18N
+
+        jFormattedTextField1.setBackground(new java.awt.Color(235, 218, 193));
+        jFormattedTextField1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "CNPJ", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 14))); // NOI18N
+        try {
+            jFormattedTextField1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##.###.###/####-##")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        jFormattedTextField1.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        jFormattedTextField1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jFormattedTextField1.setOpaque(true);
+
+        btnEditar.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnEditar.setText("Editar dados");
+
+        buttonGroup1.add(jRadioButton1);
+        jRadioButton1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jRadioButton1.setText("Adquirir resíduos");
+        jRadioButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton1ActionPerformed(evt);
+            }
+        });
+
+        buttonGroup1.add(jRadioButton2);
+        jRadioButton2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jRadioButton2.setSelected(true);
+        jRadioButton2.setText("Descartar resíduos");
+
+        btnHistorico.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnHistorico.setText("Histórico de transações");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(60, 60, 60)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(txtNomeEmpresa1, javax.swing.GroupLayout.PREFERRED_SIZE, 338, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtNomeEmpresa)
+                    .addComponent(jFormattedTextField1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(txtTelefone, javax.swing.GroupLayout.DEFAULT_SIZE, 310, Short.MAX_VALUE)
+                    .addComponent(txtEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtEmail))
+                .addGap(65, 65, 65))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(68, 68, 68)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jRadioButton2)
+                        .addGap(18, 18, 18)
+                        .addComponent(jRadioButton1)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(btnEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnHistorico, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(122, 122, 122))))
+        );
+
+        jPanel1Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {txtEmail, txtEndereco, txtTelefone});
+
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(43, 43, 43)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtNomeEmpresa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jFormattedTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(20, 20, 20)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtNomeEmpresa1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(46, 46, 46)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jRadioButton2)
+                    .addComponent(jRadioButton1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 93, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnHistorico, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(48, 48, 48))
+        );
+
+        perfil.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 40, 780, 490));
+
+        btnVoltarPerfil.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/voltarVerde.png"))); // NOI18N
+        btnVoltarPerfil.setToolTipText("voltar");
+        btnVoltarPerfil.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnVoltarPerfilMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnVoltarPerfilMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnVoltarPerfilMouseExited(evt);
+            }
+        });
+        perfil.add(btnVoltarPerfil, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 90, 70));
+
+        btnEditarFoto.setText("Editar foto de perfil");
+        btnEditarFoto.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnEditarFotoMouseClicked(evt);
+            }
+        });
+        perfil.add(btnEditarFoto, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 280, -1, -1));
+
         lblFundoPerfil.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/fundoPerfil.png"))); // NOI18N
-        perfil.add(lblFundoPerfil, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 0, -1, -1));
-        perfil.add(jFileChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 50, -1, -1));
+        lblFundoPerfil.setText("eDI");
+        perfil.add(lblFundoPerfil, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, -1, -1));
 
         cardPane.add(perfil, "card2");
 
@@ -55,7 +209,33 @@ public class FrmPerfil extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jRadioButton1ActionPerformed
+
+    private void btnVoltarPerfilMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVoltarPerfilMouseExited
+        ImageIcon icone = new ImageIcon(getClass().getResource("/images/voltarVerde.png"));
+        btnVoltarPerfil.setIcon(icone);
+    }//GEN-LAST:event_btnVoltarPerfilMouseExited
+
+    private void btnVoltarPerfilMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVoltarPerfilMouseEntered
+        ImageIcon icone = new ImageIcon(getClass().getResource("/images/voltarVerdeSelected.png"));
+        btnVoltarPerfil.setIcon(icone);
+    }//GEN-LAST:event_btnVoltarPerfilMouseEntered
+
+    private void btnVoltarPerfilMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVoltarPerfilMouseClicked
+        this.dispose();
+        FrmMenu menu = new FrmMenu();
+        menu.setVisible(true);
+    }//GEN-LAST:event_btnVoltarPerfilMouseClicked
+
+    private void btnEditarFotoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEditarFotoMouseClicked
+        FrmFileChooser file = new FrmFileChooser();
+        file.setVisible(true);
+    }//GEN-LAST:event_btnEditarFotoMouseClicked
 
     /**
      * @param args the command line arguments
@@ -93,9 +273,23 @@ public class FrmPerfil extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnEditar;
+    private javax.swing.JButton btnEditarFoto;
+    private javax.swing.JButton btnHistorico;
+    private javax.swing.JLabel btnVoltarPerfil;
+    private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JPanel cardPane;
-    private javax.swing.JFileChooser jFileChooser1;
+    private javax.swing.JLabel fotoPerfil;
+    private javax.swing.JFormattedTextField jFormattedTextField1;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JRadioButton jRadioButton1;
+    private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JLabel lblFundoPerfil;
     private javax.swing.JPanel perfil;
+    private javax.swing.JTextField txtEmail;
+    private javax.swing.JTextField txtEndereco;
+    private javax.swing.JTextField txtNomeEmpresa;
+    private javax.swing.JTextField txtNomeEmpresa1;
+    private javax.swing.JTextField txtTelefone;
     // End of variables declaration//GEN-END:variables
 }

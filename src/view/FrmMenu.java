@@ -52,7 +52,6 @@ public class FrmMenu extends javax.swing.JFrame {
         mundoMelhor = new javax.swing.JLabel();
         logoSoma = new javax.swing.JLabel();
         btnSaibaMais = new javax.swing.JButton();
-        jFileChooser1 = new javax.swing.JFileChooser();
         cadastroPane = new javax.swing.JPanel();
         pessoaJuridicaPane = new javax.swing.JPanel();
         lblTituloPessoaJuridica = new javax.swing.JLabel();
@@ -119,10 +118,20 @@ public class FrmMenu extends javax.swing.JFrame {
         mainLayeredPane.add(btn3Pontos, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 30, -1, 53));
 
         UserIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/profile-user 64px.png"))); // NOI18N
+        UserIcon.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                UserIconMouseClicked(evt);
+            }
+        });
         mainLayeredPane.add(UserIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(1256, 47, -1, -1));
 
         nomeUsuario.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         nomeUsuario.setText("Olá, Nome do Usuário");
+        nomeUsuario.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                nomeUsuarioMouseClicked(evt);
+            }
+        });
         mainLayeredPane.add(nomeUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(1058, 44, 192, 67));
 
         jPanelBarraVerde.setBackground(new java.awt.Color(7, 99, 36));
@@ -220,7 +229,6 @@ public class FrmMenu extends javax.swing.JFrame {
             }
         });
         homePane.add(btnSaibaMais, new org.netbeans.lib.awtextra.AbsoluteConstraints(943, 253, 237, 57));
-        homePane.add(jFileChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 100, -1, -1));
 
         cardPane.add(homePane, "home");
 
@@ -542,6 +550,18 @@ public class FrmMenu extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void UserIconMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_UserIconMouseClicked
+        this.dispose();
+        FrmPerfil perfil = new FrmPerfil();
+        perfil.setVisible(true);
+    }//GEN-LAST:event_UserIconMouseClicked
+
+    private void nomeUsuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_nomeUsuarioMouseClicked
+        this.dispose();
+        FrmPerfil perfil = new FrmPerfil();
+        perfil.setVisible(true);
+    }//GEN-LAST:event_nomeUsuarioMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -621,7 +641,6 @@ public class FrmMenu extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private Swing.JButtonRound jButtonRound2;
-    private javax.swing.JFileChooser jFileChooser1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
