@@ -65,6 +65,7 @@ public class FrmTransacao extends javax.swing.JFrame {
         jToggleButton2 = new javax.swing.JToggleButton();
         jToggleButton3 = new javax.swing.JToggleButton();
         jToggleButton4 = new javax.swing.JToggleButton();
+        lblFundoTransacao = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocation(new java.awt.Point(0, 0));
@@ -72,6 +73,7 @@ public class FrmTransacao extends javax.swing.JFrame {
         painelDeCima.setBackground(new java.awt.Color(255, 255, 255));
         painelDeCima.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         painelDeCima.setPreferredSize(new java.awt.Dimension(1366, 768));
+        painelDeCima.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btnVoltarTransacao.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/voltarVerde.png"))); // NOI18N
         btnVoltarTransacao.setToolTipText("voltar");
@@ -86,20 +88,26 @@ public class FrmTransacao extends javax.swing.JFrame {
                 btnVoltarTransacaoMouseExited(evt);
             }
         });
+        painelDeCima.add(btnVoltarTransacao, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 6, -1, -1));
 
         lblLocalizacao.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         lblLocalizacao.setText("LOCALIZAÇÃO");
+        painelDeCima.add(lblLocalizacao, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 91, 108, -1));
 
         lblQuantidade.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         lblQuantidade.setText("QUANTIDADE:");
+        painelDeCima.add(lblQuantidade, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 161, 100, -1));
 
         cbxTipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "PAPEL", "PLÁSTICO", "METAL", "VIDRO" }));
+        painelDeCima.add(cbxTipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(173, 132, -1, -1));
 
         txtLocalizacao.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         txtLocalizacao.setText("Rua x, Formosa - GO");
+        painelDeCima.add(txtLocalizacao, new org.netbeans.lib.awtextra.AbsoluteConstraints(173, 88, 406, -1));
 
         lblTipo.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         lblTipo.setText("TIPO DE RESÍDUO");
+        painelDeCima.add(lblTipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 132, 127, -1));
 
         tblDescartarResíduos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -118,7 +126,10 @@ public class FrmTransacao extends javax.swing.JFrame {
             tblDescartarResíduos.getColumnModel().getColumn(2).setPreferredWidth(30);
         }
 
+        painelDeCima.add(jScrollTabela, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 245, 1343, 283));
+
         txtFormatedQtd.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#,###.00"))));
+        painelDeCima.add(txtFormatedQtd, new org.netbeans.lib.awtextra.AbsoluteConstraints(173, 161, 69, -1));
 
         jPanel1.setMaximumSize(new java.awt.Dimension(500, 780));
         jPanel1.setPreferredSize(new java.awt.Dimension(500, 157));
@@ -190,10 +201,13 @@ public class FrmTransacao extends javax.swing.JFrame {
                 .addContainerGap(13, Short.MAX_VALUE))
         );
 
+        painelDeCima.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 546, 527, -1));
+
         lblKg.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         lblKg.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         lblKg.setText("kg");
         lblKg.setBorder(null);
+        painelDeCima.add(lblKg, new org.netbeans.lib.awtextra.AbsoluteConstraints(248, 161, 33, -1));
 
         lblDistancia.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         lblDistancia.setText("DISTÂNCIA");
@@ -264,6 +278,8 @@ public class FrmTransacao extends javax.swing.JFrame {
                 .addContainerGap(18, Short.MAX_VALUE))
         );
 
+        painelDeCima.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(653, 550, -1, -1));
+
         btnPesquisar.setBackground(new java.awt.Color(255, 102, 0));
         btnPesquisar.setForeground(new java.awt.Color(255, 255, 255));
         btnPesquisar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/lupa.png"))); // NOI18N
@@ -273,104 +289,32 @@ public class FrmTransacao extends javax.swing.JFrame {
                 btnPesquisarActionPerformed(evt);
             }
         });
+        painelDeCima.add(btnPesquisar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 189, 194, 38));
 
         jButton3.setBackground(new java.awt.Color(0, 102, 51));
         jButton3.setForeground(new java.awt.Color(255, 255, 255));
         jButton3.setText("CONFIRMAR");
+        painelDeCima.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(966, 550, 138, 57));
 
         buttonGroup1.add(jToggleButton1);
         jToggleButton1.setText("PAPEL");
+        painelDeCima.add(jToggleButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(293, 132, -1, -1));
 
         jToggleButton2.setBackground(new java.awt.Color(255, 204, 204));
         buttonGroup1.add(jToggleButton2);
         jToggleButton2.setText("METAL");
+        painelDeCima.add(jToggleButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(363, 132, -1, -1));
 
         buttonGroup1.add(jToggleButton3);
         jToggleButton3.setText("VIDRO");
+        painelDeCima.add(jToggleButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(436, 132, -1, -1));
 
         buttonGroup1.add(jToggleButton4);
         jToggleButton4.setText("PLASTICO");
+        painelDeCima.add(jToggleButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(506, 132, -1, -1));
 
-        javax.swing.GroupLayout painelDeCimaLayout = new javax.swing.GroupLayout(painelDeCima);
-        painelDeCima.setLayout(painelDeCimaLayout);
-        painelDeCimaLayout.setHorizontalGroup(
-            painelDeCimaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(painelDeCimaLayout.createSequentialGroup()
-                .addGap(40, 40, 40)
-                .addGroup(painelDeCimaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(painelDeCimaLayout.createSequentialGroup()
-                        .addComponent(btnVoltarTransacao)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(painelDeCimaLayout.createSequentialGroup()
-                        .addComponent(jScrollTabela, javax.swing.GroupLayout.DEFAULT_SIZE, 1343, Short.MAX_VALUE)
-                        .addGap(36, 36, 36))
-                    .addGroup(painelDeCimaLayout.createSequentialGroup()
-                        .addGroup(painelDeCimaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(painelDeCimaLayout.createSequentialGroup()
-                                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 527, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(86, 86, 86)
-                                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(painelDeCimaLayout.createSequentialGroup()
-                                .addGroup(painelDeCimaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblQuantidade, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lblTipo, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lblLocalizacao, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(painelDeCimaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtLocalizacao, javax.swing.GroupLayout.PREFERRED_SIZE, 406, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(painelDeCimaLayout.createSequentialGroup()
-                                        .addComponent(cbxTipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(33, 33, 33)
-                                        .addComponent(jToggleButton1)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jToggleButton2)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jToggleButton3)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jToggleButton4))
-                                    .addGroup(painelDeCimaLayout.createSequentialGroup()
-                                        .addComponent(txtFormatedQtd, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(lblKg, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                            .addComponent(btnPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-        );
-        painelDeCimaLayout.setVerticalGroup(
-            painelDeCimaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(painelDeCimaLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(btnVoltarTransacao)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(painelDeCimaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblLocalizacao)
-                    .addComponent(txtLocalizacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(painelDeCimaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cbxTipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblTipo)
-                    .addComponent(jToggleButton1)
-                    .addComponent(jToggleButton2)
-                    .addComponent(jToggleButton3)
-                    .addComponent(jToggleButton4))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(painelDeCimaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblQuantidade)
-                    .addComponent(txtFormatedQtd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblKg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollTabela, javax.swing.GroupLayout.DEFAULT_SIZE, 283, Short.MAX_VALUE)
-                .addGap(18, 18, 18)
-                .addGroup(painelDeCimaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(painelDeCimaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(45, 45, 45))
-        );
+        lblFundoTransacao.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/fundoTransacao.png"))); // NOI18N
+        painelDeCima.add(lblFundoTransacao, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -382,7 +326,7 @@ public class FrmTransacao extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(painelDeCima, javax.swing.GroupLayout.DEFAULT_SIZE, 748, Short.MAX_VALUE)
+                .addComponent(painelDeCima, javax.swing.GroupLayout.DEFAULT_SIZE, 760, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -474,6 +418,7 @@ public class FrmTransacao extends javax.swing.JFrame {
     private javax.swing.JLabel lblDistancia;
     private javax.swing.JLabel lblEmail;
     private javax.swing.JLabel lblEmailAdress;
+    private javax.swing.JLabel lblFundoTransacao;
     private javax.swing.JTextField lblKg;
     private javax.swing.JLabel lblLocalizacao;
     private javax.swing.JLabel lblQuantidade;

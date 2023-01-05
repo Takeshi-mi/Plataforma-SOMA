@@ -78,6 +78,7 @@ public class FrmMenu extends javax.swing.JFrame {
         saiba = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         quemSomosScroll1 = new javax.swing.JPanel();
+        jButton2 = new javax.swing.JButton();
         jLabel19 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -419,6 +420,16 @@ public class FrmMenu extends javax.swing.JFrame {
 
         quemSomosScroll1.setAutoscrolls(true);
 
+        jButton2.setBackground(new java.awt.Color(242, 242, 242));
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/instagramIcon.png"))); // NOI18N
+        jButton2.setToolTipText("Visite nossa página do instagram");
+        jButton2.setBorder(null);
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
         jLabel19.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         jLabel19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/saibaMaisPage1.png"))); // NOI18N
         jLabel19.setText("na busca por empresas homologadas próximas.");
@@ -429,13 +440,19 @@ public class FrmMenu extends javax.swing.JFrame {
             quemSomosScroll1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(quemSomosScroll1Layout.createSequentialGroup()
                 .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 1369, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 12, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(quemSomosScroll1Layout.createSequentialGroup()
+                .addGap(215, 215, 215)
+                .addComponent(jButton2)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         quemSomosScroll1Layout.setVerticalGroup(
             quemSomosScroll1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(quemSomosScroll1Layout.createSequentialGroup()
                 .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 2952, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 110, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton2)
+                .addGap(0, 56, Short.MAX_VALUE))
         );
 
         jScrollPane3.setViewportView(quemSomosScroll1);
@@ -551,6 +568,10 @@ public class FrmMenu extends javax.swing.JFrame {
         cl.show(cardPane, "quemSomos");
     }//GEN-LAST:event_btnInicio1ActionPerformed
 
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton2ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -628,6 +649,7 @@ public class FrmMenu extends javax.swing.JFrame {
     private javax.swing.JPanel cardPane;
     private javax.swing.JLayeredPane homePane;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private Swing.JButtonRound jButtonRound2;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
