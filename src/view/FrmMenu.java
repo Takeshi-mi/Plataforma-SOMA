@@ -75,6 +75,10 @@ public class FrmMenu extends javax.swing.JFrame {
         jLabel16 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
+        saiba = new javax.swing.JPanel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        quemSomosScroll1 = new javax.swing.JPanel();
+        jLabel19 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("SOMA");
@@ -152,7 +156,7 @@ public class FrmMenu extends javax.swing.JFrame {
         btnInicio1.setBackground(new java.awt.Color(0, 102, 0));
         btnInicio1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         btnInicio1.setForeground(new java.awt.Color(255, 255, 255));
-        btnInicio1.setText("INFORMAÇÕES");
+        btnInicio1.setText("QUEM SOMOS");
         btnInicio1.setBorder(null);
         btnInicio1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -165,20 +169,22 @@ public class FrmMenu extends javax.swing.JFrame {
         jPanelBarraVerdeLayout.setHorizontalGroup(
             jPanelBarraVerdeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelBarraVerdeLayout.createSequentialGroup()
-                .addGap(85, 85, 85)
+                .addGap(155, 155, 155)
                 .addComponent(btnInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(43, 43, 43)
+                .addGap(93, 93, 93)
                 .addComponent(btnSuporte, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(41, 41, 41)
+                .addGap(73, 73, 73)
                 .addComponent(btnInicio1, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(518, Short.MAX_VALUE))
+                .addContainerGap(366, Short.MAX_VALUE))
         );
         jPanelBarraVerdeLayout.setVerticalGroup(
             jPanelBarraVerdeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelBarraVerdeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                .addComponent(btnSuporte, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addComponent(btnInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addComponent(btnInicio1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
+            .addGroup(jPanelBarraVerdeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addComponent(btnInicio1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnSuporte, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(jPanelBarraVerdeLayout.createSequentialGroup()
+                .addComponent(btnInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         mainLayeredPane.add(jPanelBarraVerde, new org.netbeans.lib.awtextra.AbsoluteConstraints(1, 142, 1364, 50));
@@ -398,16 +404,58 @@ public class FrmMenu extends javax.swing.JFrame {
             quemSomosPaneScrollLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(quemSomosPaneScrollLayout.createSequentialGroup()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1361, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 661, Short.MAX_VALUE))
+                .addGap(0, 702, Short.MAX_VALUE))
         );
         quemSomosPaneScrollLayout.setVerticalGroup(
             quemSomosPaneScrollLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(quemSomosPaneScrollLayout.createSequentialGroup()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 548, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 2218, Short.MAX_VALUE))
+                .addGap(0, 4647, Short.MAX_VALUE))
         );
 
         cardPane.add(quemSomosPaneScroll, "quemSomos");
+
+        jScrollPane3.setBorder(new javax.swing.border.MatteBorder(null));
+
+        quemSomosScroll1.setAutoscrolls(true);
+
+        jLabel19.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        jLabel19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/saibaMaisPage1.png"))); // NOI18N
+        jLabel19.setText("na busca por empresas homologadas próximas.");
+
+        javax.swing.GroupLayout quemSomosScroll1Layout = new javax.swing.GroupLayout(quemSomosScroll1);
+        quemSomosScroll1.setLayout(quemSomosScroll1Layout);
+        quemSomosScroll1Layout.setHorizontalGroup(
+            quemSomosScroll1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(quemSomosScroll1Layout.createSequentialGroup()
+                .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 1369, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 12, Short.MAX_VALUE))
+        );
+        quemSomosScroll1Layout.setVerticalGroup(
+            quemSomosScroll1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(quemSomosScroll1Layout.createSequentialGroup()
+                .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 2952, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 110, Short.MAX_VALUE))
+        );
+
+        jScrollPane3.setViewportView(quemSomosScroll1);
+
+        javax.swing.GroupLayout saibaLayout = new javax.swing.GroupLayout(saiba);
+        saiba.setLayout(saibaLayout);
+        saibaLayout.setHorizontalGroup(
+            saibaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(saibaLayout.createSequentialGroup()
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 1361, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 805, Short.MAX_VALUE))
+        );
+        saibaLayout.setVerticalGroup(
+            saibaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(saibaLayout.createSequentialGroup()
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 548, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 4651, Short.MAX_VALUE))
+        );
+
+        cardPane.add(saiba, "saibaMais");
 
         mainLayeredPane.add(cardPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(1, 216, -1, -1));
 
@@ -474,7 +522,7 @@ public class FrmMenu extends javax.swing.JFrame {
 
     private void btnSaibaMaisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaibaMaisActionPerformed
         CardLayout cl = (CardLayout) cardPane.getLayout();;
-        cl.show(cardPane, "quemSomos");
+        cl.show(cardPane, "saibaMais");
     }//GEN-LAST:event_btnSaibaMaisActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -590,8 +638,10 @@ public class FrmMenu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JPanel jPanelBarraVerde;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JLabel lblTituloPessoaJuridica;
     private javax.swing.JLabel logoSoma;
     private javax.swing.JLayeredPane mainLayeredPane;
@@ -601,6 +651,8 @@ public class FrmMenu extends javax.swing.JFrame {
     private javax.swing.JPanel pessoaJuridicaPane;
     private javax.swing.JPanel quemSomosPaneScroll;
     private javax.swing.JPanel quemSomosScroll;
+    private javax.swing.JPanel quemSomosScroll1;
+    private javax.swing.JPanel saiba;
     private javax.swing.JTextField txtConfirmarSenha;
     private javax.swing.JTextField txtEmail;
     private javax.swing.JTextField txtEndereco;
