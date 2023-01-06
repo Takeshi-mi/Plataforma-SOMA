@@ -45,7 +45,7 @@ public class FrmLogin extends javax.swing.JFrame {
         LogoSoma = new javax.swing.JLabel();
         btnCadastre = new javax.swing.JButton();
         lblErro = new javax.swing.JLabel();
-        btnCadastre1 = new javax.swing.JButton();
+        btnEsqueceu = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocation(new java.awt.Point(0, 0));
@@ -108,23 +108,23 @@ public class FrmLogin extends javax.swing.JFrame {
         lblErro.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblErro.setText("Usuário ao senha incorretos");
 
-        btnCadastre1.setForeground(new java.awt.Color(0, 102, 153));
-        btnCadastre1.setText("Esqueci a senha");
-        btnCadastre1.setToolTipText("Clique para cadastrar");
-        btnCadastre1.setBorder(null);
-        btnCadastre1.setBorderPainted(false);
-        btnCadastre1.setContentAreaFilled(false);
-        btnCadastre1.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnEsqueceu.setForeground(new java.awt.Color(0, 102, 153));
+        btnEsqueceu.setText("Esqueceu a senha?");
+        btnEsqueceu.setToolTipText("Clique para cadastrar");
+        btnEsqueceu.setBorder(null);
+        btnEsqueceu.setBorderPainted(false);
+        btnEsqueceu.setContentAreaFilled(false);
+        btnEsqueceu.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btnCadastre1MouseEntered(evt);
+                btnEsqueceuMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                btnCadastre1MouseExited(evt);
+                btnEsqueceuMouseExited(evt);
             }
         });
-        btnCadastre1.addActionListener(new java.awt.event.ActionListener() {
+        btnEsqueceu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCadastre1ActionPerformed(evt);
+                btnEsqueceuActionPerformed(evt);
             }
         });
 
@@ -157,7 +157,7 @@ public class FrmLogin extends javax.swing.JFrame {
                 .addGap(67, 67, 67))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(225, 225, 225)
-                .addComponent(btnCadastre1, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnEsqueceu, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -184,7 +184,7 @@ public class FrmLogin extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnCadastre)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnCadastre1)
+                .addComponent(btnEsqueceu)
                 .addGap(35, 35, 35))
         );
 
@@ -240,17 +240,17 @@ public class FrmLogin extends javax.swing.JFrame {
         btnCadastre.setForeground(new Color(0, 102, 153));
     }//GEN-LAST:event_btnCadastreMouseExited
 
-    private void btnCadastre1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCadastre1MouseEntered
-        btnCadastre.setForeground(new Color(0, 204, 204));
-    }//GEN-LAST:event_btnCadastre1MouseEntered
+    private void btnEsqueceuMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEsqueceuMouseEntered
+        btnEsqueceu.setForeground(new Color(0, 204, 204));
+    }//GEN-LAST:event_btnEsqueceuMouseEntered
 
-    private void btnCadastre1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCadastre1MouseExited
-        btnCadastre.setForeground(new Color(0, 102, 153));
-    }//GEN-LAST:event_btnCadastre1MouseExited
+    private void btnEsqueceuMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEsqueceuMouseExited
+        btnEsqueceu.setForeground(new Color(0, 102, 153));
+    }//GEN-LAST:event_btnEsqueceuMouseExited
 
-    private void btnCadastre1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastre1ActionPerformed
+    private void btnEsqueceuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEsqueceuActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnCadastre1ActionPerformed
+    }//GEN-LAST:event_btnEsqueceuActionPerformed
 
     /**
      * @param args the command line arguments
@@ -298,7 +298,7 @@ public class FrmLogin extends javax.swing.JFrame {
     private javax.swing.JLabel LogoSoma;
     private javax.swing.JButton btnAcess;
     private javax.swing.JButton btnCadastre;
-    private javax.swing.JButton btnCadastre1;
+    private javax.swing.JButton btnEsqueceu;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JLabel lblErro;

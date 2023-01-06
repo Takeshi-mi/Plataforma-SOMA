@@ -93,7 +93,7 @@
               </Group>
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="225" max="-2" attributes="0"/>
-                  <Component id="btnCadastre1" min="-2" pref="142" max="-2" attributes="0"/>
+                  <Component id="btnEsqueceu" min="-2" pref="142" max="-2" attributes="0"/>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
@@ -122,7 +122,7 @@
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="btnCadastre" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="btnCadastre1" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnEsqueceu" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -240,12 +240,12 @@
             <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="credencial incorreta"/>
           </AccessibilityProperties>
         </Component>
-        <Component class="javax.swing.JButton" name="btnCadastre1">
+        <Component class="javax.swing.JButton" name="btnEsqueceu">
           <Properties>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="99" green="66" red="0" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Esqueci a senha"/>
+            <Property name="text" type="java.lang.String" value="Esqueceu a senha?"/>
             <Property name="toolTipText" type="java.lang.String" value="Clique para cadastrar"/>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="null"/>
@@ -254,9 +254,9 @@
             <Property name="contentAreaFilled" type="boolean" value="false"/>
           </Properties>
           <Events>
-            <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnCadastre1MouseEntered"/>
-            <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnCadastre1MouseExited"/>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCadastre1ActionPerformed"/>
+            <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnEsqueceuMouseEntered"/>
+            <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnEsqueceuMouseExited"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnEsqueceuActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>
