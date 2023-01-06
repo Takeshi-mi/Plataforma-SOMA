@@ -52,7 +52,7 @@ public class FrmTransacao extends javax.swing.JFrame {
         try{
             double qtd = Double.valueOf(txtQtd.getText()).doubleValue();
             double valor = preco*qtd;
-            txtValor.setText(Double.toString(valor));
+            txtValor.setText(String.valueOf(String.format("%.2f",valor)));
             txtDistancia.setText(aleatorio+" km");
             txtTransporte.setText(String.valueOf(String.format("-%.2f", aleatorio*0.8))); //Takeshi-Naoki Formatar para ficar com 2 casas decimais e ao invés de infinitos números decimais na tela
             txtTotal.setText(String.valueOf(String.format("%.2f", (valor-(aleatorio*0.8)))));

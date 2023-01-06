@@ -6,11 +6,13 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import model.Usuario;
 
 public class DaoUsuario {
     Connection connection;
-    PreparedStatement pstm = null;
+    PreparedStatement pstm;
+    
     
     public List<Usuario> getAll() {
         List<Usuario> userList = new ArrayList<>();
@@ -32,7 +34,7 @@ public class DaoUsuario {
             }
             pstm.close();
         } catch (SQLException ex) {
-            Logger.getLogger(DaoUsuario.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DaoUsuario.class.getName()).log(Level.SEVERE, "Erro ao coletar os dados: ", ex);
         }
         return userList;
     }
@@ -48,7 +50,7 @@ public class DaoUsuario {
             pstm.execute();
             pstm.close();
         } catch (SQLException ex) {
-            Logger.getLogger(DaoUsuario.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DaoUsuario.class.getName()).log(Level.SEVERE, "Erro ao adicionar dados: ", ex);
         }
     }
     
@@ -64,7 +66,7 @@ public class DaoUsuario {
             pstm.execute();
             pstm.close();
         } catch (SQLException ex) {
-            Logger.getLogger(DaoUsuario.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DaoUsuario.class.getName()).log(Level.SEVERE, "Erro ao atualizar dados: ", ex);
         }
     }
 
@@ -76,7 +78,7 @@ public class DaoUsuario {
             pstm.execute();
             pstm.close();
         } catch (SQLException ex) {
-            Logger.getLogger(DaoUsuario.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DaoUsuario.class.getName()).log(Level.SEVERE, "Erro ao deletar dados: ", ex);
         }
     }
     
@@ -93,7 +95,7 @@ public class DaoUsuario {
             }
             pstm.close();
         } catch (SQLException ex) {
-            Logger.getLogger(DaoUsuario.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DaoUsuario.class.getName()).log(Level.SEVERE, "Erro ao validar dados: ", ex);
         }
         return tipo;
     }

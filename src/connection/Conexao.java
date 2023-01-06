@@ -3,6 +3,7 @@
 package connection;
     
     import java.sql.*;
+import javax.swing.JOptionPane;
 
 public class Conexao {
     Connection conexao;
@@ -12,20 +13,15 @@ public class Conexao {
     private final String user = "postgres";
     private final String pass = "admin";
     
-    public static void main(String[] args) {
-        new Conexao().conectarBD();
-    }
-    
     public Connection conectarBD() {
         try {
             Class.forName(driver);
             conexao = DriverManager.getConnection(url, user, pass);
             System.out.println("Conexão realizada com sucesso");
             conexao.createStatement().execute("SET search_path TO soma");
-        } catch (SQLException ex) {
+        } catch (Exception ex) {
             System.err.println(ex.getMessage());
-        } catch (ClassNotFoundException ex) {
-            System.err.println(ex.getMessage());
+            JOptionPane.showMessageDialog(null, "Erro em estabelecer conexão com o banco de dados.\n\n"+ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
         }
         return conexao;
     }
