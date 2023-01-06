@@ -5,6 +5,7 @@
 package view;
 import dao.DaoUsuario;
 import java.awt.Color;
+import javax.swing.ImageIcon;
 import view.FrmMenu;
 import javax.swing.JOptionPane;
 
@@ -34,6 +35,10 @@ public class FrmLogin extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        dialogTroll = new javax.swing.JDialog();
+        paneTroll = new javax.swing.JPanel();
+        lblTrollface = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         lblUser = new javax.swing.JLabel();
         lblPassword = new javax.swing.JLabel();
@@ -46,6 +51,52 @@ public class FrmLogin extends javax.swing.JFrame {
         btnCadastre = new javax.swing.JButton();
         lblErro = new javax.swing.JLabel();
         btnEsqueceu = new javax.swing.JButton();
+
+        dialogTroll.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        dialogTroll.setTitle("Porra menó kkkk");
+        dialogTroll.setBounds(new java.awt.Rectangle(450, 420, 450, 420));
+
+        lblTrollface.setBackground(new java.awt.Color(204, 255, 255));
+        lblTrollface.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/trollface.png"))); // NOI18N
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
+        jLabel1.setText("Se fudeu klkkkjkk");
+
+        javax.swing.GroupLayout paneTrollLayout = new javax.swing.GroupLayout(paneTroll);
+        paneTroll.setLayout(paneTrollLayout);
+        paneTrollLayout.setHorizontalGroup(
+            paneTrollLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(paneTrollLayout.createSequentialGroup()
+                .addGap(27, 27, 27)
+                .addGroup(paneTrollLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1)
+                    .addGroup(paneTrollLayout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addComponent(lblTrollface)))
+                .addContainerGap(54, Short.MAX_VALUE))
+        );
+        paneTrollLayout.setVerticalGroup(
+            paneTrollLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(paneTrollLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblTrollface)
+                .addContainerGap(54, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout dialogTrollLayout = new javax.swing.GroupLayout(dialogTroll.getContentPane());
+        dialogTroll.getContentPane().setLayout(dialogTrollLayout);
+        dialogTrollLayout.setHorizontalGroup(
+            dialogTrollLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(paneTroll, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        dialogTrollLayout.setVerticalGroup(
+            dialogTrollLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(paneTroll, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        dialogTroll.getAccessibleContext().setAccessibleName("troll");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocation(new java.awt.Point(0, 0));
@@ -106,7 +157,7 @@ public class FrmLogin extends javax.swing.JFrame {
 
         lblErro.setForeground(new java.awt.Color(204, 0, 0));
         lblErro.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblErro.setText("Usuário ao senha incorretos");
+        lblErro.setText("Usuário ou senha incorretos");
 
         btnEsqueceu.setForeground(new java.awt.Color(0, 102, 153));
         btnEsqueceu.setText("Esqueceu a senha?");
@@ -249,7 +300,13 @@ public class FrmLogin extends javax.swing.JFrame {
     }//GEN-LAST:event_btnEsqueceuMouseExited
 
     private void btnEsqueceuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEsqueceuActionPerformed
-        // TODO add your handling code here:
+        int op = JOptionPane.showConfirmDialog(this, "Você esqueceu sua senha?");
+        if (op==0) {
+            //ImageIcon icon = new ImageIcon(getClass().getResource("/images/trollface.png"));
+            //JOptionPane.showOptionDialog(this, "Se fudeu kkkkk", "Perdeu a senha?", JOptionPane.DEFAULT_OPTION,JOptionPane.PLAIN_MESSAGE , icon, new String[] {"Nãaoo"}, null);
+            dialogTroll.setVisible(true);
+            dialogTroll.setLocationRelativeTo(null);
+        }
     }//GEN-LAST:event_btnEsqueceuActionPerformed
 
     /**
@@ -299,12 +356,16 @@ public class FrmLogin extends javax.swing.JFrame {
     private javax.swing.JButton btnAcess;
     private javax.swing.JButton btnCadastre;
     private javax.swing.JButton btnEsqueceu;
+    private javax.swing.JDialog dialogTroll;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JLabel lblErro;
     private javax.swing.JLabel lblImagePadlock;
     private javax.swing.JLabel lblPassword;
+    private javax.swing.JLabel lblTrollface;
     private javax.swing.JLabel lblUser;
+    private javax.swing.JPanel paneTroll;
     private javax.swing.JPasswordField pwdPassword;
     private javax.swing.JTextField txtUser;
     // End of variables declaration//GEN-END:variables

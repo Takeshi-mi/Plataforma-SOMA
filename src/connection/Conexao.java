@@ -17,8 +17,8 @@ public class Conexao {
         try {
             Class.forName(driver);
             conexao = DriverManager.getConnection(url, user, pass);
-            System.out.println("Conexão realizada com sucesso");
             conexao.createStatement().execute("SET search_path TO soma");
+            System.out.println("Conexão realizada com sucesso");
         } catch (Exception ex) {
             System.err.println(ex.getMessage());
             JOptionPane.showMessageDialog(null, "Erro em estabelecer conexão com o banco de dados.\n\n"+ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
