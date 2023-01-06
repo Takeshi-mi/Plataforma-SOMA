@@ -94,7 +94,4 @@ public class DaoEmpresa {
             Logger.getLogger(DaoUsuario.class.getName()).log(Level.SEVERE, "Erro ao deletar empresa: ", ex);
         }
     }
-
-
-
 }

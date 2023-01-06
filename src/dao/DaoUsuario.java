@@ -80,11 +80,13 @@ public class DaoUsuario {
         }
     }
     
-    public boolean validarUsuario(Usuario user) {
+    public boolean validarUsuario(String login, String senha) {
         boolean isValid = false;
         connection = new Conexao().conectarBD();
         try{
             pstm = connection.prepareStatement("SELECT login, senha FROM Usuario WHERE login = ? AND senha = ?", ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
+            pstm.setString(1, login);
+            pstm.setString(2, senha);
             ResultSet rs = pstm.executeQuery();
             if(rs.first()) {
                 isValid = true;

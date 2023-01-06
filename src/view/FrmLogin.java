@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package view;
+import dao.DaoUsuario;
 import java.awt.Color;
 import view.FrmMenu;
 import javax.swing.JOptionPane;
@@ -59,12 +60,6 @@ public class FrmLogin extends javax.swing.JFrame {
         lblPassword.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         lblPassword.setForeground(new java.awt.Color(102, 102, 102));
         lblPassword.setText("Senha:");
-
-        txtUser.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtUserActionPerformed(evt);
-            }
-        });
 
         btnAcess.setBackground(new java.awt.Color(37, 162, 90));
         btnAcess.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -181,30 +176,23 @@ public class FrmLogin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAcessActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAcessActionPerformed
-        String nome = "Takeshi";
-        String senha = "ifg";
-        if((new String(txtUser.getText()).equals(nome ) || new String(txtUser.getText()).equals("" )) && (new String(pwdPassword.getPassword()).equals(senha))||
-            new String(txtUser.getText()).equals("")){
-            //JOptionPane.showMessageDialog(this, "Bem vindo!");
-            
+        DaoUsuario daoUsuario = new DaoUsuario();
+        String login = txtUser.getText();
+        String senha = String.valueOf(pwdPassword.getPassword());
+        if(daoUsuario.validarUsuario(login, senha)){
             FrmMenu menu = new FrmMenu();
             menu.setVisible(true);
-            
-            
             dispose();
         }
         else {
-            JOptionPane.showMessageDialog(this, "Usuário ou senha incorretos!\nTente \nNome: Takeshi \nSenha: ifg");
+            JOptionPane.showMessageDialog(this, "Usuário ou senha incorretos!", "Erro", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_btnAcessActionPerformed
-
-    private void txtUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUserActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtUserActionPerformed
 
     private void btnCadastreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastreActionPerformed
        FrmCadastrar cadastro = new FrmCadastrar();
        cadastro.setVisible(true);
+       dispose();
     }//GEN-LAST:event_btnCadastreActionPerformed
 
     private void btnCadastreMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCadastreMouseEntered
