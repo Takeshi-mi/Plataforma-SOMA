@@ -21,17 +21,20 @@ public class DaoEmpresa {
             if(rs.first()) {
                 do{
                     Empresa empresa = new Empresa();
-                    empresa.idEmpresa = rs.getInt("idEmpresa");
-                    empresa.nome = rs.getString("nome");
+                    empresa.cnpj = rs.getString("cnpj");
+                    empresa.razaoSocial = rs.getString("razaosocial");
+                    empresa.nomeFantasia = rs.getString("nomefantasia");
                     empresa.interesse = rs.getInt("interesse");
-                    empresa.cep = rs.getInt("cep");
+                    empresa.cep = rs.getString("cep");
+                    empresa.uf = rs.getString("uf");                    
                     empresa.cidade = rs.getString("cidade");
-                    empresa.estado = rs.getString("estado");                    
+                    empresa.bairro = rs.getString("bairro");
                     empresa.rua = rs.getString("rua");                    
+                    empresa.numero = rs.getString("numero");                    
+                    empresa.complemento = rs.getString("complemento");                    
                     empresa.telefone = rs.getString("telefone");
                     empresa.site = rs.getString("telefone");
                     empresa.email = rs.getString("telefone");
-                    empresa.cnpj = rs.getString("cnpj");
 
                     empresaList.add(empresa);
                 }while(rs.next());
@@ -45,18 +48,27 @@ public class DaoEmpresa {
     
     public void addEmpresa(Empresa empresa) {
         connection = new Conexao().conectarBD();
+        String query = "INSERT INTO Empresa VALUES (DEFAULT,";
+        for (int i=0; i<12; i++) {
+            query += " ?,";
+        }
+        query += " ?)";
         try {
-            pstm = connection.prepareStatement("INSERT INTO Empresa VALUES (DEFAULT, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);");
-            pstm.setString(1, empresa.nome);
-            pstm.setInt(2, empresa.interesse);
-            pstm.setInt(3, empresa.cep);
-            pstm.setString(4, empresa.cidade);
-            pstm.setString(5, empresa.estado);
-            pstm.setString(6, empresa.rua);
-            pstm.setString(7, empresa.telefone);
-            pstm.setString(8, empresa.site);
-            pstm.setString(9, empresa.email);
-            pstm.setString(10, empresa.cnpj);
+            pstm = connection.prepareStatement(query);
+            pstm.setString(1, empresa.razaoSocial);
+            pstm.setString(2, empresa.nomeFantasia);
+            pstm.setInt(3, empresa.interesse);
+            pstm.setString(4, empresa.cep);
+            pstm.setString(5, empresa.uf);
+            pstm.setString(6, empresa.cidade);
+            pstm.setString(7, empresa.bairro);
+            pstm.setString(8, empresa.rua);
+            pstm.setString(9, empresa.numero);
+            pstm.setString(10, empresa.complemento);
+            pstm.setString(11, empresa.telefone);
+            pstm.setString(12, empresa.site);
+            pstm.setString(13, empresa.email);
+            
             pstm.execute();
             pstm.close();
         } catch (SQLException ex) {
@@ -66,19 +78,25 @@ public class DaoEmpresa {
     
     public void updateEmpresa(Empresa empresa) {
         connection = new Conexao().conectarBD();
+        String query = "UPDATE Empresa SET razaoSocial=?, nomeFantasia=?, interesse=?, cep=?, uf, cidade=?, bairro=?, rua=?, "
+                + "numero=?, complemento=?, telefone=?, site=?, email=? WHERE cnpj=?";
         try {
-            pstm = connection.prepareStatement("UPDATE Empresa SET nome=?, interesse=?, cep=?, cidade=?, estado=?, rua=?, telefone=?, site=?, email=?, cnpj=? WHERE idEmpresa=?;");
-            pstm.setString(1, empresa.nome);
-            pstm.setInt(2, empresa.interesse);
-            pstm.setInt(3, empresa.cep);
-            pstm.setString(4, empresa.cidade);
-            pstm.setString(5, empresa.estado);
-            pstm.setString(6, empresa.rua);
-            pstm.setString(7, empresa.telefone);
-            pstm.setString(8, empresa.site);
-            pstm.setString(9, empresa.email);
-            pstm.setString(10, empresa.cnpj);
-            pstm.setInt(11, empresa.idEmpresa);
+            pstm = connection.prepareStatement(query);
+            pstm.setString(1, empresa.razaoSocial);
+            pstm.setString(2, empresa.nomeFantasia);
+            pstm.setInt(3, empresa.interesse);
+            pstm.setString(4, empresa.cep);
+            pstm.setString(5, empresa.uf);
+            pstm.setString(6, empresa.cidade);
+            pstm.setString(7, empresa.bairro);
+            pstm.setString(8, empresa.rua);
+            pstm.setString(9, empresa.numero);
+            pstm.setString(10, empresa.complemento);
+            pstm.setString(11, empresa.telefone);
+            pstm.setString(12, empresa.site);
+            pstm.setString(13, empresa.email);
+            pstm.setString(14, empresa.cnpj);
+            
             pstm.execute();
             pstm.close();
         } catch (SQLException ex) {
@@ -86,11 +104,11 @@ public class DaoEmpresa {
         }
     }
     
-    public void deleteEmpresa(int id) {
+    public void deleteEmpresa(String cnpj) {
         connection = new Conexao().conectarBD();
         try {
-            pstm = connection.prepareStatement("DELETE FROM Empresa WHERE idEmpresa=?;");
-            pstm.setInt(1, id);
+            pstm = connection.prepareStatement("DELETE FROM Empresa WHERE cnpj=?;");
+            pstm.setString(1, cnpj);
             pstm.execute();
             pstm.close();
         } catch (SQLException ex) {
