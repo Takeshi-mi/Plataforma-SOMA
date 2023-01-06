@@ -30,7 +30,6 @@ public class FrmCadastrar extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        buttonGroupResiduos = new javax.swing.ButtonGroup();
         cardPane = new javax.swing.JPanel();
         pessoaJuridica = new javax.swing.JPanel();
         pessoaJuridicaPane = new javax.swing.JPanel();
@@ -411,24 +410,44 @@ public class FrmCadastrar extends javax.swing.JFrame {
         tipoResiduos.setPreferredSize(new java.awt.Dimension(1366, 750));
         tipoResiduos.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        buttonGroupResiduos.add(rbtnVidro);
+        rbtnVidro.setBackground(new java.awt.Color(255, 255, 255));
         rbtnVidro.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         rbtnVidro.setText("VIDRO");
+        rbtnVidro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbtnVidroActionPerformed(evt);
+            }
+        });
         tipoResiduos.add(rbtnVidro, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 430, 210, 40));
 
-        buttonGroupResiduos.add(rbtnMetal);
+        rbtnMetal.setBackground(new java.awt.Color(255, 255, 255));
         rbtnMetal.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         rbtnMetal.setText("METAL");
+        rbtnMetal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbtnMetalActionPerformed(evt);
+            }
+        });
         tipoResiduos.add(rbtnMetal, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 280, 210, 40));
 
-        buttonGroupResiduos.add(rbtnPapel);
+        rbtnPapel.setBackground(new java.awt.Color(255, 255, 255));
         rbtnPapel.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         rbtnPapel.setText("PAPEL");
+        rbtnPapel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbtnPapelActionPerformed(evt);
+            }
+        });
         tipoResiduos.add(rbtnPapel, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 330, 210, 40));
 
-        buttonGroupResiduos.add(rbtnPlastico);
+        rbtnPlastico.setBackground(new java.awt.Color(255, 255, 255));
         rbtnPlastico.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         rbtnPlastico.setText("PLÁSTICO");
+        rbtnPlastico.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbtnPlasticoActionPerformed(evt);
+            }
+        });
         tipoResiduos.add(rbtnPlastico, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 380, 210, 40));
 
         lblTitleTiposResiduos.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
@@ -449,6 +468,9 @@ public class FrmCadastrar extends javax.swing.JFrame {
         tipoResiduos.add(lblKgMetal, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 280, 70, -1));
 
         txtCapMetal.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        txtCapMetal.setToolTipText("");
+        txtCapMetal.setDisabledTextColor(new java.awt.Color(153, 153, 153));
+        txtCapMetal.setEnabled(false);
         tipoResiduos.add(txtCapMetal, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 280, 160, -1));
 
         lblTipos1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
@@ -457,6 +479,7 @@ public class FrmCadastrar extends javax.swing.JFrame {
         tipoResiduos.add(lblTipos1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 230, 120, -1));
 
         txtCapPapel.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        txtCapPapel.setEnabled(false);
         tipoResiduos.add(txtCapPapel, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 330, 160, -1));
 
         lblKgPapel.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
@@ -464,6 +487,7 @@ public class FrmCadastrar extends javax.swing.JFrame {
         tipoResiduos.add(lblKgPapel, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 330, 70, -1));
 
         txtCapPlastico.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        txtCapPlastico.setEnabled(false);
         tipoResiduos.add(txtCapPlastico, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 380, 160, -1));
 
         lblKgPlastico.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
@@ -471,6 +495,7 @@ public class FrmCadastrar extends javax.swing.JFrame {
         tipoResiduos.add(lblKgPlastico, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 380, 70, -1));
 
         txtCapVidro.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        txtCapVidro.setEnabled(false);
         tipoResiduos.add(txtCapVidro, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 430, 160, -1));
 
         lblKgVidro.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
@@ -637,6 +662,48 @@ public class FrmCadastrar extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(this, "Conta criada com sucesso! Bem vindo. Para negociar clique em 'Procurar Empresas'. ");
     }//GEN-LAST:event_btnDescartarMouseClicked
 
+    private void rbtnMetalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtnMetalActionPerformed
+         // TN com esses métodos eu quero permitir a edição da capacidade Máx apenas se o botão estiver marcado.
+         if (rbtnMetal.isSelected()) {
+             txtCapMetal.setEnabled(true);
+     
+        }else{
+             txtCapMetal.setEnabled(false);
+             txtCapMetal.setText("");
+         }
+
+    }//GEN-LAST:event_rbtnMetalActionPerformed
+
+    private void rbtnPapelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtnPapelActionPerformed
+        if (rbtnPapel.isSelected()) {
+             txtCapPapel.setEnabled(true);
+     
+        }else{
+             txtCapPapel.setEnabled(false);
+             txtCapPapel.setText("");
+         }
+    }//GEN-LAST:event_rbtnPapelActionPerformed
+
+    private void rbtnPlasticoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtnPlasticoActionPerformed
+         if (rbtnPlastico.isSelected()) {
+             txtCapPlastico.setEnabled(true);
+     
+        }else{
+             txtCapPlastico.setEnabled(false);
+             txtCapPlastico.setText("");
+         }
+    }//GEN-LAST:event_rbtnPlasticoActionPerformed
+
+    private void rbtnVidroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtnVidroActionPerformed
+         if (rbtnVidro.isSelected()) {
+             txtCapVidro.setEnabled(true);
+     
+        }else{
+             txtCapVidro.setEnabled(false);
+             txtCapVidro.setText("");
+         }
+    }//GEN-LAST:event_rbtnVidroActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -685,7 +752,6 @@ public class FrmCadastrar extends javax.swing.JFrame {
     private javax.swing.JLabel btnVoltarEndereco;
     private javax.swing.JLabel btnVoltarInteresse;
     private javax.swing.JLabel btnVoltarTipoResiduos;
-    private javax.swing.ButtonGroup buttonGroupResiduos;
     private javax.swing.JPanel cardPane;
     private javax.swing.JPanel endereco;
     private javax.swing.JFormattedTextField jFormattedTextField1;

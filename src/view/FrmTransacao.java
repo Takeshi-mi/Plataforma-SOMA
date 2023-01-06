@@ -168,7 +168,7 @@ public class FrmTransacao extends javax.swing.JFrame {
         painelDeCima.add(cbxTipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(173, 132, -1, -1));
 
         txtLocalizacao.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        txtLocalizacao.setText("Rua x, Formosa - GO");
+        txtLocalizacao.setText("Cidade - UF");
         painelDeCima.add(txtLocalizacao, new org.netbeans.lib.awtextra.AbsoluteConstraints(173, 88, 406, -1));
 
         lblTipo.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -294,6 +294,7 @@ public class FrmTransacao extends javax.swing.JFrame {
         txtValor.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         txtValor.setForeground(new java.awt.Color(51, 255, 0));
         txtValor.setText("0.00");
+        txtValor.setToolTipText("");
         txtValor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtValorActionPerformed(evt);
@@ -301,7 +302,7 @@ public class FrmTransacao extends javax.swing.JFrame {
         });
 
         txtTotal.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        txtTotal.setForeground(new java.awt.Color(51, 204, 0));
+        txtTotal.setForeground(new java.awt.Color(51, 255, 0));
         txtTotal.setText("0.00");
 
         txtDistancia.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -386,11 +387,6 @@ public class FrmTransacao extends javax.swing.JFrame {
         btnPesquisar.setForeground(new java.awt.Color(255, 255, 255));
         btnPesquisar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/lupa.png"))); // NOI18N
         btnPesquisar.setText("PESQUISAR");
-        btnPesquisar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnPesquisarActionPerformed(evt);
-            }
-        });
         painelDeCima.add(btnPesquisar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 189, 194, 38));
 
         btnConfirmar.setBackground(new java.awt.Color(0, 102, 51));
@@ -437,10 +433,6 @@ public class FrmTransacao extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarActionPerformed
-        preencherValorByTable();
-    }//GEN-LAST:event_btnPesquisarActionPerformed
 
     private void btnVoltarTransacaoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVoltarTransacaoMouseClicked
         FrmMenu menu = new FrmMenu();
