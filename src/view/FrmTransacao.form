@@ -193,7 +193,7 @@
                     </Column>
                     <Column editable="true" title="Pre&#xe7;o/kg" type="java.lang.Object">
                       <Data value="5"/>
-                      <Data value="null"/>
+                      <Data value="3.90"/>
                       <Data value="null"/>
                       <Data value="null"/>
                     </Column>
@@ -232,6 +232,9 @@
                   <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="tblDescartarRes&#xed;duosMouseClicked"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
@@ -385,7 +388,7 @@
         <Container class="javax.swing.JPanel" name="valores">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="650" y="540" width="310" height="-1"/>
+              <AbsoluteConstraints x="650" y="540" width="330" height="-1"/>
             </Constraint>
           </Constraints>
 
@@ -401,29 +404,29 @@
                           <Component id="lblValor" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                          <Group type="102" alignment="1" attributes="0">
-                              <Component id="lblValor3" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Component id="lblValor1" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="txtTotal" pref="77" max="32767" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="txtDistancia" max="32767" attributes="0"/>
+                                  <Component id="txtValor" max="32767" attributes="0"/>
+                              </Group>
                           </Group>
                           <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                              <Group type="102" attributes="0">
+                              <Group type="102" alignment="1" attributes="0">
                                   <Component id="lblValor2" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="txtTransporte" pref="77" max="32767" attributes="0"/>
+                                  <Component id="txtTransporte" max="32767" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="1" attributes="0">
-                                  <Component id="lblValor1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblValor3" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                      <Component id="txtDistancia" pref="77" max="32767" attributes="0"/>
-                                      <Component id="txtValor" max="32767" attributes="0"/>
-                                  </Group>
+                                  <Component id="txtTotal" min="-2" pref="105" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
-                      <EmptySpace min="-2" pref="73" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -497,7 +500,7 @@
                   <Font name="Segoe UI" size="18" style="1"/>
                 </Property>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="0" green="cc" red="33" type="rgb"/>
+                  <Color blue="0" green="ff" red="33" type="rgb"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="0.00"/>
               </Properties>
@@ -557,7 +560,7 @@
                   <Font name="Segoe UI" size="18" style="1"/>
                 </Property>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="0" green="0" red="cc" type="rgb"/>
+                  <Color blue="0" green="0" red="ff" type="rgb"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="0.00"/>
               </Properties>
@@ -598,7 +601,7 @@
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="966" y="550" width="138" height="57"/>
+              <AbsoluteConstraints x="990" y="550" width="138" height="57"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -658,6 +661,9 @@
           </Constraints>
         </Component>
         <Component class="javax.swing.JTextField" name="txtQtd">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="0"/>
+          </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
               <AbsoluteConstraints x="174" y="160" width="70" height="-1"/>

@@ -4,6 +4,7 @@
  */
 package view;
 
+import java.awt.Color;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
@@ -40,9 +41,11 @@ public class FrmTransacao extends javax.swing.JFrame {
     }
     
         public void preencherValorByTable(){
-        
+       // T-N Método para preencher o valor da transação para o cliente saber quanto irá ganhar de acordo com a empresa que ele selecionou na tabela. 
+       // T-N Além do valor preenche a distância e o transporte. No futuro usaremos alguma API para calcular isso. No momento estamos usando números aleatórios só para simular. 
+       
         int lineChoose = tblDescartarResíduos.getSelectedRow();
-        int preco = Integer.parseInt((String) tblDescartarResíduos.getValueAt(lineChoose, 4));
+        Double preco = Double.valueOf((String) tblDescartarResíduos.getValueAt(lineChoose, 4));
         int aleatorio = (int) (Math.random()*100);
 
         try{
@@ -50,8 +53,16 @@ public class FrmTransacao extends javax.swing.JFrame {
             double valor = preco*qtd;
             txtValor.setText(Double.toString(valor));
             txtDistancia.setText(aleatorio+" km");
-            txtTransporte.setText(String.valueOf(aleatorio*0.8));
-            txtTotal.setText(Double.toString(valor-(aleatorio*0.8)));
+            txtTransporte.setText(String.valueOf(String.format("-%.2f", aleatorio*0.8))); //Takeshi-Naoki Formatar para ficar com 2 casas decimais e ao invés de infinitos números decimais na tela
+            txtTotal.setText(String.valueOf(String.format("%.2f", (valor-(aleatorio*0.8)))));
+            if((valor-(aleatorio*0.8))<0){
+                txtTotal.setForeground(Color.RED);
+            }else{
+                txtTotal.setForeground(Color.GREEN);
+                
+               
+                
+            }
             
             
         }catch(NumberFormatException ex) {
@@ -167,7 +178,7 @@ public class FrmTransacao extends javax.swing.JFrame {
         tblDescartarResíduos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {"Suricato", "4141412", "333@gmail.com", "Rua 40, avenida tal, n13FormosaGO", "5"},
-                {"12", "2222", "we@gmail", "333", null},
+                {"12", "2222", "we@gmail", "333", "3.90"},
                 {null, null, null, null, null},
                 {null, null, null, null, null}
             },
@@ -175,6 +186,11 @@ public class FrmTransacao extends javax.swing.JFrame {
                 "Empresa", "Tipo", "Capacidade", "Localização", "Preço/kg"
             }
         ));
+        tblDescartarResíduos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblDescartarResíduosMouseClicked(evt);
+            }
+        });
         jScrollTabela.setViewportView(tblDescartarResíduos);
         if (tblDescartarResíduos.getColumnModel().getColumnCount() > 0) {
             tblDescartarResíduos.getColumnModel().getColumn(1).setPreferredWidth(30);
@@ -276,7 +292,7 @@ public class FrmTransacao extends javax.swing.JFrame {
         lblValor.setText("VALOR");
 
         txtValor.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        txtValor.setForeground(new java.awt.Color(51, 204, 0));
+        txtValor.setForeground(new java.awt.Color(51, 255, 0));
         txtValor.setText("0.00");
         txtValor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -306,7 +322,7 @@ public class FrmTransacao extends javax.swing.JFrame {
         lblValor3.setText("R$");
 
         txtTransporte.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        txtTransporte.setForeground(new java.awt.Color(204, 0, 0));
+        txtTransporte.setForeground(new java.awt.Color(255, 0, 0));
         txtTransporte.setText("0.00");
 
         javax.swing.GroupLayout valoresLayout = new javax.swing.GroupLayout(valores);
@@ -321,23 +337,23 @@ public class FrmTransacao extends javax.swing.JFrame {
                     .addComponent(lblDistancia)
                     .addComponent(lblValor))
                 .addGap(31, 31, 31)
-                .addGroup(valoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                .addGroup(valoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(valoresLayout.createSequentialGroup()
-                        .addComponent(lblValor3)
+                        .addComponent(lblValor1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtTotal, javax.swing.GroupLayout.DEFAULT_SIZE, 77, Short.MAX_VALUE))
+                        .addGroup(valoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtDistancia)
+                            .addComponent(txtValor)))
                     .addGroup(valoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addGroup(valoresLayout.createSequentialGroup()
                             .addComponent(lblValor2)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(txtTransporte, javax.swing.GroupLayout.DEFAULT_SIZE, 77, Short.MAX_VALUE))
+                            .addComponent(txtTransporte))
                         .addGroup(valoresLayout.createSequentialGroup()
-                            .addComponent(lblValor1)
+                            .addComponent(lblValor3)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addGroup(valoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(txtDistancia, javax.swing.GroupLayout.DEFAULT_SIZE, 77, Short.MAX_VALUE)
-                                .addComponent(txtValor)))))
-                .addGap(73, 73, 73))
+                            .addComponent(txtTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(55, 55, 55))
         );
         valoresLayout.setVerticalGroup(
             valoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -364,7 +380,7 @@ public class FrmTransacao extends javax.swing.JFrame {
                 .addContainerGap(18, Short.MAX_VALUE))
         );
 
-        painelDeCima.add(valores, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 540, 310, -1));
+        painelDeCima.add(valores, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 540, 330, -1));
 
         btnPesquisar.setBackground(new java.awt.Color(255, 102, 0));
         btnPesquisar.setForeground(new java.awt.Color(255, 255, 255));
@@ -380,7 +396,7 @@ public class FrmTransacao extends javax.swing.JFrame {
         btnConfirmar.setBackground(new java.awt.Color(0, 102, 51));
         btnConfirmar.setForeground(new java.awt.Color(255, 255, 255));
         btnConfirmar.setText("CONFIRMAR");
-        painelDeCima.add(btnConfirmar, new org.netbeans.lib.awtextra.AbsoluteConstraints(966, 550, 138, 57));
+        painelDeCima.add(btnConfirmar, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 550, 138, 57));
 
         buttonGroup1.add(jToggleButton1);
         jToggleButton1.setText("PAPEL");
@@ -398,6 +414,8 @@ public class FrmTransacao extends javax.swing.JFrame {
         buttonGroup1.add(jToggleButton4);
         jToggleButton4.setText("PLASTICO");
         painelDeCima.add(jToggleButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(506, 132, -1, -1));
+
+        txtQtd.setText("0");
         painelDeCima.add(txtQtd, new org.netbeans.lib.awtextra.AbsoluteConstraints(174, 160, 70, -1));
 
         lblFundoTransacao.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/fundoTransacao.png"))); // NOI18N
@@ -449,6 +467,10 @@ public class FrmTransacao extends javax.swing.JFrame {
     private void txtDistanciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDistanciaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtDistanciaActionPerformed
+
+    private void tblDescartarResíduosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblDescartarResíduosMouseClicked
+        preencherValorByTable();
+    }//GEN-LAST:event_tblDescartarResíduosMouseClicked
 
     /**
      * @param args the command line arguments
