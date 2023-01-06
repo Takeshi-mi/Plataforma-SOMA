@@ -53,14 +53,14 @@ public class FrmLogin extends javax.swing.JFrame {
         btnEsqueceu = new javax.swing.JButton();
 
         dialogTroll.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        dialogTroll.setTitle("Porra menó kkkk");
+        dialogTroll.setTitle("Vish mermão ");
         dialogTroll.setBounds(new java.awt.Rectangle(450, 420, 450, 420));
 
         lblTrollface.setBackground(new java.awt.Color(204, 255, 255));
         lblTrollface.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/trollface.png"))); // NOI18N
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
-        jLabel1.setText("Se fudeu klkkkjkk");
+        jLabel1.setText("Já era kkkkkkkk");
 
         javax.swing.GroupLayout paneTrollLayout = new javax.swing.GroupLayout(paneTroll);
         paneTroll.setLayout(paneTrollLayout);
@@ -73,7 +73,7 @@ public class FrmLogin extends javax.swing.JFrame {
                     .addGroup(paneTrollLayout.createSequentialGroup()
                         .addGap(6, 6, 6)
                         .addComponent(lblTrollface)))
-                .addContainerGap(54, Short.MAX_VALUE))
+                .addContainerGap(68, Short.MAX_VALUE))
         );
         paneTrollLayout.setVerticalGroup(
             paneTrollLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -302,8 +302,8 @@ public class FrmLogin extends javax.swing.JFrame {
     private void btnEsqueceuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEsqueceuActionPerformed
         int op = JOptionPane.showConfirmDialog(this, "Você esqueceu sua senha?");
         if (op==0) {
-            //ImageIcon icon = new ImageIcon(getClass().getResource("/images/trollface.png"));
-            //JOptionPane.showOptionDialog(this, "Se fudeu kkkkk", "Perdeu a senha?", JOptionPane.DEFAULT_OPTION,JOptionPane.PLAIN_MESSAGE , icon, new String[] {"Nãaoo"}, null);
+//            ImageIcon icon = new ImageIcon(getClass().getResource("/images/trollface.png"));
+//            JOptionPane.showOptionDialog(this, "Se fudeu kkkkk", "Perdeu a senha?", JOptionPane.DEFAULT_OPTION,JOptionPane.PLAIN_MESSAGE , icon, new String[] {"Nãaoo"}, null);
             dialogTroll.setVisible(true);
             dialogTroll.setLocationRelativeTo(null);
         }

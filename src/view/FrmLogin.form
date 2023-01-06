@@ -5,7 +5,7 @@
     <Container class="javax.swing.JDialog" name="dialogTroll">
       <Properties>
         <Property name="defaultCloseOperation" type="int" value="2"/>
-        <Property name="title" type="java.lang.String" value="Porra men&#xf3; kkkk"/>
+        <Property name="title" type="java.lang.String" value="Vish merm&#xe3;o "/>
         <Property name="bounds" type="java.awt.Rectangle" editor="org.netbeans.beaninfo.editors.RectangleEditor">
           <Rectangle value="[450, 420, 450, 420]"/>
         </Property>
@@ -41,7 +41,7 @@
                               <Component id="lblTrollface" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace pref="54" max="32767" attributes="0"/>
+                      <EmptySpace pref="68" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -73,7 +73,7 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="48" style="0"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Se fudeu klkkkjkk"/>
+                <Property name="text" type="java.lang.String" value="J&#xe1; era kkkkkkkk"/>
               </Properties>
             </Component>
           </SubComponents>

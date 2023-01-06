@@ -72,7 +72,7 @@ public class InFrmMais extends javax.swing.JInternalFrame {
         btnTransacoes.setBackground(new java.awt.Color(118, 118, 118));
         btnTransacoes.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         btnTransacoes.setForeground(new java.awt.Color(255, 255, 255));
-        btnTransacoes.setText("TRANSAÇÕES");
+        btnTransacoes.setText("HISTÓRICO DE TRANSAÇÕES");
         btnTransacoes.setBorder(null);
         btnTransacoes.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         btnTransacoes.addActionListener(new java.awt.event.ActionListener() {
@@ -80,7 +80,7 @@ public class InFrmMais extends javax.swing.JInternalFrame {
                 btnTransacoesActionPerformed(evt);
             }
         });
-        jPanel1.add(btnTransacoes, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 240, 240, 50));
+        jPanel1.add(btnTransacoes, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 360, 350, 50));
 
         btnProcurarEmpresas.setBackground(new java.awt.Color(118, 118, 118));
         btnProcurarEmpresas.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
@@ -93,7 +93,7 @@ public class InFrmMais extends javax.swing.JInternalFrame {
                 btnProcurarEmpresasActionPerformed(evt);
             }
         });
-        jPanel1.add(btnProcurarEmpresas, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 370, 310, 50));
+        jPanel1.add(btnProcurarEmpresas, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 240, 270, 50));
 
         btnPerfil.setBackground(new java.awt.Color(118, 118, 118));
         btnPerfil.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
@@ -131,8 +131,8 @@ public class InFrmMais extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_formMouseExited
 
     private void btnTransacoesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTransacoesActionPerformed
-        FrmTransacao transacao = new FrmTransacao();
-        transacao.setVisible(true);
+        FrmHistoricoTransacoes historico = new FrmHistoricoTransacoes();
+        historico.setVisible(true);
         SwingUtilities.getWindowAncestor(this).dispose();
     }//GEN-LAST:event_btnTransacoesActionPerformed
 
