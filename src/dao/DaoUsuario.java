@@ -40,12 +40,11 @@ public class DaoUsuario {
     public void addUsuario(Usuario user) {
         connection = new Conexao().conectarBD();
         try {
-            pstm = connection.prepareStatement("INSERT INTO Usuario( VALUES (?, ?, ?, ?, ?)");
-            pstm.setInt(1, user.idUsuario);
-            pstm.setString(2, user.login);
-            pstm.setString(3, user.senha);
-            pstm.setInt(4, user.tipo);
-            pstm.setInt(5, user.idEmpresa);
+            pstm = connection.prepareStatement("INSERT INTO Usuario VALUES (DEFAULT, ?, ?, ?, ?)");
+            pstm.setString(1, user.login);
+            pstm.setString(2, user.senha);
+            pstm.setInt(3, user.tipo);
+            pstm.setInt(4, user.idEmpresa);
             pstm.execute();
             pstm.close();
         } catch (SQLException ex) {
@@ -56,8 +55,7 @@ public class DaoUsuario {
     public void updateUsuario(Usuario user){
         connection = new Conexao().conectarBD();
         try {
-            pstm = connection.prepareStatement("UPDATE Usuario SET login=?, senha=?, tipo=?, idEmpresa=?" +
-                    "WHERE idUsuario=?;");
+            pstm = connection.prepareStatement("UPDATE Usuario SET login=?, senha=?, tipo=?, idEmpresa=? WHERE idUsuario=?;");
             pstm.setString(1, user.login);
             pstm.setString(2, user.senha);
             pstm.setInt(3, user.tipo);
