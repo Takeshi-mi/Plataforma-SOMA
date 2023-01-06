@@ -7,6 +7,7 @@ package view;
 import java.awt.Color;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -124,13 +125,14 @@ public class FrmTransacao extends javax.swing.JFrame {
         lblValor2 = new javax.swing.JLabel();
         lblValor3 = new javax.swing.JLabel();
         txtTransporte = new javax.swing.JTextField();
-        btnPesquisar = new javax.swing.JButton();
+        btnLimpar = new javax.swing.JButton();
         btnConfirmar = new javax.swing.JButton();
         jToggleButton1 = new javax.swing.JToggleButton();
         jToggleButton2 = new javax.swing.JToggleButton();
         jToggleButton3 = new javax.swing.JToggleButton();
         jToggleButton4 = new javax.swing.JToggleButton();
         txtQtd = new javax.swing.JTextField();
+        btnPesquisar1 = new javax.swing.JButton();
         lblFundoTransacao = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -383,11 +385,17 @@ public class FrmTransacao extends javax.swing.JFrame {
 
         painelDeCima.add(valores, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 540, 330, -1));
 
-        btnPesquisar.setBackground(new java.awt.Color(255, 102, 0));
-        btnPesquisar.setForeground(new java.awt.Color(255, 255, 255));
-        btnPesquisar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/lupa.png"))); // NOI18N
-        btnPesquisar.setText("PESQUISAR");
-        painelDeCima.add(btnPesquisar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 189, 194, 38));
+        btnLimpar.setBackground(new java.awt.Color(255, 153, 0));
+        btnLimpar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnLimpar.setForeground(new java.awt.Color(255, 255, 255));
+        btnLimpar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/iconLimpar.png"))); // NOI18N
+        btnLimpar.setText("LIMPAR BUSCA");
+        btnLimpar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLimparActionPerformed(evt);
+            }
+        });
+        painelDeCima.add(btnLimpar, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 190, 194, 38));
 
         btnConfirmar.setBackground(new java.awt.Color(0, 102, 51));
         btnConfirmar.setForeground(new java.awt.Color(255, 255, 255));
@@ -396,23 +404,29 @@ public class FrmTransacao extends javax.swing.JFrame {
 
         buttonGroup1.add(jToggleButton1);
         jToggleButton1.setText("PAPEL");
-        painelDeCima.add(jToggleButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(293, 132, -1, -1));
+        painelDeCima.add(jToggleButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 130, -1, -1));
 
-        jToggleButton2.setBackground(new java.awt.Color(255, 204, 204));
         buttonGroup1.add(jToggleButton2);
         jToggleButton2.setText("METAL");
-        painelDeCima.add(jToggleButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(363, 132, -1, -1));
+        painelDeCima.add(jToggleButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 130, -1, -1));
 
         buttonGroup1.add(jToggleButton3);
         jToggleButton3.setText("VIDRO");
-        painelDeCima.add(jToggleButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(436, 132, -1, -1));
+        painelDeCima.add(jToggleButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 130, -1, -1));
 
         buttonGroup1.add(jToggleButton4);
         jToggleButton4.setText("PLASTICO");
-        painelDeCima.add(jToggleButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(506, 132, -1, -1));
+        painelDeCima.add(jToggleButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 130, -1, -1));
 
         txtQtd.setText("0");
         painelDeCima.add(txtQtd, new org.netbeans.lib.awtextra.AbsoluteConstraints(174, 160, 70, -1));
+
+        btnPesquisar1.setBackground(new java.awt.Color(255, 102, 0));
+        btnPesquisar1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnPesquisar1.setForeground(new java.awt.Color(255, 255, 255));
+        btnPesquisar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/lupa.png"))); // NOI18N
+        btnPesquisar1.setText("PESQUISAR");
+        painelDeCima.add(btnPesquisar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 189, 194, 38));
 
         lblFundoTransacao.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/fundoTransacao.png"))); // NOI18N
         painelDeCima.add(lblFundoTransacao, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -464,6 +478,12 @@ public class FrmTransacao extends javax.swing.JFrame {
         preencherValorByTable();
     }//GEN-LAST:event_tblDescartarResíduosMouseClicked
 
+    private void btnLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimparActionPerformed
+        //limpaTabela
+    ((DefaultTableModel) tblDescartarResíduos.getModel()).setRowCount(0);
+     
+    }//GEN-LAST:event_btnLimparActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -504,7 +524,8 @@ public class FrmTransacao extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnConfirmar;
-    private javax.swing.JButton btnPesquisar;
+    private javax.swing.JButton btnLimpar;
+    private javax.swing.JButton btnPesquisar1;
     private javax.swing.JLabel btnVoltarTransacao;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JComboBox<String> cbxTipo;

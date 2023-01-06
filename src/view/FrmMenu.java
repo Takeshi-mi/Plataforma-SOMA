@@ -52,17 +52,6 @@ public class FrmMenu extends javax.swing.JFrame {
         mundoMelhor = new javax.swing.JLabel();
         logoSoma = new javax.swing.JLabel();
         btnSaibaMais = new javax.swing.JButton();
-        cadastroPane = new javax.swing.JPanel();
-        pessoaJuridicaPane = new javax.swing.JPanel();
-        lblTituloPessoaJuridica = new javax.swing.JLabel();
-        txtNomeEmpresa = new javax.swing.JTextField();
-        txtEndereco = new javax.swing.JTextField();
-        txtEmail = new javax.swing.JTextField();
-        txtTelefone = new javax.swing.JTextField();
-        txtSenha = new javax.swing.JTextField();
-        txtConfirmarSenha = new javax.swing.JTextField();
-        jButtonRound2 = new Swing.JButtonRound();
-        jLabel18 = new javax.swing.JLabel();
         quemSomosPaneScroll = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         quemSomosScroll = new javax.swing.JPanel();
@@ -226,93 +215,6 @@ public class FrmMenu extends javax.swing.JFrame {
         homePane.add(btnSaibaMais, new org.netbeans.lib.awtextra.AbsoluteConstraints(943, 253, 237, 57));
 
         cardPane.add(homePane, "home");
-
-        cadastroPane.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        pessoaJuridicaPane.setBackground(new java.awt.Color(255, 255, 255));
-        pessoaJuridicaPane.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 153, 0), 2));
-
-        lblTituloPessoaJuridica.setBackground(new java.awt.Color(255, 255, 255));
-        lblTituloPessoaJuridica.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
-        lblTituloPessoaJuridica.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblTituloPessoaJuridica.setText("PESSOA JURÍDICA");
-
-        txtNomeEmpresa.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true), "NOME DA EMPRESA", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 14))); // NOI18N
-
-        txtEndereco.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true), "ENDEREÇO", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 14))); // NOI18N
-
-        txtEmail.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true), "EMAIL", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 14))); // NOI18N
-
-        txtTelefone.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true), "TELEFONE", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 14))); // NOI18N
-
-        txtSenha.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true), "SENHA", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 14))); // NOI18N
-
-        txtConfirmarSenha.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true), "CONFIRMAR SENHA", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 14))); // NOI18N
-
-        jButtonRound2.setBackground(new java.awt.Color(255, 153, 0));
-        jButtonRound2.setForeground(new java.awt.Color(255, 255, 255));
-        jButtonRound2.setText("CADASTRAR");
-        jButtonRound2.setArc(20);
-        jButtonRound2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-
-        javax.swing.GroupLayout pessoaJuridicaPaneLayout = new javax.swing.GroupLayout(pessoaJuridicaPane);
-        pessoaJuridicaPane.setLayout(pessoaJuridicaPaneLayout);
-        pessoaJuridicaPaneLayout.setHorizontalGroup(
-            pessoaJuridicaPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pessoaJuridicaPaneLayout.createSequentialGroup()
-                .addGroup(pessoaJuridicaPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pessoaJuridicaPaneLayout.createSequentialGroup()
-                        .addGap(260, 260, 260)
-                        .addComponent(lblTituloPessoaJuridica, javax.swing.GroupLayout.PREFERRED_SIZE, 650, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(pessoaJuridicaPaneLayout.createSequentialGroup()
-                        .addGap(104, 104, 104)
-                        .addComponent(txtNomeEmpresa, javax.swing.GroupLayout.PREFERRED_SIZE, 937, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(pessoaJuridicaPaneLayout.createSequentialGroup()
-                        .addGap(104, 104, 104)
-                        .addGroup(pessoaJuridicaPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addGroup(pessoaJuridicaPaneLayout.createSequentialGroup()
-                                .addComponent(txtEmail)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(txtTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 441, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(txtEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, 937, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(pessoaJuridicaPaneLayout.createSequentialGroup()
-                                .addComponent(txtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 462, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(txtConfirmarSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 463, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(95, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pessoaJuridicaPaneLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jButtonRound2, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(454, 454, 454))
-        );
-        pessoaJuridicaPaneLayout.setVerticalGroup(
-            pessoaJuridicaPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pessoaJuridicaPaneLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lblTituloPessoaJuridica, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(46, 46, 46)
-                .addComponent(txtNomeEmpresa, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(txtEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(pessoaJuridicaPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(pessoaJuridicaPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtConfirmarSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(jButtonRound2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(31, Short.MAX_VALUE))
-        );
-
-        cadastroPane.add(pessoaJuridicaPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 30, 1140, 460));
-
-        jLabel18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/cadastroFundo.png"))); // NOI18N
-        cadastroPane.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(-50, 0, -1, -1));
-
-        cardPane.add(cadastroPane, "cadastro");
 
         jScrollPane1.setBorder(new javax.swing.border.MatteBorder(null));
 
@@ -645,12 +547,10 @@ public class FrmMenu extends javax.swing.JFrame {
     private javax.swing.JButton btnProcurarEmpresas;
     private javax.swing.JButton btnQuemSomos;
     private javax.swing.JButton btnSaibaMais;
-    private javax.swing.JPanel cadastroPane;
     private javax.swing.JPanel cardPane;
     private javax.swing.JLayeredPane homePane;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private Swing.JButtonRound jButtonRound2;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
@@ -659,28 +559,19 @@ public class FrmMenu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JPanel jPanelBarraVerde;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JLabel lblTituloPessoaJuridica;
     private javax.swing.JLabel logoSoma;
     private javax.swing.JLayeredPane mainLayeredPane;
     private javax.swing.JLabel mundoMelhor;
     private javax.swing.JLabel nomeUsuario;
     private javax.swing.JDesktopPane painelDesktopMain;
-    private javax.swing.JPanel pessoaJuridicaPane;
     private javax.swing.JPanel quemSomosPaneScroll;
     private javax.swing.JPanel quemSomosScroll;
     private javax.swing.JPanel quemSomosScroll1;
     private javax.swing.JPanel saiba;
-    private javax.swing.JTextField txtConfirmarSenha;
-    private javax.swing.JTextField txtEmail;
-    private javax.swing.JTextField txtEndereco;
-    private javax.swing.JTextField txtNomeEmpresa;
-    private javax.swing.JTextField txtSenha;
-    private javax.swing.JTextField txtTelefone;
     private javax.swing.JLabel vamosTornar;
     // End of variables declaration//GEN-END:variables
 }
