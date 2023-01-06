@@ -80,8 +80,8 @@ public class DaoUsuario {
         }
     }
     
-    public boolean validarUsuario(String login, String senha) {
-        boolean isValid = false;
+    public int validarUsuario(String login, String senha) {
+        int tipo = -1; // 0:adm, 1:compra, 2:venda
         connection = new Conexao().conectarBD();
         try{
             pstm = connection.prepareStatement("SELECT login, senha FROM Usuario WHERE login = ? AND senha = ?", ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
@@ -89,12 +89,12 @@ public class DaoUsuario {
             pstm.setString(2, senha);
             ResultSet rs = pstm.executeQuery();
             if(rs.first()) {
-                isValid = true;
+                tipo = rs.getInt("tipo");
             }
             pstm.close();
         } catch (SQLException ex) {
             Logger.getLogger(DaoUsuario.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return isValid;
+        return tipo;
     }
 }
