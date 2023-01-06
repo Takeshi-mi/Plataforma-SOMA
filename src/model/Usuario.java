@@ -1,17 +1,14 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package model;
 
-/**
- *
- * @author Admin
- */
 public class Usuario {
+    // evitar hardcode
+    public final int ADM = 0;
+    public final int EMPRESA = 1;
+    
     public int idUsuario; // PK
-    public int idEmpresa; // FK
-    public int tipo; // 0:ADM, 1:RECICLADORA, 2:PRODUTORA
     public String login;
     public String senha;
+    public int tipo; // 0:ADM, 1:EMPRESA
+    public String foto;
+    public String cnpjEmpresa; // FK
 }

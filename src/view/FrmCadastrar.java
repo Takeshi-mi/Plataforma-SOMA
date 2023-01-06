@@ -66,10 +66,16 @@ public class FrmCadastrar extends javax.swing.JFrame {
         jTextField4 = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jTextField5 = new javax.swing.JTextField();
-        jFormattedTextField1 = new javax.swing.JFormattedTextField();
+        txtCep = new javax.swing.JFormattedTextField();
         btnProximoEndereco = new Swing.JButtonRound();
         btnVoltarEndereco = new javax.swing.JLabel();
         lblFundoLocalizacao = new javax.swing.JLabel();
+        seuInteresse = new javax.swing.JPanel();
+        btnVoltarInteresse = new javax.swing.JLabel();
+        btnAdquirir = new javax.swing.JLabel();
+        btnDescartar = new javax.swing.JLabel();
+        lblTitle = new javax.swing.JLabel();
+        lblFundo = new javax.swing.JLabel();
         tipoResiduos = new javax.swing.JPanel();
         rbtnVidro = new javax.swing.JRadioButton();
         rbtnMetal = new javax.swing.JRadioButton();
@@ -90,12 +96,6 @@ public class FrmCadastrar extends javax.swing.JFrame {
         btnProximoTipoResiduos = new Swing.JButtonRound();
         btnVoltarTipoResiduos = new javax.swing.JLabel();
         lblFundoTipoResiduos = new javax.swing.JLabel();
-        seuInteresse = new javax.swing.JPanel();
-        btnVoltarInteresse = new javax.swing.JLabel();
-        btnAdquirir = new javax.swing.JLabel();
-        btnDescartar = new javax.swing.JLabel();
-        lblTitle = new javax.swing.JLabel();
-        lblFundo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(1370, 750));
@@ -268,11 +268,11 @@ public class FrmCadastrar extends javax.swing.JFrame {
         jTextField5.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
 
         try {
-            jFormattedTextField1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("#####-###")));
+            txtCep.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("#####-###")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
-        jFormattedTextField1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        txtCep.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
 
         btnProximoEndereco.setBackground(new java.awt.Color(255, 153, 0));
         btnProximoEndereco.setForeground(new java.awt.Color(255, 255, 255));
@@ -304,7 +304,7 @@ public class FrmCadastrar extends javax.swing.JFrame {
                             .addComponent(jLabel5))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jFormattedTextField1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtCep, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jTextField2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jTextField3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jTextField4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -316,7 +316,7 @@ public class FrmCadastrar extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel1Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jFormattedTextField1, jTextField2, jTextField3, jTextField4, jTextField5});
+        jPanel1Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jTextField2, jTextField3, jTextField4, jTextField5, txtCep});
 
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -325,7 +325,7 @@ public class FrmCadastrar extends javax.swing.JFrame {
                 .addComponent(lblTitleLocalizacao)
                 .addGap(59, 59, 59)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jFormattedTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtCep, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblCep, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(56, 56, 56)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -369,6 +369,66 @@ public class FrmCadastrar extends javax.swing.JFrame {
         endereco.add(lblFundoLocalizacao, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, -1, -1));
 
         cardPane.add(endereco, "endereco");
+
+        seuInteresse.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        btnVoltarInteresse.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/voltarVerde.png"))); // NOI18N
+        btnVoltarInteresse.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnVoltarInteresseMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnVoltarInteresseMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnVoltarInteresseMouseExited(evt);
+            }
+        });
+        seuInteresse.add(btnVoltarInteresse, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 90, 70));
+
+        btnAdquirir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/AdquirirIcon.png"))); // NOI18N
+        btnAdquirir.setToolTipText("Clique");
+        btnAdquirir.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnAdquirir.setPreferredSize(new java.awt.Dimension(50, 20));
+        btnAdquirir.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnAdquirirMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnAdquirirMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnAdquirirMouseExited(evt);
+            }
+        });
+        seuInteresse.add(btnAdquirir, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 300, 310, 290));
+
+        btnDescartar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/DescartarIcon.png"))); // NOI18N
+        btnDescartar.setToolTipText("Clique");
+        btnDescartar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnDescartar.setPreferredSize(new java.awt.Dimension(50, 20));
+        btnDescartar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnDescartarMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnDescartarMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnDescartarMouseExited(evt);
+            }
+        });
+        seuInteresse.add(btnDescartar, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 300, 310, 290));
+
+        lblTitle.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
+        lblTitle.setText("SEU INTERESSE É:");
+        seuInteresse.add(lblTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 90, 540, 110));
+
+        lblFundo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/seuInteresseFundo.png"))); // NOI18N
+        lblFundo.setPreferredSize(new java.awt.Dimension(1366, 750));
+        seuInteresse.add(lblFundo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 720));
+
+        cardPane.add(seuInteresse, "interesse");
 
         tipoResiduos.setBackground(new java.awt.Color(255, 255, 255));
         tipoResiduos.setPreferredSize(new java.awt.Dimension(1366, 750));
@@ -497,66 +557,6 @@ public class FrmCadastrar extends javax.swing.JFrame {
         tipoResiduos.add(lblFundoTipoResiduos, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, 1350, -1));
 
         cardPane.add(tipoResiduos, "tipoResiduos");
-
-        seuInteresse.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        btnVoltarInteresse.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/voltarVerde.png"))); // NOI18N
-        btnVoltarInteresse.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnVoltarInteresseMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btnVoltarInteresseMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                btnVoltarInteresseMouseExited(evt);
-            }
-        });
-        seuInteresse.add(btnVoltarInteresse, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 90, 70));
-
-        btnAdquirir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/AdquirirIcon.png"))); // NOI18N
-        btnAdquirir.setToolTipText("Clique");
-        btnAdquirir.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        btnAdquirir.setPreferredSize(new java.awt.Dimension(50, 20));
-        btnAdquirir.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnAdquirirMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btnAdquirirMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                btnAdquirirMouseExited(evt);
-            }
-        });
-        seuInteresse.add(btnAdquirir, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 300, 310, 290));
-
-        btnDescartar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/DescartarIcon.png"))); // NOI18N
-        btnDescartar.setToolTipText("Clique");
-        btnDescartar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        btnDescartar.setPreferredSize(new java.awt.Dimension(50, 20));
-        btnDescartar.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnDescartarMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btnDescartarMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                btnDescartarMouseExited(evt);
-            }
-        });
-        seuInteresse.add(btnDescartar, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 300, 310, 290));
-
-        lblTitle.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
-        lblTitle.setText("SEU INTERESSE É:");
-        seuInteresse.add(lblTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 90, 540, 110));
-
-        lblFundo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/seuInteresseFundo.png"))); // NOI18N
-        lblFundo.setPreferredSize(new java.awt.Dimension(1366, 750));
-        seuInteresse.add(lblFundo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 720));
-
-        cardPane.add(seuInteresse, "interesse");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -810,7 +810,6 @@ public class FrmCadastrar extends javax.swing.JFrame {
     private javax.swing.JLabel btnVoltarTipoResiduos;
     private javax.swing.JPanel cardPane;
     private javax.swing.JPanel endereco;
-    private javax.swing.JFormattedTextField jFormattedTextField1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -850,6 +849,7 @@ public class FrmCadastrar extends javax.swing.JFrame {
     private javax.swing.JTextField txtCapPapel;
     private javax.swing.JTextField txtCapPlastico;
     private javax.swing.JTextField txtCapVidro;
+    private javax.swing.JFormattedTextField txtCep;
     private javax.swing.JTextField txtCnpj;
     private javax.swing.JTextField txtEmail;
     private javax.swing.JTextField txtNomeEmpresa;
