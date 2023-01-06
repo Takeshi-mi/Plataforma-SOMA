@@ -21,6 +21,7 @@ public class Conexao {
             Class.forName(driver);
             conexao = DriverManager.getConnection(url, user, pass);
             System.out.println("Conexão realizada com sucesso");
+            conexao.createStatement().execute("SET search_path TO soma");
         } catch (SQLException ex) {
             System.err.println(ex.getMessage());
         } catch (ClassNotFoundException ex) {

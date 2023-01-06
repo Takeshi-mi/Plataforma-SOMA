@@ -40,12 +40,11 @@ public class DaoUsuario {
     public void addUsuario(Usuario user) {
         connection = new Conexao().conectarBD();
         try {
-            pstm = connection.prepareStatement("INSERT INTO Usuario( VALUES (?, ?, ?, ?, ?)");
-            pstm.setInt(1, user.idUsuario);
-            pstm.setString(2, user.login);
-            pstm.setString(3, user.senha);
-            pstm.setInt(4, user.tipo);
-            pstm.setInt(5, user.idEmpresa);
+            pstm = connection.prepareStatement("INSERT INTO Usuario VALUES (DEFAULT, ?, ?, ?, ?)");
+            pstm.setString(1, user.login);
+            pstm.setString(2, user.senha);
+            pstm.setInt(3, user.tipo);
+            pstm.setInt(4, user.idEmpresa);
             pstm.execute();
             pstm.close();
         } catch (SQLException ex) {
@@ -56,8 +55,7 @@ public class DaoUsuario {
     public void updateUsuario(Usuario user){
         connection = new Conexao().conectarBD();
         try {
-            pstm = connection.prepareStatement("UPDATE Usuario SET login=?, senha=?, tipo=?, idEmpresa=?" +
-                    "WHERE idUsuario=?;");
+            pstm = connection.prepareStatement("UPDATE Usuario SET login=?, senha=?, tipo=?, idEmpresa=? WHERE idUsuario=?;");
             pstm.setString(1, user.login);
             pstm.setString(2, user.senha);
             pstm.setInt(3, user.tipo);
@@ -82,19 +80,21 @@ public class DaoUsuario {
         }
     }
     
-    public boolean validarUsuario(Usuario user) {
-        boolean isValid = false;
+    public int validarUsuario(String login, String senha) {
+        int tipo = -1; // 0:adm, 1:compra, 2:venda
         connection = new Conexao().conectarBD();
         try{
             pstm = connection.prepareStatement("SELECT login, senha FROM Usuario WHERE login = ? AND senha = ?", ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
+            pstm.setString(1, login);
+            pstm.setString(2, senha);
             ResultSet rs = pstm.executeQuery();
             if(rs.first()) {
-                isValid = true;
+                tipo = rs.getInt("tipo");
             }
             pstm.close();
         } catch (SQLException ex) {
             Logger.getLogger(DaoUsuario.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return isValid;
+        return tipo;
     }
 }

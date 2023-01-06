@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package view;
+import dao.DaoUsuario;
 import java.awt.Color;
 import view.FrmMenu;
 import javax.swing.JOptionPane;
@@ -21,8 +22,7 @@ public class FrmLogin extends javax.swing.JFrame {
         getRootPane().setDefaultButton(btnAcess); // Tk Para que o botão acessar seja selecionado por padrão. Assim é só apertar ENTER depois de colocar a senha
         this.setLocationRelativeTo(null);
         
-        FrmMenu menu = new FrmMenu();
-        menu.setVisible(false);
+        lblErro.setVisible(false); // Começa invisivel, só aparece quando erra
     }
 
     /**
@@ -44,6 +44,8 @@ public class FrmLogin extends javax.swing.JFrame {
         jSeparator1 = new javax.swing.JSeparator();
         LogoSoma = new javax.swing.JLabel();
         btnCadastre = new javax.swing.JButton();
+        lblErro = new javax.swing.JLabel();
+        btnCadastre1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocation(new java.awt.Point(0, 0));
@@ -59,12 +61,6 @@ public class FrmLogin extends javax.swing.JFrame {
         lblPassword.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         lblPassword.setForeground(new java.awt.Color(102, 102, 102));
         lblPassword.setText("Senha:");
-
-        txtUser.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtUserActionPerformed(evt);
-            }
-        });
 
         btnAcess.setBackground(new java.awt.Color(37, 162, 90));
         btnAcess.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -108,17 +104,40 @@ public class FrmLogin extends javax.swing.JFrame {
             }
         });
 
+        lblErro.setForeground(new java.awt.Color(204, 0, 0));
+        lblErro.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblErro.setText("Usuário ao senha incorretos");
+
+        btnCadastre1.setForeground(new java.awt.Color(0, 102, 153));
+        btnCadastre1.setText("Esqueci a senha");
+        btnCadastre1.setToolTipText("Clique para cadastrar");
+        btnCadastre1.setBorder(null);
+        btnCadastre1.setBorderPainted(false);
+        btnCadastre1.setContentAreaFilled(false);
+        btnCadastre1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnCadastre1MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnCadastre1MouseExited(evt);
+            }
+        });
+        btnCadastre1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCadastre1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(48, 48, 48)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(LogoSoma, javax.swing.GroupLayout.PREFERRED_SIZE, 511, Short.MAX_VALUE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap(49, Short.MAX_VALUE)
-                        .addComponent(LogoSoma, javax.swing.GroupLayout.PREFERRED_SIZE, 511, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(168, 168, 168)
+                        .addGap(119, 119, 119)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jSeparator1, javax.swing.GroupLayout.DEFAULT_SIZE, 255, Short.MAX_VALUE)
@@ -126,20 +145,25 @@ public class FrmLogin extends javax.swing.JFrame {
                             .addComponent(btnAcess, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(pwdPassword)
                             .addComponent(txtUser, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(btnCadastre, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lblErro, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(lblPassword)
                                     .addComponent(lblUser)
                                     .addComponent(lblImagePadlock, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addComponent(btnCadastre, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGap(0, 0, Short.MAX_VALUE)))
                         .addGap(130, 130, 130)))
-                .addGap(66, 66, 66))
+                .addGap(67, 67, 67))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(225, 225, 225)
+                .addComponent(btnCadastre1, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(49, Short.MAX_VALUE)
+                .addGap(39, 39, 39)
                 .addComponent(LogoSoma, javax.swing.GroupLayout.PREFERRED_SIZE, 263, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(lblImagePadlock)
@@ -154,11 +178,17 @@ public class FrmLogin extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(pwdPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblErro)
+                .addGap(7, 7, 7)
                 .addComponent(btnAcess, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnCadastre)
-                .addGap(48, 48, 48))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnCadastre1)
+                .addGap(35, 35, 35))
         );
+
+        lblErro.getAccessibleContext().setAccessibleName("credencial incorreta");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -181,30 +211,25 @@ public class FrmLogin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAcessActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAcessActionPerformed
-        String nome = "Takeshi";
-        String senha = "ifg";
-        if((new String(txtUser.getText()).equals(nome ) || new String(txtUser.getText()).equals("" )) && (new String(pwdPassword.getPassword()).equals(senha))||
-            new String(txtUser.getText()).equals("")){
-            //JOptionPane.showMessageDialog(this, "Bem vindo!");
-            
+        DaoUsuario daoUsuario = new DaoUsuario();
+        String login = txtUser.getText();
+        String senha = String.valueOf(pwdPassword.getPassword());
+        int tipo = daoUsuario.validarUsuario(login, senha);
+        if(tipo != -1){
             FrmMenu menu = new FrmMenu();
             menu.setVisible(true);
-            
-            
             dispose();
         }
         else {
-            JOptionPane.showMessageDialog(this, "Usuário ou senha incorretos!\nTente \nNome: Takeshi \nSenha: ifg");
+//            JOptionPane.showMessageDialog(this, "Usuário ou senha incorretos!", "Erro", JOptionPane.ERROR_MESSAGE);
+            lblErro.setVisible(true);
         }
     }//GEN-LAST:event_btnAcessActionPerformed
-
-    private void txtUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUserActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtUserActionPerformed
 
     private void btnCadastreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastreActionPerformed
        FrmCadastrar cadastro = new FrmCadastrar();
        cadastro.setVisible(true);
+       dispose();
     }//GEN-LAST:event_btnCadastreActionPerformed
 
     private void btnCadastreMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCadastreMouseEntered
@@ -214,6 +239,18 @@ public class FrmLogin extends javax.swing.JFrame {
     private void btnCadastreMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCadastreMouseExited
         btnCadastre.setForeground(new Color(0, 102, 153));
     }//GEN-LAST:event_btnCadastreMouseExited
+
+    private void btnCadastre1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCadastre1MouseEntered
+        btnCadastre.setForeground(new Color(0, 204, 204));
+    }//GEN-LAST:event_btnCadastre1MouseEntered
+
+    private void btnCadastre1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCadastre1MouseExited
+        btnCadastre.setForeground(new Color(0, 102, 153));
+    }//GEN-LAST:event_btnCadastre1MouseExited
+
+    private void btnCadastre1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastre1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnCadastre1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -261,8 +298,10 @@ public class FrmLogin extends javax.swing.JFrame {
     private javax.swing.JLabel LogoSoma;
     private javax.swing.JButton btnAcess;
     private javax.swing.JButton btnCadastre;
+    private javax.swing.JButton btnCadastre1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JLabel lblErro;
     private javax.swing.JLabel lblImagePadlock;
     private javax.swing.JLabel lblPassword;
     private javax.swing.JLabel lblUser;
