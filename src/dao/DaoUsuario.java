@@ -24,10 +24,12 @@ public class DaoUsuario {
                 do{
                     Usuario user = new Usuario();
                     user.idUsuario = rs.getInt("idUsuario");
-                    user.idEmpresa = rs.getInt(("idEmpresa"));
                     user.login = rs.getString("login");
                     user.senha = rs.getString("senha");
                     user.tipo  = rs.getInt("tipo");
+                    user.foto = rs.getString("foto");
+                    user.cnpjEmpresa = rs.getString("cnpjEmpresa");
+                    
 
                     userList.add(user);
                 }while(rs.next());
@@ -43,10 +45,12 @@ public class DaoUsuario {
         connection = new Conexao().conectarBD();
         try {
             pstm = connection.prepareStatement("INSERT INTO Usuario VALUES (DEFAULT, ?, ?, ?, ?)");
-            pstm.setString(1, user.login);
-            pstm.setString(2, user.senha);
-            pstm.setInt(3, user.tipo);
-            pstm.setInt(4, user.idEmpresa);
+            pstm.setInt(1, user.idUsuario);
+            pstm.setString(2, user.login);
+            pstm.setString(3, user.senha);
+            pstm.setInt(4, user.tipo);
+            pstm.setString(5, user.foto);
+            pstm.setString(6, user.cnpjEmpresa);
             pstm.execute();
             pstm.close();
         } catch (SQLException ex) {
@@ -58,11 +62,12 @@ public class DaoUsuario {
         connection = new Conexao().conectarBD();
         try {
             pstm = connection.prepareStatement("UPDATE Usuario SET login=?, senha=?, tipo=?, idEmpresa=? WHERE idUsuario=?;");
-            pstm.setString(1, user.login);
-            pstm.setString(2, user.senha);
-            pstm.setInt(3, user.tipo);
-            pstm.setInt(4, user.idEmpresa);
-            pstm.setInt(5, user.idUsuario);
+            pstm.setInt(1, user.idUsuario);
+            pstm.setString(2, user.login);
+            pstm.setString(3, user.senha);
+            pstm.setInt(4, user.tipo);
+            pstm.setString(5, user.foto);
+            pstm.setString(6, user.cnpjEmpresa);
             pstm.execute();
             pstm.close();
         } catch (SQLException ex) {

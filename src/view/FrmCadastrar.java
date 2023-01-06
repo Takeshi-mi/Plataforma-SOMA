@@ -93,8 +93,8 @@ public class FrmCadastrar extends javax.swing.JFrame {
         lblKgPlastico = new javax.swing.JLabel();
         txtCapVidro = new javax.swing.JTextField();
         lblKgVidro = new javax.swing.JLabel();
-        btnProximoTipoResiduos = new Swing.JButtonRound();
         btnVoltarTipoResiduos = new javax.swing.JLabel();
+        btnSaibaMais = new javax.swing.JButton();
         lblFundoTipoResiduos = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -526,18 +526,6 @@ public class FrmCadastrar extends javax.swing.JFrame {
         lblKgVidro.setText("kg");
         tipoResiduos.add(lblKgVidro, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 430, 70, -1));
 
-        btnProximoTipoResiduos.setBackground(new java.awt.Color(0, 102, 51));
-        btnProximoTipoResiduos.setForeground(new java.awt.Color(255, 255, 255));
-        btnProximoTipoResiduos.setText("Próximo");
-        btnProximoTipoResiduos.setArc(20);
-        btnProximoTipoResiduos.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        btnProximoTipoResiduos.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnProximoTipoResiduosMouseClicked(evt);
-            }
-        });
-        tipoResiduos.add(btnProximoTipoResiduos, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 560, 310, 120));
-
         btnVoltarTipoResiduos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/voltarLaranja.png"))); // NOI18N
         btnVoltarTipoResiduos.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -551,6 +539,17 @@ public class FrmCadastrar extends javax.swing.JFrame {
             }
         });
         tipoResiduos.add(btnVoltarTipoResiduos, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 90, 70));
+
+        btnSaibaMais.setBackground(new java.awt.Color(7, 99, 36));
+        btnSaibaMais.setFont(new java.awt.Font("Arial Black", 0, 24)); // NOI18N
+        btnSaibaMais.setForeground(new java.awt.Color(255, 255, 255));
+        btnSaibaMais.setText("Próximo");
+        btnSaibaMais.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSaibaMaisActionPerformed(evt);
+            }
+        });
+        tipoResiduos.add(btnSaibaMais, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 570, 290, 80));
 
         lblFundoTipoResiduos.setBackground(new java.awt.Color(255, 255, 255));
         lblFundoTipoResiduos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/fundoTiposResiduo.png"))); // NOI18N
@@ -647,13 +646,6 @@ public class FrmCadastrar extends javax.swing.JFrame {
         CardLayout cl = (CardLayout) cardPane.getLayout();
         cl.show(cardPane, "interesse");
     }//GEN-LAST:event_btnProximoEnderecoMouseClicked
-
-    private void btnProximoTipoResiduosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnProximoTipoResiduosMouseClicked
-        this.dispose();
-        FrmMenu menu = new FrmMenu();
-        menu.setVisible(true);
-        JOptionPane.showMessageDialog(this, "Conta criada com sucesso! Bem vindo. Para negociar clique em 'Procurar Empresas'. ");
-    }//GEN-LAST:event_btnProximoTipoResiduosMouseClicked
 
     private void btnVoltarTipoResiduosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVoltarTipoResiduosMouseClicked
         CardLayout cl = (CardLayout) cardPane.getLayout();
@@ -760,6 +752,13 @@ public class FrmCadastrar extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_pwdSenhaFocusLost
 
+    private void btnSaibaMaisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaibaMaisActionPerformed
+        this.dispose();
+        FrmMenu menu = new FrmMenu();
+        menu.setVisible(true);
+        JOptionPane.showMessageDialog(this, "Conta criada com sucesso! Bem vindo. Para negociar clique em 'Procurar Empresas'. ");
+    }//GEN-LAST:event_btnSaibaMaisActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -803,7 +802,7 @@ public class FrmCadastrar extends javax.swing.JFrame {
     private Swing.JButtonRound btnCadastrar;
     private javax.swing.JLabel btnDescartar;
     private Swing.JButtonRound btnProximoEndereco;
-    private Swing.JButtonRound btnProximoTipoResiduos;
+    private javax.swing.JButton btnSaibaMais;
     private javax.swing.JLabel btnVoltarCadastro;
     private javax.swing.JLabel btnVoltarEndereco;
     private javax.swing.JLabel btnVoltarInteresse;
