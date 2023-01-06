@@ -19,6 +19,7 @@ public class FrmPerfil extends javax.swing.JFrame {
      */
     public FrmPerfil() {
         initComponents();
+        btnSalvar.setVisible(false);
     }
 
     /**
@@ -38,13 +39,15 @@ public class FrmPerfil extends javax.swing.JFrame {
         txtEmail = new javax.swing.JTextField();
         txtSite = new javax.swing.JTextField();
         txtTelefone = new javax.swing.JTextField();
-        txtNomeEmpresa = new javax.swing.JTextField();
+        txtNomeFantasia = new javax.swing.JTextField();
         txtEndereco = new javax.swing.JTextField();
         txtCnpj = new javax.swing.JFormattedTextField();
         btnEditar = new javax.swing.JButton();
         rbtnAdquirir = new javax.swing.JRadioButton();
         rbtnDescartar = new javax.swing.JRadioButton();
         btnHistorico = new javax.swing.JButton();
+        btnSalvar = new javax.swing.JButton();
+        txtRazaoSocial = new javax.swing.JTextField();
         btnVoltarPerfil = new javax.swing.JLabel();
         btnEditarFoto = new javax.swing.JButton();
         btnEditar1 = new javax.swing.JButton();
@@ -65,23 +68,29 @@ public class FrmPerfil extends javax.swing.JFrame {
 
         txtEmail.setBackground(new java.awt.Color(235, 218, 193));
         txtEmail.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true), "EMAIL", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 14))); // NOI18N
+        txtEmail.setDisabledTextColor(new java.awt.Color(51, 51, 51));
         txtEmail.setEnabled(false);
 
         txtSite.setBackground(new java.awt.Color(235, 218, 193));
         txtSite.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true), "SITE (opicional)", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 14))); // NOI18N
+        txtSite.setDisabledTextColor(new java.awt.Color(51, 51, 51));
         txtSite.setEnabled(false);
 
         txtTelefone.setBackground(new java.awt.Color(235, 218, 193));
+        txtTelefone.setText("(61)-96741123");
         txtTelefone.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true), "TELEFONE", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 14))); // NOI18N
+        txtTelefone.setDisabledTextColor(new java.awt.Color(51, 51, 51));
         txtTelefone.setEnabled(false);
 
-        txtNomeEmpresa.setBackground(new java.awt.Color(235, 218, 193));
-        txtNomeEmpresa.setText("Pipoqiunhas da Bilu");
-        txtNomeEmpresa.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true), "NOME DA EMPRESA", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 14))); // NOI18N
-        txtNomeEmpresa.setEnabled(false);
+        txtNomeFantasia.setBackground(new java.awt.Color(235, 218, 193));
+        txtNomeFantasia.setText("Pipoqiunhas da Bilu");
+        txtNomeFantasia.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true), "NOME DA EMPRESA", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 14))); // NOI18N
+        txtNomeFantasia.setDisabledTextColor(new java.awt.Color(51, 51, 51));
+        txtNomeFantasia.setEnabled(false);
 
         txtEndereco.setBackground(new java.awt.Color(235, 218, 193));
         txtEndereco.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true), "ENDEREÇO", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 14))); // NOI18N
+        txtEndereco.setDisabledTextColor(new java.awt.Color(51, 51, 51));
         txtEndereco.setEnabled(false);
 
         txtCnpj.setBackground(new java.awt.Color(235, 218, 193));
@@ -92,7 +101,7 @@ public class FrmPerfil extends javax.swing.JFrame {
             ex.printStackTrace();
         }
         txtCnpj.setText("1234567890000");
-        txtCnpj.setDisabledTextColor(new java.awt.Color(153, 153, 153));
+        txtCnpj.setDisabledTextColor(new java.awt.Color(51, 51, 51));
         txtCnpj.setEnabled(false);
         txtCnpj.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         txtCnpj.setOpaque(true);
@@ -102,9 +111,11 @@ public class FrmPerfil extends javax.swing.JFrame {
             }
         });
 
+        btnEditar.setBackground(new java.awt.Color(255, 153, 0));
         btnEditar.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         btnEditar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/iconEditar.png"))); // NOI18N
         btnEditar.setText("Editar dados");
+        btnEditar.setBorder(null);
         btnEditar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEditarActionPerformed(evt);
@@ -127,45 +138,69 @@ public class FrmPerfil extends javax.swing.JFrame {
         rbtnDescartar.setText("Descartar resíduos");
         rbtnDescartar.setEnabled(false);
 
+        btnHistorico.setBackground(new java.awt.Color(255, 153, 0));
         btnHistorico.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         btnHistorico.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/iconApertoDeMao.png"))); // NOI18N
         btnHistorico.setText("Histórico de transações");
+        btnHistorico.setBorder(null);
         btnHistorico.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnHistoricoActionPerformed(evt);
             }
         });
 
+        btnSalvar.setBackground(new java.awt.Color(255, 153, 0));
+        btnSalvar.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnSalvar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/iconSalvar.png"))); // NOI18N
+        btnSalvar.setText("Salvar");
+        btnSalvar.setBorder(null);
+        btnSalvar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSalvarActionPerformed(evt);
+            }
+        });
+
+        txtRazaoSocial.setBackground(new java.awt.Color(235, 218, 193));
+        txtRazaoSocial.setText("Pipoqiunhas da Bilu Distribuidora LTDA");
+        txtRazaoSocial.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true), "RAZÃO SOCIAL", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 14))); // NOI18N
+        txtRazaoSocial.setDisabledTextColor(new java.awt.Color(51, 51, 51));
+        txtRazaoSocial.setEnabled(false);
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                        .addGap(68, 68, 68)
+                .addGap(68, 68, 68)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(btnEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnHistorico, javax.swing.GroupLayout.PREFERRED_SIZE, 295, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(83, 83, 83))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(rbtnDescartar)
                                 .addGap(18, 18, 18)
                                 .addComponent(rbtnAdquirir))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(btnEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnHistorico, javax.swing.GroupLayout.PREFERRED_SIZE, 295, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18))))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                        .addGap(60, 60, 60)
+                            .addComponent(btnSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(55, 55, 55)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(txtRazaoSocial)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(txtEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, 338, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtNomeEmpresa)
+                            .addComponent(txtNomeFantasia)
                             .addComponent(txtCnpj))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(txtTelefone, javax.swing.GroupLayout.DEFAULT_SIZE, 310, Short.MAX_VALUE)
                             .addComponent(txtSite, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtEmail))))
-                .addGap(65, 65, 65))
+                .addGap(31, 31, 31))
         );
 
         jPanel1Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {txtEmail, txtSite, txtTelefone});
@@ -173,9 +208,11 @@ public class FrmPerfil extends javax.swing.JFrame {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(43, 43, 43)
+                .addGap(28, 28, 28)
+                .addComponent(txtRazaoSocial, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtNomeEmpresa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtNomeFantasia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -185,15 +222,17 @@ public class FrmPerfil extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtSite, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(46, 46, 46)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(rbtnDescartar)
                     .addComponent(rbtnAdquirir))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 93, Short.MAX_VALUE)
+                .addGap(27, 27, 27)
+                .addComponent(btnSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnHistorico, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(48, 48, 48))
+                .addGap(35, 35, 35))
         );
 
         perfil.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 40, 780, 490));
@@ -214,17 +253,25 @@ public class FrmPerfil extends javax.swing.JFrame {
         perfil.add(btnVoltarPerfil, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 90, 70));
 
         btnEditarFoto.setText("Editar foto de perfil");
+        btnEditarFoto.setBorder(null);
+        btnEditarFoto.setBorderPainted(false);
         btnEditarFoto.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnEditarFotoMouseClicked(evt);
             }
         });
-        perfil.add(btnEditarFoto, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 280, -1, -1));
+        perfil.add(btnEditarFoto, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 280, 140, -1));
 
         btnEditar1.setBackground(new java.awt.Color(255, 204, 255));
         btnEditar1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         btnEditar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/iconExcluir.png"))); // NOI18N
         btnEditar1.setText("Excluir conta");
+        btnEditar1.setBorder(null);
+        btnEditar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditar1ActionPerformed(evt);
+            }
+        });
         perfil.add(btnEditar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 660, 200, 50));
 
         lblFundoPerfil.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/fundoPerfil.png"))); // NOI18N
@@ -283,7 +330,8 @@ public class FrmPerfil extends javax.swing.JFrame {
     }//GEN-LAST:event_btnHistoricoActionPerformed
 
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
-        txtNomeEmpresa.setEnabled(true);
+        txtRazaoSocial.setEnabled(true);
+        txtNomeFantasia.setEnabled(true);
         txtCnpj.setEnabled(true);
         txtEndereco.setEnabled(true);
         txtEmail.setEnabled(true);
@@ -291,7 +339,28 @@ public class FrmPerfil extends javax.swing.JFrame {
         txtSite.setEnabled(true);
         rbtnDescartar.setEnabled(true);
         rbtnAdquirir.setEnabled(true);
+        btnSalvar.setVisible(true);
+        
     }//GEN-LAST:event_btnEditarActionPerformed
+
+    private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
+     
+        txtRazaoSocial.setEnabled(false);
+        txtNomeFantasia.setEnabled(false);
+        txtCnpj.setEnabled(false);
+        txtEndereco.setEnabled(false);
+        txtEmail.setEnabled(false);
+        txtTelefone.setEnabled(false);
+        txtSite.setEnabled(false);
+        rbtnDescartar.setEnabled(false);
+        rbtnAdquirir.setEnabled(false);
+        btnSalvar.setVisible(false);
+    }//GEN-LAST:event_btnSalvarActionPerformed
+
+    private void btnEditar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditar1ActionPerformed
+        JOptionPane.showConfirmDialog(this, "Tem certeza que deseja excluir sua conta?");
+        
+    }//GEN-LAST:event_btnEditar1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -333,6 +402,7 @@ public class FrmPerfil extends javax.swing.JFrame {
     private javax.swing.JButton btnEditar1;
     private javax.swing.JButton btnEditarFoto;
     private javax.swing.JButton btnHistorico;
+    private javax.swing.JButton btnSalvar;
     private javax.swing.JLabel btnVoltarPerfil;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JPanel cardPane;
@@ -345,7 +415,8 @@ public class FrmPerfil extends javax.swing.JFrame {
     private javax.swing.JFormattedTextField txtCnpj;
     private javax.swing.JTextField txtEmail;
     private javax.swing.JTextField txtEndereco;
-    private javax.swing.JTextField txtNomeEmpresa;
+    private javax.swing.JTextField txtNomeFantasia;
+    private javax.swing.JTextField txtRazaoSocial;
     private javax.swing.JTextField txtSite;
     private javax.swing.JTextField txtTelefone;
     // End of variables declaration//GEN-END:variables
