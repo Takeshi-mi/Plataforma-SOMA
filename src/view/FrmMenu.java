@@ -43,9 +43,9 @@ public class FrmMenu extends javax.swing.JFrame {
         UserIcon = new javax.swing.JLabel();
         nomeUsuario = new javax.swing.JLabel();
         jPanelBarraVerde = new javax.swing.JPanel();
-        btnSuporte = new javax.swing.JButton();
+        btnProcurarEmpresas = new javax.swing.JButton();
         btnInicio = new javax.swing.JButton();
-        btnInicio1 = new javax.swing.JButton();
+        btnQuemSomos = new javax.swing.JButton();
         cardPane = new javax.swing.JPanel();
         homePane = new javax.swing.JLayeredPane();
         vamosTornar = new javax.swing.JLabel();
@@ -132,14 +132,14 @@ public class FrmMenu extends javax.swing.JFrame {
         jPanelBarraVerde.setBackground(new java.awt.Color(7, 99, 36));
         jPanelBarraVerde.setForeground(new java.awt.Color(7, 99, 36));
 
-        btnSuporte.setBackground(new java.awt.Color(0, 102, 0));
-        btnSuporte.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        btnSuporte.setForeground(new java.awt.Color(255, 255, 255));
-        btnSuporte.setText("PROCURAR EMPRESAS");
-        btnSuporte.setBorder(null);
-        btnSuporte.addActionListener(new java.awt.event.ActionListener() {
+        btnProcurarEmpresas.setBackground(new java.awt.Color(0, 102, 0));
+        btnProcurarEmpresas.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        btnProcurarEmpresas.setForeground(new java.awt.Color(255, 255, 255));
+        btnProcurarEmpresas.setText("PROCURAR EMPRESAS");
+        btnProcurarEmpresas.setBorder(null);
+        btnProcurarEmpresas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSuporteActionPerformed(evt);
+                btnProcurarEmpresasActionPerformed(evt);
             }
         });
 
@@ -154,14 +154,14 @@ public class FrmMenu extends javax.swing.JFrame {
             }
         });
 
-        btnInicio1.setBackground(new java.awt.Color(0, 102, 0));
-        btnInicio1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        btnInicio1.setForeground(new java.awt.Color(255, 255, 255));
-        btnInicio1.setText("QUEM SOMOS");
-        btnInicio1.setBorder(null);
-        btnInicio1.addActionListener(new java.awt.event.ActionListener() {
+        btnQuemSomos.setBackground(new java.awt.Color(0, 102, 0));
+        btnQuemSomos.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        btnQuemSomos.setForeground(new java.awt.Color(255, 255, 255));
+        btnQuemSomos.setText("QUEM SOMOS");
+        btnQuemSomos.setBorder(null);
+        btnQuemSomos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnInicio1ActionPerformed(evt);
+                btnQuemSomosActionPerformed(evt);
             }
         });
 
@@ -173,16 +173,16 @@ public class FrmMenu extends javax.swing.JFrame {
                 .addGap(155, 155, 155)
                 .addComponent(btnInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(93, 93, 93)
-                .addComponent(btnSuporte, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnProcurarEmpresas, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(73, 73, 73)
-                .addComponent(btnInicio1, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnQuemSomos, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(366, Short.MAX_VALUE))
         );
         jPanelBarraVerdeLayout.setVerticalGroup(
             jPanelBarraVerdeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelBarraVerdeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                .addComponent(btnInicio1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnSuporte, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(btnQuemSomos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnProcurarEmpresas, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(jPanelBarraVerdeLayout.createSequentialGroup()
                 .addComponent(btnInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
@@ -504,12 +504,12 @@ public class FrmMenu extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnSuporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSuporteActionPerformed
+    private void btnProcurarEmpresasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProcurarEmpresasActionPerformed
         FrmTransacao descartar = new FrmTransacao();
         descartar.setVisible(true);
         descartar.setExtendedState(this.getExtendedState());
         dispose();
-    }//GEN-LAST:event_btnSuporteActionPerformed
+    }//GEN-LAST:event_btnProcurarEmpresasActionPerformed
 
     private void btnInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInicioActionPerformed
         CardLayout cl = (CardLayout) cardPane.getLayout();;
@@ -563,10 +563,10 @@ public class FrmMenu extends javax.swing.JFrame {
         perfil.setVisible(true);
     }//GEN-LAST:event_nomeUsuarioMouseClicked
 
-    private void btnInicio1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInicio1ActionPerformed
+    private void btnQuemSomosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnQuemSomosActionPerformed
         CardLayout cl = (CardLayout) cardPane.getLayout();;
         cl.show(cardPane, "quemSomos");
-    }//GEN-LAST:event_btnInicio1ActionPerformed
+    }//GEN-LAST:event_btnQuemSomosActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
@@ -642,9 +642,9 @@ public class FrmMenu extends javax.swing.JFrame {
     private javax.swing.JLabel UserIcon;
     private javax.swing.JButton btn3Pontos;
     private javax.swing.JButton btnInicio;
-    private javax.swing.JButton btnInicio1;
+    private javax.swing.JButton btnProcurarEmpresas;
+    private javax.swing.JButton btnQuemSomos;
     private javax.swing.JButton btnSaibaMais;
-    private javax.swing.JButton btnSuporte;
     private javax.swing.JPanel cadastroPane;
     private javax.swing.JPanel cardPane;
     private javax.swing.JLayeredPane homePane;
