@@ -13,10 +13,10 @@ public class Conexao {
     private final String pass = "admin";
     
     public static void main(String[] args) {
-        new Conexao().contectarBD();
+        new Conexao().conectarBD();
     }
     
-    public Connection contectarBD() {
+    public Connection conectarBD() {
         try {
             Class.forName(driver);
             conexao = DriverManager.getConnection(url, user, pass);
