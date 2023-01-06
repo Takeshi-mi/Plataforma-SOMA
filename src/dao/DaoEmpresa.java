@@ -31,6 +31,7 @@ public class DaoEmpresa {
                     empresa.telefone = rs.getString("telefone");
                     empresa.site = rs.getString("telefone");
                     empresa.email = rs.getString("telefone");
+                    empresa.cnpj = rs.getString("cnpj");
 
                     empresaList.add(empresa);
                 }while(rs.next());
@@ -45,7 +46,7 @@ public class DaoEmpresa {
     public void addEmpresa(Empresa empresa) {
         connection = new Conexao().conectarBD();
         try {
-            pstm = connection.prepareStatement("INSERT INTO Empresa VALUES (DEFAULT, ?, ?, ?, ?, ?, ?, ?, ?, ?);");
+            pstm = connection.prepareStatement("INSERT INTO Empresa VALUES (DEFAULT, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);");
             pstm.setString(1, empresa.nome);
             pstm.setInt(2, empresa.interesse);
             pstm.setInt(3, empresa.cep);
@@ -55,6 +56,7 @@ public class DaoEmpresa {
             pstm.setString(7, empresa.telefone);
             pstm.setString(8, empresa.site);
             pstm.setString(9, empresa.email);
+            pstm.setString(10, empresa.cnpj);
             pstm.execute();
             pstm.close();
         } catch (SQLException ex) {
@@ -65,7 +67,7 @@ public class DaoEmpresa {
     public void updateEmpresa(Empresa empresa) {
         connection = new Conexao().conectarBD();
         try {
-            pstm = connection.prepareStatement("UPDATE Empresa SET nome=?, interesse=?, cep=?, cidade=?, estado=?, rua=?, telefone=?, site=?, email=? WHERE idEmpresa=?;");
+            pstm = connection.prepareStatement("UPDATE Empresa SET nome=?, interesse=?, cep=?, cidade=?, estado=?, rua=?, telefone=?, site=?, email=?, cnpj=? WHERE idEmpresa=?;");
             pstm.setString(1, empresa.nome);
             pstm.setInt(2, empresa.interesse);
             pstm.setInt(3, empresa.cep);
@@ -75,7 +77,8 @@ public class DaoEmpresa {
             pstm.setString(7, empresa.telefone);
             pstm.setString(8, empresa.site);
             pstm.setString(9, empresa.email);
-            pstm.setInt(10, empresa.idEmpresa);
+            pstm.setString(10, empresa.cnpj);
+            pstm.setInt(11, empresa.idEmpresa);
             pstm.execute();
             pstm.close();
         } catch (SQLException ex) {

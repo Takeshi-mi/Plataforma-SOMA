@@ -4,16 +4,26 @@
  */
 package view;
 
+import dao.DaoEmpresa;
 import java.awt.CardLayout;
+import java.awt.Color;
+import java.awt.Window;
+import java.util.Arrays;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
+import javax.swing.SwingUtilities;
+import model.Empresa;
+import model.Usuario;
 
 /**
  *
  * @author Takeshi
  */
 public class FrmCadastrar extends javax.swing.JFrame {
-
+    DaoEmpresa daoEmp = new DaoEmpresa();
+    Empresa empresa = new Empresa();
+    Usuario usuario = new Usuario();
+    
     /**
      * Creates new form FrmCadastroTela
      */
@@ -35,21 +45,15 @@ public class FrmCadastrar extends javax.swing.JFrame {
         pessoaJuridicaPane = new javax.swing.JPanel();
         lblTituloPessoaJuridica = new javax.swing.JLabel();
         txtNomeEmpresa = new javax.swing.JTextField();
-        txtEndereco = new javax.swing.JTextField();
+        txtCnpj = new javax.swing.JTextField();
         txtEmail = new javax.swing.JTextField();
         txtTelefone = new javax.swing.JTextField();
-        txtSenha = new javax.swing.JTextField();
-        txtConfirmarSenha = new javax.swing.JTextField();
         btnCadastrar = new Swing.JButtonRound();
-        txtEndereco1 = new javax.swing.JTextField();
+        txtSite = new javax.swing.JTextField();
+        pwdConfirmarSenha = new javax.swing.JPasswordField();
+        pwdSenha = new javax.swing.JPasswordField();
         btnVoltarCadastro = new javax.swing.JLabel();
         lblfundoCadastro = new javax.swing.JLabel();
-        seuInteresse = new javax.swing.JPanel();
-        btnVoltarInteresse = new javax.swing.JLabel();
-        btnAdquirir = new javax.swing.JLabel();
-        btnDescartar = new javax.swing.JLabel();
-        lblTitle = new javax.swing.JLabel();
-        lblFundo = new javax.swing.JLabel();
         endereco = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         lblTitleLocalizacao = new javax.swing.JLabel();
@@ -86,6 +90,12 @@ public class FrmCadastrar extends javax.swing.JFrame {
         btnProximoTipoResiduos = new Swing.JButtonRound();
         btnVoltarTipoResiduos = new javax.swing.JLabel();
         lblFundoTipoResiduos = new javax.swing.JLabel();
+        seuInteresse = new javax.swing.JPanel();
+        btnVoltarInteresse = new javax.swing.JLabel();
+        btnAdquirir = new javax.swing.JLabel();
+        btnDescartar = new javax.swing.JLabel();
+        lblTitle = new javax.swing.JLabel();
+        lblFundo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(1370, 750));
@@ -105,15 +115,11 @@ public class FrmCadastrar extends javax.swing.JFrame {
 
         txtNomeEmpresa.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true), "NOME DA EMPRESA", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 14))); // NOI18N
 
-        txtEndereco.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true), "CNPJ", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 14))); // NOI18N
+        txtCnpj.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true), "CNPJ", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 14))); // NOI18N
 
         txtEmail.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true), "EMAIL", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 14))); // NOI18N
 
         txtTelefone.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true), "TELEFONE", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 14))); // NOI18N
-
-        txtSenha.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true), "SENHA", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 14))); // NOI18N
-
-        txtConfirmarSenha.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true), "CONFIRMAR SENHA", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 14))); // NOI18N
 
         btnCadastrar.setBackground(new java.awt.Color(255, 153, 0));
         btnCadastrar.setForeground(new java.awt.Color(255, 255, 255));
@@ -125,41 +131,59 @@ public class FrmCadastrar extends javax.swing.JFrame {
                 btnCadastrarMouseClicked(evt);
             }
         });
+        btnCadastrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCadastrarActionPerformed(evt);
+            }
+        });
 
-        txtEndereco1.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true), "SITE (opicional)", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 14))); // NOI18N
+        txtSite.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true), "SITE (opcional)", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 14))); // NOI18N
+
+        pwdConfirmarSenha.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true), "CONFIRMAR SENHA", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 14))); // NOI18N
+        pwdConfirmarSenha.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                pwdConfirmarSenhaFocusLost(evt);
+            }
+        });
+
+        pwdSenha.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true), "SENHA", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 14))); // NOI18N
+        pwdSenha.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                pwdSenhaFocusLost(evt);
+            }
+        });
 
         javax.swing.GroupLayout pessoaJuridicaPaneLayout = new javax.swing.GroupLayout(pessoaJuridicaPane);
         pessoaJuridicaPane.setLayout(pessoaJuridicaPaneLayout);
         pessoaJuridicaPaneLayout.setHorizontalGroup(
             pessoaJuridicaPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pessoaJuridicaPaneLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
+                .addGap(0, 436, Short.MAX_VALUE)
                 .addComponent(btnCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(454, 454, 454))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pessoaJuridicaPaneLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(pessoaJuridicaPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, 474, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 467, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 462, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(pessoaJuridicaPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtConfirmarSenha, javax.swing.GroupLayout.DEFAULT_SIZE, 463, Short.MAX_VALUE)
-                    .addComponent(txtTelefone)
-                    .addComponent(txtEndereco1, javax.swing.GroupLayout.PREFERRED_SIZE, 464, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(51, 51, 51))
             .addGroup(pessoaJuridicaPaneLayout.createSequentialGroup()
                 .addGroup(pessoaJuridicaPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pessoaJuridicaPaneLayout.createSequentialGroup()
-                        .addGap(104, 104, 104)
-                        .addComponent(txtNomeEmpresa, javax.swing.GroupLayout.PREFERRED_SIZE, 937, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(pessoaJuridicaPaneLayout.createSequentialGroup()
                         .addGap(260, 260, 260)
-                        .addComponent(lblTituloPessoaJuridica, javax.swing.GroupLayout.PREFERRED_SIZE, 650, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(65, Short.MAX_VALUE))
+                        .addComponent(lblTituloPessoaJuridica, javax.swing.GroupLayout.PREFERRED_SIZE, 650, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(pessoaJuridicaPaneLayout.createSequentialGroup()
+                        .addGap(73, 73, 73)
+                        .addGroup(pessoaJuridicaPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(txtNomeEmpresa)
+                            .addGroup(pessoaJuridicaPaneLayout.createSequentialGroup()
+                                .addGroup(pessoaJuridicaPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(txtCnpj, javax.swing.GroupLayout.DEFAULT_SIZE, 474, Short.MAX_VALUE)
+                                    .addComponent(txtEmail, javax.swing.GroupLayout.DEFAULT_SIZE, 467, Short.MAX_VALUE)
+                                    .addComponent(pwdSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 474, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(pessoaJuridicaPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(txtTelefone, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(txtSite, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 464, Short.MAX_VALUE)
+                                    .addComponent(pwdConfirmarSenha, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 474, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        pessoaJuridicaPaneLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {txtConfirmarSenha, txtEmail, txtEndereco, txtEndereco1, txtSenha, txtTelefone});
+        pessoaJuridicaPaneLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {txtCnpj, txtEmail, txtSite, txtTelefone});
 
         pessoaJuridicaPaneLayout.setVerticalGroup(
             pessoaJuridicaPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -170,16 +194,16 @@ public class FrmCadastrar extends javax.swing.JFrame {
                 .addComponent(txtNomeEmpresa, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(pessoaJuridicaPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtEndereco1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtCnpj, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtSite, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(pessoaJuridicaPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(pessoaJuridicaPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtConfirmarSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(pwdConfirmarSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(pwdSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(btnCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(31, Short.MAX_VALUE))
@@ -206,66 +230,6 @@ public class FrmCadastrar extends javax.swing.JFrame {
         pessoaJuridica.add(lblfundoCadastro, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1370, 750));
 
         cardPane.add(pessoaJuridica, "pessoaJuridica");
-
-        seuInteresse.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        btnVoltarInteresse.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/voltarVerde.png"))); // NOI18N
-        btnVoltarInteresse.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnVoltarInteresseMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btnVoltarInteresseMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                btnVoltarInteresseMouseExited(evt);
-            }
-        });
-        seuInteresse.add(btnVoltarInteresse, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 90, 70));
-
-        btnAdquirir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/AdquirirIcon.png"))); // NOI18N
-        btnAdquirir.setToolTipText("Clique");
-        btnAdquirir.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        btnAdquirir.setPreferredSize(new java.awt.Dimension(50, 20));
-        btnAdquirir.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnAdquirirMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btnAdquirirMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                btnAdquirirMouseExited(evt);
-            }
-        });
-        seuInteresse.add(btnAdquirir, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 300, 310, 290));
-
-        btnDescartar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/DescartarIcon.png"))); // NOI18N
-        btnDescartar.setToolTipText("Clique");
-        btnDescartar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        btnDescartar.setPreferredSize(new java.awt.Dimension(50, 20));
-        btnDescartar.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnDescartarMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btnDescartarMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                btnDescartarMouseExited(evt);
-            }
-        });
-        seuInteresse.add(btnDescartar, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 300, 310, 290));
-
-        lblTitle.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
-        lblTitle.setText("SEU INTERESSE É:");
-        seuInteresse.add(lblTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 90, 540, 110));
-
-        lblFundo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/seuInteresseFundo.png"))); // NOI18N
-        lblFundo.setPreferredSize(new java.awt.Dimension(1366, 750));
-        seuInteresse.add(lblFundo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 720));
-
-        cardPane.add(seuInteresse, "interesse");
 
         endereco.setBackground(new java.awt.Color(255, 255, 255));
         endereco.setPreferredSize(new java.awt.Dimension(1366, 750));
@@ -534,6 +498,66 @@ public class FrmCadastrar extends javax.swing.JFrame {
 
         cardPane.add(tipoResiduos, "tipoResiduos");
 
+        seuInteresse.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        btnVoltarInteresse.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/voltarVerde.png"))); // NOI18N
+        btnVoltarInteresse.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnVoltarInteresseMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnVoltarInteresseMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnVoltarInteresseMouseExited(evt);
+            }
+        });
+        seuInteresse.add(btnVoltarInteresse, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 90, 70));
+
+        btnAdquirir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/AdquirirIcon.png"))); // NOI18N
+        btnAdquirir.setToolTipText("Clique");
+        btnAdquirir.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnAdquirir.setPreferredSize(new java.awt.Dimension(50, 20));
+        btnAdquirir.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnAdquirirMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnAdquirirMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnAdquirirMouseExited(evt);
+            }
+        });
+        seuInteresse.add(btnAdquirir, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 300, 310, 290));
+
+        btnDescartar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/DescartarIcon.png"))); // NOI18N
+        btnDescartar.setToolTipText("Clique");
+        btnDescartar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnDescartar.setPreferredSize(new java.awt.Dimension(50, 20));
+        btnDescartar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnDescartarMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnDescartarMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnDescartarMouseExited(evt);
+            }
+        });
+        seuInteresse.add(btnDescartar, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 300, 310, 290));
+
+        lblTitle.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
+        lblTitle.setText("SEU INTERESSE É:");
+        seuInteresse.add(lblTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 90, 540, 110));
+
+        lblFundo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/seuInteresseFundo.png"))); // NOI18N
+        lblFundo.setPreferredSize(new java.awt.Dimension(1366, 750));
+        seuInteresse.add(lblFundo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 720));
+
+        cardPane.add(seuInteresse, "interesse");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -600,8 +624,7 @@ public class FrmCadastrar extends javax.swing.JFrame {
     }//GEN-LAST:event_btnVoltarInteresseMouseClicked
 
     private void btnVoltarCadastroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVoltarCadastroMouseClicked
-        FrmLogin login = new FrmLogin();
-        login.setVisible(true);
+        Window.getOwnerlessWindows()[0].setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnVoltarCadastroMouseClicked
 
@@ -704,6 +727,39 @@ public class FrmCadastrar extends javax.swing.JFrame {
          }
     }//GEN-LAST:event_rbtnVidroActionPerformed
 
+    private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
+        if (Arrays.equals(pwdConfirmarSenha.getPassword(), pwdSenha.getPassword())) {
+            usuario.senha = String.valueOf(pwdSenha.getPassword());
+        }else {
+            JOptionPane.showMessageDialog(this, "O valor do campo SENHA e CONFIRMAR SENHA devem ser iguais", "Diveregência entre as senhas", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        empresa.nome = txtNomeEmpresa.getText();
+        empresa.cnpj = txtCnpj.getText();
+        empresa.site = txtSite.getText();
+        empresa.email = txtEmail.getText();
+        usuario.login = empresa.email;
+        empresa.telefone = txtTelefone.getText();
+    }//GEN-LAST:event_btnCadastrarActionPerformed
+
+    private void pwdConfirmarSenhaFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_pwdConfirmarSenhaFocusLost
+        if (Arrays.equals(pwdConfirmarSenha.getPassword(), pwdSenha.getPassword())) {
+            pwdConfirmarSenha.setForeground(Color.black);
+        } 
+        else {
+            pwdConfirmarSenha.setForeground(Color.red);
+        }
+    }//GEN-LAST:event_pwdConfirmarSenhaFocusLost
+
+    private void pwdSenhaFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_pwdSenhaFocusLost
+        if (Arrays.equals(pwdConfirmarSenha.getPassword(), pwdSenha.getPassword())) {
+            pwdConfirmarSenha.setForeground(Color.black);
+        } 
+        else {
+            pwdConfirmarSenha.setForeground(Color.red);
+        }
+    }//GEN-LAST:event_pwdSenhaFocusLost
+
     /**
      * @param args the command line arguments
      */
@@ -782,6 +838,8 @@ public class FrmCadastrar extends javax.swing.JFrame {
     private javax.swing.JLabel lblfundoCadastro;
     private javax.swing.JPanel pessoaJuridica;
     private javax.swing.JPanel pessoaJuridicaPane;
+    private javax.swing.JPasswordField pwdConfirmarSenha;
+    private javax.swing.JPasswordField pwdSenha;
     private javax.swing.JRadioButton rbtnMetal;
     private javax.swing.JRadioButton rbtnPapel;
     private javax.swing.JRadioButton rbtnPlastico;
@@ -792,12 +850,10 @@ public class FrmCadastrar extends javax.swing.JFrame {
     private javax.swing.JTextField txtCapPapel;
     private javax.swing.JTextField txtCapPlastico;
     private javax.swing.JTextField txtCapVidro;
-    private javax.swing.JTextField txtConfirmarSenha;
+    private javax.swing.JTextField txtCnpj;
     private javax.swing.JTextField txtEmail;
-    private javax.swing.JTextField txtEndereco;
-    private javax.swing.JTextField txtEndereco1;
     private javax.swing.JTextField txtNomeEmpresa;
-    private javax.swing.JTextField txtSenha;
+    private javax.swing.JTextField txtSite;
     private javax.swing.JTextField txtTelefone;
     // End of variables declaration//GEN-END:variables
 }

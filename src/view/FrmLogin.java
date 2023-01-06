@@ -107,7 +107,7 @@ public class FrmLogin extends javax.swing.JFrame {
 
         lblUser.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         lblUser.setForeground(new java.awt.Color(102, 102, 102));
-        lblUser.setText("Usuário:");
+        lblUser.setText("Usuário/e-mail:");
 
         lblPassword.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         lblPassword.setForeground(new java.awt.Color(102, 102, 102));
@@ -280,7 +280,7 @@ public class FrmLogin extends javax.swing.JFrame {
     private void btnCadastreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastreActionPerformed
        FrmCadastrar cadastro = new FrmCadastrar();
        cadastro.setVisible(true);
-       dispose();
+       this.setVisible(false);
     }//GEN-LAST:event_btnCadastreActionPerformed
 
     private void btnCadastreMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCadastreMouseEntered

@@ -12,4 +12,5 @@ public class Empresa {
     public String telefone;
     public String site;
     public String email;
+    public String cnpj;
 }
