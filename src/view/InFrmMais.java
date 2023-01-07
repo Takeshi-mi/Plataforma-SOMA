@@ -33,6 +33,7 @@ public class InFrmMais extends javax.swing.JInternalFrame {
         btnTransacoes = new javax.swing.JButton();
         btnProcurarEmpresas = new javax.swing.JButton();
         btnPerfil = new javax.swing.JButton();
+        btnMapa = new javax.swing.JButton();
         lblFundo = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(7, 99, 36));
@@ -80,7 +81,7 @@ public class InFrmMais extends javax.swing.JInternalFrame {
                 btnTransacoesActionPerformed(evt);
             }
         });
-        jPanel1.add(btnTransacoes, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 360, 350, 50));
+        jPanel1.add(btnTransacoes, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 470, 370, 50));
 
         btnProcurarEmpresas.setBackground(new java.awt.Color(118, 118, 118));
         btnProcurarEmpresas.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
@@ -107,6 +108,19 @@ public class InFrmMais extends javax.swing.JInternalFrame {
             }
         });
         jPanel1.add(btnPerfil, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 180, 50));
+
+        btnMapa.setBackground(new java.awt.Color(118, 118, 118));
+        btnMapa.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        btnMapa.setForeground(new java.awt.Color(255, 255, 255));
+        btnMapa.setText("MAPA PONTOS DE COLETA");
+        btnMapa.setBorder(null);
+        btnMapa.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnMapa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMapaActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnMapa, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 360, 330, 50));
 
         lblFundo.setBackground(new java.awt.Color(0, 102, 51));
         lblFundo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/internalFrameMenuFundo.png"))); // NOI18N
@@ -148,8 +162,15 @@ public class InFrmMais extends javax.swing.JInternalFrame {
         SwingUtilities.getWindowAncestor(this).dispose();
     }//GEN-LAST:event_btnPerfilActionPerformed
 
+    private void btnMapaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMapaActionPerformed
+        FrmMapa mapa = new FrmMapa();
+        mapa.setVisible(true);
+        SwingUtilities.getWindowAncestor(this).dispose();
+    }//GEN-LAST:event_btnMapaActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnMapa;
     private javax.swing.JButton btnPerfil;
     private javax.swing.JButton btnProcurarEmpresas;
     private javax.swing.JButton btnTransacoes;

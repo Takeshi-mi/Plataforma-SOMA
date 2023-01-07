@@ -77,6 +77,7 @@ public class FrmMenu extends javax.swing.JFrame {
         setLocationByPlatform(true);
         setResizable(false);
 
+        mainPane.setBackground(new java.awt.Color(255, 255, 255));
         mainPane.setPreferredSize(new java.awt.Dimension(1366, 750));
         mainPane.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -180,10 +181,10 @@ public class FrmMenu extends javax.swing.JFrame {
         mainPane.add(jPanelBarraVerde, new org.netbeans.lib.awtextra.AbsoluteConstraints(1, 142, 1364, 50));
 
         cardPane.setBackground(new java.awt.Color(255, 255, 255));
-        cardPane.setBorder(new javax.swing.border.MatteBorder(null));
         cardPane.setPreferredSize(new java.awt.Dimension(1366, 530));
         cardPane.setLayout(new java.awt.CardLayout());
 
+        home.setBackground(new java.awt.Color(255, 255, 255));
         home.setPreferredSize(new java.awt.Dimension(1366, 530));
         home.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -310,7 +311,7 @@ public class FrmMenu extends javax.swing.JFrame {
             quemSomosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(quemSomosLayout.createSequentialGroup()
                 .addComponent(scpaneQuemSomos, javax.swing.GroupLayout.PREFERRED_SIZE, 1361, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 3, Short.MAX_VALUE))
+                .addGap(0, 5, Short.MAX_VALUE))
         );
         quemSomosLayout.setVerticalGroup(
             quemSomosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -333,11 +334,11 @@ public class FrmMenu extends javax.swing.JFrame {
         saibaMais.setLayout(saibaMaisLayout);
         saibaMaisLayout.setHorizontalGroup(
             saibaMaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1364, Short.MAX_VALUE)
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1366, Short.MAX_VALUE)
         );
         saibaMaisLayout.setVerticalGroup(
             saibaMaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 528, Short.MAX_VALUE)
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 530, Short.MAX_VALUE)
         );
 
         cardPane.add(saibaMais, "saibaMais");
