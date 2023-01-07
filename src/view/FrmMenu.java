@@ -27,6 +27,7 @@ public class FrmMenu extends javax.swing.JFrame {
      */
     public FrmMenu() {
         initComponents();
+        jScrollPane2.getVerticalScrollBar().setUnitIncrement(20);
     }
 
     /**
@@ -38,7 +39,6 @@ public class FrmMenu extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jScrollBar1 = new javax.swing.JScrollBar();
         painelDesktopMain = new javax.swing.JDesktopPane();
         mainPane = new javax.swing.JPanel();
         btn3Pontos = new javax.swing.JButton();
@@ -69,9 +69,6 @@ public class FrmMenu extends javax.swing.JFrame {
         saibaMais = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         fundoSaibaMias = new javax.swing.JLabel();
-
-        jScrollBar1.setMaximum(3000);
-        jScrollBar1.setUnitIncrement(50);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("SOMA");
@@ -221,7 +218,6 @@ public class FrmMenu extends javax.swing.JFrame {
         quemSomos.setPreferredSize(new java.awt.Dimension(1366, 530));
 
         scpaneQuemSomos.setBorder(new javax.swing.border.MatteBorder(null));
-        scpaneQuemSomos.setVerticalScrollBar(jScrollBar1);
 
         jLabel10.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         jLabel10.setText("na busca por empresas homologadas próximas.");
@@ -530,7 +526,6 @@ public class FrmMenu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JPanel jPanelBarraVerde;
-    private javax.swing.JScrollBar jScrollBar1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel logoSoma1;
     private javax.swing.JPanel mainPane;

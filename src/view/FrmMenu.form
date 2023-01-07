@@ -1,14 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
 <Form version="1.9" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
-  <NonVisualComponents>
-    <Component class="javax.swing.JScrollBar" name="jScrollBar1">
-      <Properties>
-        <Property name="maximum" type="int" value="3000"/>
-        <Property name="unitIncrement" type="int" value="50"/>
-      </Properties>
-    </Component>
-  </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
     <Property name="title" type="java.lang.String" value="SOMA"/>
@@ -391,7 +383,7 @@
                           </Border>
                         </Property>
                         <Property name="verticalScrollBar" type="javax.swing.JScrollBar" editor="org.netbeans.modules.form.ComponentChooserEditor">
-                          <ComponentRef name="jScrollBar1"/>
+                          <ComponentRef name="default"/>
                         </Property>
                       </Properties>
 
