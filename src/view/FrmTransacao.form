@@ -358,8 +358,11 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="66" red="0" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="empresa.com.br"/>
+                <Property name="text" type="java.lang.String" value="www.google.com"/>
               </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblSiteAzulMouseClicked"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="lblEmailAdress">
               <Properties>

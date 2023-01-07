@@ -27,6 +27,8 @@ public class FrmMenu extends javax.swing.JFrame {
      */
     public FrmMenu() {
         initComponents();
+        
+        // TN Na Janela "Saiba Mais" o scroll estava muito lento, passando uma linha de cada vez. Com esse código passará 20 por vez, deixando mais fluido. 
         jScrollPane2.getVerticalScrollBar().setUnitIncrement(20);
     }
 
