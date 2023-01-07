@@ -48,26 +48,28 @@ public class DaoEmpresa {
     
     public void addEmpresa(Empresa empresa) {
         connection = new Conexao().conectarBD();
-        String query = "INSERT INTO Empresa VALUES (DEFAULT,";
+        // 14 interrogações
+        String query = "INSERT INTO Empresa VALUES (?,";
         for (int i=0; i<12; i++) {
             query += " ?,";
         }
         query += " ?)";
         try {
             pstm = connection.prepareStatement(query);
-            pstm.setString(1, empresa.razaoSocial);
-            pstm.setString(2, empresa.nomeFantasia);
-            pstm.setInt(3, empresa.interesse);
-            pstm.setString(4, empresa.cep);
-            pstm.setString(5, empresa.uf);
-            pstm.setString(6, empresa.cidade);
-            pstm.setString(7, empresa.bairro);
-            pstm.setString(8, empresa.rua);
-            pstm.setString(9, empresa.numero);
-            pstm.setString(10, empresa.complemento);
-            pstm.setString(11, empresa.telefone);
-            pstm.setString(12, empresa.site);
-            pstm.setString(13, empresa.email);
+            pstm.setString(1, empresa.cnpj);
+            pstm.setString(2, empresa.razaoSocial);
+            pstm.setString(3, empresa.nomeFantasia);
+            pstm.setInt(4, empresa.interesse);
+            pstm.setString(5, empresa.cep);
+            pstm.setString(6, empresa.uf);
+            pstm.setString(7, empresa.cidade);
+            pstm.setString(8, empresa.bairro);
+            pstm.setString(9, empresa.rua);
+            pstm.setString(10, empresa.numero);
+            pstm.setString(11, empresa.complemento);
+            pstm.setString(12, empresa.telefone);
+            pstm.setString(13, empresa.site);
+            pstm.setString(14, empresa.email);
             
             pstm.execute();
             pstm.close();
