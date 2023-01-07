@@ -46,7 +46,7 @@ public class FrmTransacao extends javax.swing.JFrame {
     }
     
         public void preencherValorByTable(){
-       // T-N Método para preencher o valor da transação para o cliente saber quanto irá ganhar de acordo com a empresa que ele selecionou na tabela. 
+       // T-N Método para preencher o valor da transação para o cliente saber quanto irá ganhar de acordo com a empresa que ele selecionou na tabela. Fica no cartão no canto inferior direito.
        // T-N Além do valor preenche a distância e o transporte. No futuro usaremos alguma API para calcular isso. No momento estamos usando números aleatórios só para simular. 
        
         int lineChoose = tblDescartarResíduos.getSelectedRow();
@@ -306,11 +306,6 @@ public class FrmTransacao extends javax.swing.JFrame {
         txtValor.setForeground(new java.awt.Color(51, 255, 0));
         txtValor.setText("0.00");
         txtValor.setToolTipText("");
-        txtValor.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtValorActionPerformed(evt);
-            }
-        });
 
         txtTotal.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         txtTotal.setForeground(new java.awt.Color(51, 255, 0));
@@ -318,11 +313,6 @@ public class FrmTransacao extends javax.swing.JFrame {
 
         txtDistancia.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         txtDistancia.setText("0 km");
-        txtDistancia.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtDistanciaActionPerformed(evt);
-            }
-        });
 
         lblValor1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         lblValor1.setText("R$");
@@ -474,14 +464,6 @@ public class FrmTransacao extends javax.swing.JFrame {
         ImageIcon icone = new ImageIcon(getClass().getResource("/images/voltarVerde.png"));
         btnVoltarTransacao.setIcon(icone);
     }//GEN-LAST:event_btnVoltarTransacaoMouseExited
-
-    private void txtValorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtValorActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtValorActionPerformed
-
-    private void txtDistanciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDistanciaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtDistanciaActionPerformed
 
     private void tblDescartarResíduosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblDescartarResíduosMouseClicked
         preencherValorByTable();
