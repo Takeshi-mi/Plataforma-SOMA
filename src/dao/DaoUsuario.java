@@ -88,7 +88,7 @@ public class DaoUsuario {
     }
     
     public int validarUsuario(String login, String senha) {
-        int tipo = -1; // 0:adm, 1:compra, 2:venda
+        int tipo = -1; // 0:adm, 1:empresa
         connection = new Conexao().conectarBD();
         try{
             pstm = connection.prepareStatement("SELECT login, senha, tipo FROM Usuario WHERE login = ? AND senha = ?", ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
