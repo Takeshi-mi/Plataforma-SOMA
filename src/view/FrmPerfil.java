@@ -50,8 +50,10 @@ public class FrmPerfil extends javax.swing.JFrame {
         txtRazaoSocial = new javax.swing.JTextField();
         btnVoltarPerfil = new javax.swing.JLabel();
         btnEditarFoto = new javax.swing.JButton();
-        btnEditar1 = new javax.swing.JButton();
+        btnExcluirConta = new javax.swing.JButton();
         lblFundoPerfil = new javax.swing.JLabel();
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         cardPane.setLayout(new java.awt.CardLayout());
 
@@ -262,17 +264,17 @@ public class FrmPerfil extends javax.swing.JFrame {
         });
         perfil.add(btnEditarFoto, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 280, 140, -1));
 
-        btnEditar1.setBackground(new java.awt.Color(255, 204, 255));
-        btnEditar1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        btnEditar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/iconExcluir.png"))); // NOI18N
-        btnEditar1.setText("Excluir conta");
-        btnEditar1.setBorder(null);
-        btnEditar1.addActionListener(new java.awt.event.ActionListener() {
+        btnExcluirConta.setBackground(new java.awt.Color(255, 204, 255));
+        btnExcluirConta.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        btnExcluirConta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/iconExcluir.png"))); // NOI18N
+        btnExcluirConta.setText("Excluir conta");
+        btnExcluirConta.setBorder(null);
+        btnExcluirConta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEditar1ActionPerformed(evt);
+                btnExcluirContaActionPerformed(evt);
             }
         });
-        perfil.add(btnEditar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 660, 200, 50));
+        perfil.add(btnExcluirConta, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 660, 200, 50));
 
         lblFundoPerfil.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/fundoPerfil.png"))); // NOI18N
         perfil.add(lblFundoPerfil, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, -1, -1));
@@ -309,9 +311,10 @@ public class FrmPerfil extends javax.swing.JFrame {
     }//GEN-LAST:event_btnVoltarPerfilMouseEntered
 
     private void btnVoltarPerfilMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVoltarPerfilMouseClicked
-        this.dispose();
         FrmMenu menu = new FrmMenu();
         menu.setVisible(true);
+        menu.setExtendedState(this.getExtendedState());
+        this.dispose();
     }//GEN-LAST:event_btnVoltarPerfilMouseClicked
 
     private void btnEditarFotoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEditarFotoMouseClicked
@@ -324,9 +327,10 @@ public class FrmPerfil extends javax.swing.JFrame {
     }//GEN-LAST:event_txtCnpjMouseClicked
 
     private void btnHistoricoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHistoricoActionPerformed
-       this.dispose();
        FrmHistoricoTransacoes historico = new FrmHistoricoTransacoes();
        historico.setVisible(true);
+       historico.setExtendedState(this.getExtendedState());
+       this.dispose();
     }//GEN-LAST:event_btnHistoricoActionPerformed
 
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
@@ -357,10 +361,10 @@ public class FrmPerfil extends javax.swing.JFrame {
         btnSalvar.setVisible(false);
     }//GEN-LAST:event_btnSalvarActionPerformed
 
-    private void btnEditar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditar1ActionPerformed
-        JOptionPane.showConfirmDialog(this, "Tem certeza que deseja excluir sua conta?");
+    private void btnExcluirContaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirContaActionPerformed
+        int op = JOptionPane.showConfirmDialog(this, "Tem certeza que deseja excluir sua conta?");
         
-    }//GEN-LAST:event_btnEditar1ActionPerformed
+    }//GEN-LAST:event_btnExcluirContaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -399,8 +403,8 @@ public class FrmPerfil extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnEditar;
-    private javax.swing.JButton btnEditar1;
     private javax.swing.JButton btnEditarFoto;
+    private javax.swing.JButton btnExcluirConta;
     private javax.swing.JButton btnHistorico;
     private javax.swing.JButton btnSalvar;
     private javax.swing.JLabel btnVoltarPerfil;
