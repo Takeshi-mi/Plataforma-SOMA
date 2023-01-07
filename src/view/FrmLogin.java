@@ -302,8 +302,7 @@ public class FrmLogin extends javax.swing.JFrame {
     private void btnEsqueceuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEsqueceuActionPerformed
         int op = JOptionPane.showConfirmDialog(this, "Você esqueceu sua senha?");
         if (op==0) {
-//            ImageIcon icon = new ImageIcon(getClass().getResource("/images/trollface.png"));
-//            JOptionPane.showOptionDialog(this, "Se fudeu kkkkk", "Perdeu a senha?", JOptionPane.DEFAULT_OPTION,JOptionPane.PLAIN_MESSAGE , icon, new String[] {"Nãaoo"}, null);
+
             dialogTroll.setVisible(true);
             dialogTroll.setLocationRelativeTo(null);
         }

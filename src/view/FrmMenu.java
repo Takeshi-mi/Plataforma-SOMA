@@ -67,9 +67,8 @@ public class FrmMenu extends javax.swing.JFrame {
         jLabel17 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         saibaMais = new javax.swing.JPanel();
-        scpaneSaibaMais = new javax.swing.JScrollPane();
-        saibaMaisEnclosePane = new javax.swing.JPanel();
-        jLabel19 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        fundoSaibaMias = new javax.swing.JLabel();
 
         jScrollBar1.setMaximum(3000);
         jScrollBar1.setUnitIncrement(50);
@@ -77,7 +76,6 @@ public class FrmMenu extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("SOMA");
         setLocationByPlatform(true);
-        setPreferredSize(new java.awt.Dimension(1366, 750));
         setResizable(false);
 
         mainPane.setPreferredSize(new java.awt.Dimension(1366, 750));
@@ -327,46 +325,21 @@ public class FrmMenu extends javax.swing.JFrame {
 
         saibaMais.setPreferredSize(new java.awt.Dimension(1366, 530));
 
-        scpaneSaibaMais.setBorder(new javax.swing.border.MatteBorder(null));
-        scpaneSaibaMais.setRowHeaderView(null);
-        scpaneSaibaMais.setVerticalScrollBar(jScrollBar1);
+        jScrollPane2.setBorder(null);
 
-        saibaMaisEnclosePane.setAutoscrolls(true);
-
-        jLabel19.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
-        jLabel19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/saibaMaisPage1.png"))); // NOI18N
-        jLabel19.setText("na busca por empresas homologadas próximas.");
-
-        javax.swing.GroupLayout saibaMaisEnclosePaneLayout = new javax.swing.GroupLayout(saibaMaisEnclosePane);
-        saibaMaisEnclosePane.setLayout(saibaMaisEnclosePaneLayout);
-        saibaMaisEnclosePaneLayout.setHorizontalGroup(
-            saibaMaisEnclosePaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(saibaMaisEnclosePaneLayout.createSequentialGroup()
-                .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 1369, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
-        saibaMaisEnclosePaneLayout.setVerticalGroup(
-            saibaMaisEnclosePaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(saibaMaisEnclosePaneLayout.createSequentialGroup()
-                .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 2952, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
-
-        scpaneSaibaMais.setViewportView(saibaMaisEnclosePane);
+        fundoSaibaMias.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/saibaMaisPage1.png"))); // NOI18N
+        fundoSaibaMias.setText("jLabel1");
+        jScrollPane2.setViewportView(fundoSaibaMias);
 
         javax.swing.GroupLayout saibaMaisLayout = new javax.swing.GroupLayout(saibaMais);
         saibaMais.setLayout(saibaMaisLayout);
         saibaMaisLayout.setHorizontalGroup(
             saibaMaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(saibaMaisLayout.createSequentialGroup()
-                .addComponent(scpaneSaibaMais, javax.swing.GroupLayout.PREFERRED_SIZE, 1361, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 3, Short.MAX_VALUE))
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1364, Short.MAX_VALUE)
         );
         saibaMaisLayout.setVerticalGroup(
             saibaMaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(saibaMaisLayout.createSequentialGroup()
-                .addComponent(scpaneSaibaMais, javax.swing.GroupLayout.PREFERRED_SIZE, 548, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 528, Short.MAX_VALUE)
         );
 
         cardPane.add(saibaMais, "saibaMais");
@@ -545,6 +518,7 @@ public class FrmMenu extends javax.swing.JFrame {
     private javax.swing.JButton btnQuemSomos;
     private javax.swing.JButton btnSaibaMais1;
     private javax.swing.JPanel cardPane;
+    private javax.swing.JLabel fundoSaibaMias;
     private javax.swing.JPanel home;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel10;
@@ -555,9 +529,9 @@ public class FrmMenu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel19;
     private javax.swing.JPanel jPanelBarraVerde;
     private javax.swing.JScrollBar jScrollBar1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel logoSoma1;
     private javax.swing.JPanel mainPane;
     private javax.swing.JLabel mundoMelhor1;
@@ -566,9 +540,7 @@ public class FrmMenu extends javax.swing.JFrame {
     private javax.swing.JPanel quemSomos;
     private javax.swing.JPanel quemSomosEnclosePane;
     private javax.swing.JPanel saibaMais;
-    private javax.swing.JPanel saibaMaisEnclosePane;
     private javax.swing.JScrollPane scpaneQuemSomos;
-    private javax.swing.JScrollPane scpaneSaibaMais;
     private javax.swing.JLabel vamosTornar1;
     // End of variables declaration//GEN-END:variables
 }
