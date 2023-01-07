@@ -5,6 +5,10 @@
 package view;
 
 import java.awt.CardLayout;
+import java.awt.Desktop;
+import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
@@ -69,28 +73,46 @@ public class FrmPerfil extends javax.swing.JFrame {
         jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         txtEmail.setBackground(new java.awt.Color(235, 218, 193));
+        txtEmail.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        txtEmail.setText("empresa@gmail.com");
         txtEmail.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true), "EMAIL", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 14))); // NOI18N
         txtEmail.setDisabledTextColor(new java.awt.Color(51, 51, 51));
         txtEmail.setEnabled(false);
 
         txtSite.setBackground(new java.awt.Color(235, 218, 193));
+        txtSite.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        txtSite.setText("ifg.edu.com.br");
         txtSite.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true), "SITE (opicional)", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 14))); // NOI18N
         txtSite.setDisabledTextColor(new java.awt.Color(51, 51, 51));
         txtSite.setEnabled(false);
+        txtSite.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtSiteMouseClicked(evt);
+            }
+        });
+        txtSite.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtSiteActionPerformed(evt);
+            }
+        });
 
         txtTelefone.setBackground(new java.awt.Color(235, 218, 193));
+        txtTelefone.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         txtTelefone.setText("(61)-96741123");
         txtTelefone.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true), "TELEFONE", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 14))); // NOI18N
         txtTelefone.setDisabledTextColor(new java.awt.Color(51, 51, 51));
         txtTelefone.setEnabled(false);
 
         txtNomeFantasia.setBackground(new java.awt.Color(235, 218, 193));
+        txtNomeFantasia.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         txtNomeFantasia.setText("Pipoqiunhas da Bilu");
         txtNomeFantasia.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true), "NOME DA EMPRESA", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 14))); // NOI18N
         txtNomeFantasia.setDisabledTextColor(new java.awt.Color(51, 51, 51));
         txtNomeFantasia.setEnabled(false);
 
         txtEndereco.setBackground(new java.awt.Color(235, 218, 193));
+        txtEndereco.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        txtEndereco.setText("Rua 30, nº11,Bairro Bosque,Formosa-GO");
         txtEndereco.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true), "ENDEREÇO", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 14))); // NOI18N
         txtEndereco.setDisabledTextColor(new java.awt.Color(51, 51, 51));
         txtEndereco.setEnabled(false);
@@ -105,7 +127,7 @@ public class FrmPerfil extends javax.swing.JFrame {
         txtCnpj.setText("1234567890000");
         txtCnpj.setDisabledTextColor(new java.awt.Color(51, 51, 51));
         txtCnpj.setEnabled(false);
-        txtCnpj.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        txtCnpj.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         txtCnpj.setOpaque(true);
         txtCnpj.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -117,6 +139,7 @@ public class FrmPerfil extends javax.swing.JFrame {
         btnEditar.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         btnEditar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/iconEditar.png"))); // NOI18N
         btnEditar.setText("Editar dados");
+        btnEditar.setToolTipText("Clique para habilitar a edição");
         btnEditar.setBorder(null);
         btnEditar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -144,6 +167,7 @@ public class FrmPerfil extends javax.swing.JFrame {
         btnHistorico.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         btnHistorico.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/iconApertoDeMao.png"))); // NOI18N
         btnHistorico.setText("Histórico de transações");
+        btnHistorico.setToolTipText("Histórico de transações");
         btnHistorico.setBorder(null);
         btnHistorico.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -155,6 +179,7 @@ public class FrmPerfil extends javax.swing.JFrame {
         btnSalvar.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnSalvar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/iconSalvar.png"))); // NOI18N
         btnSalvar.setText("Salvar");
+        btnSalvar.setToolTipText("Salvar alterações");
         btnSalvar.setBorder(null);
         btnSalvar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -163,6 +188,7 @@ public class FrmPerfil extends javax.swing.JFrame {
         });
 
         txtRazaoSocial.setBackground(new java.awt.Color(235, 218, 193));
+        txtRazaoSocial.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         txtRazaoSocial.setText("Pipoqiunhas da Bilu Distribuidora LTDA");
         txtRazaoSocial.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true), "RAZÃO SOCIAL", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 14))); // NOI18N
         txtRazaoSocial.setDisabledTextColor(new java.awt.Color(51, 51, 51));
@@ -182,19 +208,19 @@ public class FrmPerfil extends javax.swing.JFrame {
                         .addGap(83, 83, 83))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(rbtnDescartar)
                                 .addGap(18, 18, 18)
-                                .addComponent(rbtnAdquirir))
-                            .addComponent(btnSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                                .addComponent(rbtnAdquirir)))
+                        .addGap(0, 341, Short.MAX_VALUE))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(55, 55, 55)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(txtRazaoSocial)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, 338, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtEndereco, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 338, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtNomeFantasia)
                             .addComponent(txtCnpj))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
@@ -210,34 +236,34 @@ public class FrmPerfil extends javax.swing.JFrame {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(28, 28, 28)
+                .addContainerGap(13, Short.MAX_VALUE)
                 .addComponent(txtRazaoSocial, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtNomeFantasia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(27, 27, 27)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtCnpj, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(20, 20, 20)
+                .addGap(27, 27, 27)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtSite, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                    .addComponent(txtEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtSite, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(28, 28, 28)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(rbtnDescartar)
                     .addComponent(rbtnAdquirir))
                 .addGap(27, 27, 27)
                 .addComponent(btnSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
+                .addGap(39, 39, 39)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnHistorico, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(35, 35, 35))
         );
 
-        perfil.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 40, 780, 490));
+        perfil.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 60, 780, 540));
 
         btnVoltarPerfil.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/voltarVerde.png"))); // NOI18N
         btnVoltarPerfil.setToolTipText("voltar");
@@ -255,6 +281,7 @@ public class FrmPerfil extends javax.swing.JFrame {
         perfil.add(btnVoltarPerfil, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 90, 70));
 
         btnEditarFoto.setText("Editar foto de perfil");
+        btnEditarFoto.setToolTipText("Upload de foto de perfil");
         btnEditarFoto.setBorder(null);
         btnEditarFoto.setBorderPainted(false);
         btnEditarFoto.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -268,6 +295,7 @@ public class FrmPerfil extends javax.swing.JFrame {
         btnExcluirConta.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         btnExcluirConta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/iconExcluir.png"))); // NOI18N
         btnExcluirConta.setText("Excluir conta");
+        btnExcluirConta.setToolTipText("Excluir conta");
         btnExcluirConta.setBorder(null);
         btnExcluirConta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -365,6 +393,19 @@ public class FrmPerfil extends javax.swing.JFrame {
         int op = JOptionPane.showConfirmDialog(this, "Tem certeza que deseja excluir sua conta?");
         
     }//GEN-LAST:event_btnExcluirContaActionPerformed
+
+    private void txtSiteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtSiteMouseClicked
+        try{
+            URI link = new URI("https://"+txtSite.getText());
+            Desktop.getDesktop().browse(link);
+        }catch(IOException | URISyntaxException erro){
+            System.out.println(erro);
+        }
+    }//GEN-LAST:event_txtSiteMouseClicked
+
+    private void txtSiteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSiteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtSiteActionPerformed
 
     /**
      * @param args the command line arguments

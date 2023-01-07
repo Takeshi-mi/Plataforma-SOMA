@@ -5,6 +5,10 @@
 package view;
 
 import java.awt.Color;
+import java.awt.Desktop;
+import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -228,7 +232,12 @@ public class FrmTransacao extends javax.swing.JFrame {
         txtTelefone.setText("");
 
         lblSiteAzul.setForeground(new java.awt.Color(0, 102, 255));
-        lblSiteAzul.setText("empresa.com.br");
+        lblSiteAzul.setText("www.google.com");
+        lblSiteAzul.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblSiteAzulMouseClicked(evt);
+            }
+        });
 
         lblEmailAdress.setText("empresa@gmail.com");
 
@@ -483,6 +492,16 @@ public class FrmTransacao extends javax.swing.JFrame {
     ((DefaultTableModel) tblDescartarResíduos.getModel()).setRowCount(0);
      
     }//GEN-LAST:event_btnLimparActionPerformed
+
+    private void lblSiteAzulMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblSiteAzulMouseClicked
+        // TN Redireciona para o site quando clicar no campo site no cartão de informações da empresa escolhida. 
+        try{
+            URI link = new URI("https://"+lblSiteAzul.getText());
+            Desktop.getDesktop().browse(link);
+        }catch(IOException | URISyntaxException erro){
+            System.out.println(erro);
+        }
+    }//GEN-LAST:event_lblSiteAzulMouseClicked
 
     /**
      * @param args the command line arguments
