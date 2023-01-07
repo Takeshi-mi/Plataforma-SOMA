@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import model.Residuo;
 
 public class DaoEmpresa {
     Connection connection;
@@ -116,5 +117,38 @@ public class DaoEmpresa {
         } catch (SQLException ex) {
             Logger.getLogger(DaoUsuario.class.getName()).log(Level.SEVERE, "Erro ao deletar empresa: ", ex);
         }
+    }
+    
+    public List<Residuo> getResiduos(String cnpj) {
+        List<Residuo> residuoList = new ArrayList<>();
+        connection = new Conexao().conectarBD();
+        String query = """
+                       SELECT *
+                       FROM Residuo NATURAL JOIN (
+                            SELECT cnpj AS cnpjEmpresa 
+                            FROM Empresa
+                            WHERE cnpj=?
+                       ) AS e
+                       """;
+        try{
+            pstm = connection.prepareStatement(query);
+            pstm.setString(1, cnpj);
+            ResultSet rs = pstm.executeQuery();
+            if(rs.first()) {
+                do{
+                    Residuo residuo = new Residuo();
+                    residuo.tipoResiduo = rs.getInt("tipoResiduo");
+                    residuo.cnpjEmpresa = rs.getString("cnpjEmpresa");
+                    residuo.capacidade = rs.getDouble("capacidade");
+                    residuo.quantidadeAtual = rs.getDouble("quantidadeAtual");
+                    residuo.preco = rs.getDouble("preco");
+                    residuoList.add(residuo);
+                }while(rs.next());
+            }
+            pstm.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(DaoUsuario.class.getName()).log(Level.SEVERE, "Erro ao selecionar dados: ", ex);
+        }
+        return residuoList;
     }
 }
