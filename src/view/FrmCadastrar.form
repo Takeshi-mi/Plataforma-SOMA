@@ -3,9 +3,6 @@
 <Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="2"/>
-    <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-      <Dimension value="[1370, 750]"/>
-    </Property>
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
@@ -91,35 +88,42 @@
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="-2" pref="73" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                      <Component id="txtNomeEmpresa" max="32767" attributes="0"/>
-                                      <Group type="102" alignment="1" attributes="0">
-                                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                              <Component id="txtCnpj" linkSize="2" alignment="0" pref="474" max="32767" attributes="0"/>
-                                              <Component id="txtEmail" linkSize="2" alignment="0" pref="467" max="32767" attributes="0"/>
-                                              <Component id="pwdSenha" alignment="0" min="-2" pref="474" max="-2" attributes="0"/>
-                                          </Group>
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                              <Component id="txtTelefone" linkSize="2" alignment="1" max="32767" attributes="0"/>
-                                              <Component id="txtSite" linkSize="2" alignment="1" pref="464" max="32767" attributes="0"/>
-                                              <Component id="pwdConfirmarSenha" alignment="1" min="-2" pref="474" max="-2" attributes="0"/>
-                                          </Group>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="103" alignment="1" groupAlignment="0" max="-2" attributes="0">
+                                          <Component id="txtCnpj" linkSize="2" alignment="0" pref="474" max="32767" attributes="0"/>
+                                          <Component id="txtEmail" linkSize="2" alignment="0" pref="467" max="32767" attributes="0"/>
+                                          <Component id="pwdSenha" alignment="0" min="-2" pref="474" max="-2" attributes="0"/>
                                       </Group>
+                                      <Component id="txtRazaoSocial" max="32767" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                      <Component id="txtNomeFantasia" max="32767" attributes="0"/>
+                                      <Component id="txtTelefone" linkSize="2" alignment="1" max="32767" attributes="0"/>
+                                      <Component id="txtSite" linkSize="2" alignment="1" pref="464" max="32767" attributes="0"/>
+                                      <Component id="pwdConfirmarSenha" alignment="1" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
-                          <EmptySpace max="32767" attributes="0"/>
+                          <EmptySpace pref="79" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="lblTituloPessoaJuridica" min="-2" pref="69" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
-                          <Component id="txtNomeEmpresa" min="-2" pref="50" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="lblTituloPessoaJuridica" min="-2" pref="69" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
+                                  <Component id="txtRazaoSocial" min="-2" pref="50" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" attributes="0">
+                                  <EmptySpace min="121" pref="121" max="-2" attributes="0"/>
+                                  <Component id="txtNomeFantasia" min="-2" pref="50" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="txtCnpj" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
@@ -155,11 +159,11 @@
                     <Property name="text" type="java.lang.String" value="PESSOA JUR&#xcd;DICA"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="txtNomeEmpresa">
+                <Component class="javax.swing.JTextField" name="txtRazaoSocial">
                   <Properties>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                       <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-                        <TitledBorder title="NOME DA EMPRESA">
+                        <TitledBorder title="RAZ&#xc3;O SOCIAL">
                           <Border PropertyName="innerBorder" info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
                             <LineBorder roundedCorners="true" thickness="2"/>
                           </Border>
@@ -277,6 +281,20 @@
                   <Events>
                     <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="pwdSenhaFocusLost"/>
                   </Events>
+                </Component>
+                <Component class="javax.swing.JTextField" name="txtNomeFantasia">
+                  <Properties>
+                    <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                      <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
+                        <TitledBorder title="NOME FANTASIA">
+                          <Border PropertyName="innerBorder" info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
+                            <LineBorder roundedCorners="true" thickness="2"/>
+                          </Border>
+                          <Font PropertyName="font" name="Segoe UI" size="14" style="1"/>
+                        </TitledBorder>
+                      </Border>
+                    </Property>
+                  </Properties>
                 </Component>
               </SubComponents>
             </Container>

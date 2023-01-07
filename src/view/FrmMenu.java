@@ -14,6 +14,7 @@ import java.net.URISyntaxException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
+import javax.swing.JFrame;
 
 /**
  *
@@ -37,8 +38,9 @@ public class FrmMenu extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollBar1 = new javax.swing.JScrollBar();
         painelDesktopMain = new javax.swing.JDesktopPane();
-        mainLayeredPane = new javax.swing.JLayeredPane();
+        mainPane = new javax.swing.JPanel();
         btn3Pontos = new javax.swing.JButton();
         UserIcon = new javax.swing.JLabel();
         nomeUsuario = new javax.swing.JLabel();
@@ -47,14 +49,14 @@ public class FrmMenu extends javax.swing.JFrame {
         btnInicio = new javax.swing.JButton();
         btnQuemSomos = new javax.swing.JButton();
         cardPane = new javax.swing.JPanel();
-        homePane = new javax.swing.JLayeredPane();
-        vamosTornar = new javax.swing.JLabel();
-        mundoMelhor = new javax.swing.JLabel();
-        logoSoma = new javax.swing.JLabel();
-        btnSaibaMais = new javax.swing.JButton();
-        quemSomosPaneScroll = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        quemSomosScroll = new javax.swing.JPanel();
+        home = new javax.swing.JPanel();
+        vamosTornar1 = new javax.swing.JLabel();
+        mundoMelhor1 = new javax.swing.JLabel();
+        logoSoma1 = new javax.swing.JLabel();
+        btnSaibaMais1 = new javax.swing.JButton();
+        quemSomos = new javax.swing.JPanel();
+        scpaneQuemSomos = new javax.swing.JScrollPane();
+        quemSomosEnclosePane = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
@@ -64,20 +66,18 @@ public class FrmMenu extends javax.swing.JFrame {
         jLabel16 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
-        saiba = new javax.swing.JPanel();
-        jScrollPane3 = new javax.swing.JScrollPane();
         saibaMais = new javax.swing.JPanel();
+        scpaneSaibaMais = new javax.swing.JScrollPane();
+        saibaMaisEnclosePane = new javax.swing.JPanel();
         jLabel19 = new javax.swing.JLabel();
+
+        jScrollBar1.setUnitIncrement(50);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("SOMA");
         setLocationByPlatform(true);
 
-        mainLayeredPane.setBackground(new java.awt.Color(242, 242, 242));
-        mainLayeredPane.setBorder(new javax.swing.border.MatteBorder(null));
-        mainLayeredPane.setPreferredSize(new java.awt.Dimension(1366, 768));
-        mainLayeredPane.setRequestFocusEnabled(false);
-        mainLayeredPane.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        mainPane.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btn3Pontos.setForeground(new java.awt.Color(255, 255, 255));
         btn3Pontos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/menuIcon.png"))); // NOI18N
@@ -98,7 +98,7 @@ public class FrmMenu extends javax.swing.JFrame {
                 btn3PontosActionPerformed(evt);
             }
         });
-        mainLayeredPane.add(btn3Pontos, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 30, -1, 53));
+        mainPane.add(btn3Pontos, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 30, -1, 53));
 
         UserIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/profile-user 64px.png"))); // NOI18N
         UserIcon.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -106,7 +106,7 @@ public class FrmMenu extends javax.swing.JFrame {
                 UserIconMouseClicked(evt);
             }
         });
-        mainLayeredPane.add(UserIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(1256, 47, -1, -1));
+        mainPane.add(UserIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(1256, 47, -1, -1));
 
         nomeUsuario.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         nomeUsuario.setText("Olá, Nome do Usuário");
@@ -115,7 +115,7 @@ public class FrmMenu extends javax.swing.JFrame {
                 nomeUsuarioMouseClicked(evt);
             }
         });
-        mainLayeredPane.add(nomeUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(1058, 44, 192, 67));
+        mainPane.add(nomeUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(1058, 44, 192, 67));
 
         jPanelBarraVerde.setBackground(new java.awt.Color(7, 99, 36));
         jPanelBarraVerde.setForeground(new java.awt.Color(7, 99, 36));
@@ -176,46 +176,46 @@ public class FrmMenu extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
-        mainLayeredPane.add(jPanelBarraVerde, new org.netbeans.lib.awtextra.AbsoluteConstraints(1, 142, 1364, 50));
+        mainPane.add(jPanelBarraVerde, new org.netbeans.lib.awtextra.AbsoluteConstraints(1, 142, 1364, 50));
 
         cardPane.setBackground(new java.awt.Color(255, 255, 255));
         cardPane.setBorder(new javax.swing.border.MatteBorder(null));
         cardPane.setLayout(new java.awt.CardLayout());
 
-        homePane.setBackground(new java.awt.Color(255, 255, 255));
-        homePane.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        home.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        vamosTornar.setFont(new java.awt.Font("Arial Black", 1, 36)); // NOI18N
-        vamosTornar.setForeground(new java.awt.Color(7, 99, 36));
-        vamosTornar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        vamosTornar.setText("VAMOS TORNAR O\n");
-        vamosTornar.setToolTipText("");
-        homePane.add(vamosTornar, new org.netbeans.lib.awtextra.AbsoluteConstraints(871, 112, -1, 65));
+        vamosTornar1.setFont(new java.awt.Font("Arial Black", 1, 36)); // NOI18N
+        vamosTornar1.setForeground(new java.awt.Color(7, 99, 36));
+        vamosTornar1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        vamosTornar1.setText("VAMOS TORNAR O\n");
+        vamosTornar1.setToolTipText("");
+        home.add(vamosTornar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(871, 112, -1, 65));
 
-        mundoMelhor.setFont(new java.awt.Font("Arial Black", 1, 36)); // NOI18N
-        mundoMelhor.setForeground(new java.awt.Color(7, 99, 36));
-        mundoMelhor.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        mundoMelhor.setText("MUNDO MELHOR?");
-        mundoMelhor.setToolTipText("");
-        homePane.add(mundoMelhor, new org.netbeans.lib.awtextra.AbsoluteConstraints(871, 183, 392, -1));
+        mundoMelhor1.setFont(new java.awt.Font("Arial Black", 1, 36)); // NOI18N
+        mundoMelhor1.setForeground(new java.awt.Color(7, 99, 36));
+        mundoMelhor1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        mundoMelhor1.setText("MUNDO MELHOR?");
+        mundoMelhor1.setToolTipText("");
+        home.add(mundoMelhor1, new org.netbeans.lib.awtextra.AbsoluteConstraints(871, 183, 392, -1));
 
-        logoSoma.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Logo verde.png"))); // NOI18N
-        homePane.add(logoSoma, new org.netbeans.lib.awtextra.AbsoluteConstraints(47, 52, -1, 317));
+        logoSoma1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Logo verde.png"))); // NOI18N
+        home.add(logoSoma1, new org.netbeans.lib.awtextra.AbsoluteConstraints(47, 52, -1, 317));
 
-        btnSaibaMais.setBackground(new java.awt.Color(7, 99, 36));
-        btnSaibaMais.setFont(new java.awt.Font("Arial Black", 0, 24)); // NOI18N
-        btnSaibaMais.setForeground(new java.awt.Color(255, 255, 255));
-        btnSaibaMais.setText("SAIBA MAIS");
-        btnSaibaMais.addActionListener(new java.awt.event.ActionListener() {
+        btnSaibaMais1.setBackground(new java.awt.Color(7, 99, 36));
+        btnSaibaMais1.setFont(new java.awt.Font("Arial Black", 0, 24)); // NOI18N
+        btnSaibaMais1.setForeground(new java.awt.Color(255, 255, 255));
+        btnSaibaMais1.setText("SAIBA MAIS");
+        btnSaibaMais1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSaibaMaisActionPerformed(evt);
+                btnSaibaMais1ActionPerformed(evt);
             }
         });
-        homePane.add(btnSaibaMais, new org.netbeans.lib.awtextra.AbsoluteConstraints(943, 253, 237, 57));
+        home.add(btnSaibaMais1, new org.netbeans.lib.awtextra.AbsoluteConstraints(943, 253, 237, 57));
 
-        cardPane.add(homePane, "home");
+        cardPane.add(home, "home");
 
-        jScrollPane1.setBorder(new javax.swing.border.MatteBorder(null));
+        scpaneQuemSomos.setBorder(new javax.swing.border.MatteBorder(null));
+        scpaneQuemSomos.setVerticalScrollBar(jScrollBar1);
 
         jLabel10.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         jLabel10.setText("na busca por empresas homologadas próximas.");
@@ -252,15 +252,15 @@ public class FrmMenu extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout quemSomosScrollLayout = new javax.swing.GroupLayout(quemSomosScroll);
-        quemSomosScroll.setLayout(quemSomosScrollLayout);
-        quemSomosScrollLayout.setHorizontalGroup(
-            quemSomosScrollLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(quemSomosScrollLayout.createSequentialGroup()
-                .addGroup(quemSomosScrollLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(quemSomosScrollLayout.createSequentialGroup()
+        javax.swing.GroupLayout quemSomosEnclosePaneLayout = new javax.swing.GroupLayout(quemSomosEnclosePane);
+        quemSomosEnclosePane.setLayout(quemSomosEnclosePaneLayout);
+        quemSomosEnclosePaneLayout.setHorizontalGroup(
+            quemSomosEnclosePaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(quemSomosEnclosePaneLayout.createSequentialGroup()
+                .addGroup(quemSomosEnclosePaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(quemSomosEnclosePaneLayout.createSequentialGroup()
                         .addGap(204, 204, 204)
-                        .addGroup(quemSomosScrollLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(quemSomosEnclosePaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel15)
                             .addComponent(jLabel16)
                             .addComponent(jLabel14)
@@ -269,14 +269,14 @@ public class FrmMenu extends javax.swing.JFrame {
                             .addComponent(jLabel11)
                             .addComponent(jLabel10)
                             .addComponent(jButton1)))
-                    .addGroup(quemSomosScrollLayout.createSequentialGroup()
+                    .addGroup(quemSomosEnclosePaneLayout.createSequentialGroup()
                         .addGap(146, 146, 146)
                         .addComponent(jLabel17)))
                 .addContainerGap(231, Short.MAX_VALUE))
         );
-        quemSomosScrollLayout.setVerticalGroup(
-            quemSomosScrollLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(quemSomosScrollLayout.createSequentialGroup()
+        quemSomosEnclosePaneLayout.setVerticalGroup(
+            quemSomosEnclosePaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(quemSomosEnclosePaneLayout.createSequentialGroup()
                 .addGap(31, 31, 31)
                 .addComponent(jLabel17)
                 .addGap(52, 52, 52)
@@ -298,80 +298,86 @@ public class FrmMenu extends javax.swing.JFrame {
                 .addGap(62, 62, 62))
         );
 
-        jScrollPane1.setViewportView(quemSomosScroll);
+        scpaneQuemSomos.setViewportView(quemSomosEnclosePane);
 
-        javax.swing.GroupLayout quemSomosPaneScrollLayout = new javax.swing.GroupLayout(quemSomosPaneScroll);
-        quemSomosPaneScroll.setLayout(quemSomosPaneScrollLayout);
-        quemSomosPaneScrollLayout.setHorizontalGroup(
-            quemSomosPaneScrollLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(quemSomosPaneScrollLayout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1361, javax.swing.GroupLayout.PREFERRED_SIZE)
+        javax.swing.GroupLayout quemSomosLayout = new javax.swing.GroupLayout(quemSomos);
+        quemSomos.setLayout(quemSomosLayout);
+        quemSomosLayout.setHorizontalGroup(
+            quemSomosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(quemSomosLayout.createSequentialGroup()
+                .addComponent(scpaneQuemSomos, javax.swing.GroupLayout.PREFERRED_SIZE, 1361, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 702, Short.MAX_VALUE))
         );
-        quemSomosPaneScrollLayout.setVerticalGroup(
-            quemSomosPaneScrollLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(quemSomosPaneScrollLayout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 548, javax.swing.GroupLayout.PREFERRED_SIZE)
+        quemSomosLayout.setVerticalGroup(
+            quemSomosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(quemSomosLayout.createSequentialGroup()
+                .addComponent(scpaneQuemSomos, javax.swing.GroupLayout.PREFERRED_SIZE, 548, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 4647, Short.MAX_VALUE))
         );
 
-        cardPane.add(quemSomosPaneScroll, "quemSomos");
+        cardPane.add(quemSomos, "quemSomos");
 
-        jScrollPane3.setBorder(new javax.swing.border.MatteBorder(null));
+        scpaneSaibaMais.setBorder(new javax.swing.border.MatteBorder(null));
+        scpaneSaibaMais.setRowHeaderView(null);
+        scpaneSaibaMais.setVerticalScrollBar(jScrollBar1);
 
-        saibaMais.setAutoscrolls(true);
+        saibaMaisEnclosePane.setAutoscrolls(true);
 
         jLabel19.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         jLabel19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/saibaMaisPage1.png"))); // NOI18N
         jLabel19.setText("na busca por empresas homologadas próximas.");
+
+        javax.swing.GroupLayout saibaMaisEnclosePaneLayout = new javax.swing.GroupLayout(saibaMaisEnclosePane);
+        saibaMaisEnclosePane.setLayout(saibaMaisEnclosePaneLayout);
+        saibaMaisEnclosePaneLayout.setHorizontalGroup(
+            saibaMaisEnclosePaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(saibaMaisEnclosePaneLayout.createSequentialGroup()
+                .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 1369, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+        saibaMaisEnclosePaneLayout.setVerticalGroup(
+            saibaMaisEnclosePaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(saibaMaisEnclosePaneLayout.createSequentialGroup()
+                .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 2952, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 110, Short.MAX_VALUE))
+        );
+
+        scpaneSaibaMais.setViewportView(saibaMaisEnclosePane);
 
         javax.swing.GroupLayout saibaMaisLayout = new javax.swing.GroupLayout(saibaMais);
         saibaMais.setLayout(saibaMaisLayout);
         saibaMaisLayout.setHorizontalGroup(
             saibaMaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(saibaMaisLayout.createSequentialGroup()
-                .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 1369, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addComponent(scpaneSaibaMais, javax.swing.GroupLayout.PREFERRED_SIZE, 1361, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 805, Short.MAX_VALUE))
         );
         saibaMaisLayout.setVerticalGroup(
             saibaMaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(saibaMaisLayout.createSequentialGroup()
-                .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 2952, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 110, Short.MAX_VALUE))
-        );
-
-        jScrollPane3.setViewportView(saibaMais);
-
-        javax.swing.GroupLayout saibaLayout = new javax.swing.GroupLayout(saiba);
-        saiba.setLayout(saibaLayout);
-        saibaLayout.setHorizontalGroup(
-            saibaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(saibaLayout.createSequentialGroup()
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 1361, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 805, Short.MAX_VALUE))
-        );
-        saibaLayout.setVerticalGroup(
-            saibaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(saibaLayout.createSequentialGroup()
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 548, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(scpaneSaibaMais, javax.swing.GroupLayout.PREFERRED_SIZE, 548, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 4651, Short.MAX_VALUE))
         );
 
-        cardPane.add(saiba, "saibaMais");
+        cardPane.add(saibaMais, "saibaMais");
 
-        mainLayeredPane.add(cardPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(1, 216, -1, -1));
+        mainPane.add(cardPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(1, 216, -1, -1));
 
-        painelDesktopMain.setLayer(mainLayeredPane, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        painelDesktopMain.setLayer(mainPane, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout painelDesktopMainLayout = new javax.swing.GroupLayout(painelDesktopMain);
         painelDesktopMain.setLayout(painelDesktopMainLayout);
         painelDesktopMainLayout.setHorizontalGroup(
             painelDesktopMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(mainLayeredPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, painelDesktopMainLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(mainPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         painelDesktopMainLayout.setVerticalGroup(
             painelDesktopMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(mainLayeredPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, painelDesktopMainLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(mainPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -393,7 +399,7 @@ public class FrmMenu extends javax.swing.JFrame {
         FrmTransacao descartar = new FrmTransacao();
         descartar.setVisible(true);
         descartar.setExtendedState(this.getExtendedState());
-        dispose();
+        this.dispose();
     }//GEN-LAST:event_btnProcurarEmpresasActionPerformed
 
     private void btnInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInicioActionPerformed
@@ -422,11 +428,6 @@ public class FrmMenu extends javax.swing.JFrame {
         btn3Pontos.setIcon(icone);
     }//GEN-LAST:event_btn3PontosMouseExited
 
-    private void btnSaibaMaisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaibaMaisActionPerformed
-        CardLayout cl = (CardLayout) cardPane.getLayout();;
-        cl.show(cardPane, "saibaMais");
-    }//GEN-LAST:event_btnSaibaMaisActionPerformed
-
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         try{
             URI link = new URI("https://www.instagram.com/somabrampssol/");
@@ -437,21 +438,28 @@ public class FrmMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void UserIconMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_UserIconMouseClicked
-        this.dispose();
         FrmPerfil perfil = new FrmPerfil();
         perfil.setVisible(true);
+        perfil.setExtendedState(this.getExtendedState());
+        this.dispose();
     }//GEN-LAST:event_UserIconMouseClicked
 
     private void nomeUsuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_nomeUsuarioMouseClicked
-        this.dispose();
         FrmPerfil perfil = new FrmPerfil();
         perfil.setVisible(true);
+        perfil.setExtendedState(this.getExtendedState());
+        this.dispose();
     }//GEN-LAST:event_nomeUsuarioMouseClicked
 
     private void btnQuemSomosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnQuemSomosActionPerformed
         CardLayout cl = (CardLayout) cardPane.getLayout();;
         cl.show(cardPane, "quemSomos");
     }//GEN-LAST:event_btnQuemSomosActionPerformed
+
+    private void btnSaibaMais1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaibaMais1ActionPerformed
+        CardLayout cl = (CardLayout) cardPane.getLayout();;
+        cl.show(cardPane, "saibaMais");
+    }//GEN-LAST:event_btnSaibaMais1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -525,9 +533,9 @@ public class FrmMenu extends javax.swing.JFrame {
     private javax.swing.JButton btnInicio;
     private javax.swing.JButton btnProcurarEmpresas;
     private javax.swing.JButton btnQuemSomos;
-    private javax.swing.JButton btnSaibaMais;
+    private javax.swing.JButton btnSaibaMais1;
     private javax.swing.JPanel cardPane;
-    private javax.swing.JLayeredPane homePane;
+    private javax.swing.JPanel home;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -539,17 +547,18 @@ public class FrmMenu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JPanel jPanelBarraVerde;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JLabel logoSoma;
-    private javax.swing.JLayeredPane mainLayeredPane;
-    private javax.swing.JLabel mundoMelhor;
+    private javax.swing.JScrollBar jScrollBar1;
+    private javax.swing.JLabel logoSoma1;
+    private javax.swing.JPanel mainPane;
+    private javax.swing.JLabel mundoMelhor1;
     private javax.swing.JLabel nomeUsuario;
     private javax.swing.JDesktopPane painelDesktopMain;
-    private javax.swing.JPanel quemSomosPaneScroll;
-    private javax.swing.JPanel quemSomosScroll;
-    private javax.swing.JPanel saiba;
+    private javax.swing.JPanel quemSomos;
+    private javax.swing.JPanel quemSomosEnclosePane;
     private javax.swing.JPanel saibaMais;
-    private javax.swing.JLabel vamosTornar;
+    private javax.swing.JPanel saibaMaisEnclosePane;
+    private javax.swing.JScrollPane scpaneQuemSomos;
+    private javax.swing.JScrollPane scpaneSaibaMais;
+    private javax.swing.JLabel vamosTornar1;
     // End of variables declaration//GEN-END:variables
 }
