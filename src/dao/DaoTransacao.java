@@ -40,7 +40,7 @@ public class DaoTransacao {
         return list;
     }
     
-    public void addResiduo(Transacao transacao) {
+    public void addTransacao(Transacao transacao) {
         connection = new Conexao().conectarBD();
         try {
             pstm = connection.prepareStatement("INSERT INTO Transacao VALUES (DEFAULT, DEFAULT, ?, ?, ?, ?, ?, ?)");
@@ -57,15 +57,17 @@ public class DaoTransacao {
         }
     }
     
-    public void updateResiduo(Residuo residuo) {
+    public void updateTransacao(Transacao transacao) {
         connection = new Conexao().conectarBD();
         try {
-            pstm = connection.prepareStatement("UPDATE Residuo SET capacidade=?, quantidadeAtual=?, preco=? WHERE tipoResiduo=? AND cnpjEmpresa=?");
-            pstm.setDouble(1, residuo.capacidade);
-            pstm.setDouble(2, residuo.quantidadeAtual);
-            pstm.setDouble(3, residuo.preco);
-            pstm.setInt(4, residuo.tipoResiduo);
-            pstm.setString(5, residuo.cnpjEmpresa);
+            pstm = connection.prepareStatement("UPDATE Transacao SET tipoResiduo=?, valorUnitario=?, valorTransporte=?, idComprador=?, idVendedor=? WHERE idTransacao=?");
+            pstm.setInt(1, transacao.tipoResiduo);
+            pstm.setDouble(2, transacao.quantidade);
+            pstm.setDouble(3, transacao.valorUnitario);
+            pstm.setDouble(4, transacao.valorTransporte);
+            pstm.setString(5, transacao.idComprador);
+            pstm.setString(6, transacao.idVendedor);
+            pstm.setInt(7, transacao.idTransacao);
             pstm.execute();
             pstm.close();
         } catch (SQLException ex) {
@@ -73,12 +75,11 @@ public class DaoTransacao {
         }
     }
     
-    public void deleteResiduo(int tipo, String cnpj) {
+    public void deleteResiduo(int id) {
         connection = new Conexao().conectarBD();
         try {
-            pstm = connection.prepareStatement("DELETE FROM Residuo WHERE tipo=? AND cnpjEmpresa=?;");
-            pstm.setInt(1, tipo);
-            pstm.setString(2, cnpj);
+            pstm = connection.prepareStatement("DELETE FROM Transacao WHERE idTransacao=?;");
+            pstm.setInt(1, id);
             pstm.execute();
             pstm.close();
         } catch (SQLException ex) {
