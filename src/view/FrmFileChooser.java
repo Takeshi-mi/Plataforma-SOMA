@@ -28,6 +28,11 @@ public class FrmFileChooser extends javax.swing.JFrame {
 
         jFileChooser1 = new javax.swing.JFileChooser();
 
+        jFileChooser1.setAcceptAllFileFilterUsed(false);
+        jFileChooser1.setApproveButtonToolTipText("");
+        jFileChooser1.setCurrentDirectory(new java.io.File("C:\\Users\\alexa\\Documents\\NetBeansProjects\\Plataforma-SOMA\\src\\images"));
+        jFileChooser1.setDialogTitle("Selecione uma imagem");
+        jFileChooser1.setToolTipText("");
         jFileChooser1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jFileChooser1ActionPerformed(evt);

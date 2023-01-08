@@ -56,7 +56,7 @@ public class FrmCadastrar extends javax.swing.JFrame {
         rbtnPlastico = new javax.swing.JRadioButton();
         lblTitleTiposResiduos = new javax.swing.JLabel();
         lblTitleTiposResiduos1 = new javax.swing.JLabel();
-        lblCapacidadeMax = new javax.swing.JLabel();
+        lblPreco = new javax.swing.JLabel();
         lblKgMetal = new javax.swing.JLabel();
         txtCapMetal = new javax.swing.JTextField();
         lblTipos1 = new javax.swing.JLabel();
@@ -69,6 +69,15 @@ public class FrmCadastrar extends javax.swing.JFrame {
         btnVoltarTipoResiduos = new javax.swing.JLabel();
         btnSaibaMais = new javax.swing.JButton();
         lblErroTipoResiduo = new javax.swing.JLabel();
+        txtPrecoMetal = new javax.swing.JTextField();
+        txtPrecoPapel = new javax.swing.JTextField();
+        txtPrecoPlastico = new javax.swing.JTextField();
+        txtPrecoVidro = new javax.swing.JTextField();
+        lblCapacidadeMax1 = new javax.swing.JLabel();
+        lblKgMetal1 = new javax.swing.JLabel();
+        lblKgPapel1 = new javax.swing.JLabel();
+        lblKgPlastico1 = new javax.swing.JLabel();
+        lblKgVidro1 = new javax.swing.JLabel();
         lblFundoTipoResiduos = new javax.swing.JLabel();
         pessoaJuridica = new javax.swing.JPanel();
         pessoaJuridicaPane = new javax.swing.JPanel();
@@ -130,7 +139,7 @@ public class FrmCadastrar extends javax.swing.JFrame {
                 rbtnVidroActionPerformed(evt);
             }
         });
-        tipoResiduos.add(rbtnVidro, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 430, 210, 40));
+        tipoResiduos.add(rbtnVidro, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 430, 130, 40));
 
         rbtnMetal.setBackground(new java.awt.Color(255, 255, 255));
         rbtnMetal.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
@@ -140,7 +149,7 @@ public class FrmCadastrar extends javax.swing.JFrame {
                 rbtnMetalActionPerformed(evt);
             }
         });
-        tipoResiduos.add(rbtnMetal, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 280, 210, 40));
+        tipoResiduos.add(rbtnMetal, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 280, 130, 40));
 
         rbtnPapel.setBackground(new java.awt.Color(255, 255, 255));
         rbtnPapel.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
@@ -150,7 +159,7 @@ public class FrmCadastrar extends javax.swing.JFrame {
                 rbtnPapelActionPerformed(evt);
             }
         });
-        tipoResiduos.add(rbtnPapel, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 330, 210, 40));
+        tipoResiduos.add(rbtnPapel, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 330, 120, 40));
 
         rbtnPlastico.setBackground(new java.awt.Color(255, 255, 255));
         rbtnPlastico.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
@@ -160,7 +169,7 @@ public class FrmCadastrar extends javax.swing.JFrame {
                 rbtnPlasticoActionPerformed(evt);
             }
         });
-        tipoResiduos.add(rbtnPlastico, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 380, 210, 40));
+        tipoResiduos.add(rbtnPlastico, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 380, 130, 40));
 
         lblTitleTiposResiduos.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
         lblTitleTiposResiduos.setText("QUE SUA EMPRESA TRABALHA:");
@@ -170,49 +179,49 @@ public class FrmCadastrar extends javax.swing.JFrame {
         lblTitleTiposResiduos1.setText("INFORME OS TIPOS DE RESÍDUOS");
         tipoResiduos.add(lblTitleTiposResiduos1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 80, 810, -1));
 
-        lblCapacidadeMax.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        lblCapacidadeMax.setText("CAPACIDADE MÁXIMA:");
-        lblCapacidadeMax.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        tipoResiduos.add(lblCapacidadeMax, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 230, 260, -1));
+        lblPreco.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        lblPreco.setText("PREÇO/KG:");
+        lblPreco.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        tipoResiduos.add(lblPreco, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 230, 130, -1));
 
         lblKgMetal.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         lblKgMetal.setText("kg");
-        tipoResiduos.add(lblKgMetal, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 280, 70, -1));
+        tipoResiduos.add(lblKgMetal, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 280, 40, -1));
 
         txtCapMetal.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         txtCapMetal.setToolTipText("");
         txtCapMetal.setDisabledTextColor(new java.awt.Color(153, 153, 153));
         txtCapMetal.setEnabled(false);
-        tipoResiduos.add(txtCapMetal, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 280, 160, -1));
+        tipoResiduos.add(txtCapMetal, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 280, 160, -1));
 
         lblTipos1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         lblTipos1.setText("   TIPOS:");
         lblTipos1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        tipoResiduos.add(lblTipos1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 230, 120, -1));
+        tipoResiduos.add(lblTipos1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 230, 120, -1));
 
         txtCapPapel.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         txtCapPapel.setEnabled(false);
-        tipoResiduos.add(txtCapPapel, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 330, 160, -1));
+        tipoResiduos.add(txtCapPapel, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 330, 160, -1));
 
         lblKgPapel.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         lblKgPapel.setText("kg");
-        tipoResiduos.add(lblKgPapel, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 330, 70, -1));
+        tipoResiduos.add(lblKgPapel, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 330, 40, -1));
 
         txtCapPlastico.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         txtCapPlastico.setEnabled(false);
-        tipoResiduos.add(txtCapPlastico, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 380, 160, -1));
+        tipoResiduos.add(txtCapPlastico, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 380, 160, -1));
 
         lblKgPlastico.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         lblKgPlastico.setText("kg");
-        tipoResiduos.add(lblKgPlastico, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 380, 70, -1));
+        tipoResiduos.add(lblKgPlastico, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 380, 30, -1));
 
         txtCapVidro.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         txtCapVidro.setEnabled(false);
-        tipoResiduos.add(txtCapVidro, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 430, 160, -1));
+        tipoResiduos.add(txtCapVidro, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 430, 160, -1));
 
         lblKgVidro.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         lblKgVidro.setText("kg");
-        tipoResiduos.add(lblKgVidro, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 430, 70, -1));
+        tipoResiduos.add(lblKgVidro, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 430, 30, -1));
 
         btnVoltarTipoResiduos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/voltarLaranja.png"))); // NOI18N
         btnVoltarTipoResiduos.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -241,12 +250,51 @@ public class FrmCadastrar extends javax.swing.JFrame {
 
         lblErroTipoResiduo.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         lblErroTipoResiduo.setForeground(new java.awt.Color(255, 0, 51));
-        lblErroTipoResiduo.setText("Selecione ao menos 1 tipo de resíduo");
+        lblErroTipoResiduo.setText("Preencha ao menos 1 tipo de resíduo");
         tipoResiduos.add(lblErroTipoResiduo, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 530, 330, -1));
+
+        txtPrecoMetal.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        txtPrecoMetal.setToolTipText("");
+        txtPrecoMetal.setDisabledTextColor(new java.awt.Color(153, 153, 153));
+        txtPrecoMetal.setEnabled(false);
+        tipoResiduos.add(txtPrecoMetal, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 280, 140, -1));
+
+        txtPrecoPapel.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        txtPrecoPapel.setEnabled(false);
+        tipoResiduos.add(txtPrecoPapel, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 330, 140, -1));
+
+        txtPrecoPlastico.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        txtPrecoPlastico.setEnabled(false);
+        tipoResiduos.add(txtPrecoPlastico, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 380, 140, -1));
+
+        txtPrecoVidro.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        txtPrecoVidro.setEnabled(false);
+        tipoResiduos.add(txtPrecoVidro, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 430, 140, -1));
+
+        lblCapacidadeMax1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        lblCapacidadeMax1.setText("CAPACIDADE MÁXIMA:");
+        lblCapacidadeMax1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        tipoResiduos.add(lblCapacidadeMax1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 230, 260, -1));
+
+        lblKgMetal1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        lblKgMetal1.setText("R$");
+        tipoResiduos.add(lblKgMetal1, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 280, 30, -1));
+
+        lblKgPapel1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        lblKgPapel1.setText("R$");
+        tipoResiduos.add(lblKgPapel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 330, 30, -1));
+
+        lblKgPlastico1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        lblKgPlastico1.setText("R$");
+        tipoResiduos.add(lblKgPlastico1, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 380, 30, -1));
+
+        lblKgVidro1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        lblKgVidro1.setText("R$");
+        tipoResiduos.add(lblKgVidro1, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 430, 30, -1));
 
         lblFundoTipoResiduos.setBackground(new java.awt.Color(255, 255, 255));
         lblFundoTipoResiduos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/fundoTiposResiduo.png"))); // NOI18N
-        tipoResiduos.add(lblFundoTipoResiduos, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, 1350, -1));
+        tipoResiduos.add(lblFundoTipoResiduos, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1350, -1));
 
         cardPane.add(tipoResiduos, "tipoResiduos");
 
@@ -645,7 +693,7 @@ public class FrmCadastrar extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(cardPane, javax.swing.GroupLayout.DEFAULT_SIZE, 1376, Short.MAX_VALUE)
+            .addComponent(cardPane, javax.swing.GroupLayout.DEFAULT_SIZE, 1380, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -759,9 +807,12 @@ public class FrmCadastrar extends javax.swing.JFrame {
     }//GEN-LAST:event_btnDescartarMouseClicked
 
     private void rbtnMetalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtnMetalActionPerformed
-         // TN com esses métodos eu quero permitir a edição da capacidade Máx apenas se o botão estiver marcado.
+         // TN com esse código eu quero permitir a edição da capacidade Máx e preço apenas se o botão estiver marcado.
          if (rbtnMetal.isSelected()) {
              txtCapMetal.setEnabled(true);
+             txtPrecoMetal.setEnabled(true);
+             txtPrecoMetal.setText("");
+             
      
         }else{
              txtCapMetal.setEnabled(false);
@@ -773,6 +824,8 @@ public class FrmCadastrar extends javax.swing.JFrame {
     private void rbtnPapelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtnPapelActionPerformed
         if (rbtnPapel.isSelected()) {
              txtCapPapel.setEnabled(true);
+             txtPrecoPapel.setEnabled(true);
+             txtPrecoPapel.setText("");
      
         }else{
              txtCapPapel.setEnabled(false);
@@ -783,6 +836,8 @@ public class FrmCadastrar extends javax.swing.JFrame {
     private void rbtnPlasticoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtnPlasticoActionPerformed
          if (rbtnPlastico.isSelected()) {
              txtCapPlastico.setEnabled(true);
+             txtPrecoPlastico.setEnabled(true);
+             txtPrecoPlastico.setText("");
      
         }else{
              txtCapPlastico.setEnabled(false);
@@ -793,6 +848,8 @@ public class FrmCadastrar extends javax.swing.JFrame {
     private void rbtnVidroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtnVidroActionPerformed
          if (rbtnVidro.isSelected()) {
              txtCapVidro.setEnabled(true);
+             txtPrecoVidro.setEnabled(true);
+             txtPrecoVidro.setText("");
      
         }else{
              txtCapVidro.setEnabled(false);
@@ -852,19 +909,25 @@ public class FrmCadastrar extends javax.swing.JFrame {
 
     private void btnSaibaMaisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaibaMaisActionPerformed
         if (   txtCapMetal.getText().isBlank() 
-            || txtCapPapel.getText().isBlank()
-            || txtCapPlastico.getText().isBlank()
-            || txtCapVidro.getText().isBlank()
+            && txtCapPapel.getText().isBlank()
+            && txtCapPlastico.getText().isBlank()
+            && txtCapVidro.getText().isBlank()
         ){
+            lblErroTipoResiduo.setVisible(true);
+        }
+        else if(
+            txtPrecoMetal.getText().isBlank()
+            && txtPrecoPapel.getText().isBlank()
+            && txtPrecoPlastico.getText().isBlank()
+            && txtPrecoVidro.getText().isBlank()){
             lblErroTipoResiduo.setVisible(true);
         }
         else{
             lblErroTipoResiduo.setVisible(false);
-            
+            FrmMenu menu = new FrmMenu();
+            menu.setVisible(true);
             JOptionPane.showMessageDialog(this, "Conta criada com sucesso! Bem vindo. Para negociar clique em 'Procurar Empresas'. ");
-//            FrmMenu menu = new FrmMenu();
-//            menu.setVisible(true);
-//            this.dispose();
+            this.dispose();
         }
     }//GEN-LAST:event_btnSaibaMaisActionPerformed
 
@@ -947,7 +1010,7 @@ public class FrmCadastrar extends javax.swing.JFrame {
     private javax.swing.JPanel encloseLocalizacao;
     private javax.swing.JPanel endereco;
     private javax.swing.JLabel lblBairro;
-    private javax.swing.JLabel lblCapacidadeMax;
+    private javax.swing.JLabel lblCapacidadeMax1;
     private javax.swing.JLabel lblCep;
     private javax.swing.JLabel lblCidade;
     private javax.swing.JLabel lblComplemento;
@@ -958,10 +1021,15 @@ public class FrmCadastrar extends javax.swing.JFrame {
     private javax.swing.JLabel lblFundoLocalizacao;
     private javax.swing.JLabel lblFundoTipoResiduos;
     private javax.swing.JLabel lblKgMetal;
+    private javax.swing.JLabel lblKgMetal1;
     private javax.swing.JLabel lblKgPapel;
+    private javax.swing.JLabel lblKgPapel1;
     private javax.swing.JLabel lblKgPlastico;
+    private javax.swing.JLabel lblKgPlastico1;
     private javax.swing.JLabel lblKgVidro;
+    private javax.swing.JLabel lblKgVidro1;
     private javax.swing.JLabel lblNumero;
+    private javax.swing.JLabel lblPreco;
     private javax.swing.JLabel lblRua;
     private javax.swing.JLabel lblTipos1;
     private javax.swing.JLabel lblTitle;
@@ -993,6 +1061,10 @@ public class FrmCadastrar extends javax.swing.JFrame {
     private javax.swing.JTextField txtEmail;
     private javax.swing.JTextField txtNomeFantasia;
     private javax.swing.JTextField txtNumero;
+    private javax.swing.JTextField txtPrecoMetal;
+    private javax.swing.JTextField txtPrecoPapel;
+    private javax.swing.JTextField txtPrecoPlastico;
+    private javax.swing.JTextField txtPrecoVidro;
     private javax.swing.JTextField txtRazaoSocial;
     private javax.swing.JTextField txtRua;
     private javax.swing.JTextField txtSite;
