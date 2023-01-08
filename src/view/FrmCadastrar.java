@@ -7,12 +7,16 @@ package view;
 import dao.DaoEmpresa;
 import java.awt.CardLayout;
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.Window;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
-import javax.swing.SwingUtilities;
+import javax.swing.table.JTableHeader;
 import model.Empresa;
+import model.Residuo;
 import model.Usuario;
 
 /**
@@ -23,6 +27,7 @@ public class FrmCadastrar extends javax.swing.JFrame {
     DaoEmpresa daoEmp = new DaoEmpresa();
     Empresa empresa = new Empresa();
     Usuario usuario = new Usuario();
+    List<Residuo> residuos = new ArrayList<>();
     
     /**
      * Creates new form FrmCadastroTela
@@ -44,6 +49,27 @@ public class FrmCadastrar extends javax.swing.JFrame {
     private void initComponents() {
 
         cardPane = new javax.swing.JPanel();
+        tipoResiduos = new javax.swing.JPanel();
+        rbtnVidro = new javax.swing.JRadioButton();
+        rbtnMetal = new javax.swing.JRadioButton();
+        rbtnPapel = new javax.swing.JRadioButton();
+        rbtnPlastico = new javax.swing.JRadioButton();
+        lblTitleTiposResiduos = new javax.swing.JLabel();
+        lblTitleTiposResiduos1 = new javax.swing.JLabel();
+        lblCapacidadeMax = new javax.swing.JLabel();
+        lblKgMetal = new javax.swing.JLabel();
+        txtCapMetal = new javax.swing.JTextField();
+        lblTipos1 = new javax.swing.JLabel();
+        txtCapPapel = new javax.swing.JTextField();
+        lblKgPapel = new javax.swing.JLabel();
+        txtCapPlastico = new javax.swing.JTextField();
+        lblKgPlastico = new javax.swing.JLabel();
+        txtCapVidro = new javax.swing.JTextField();
+        lblKgVidro = new javax.swing.JLabel();
+        btnVoltarTipoResiduos = new javax.swing.JLabel();
+        btnSaibaMais = new javax.swing.JButton();
+        lblErroTipoResiduo = new javax.swing.JLabel();
+        lblFundoTipoResiduos = new javax.swing.JLabel();
         pessoaJuridica = new javax.swing.JPanel();
         pessoaJuridicaPane = new javax.swing.JPanel();
         lblTituloPessoaJuridica = new javax.swing.JLabel();
@@ -60,7 +86,7 @@ public class FrmCadastrar extends javax.swing.JFrame {
         btnVoltarCadastro = new javax.swing.JLabel();
         lblfundoCadastro = new javax.swing.JLabel();
         endereco = new javax.swing.JPanel();
-        jPanel1 = new javax.swing.JPanel();
+        encloseLocalizacao = new javax.swing.JPanel();
         lblTitleLocalizacao = new javax.swing.JLabel();
         lblCep = new javax.swing.JLabel();
         txtUf = new javax.swing.JTextField();
@@ -86,32 +112,143 @@ public class FrmCadastrar extends javax.swing.JFrame {
         btnDescartar = new javax.swing.JLabel();
         lblTitle = new javax.swing.JLabel();
         lblFundo = new javax.swing.JLabel();
-        tipoResiduos = new javax.swing.JPanel();
-        rbtnVidro = new javax.swing.JRadioButton();
-        rbtnMetal = new javax.swing.JRadioButton();
-        rbtnPapel = new javax.swing.JRadioButton();
-        rbtnPlastico = new javax.swing.JRadioButton();
-        lblTitleTiposResiduos = new javax.swing.JLabel();
-        lblTitleTiposResiduos1 = new javax.swing.JLabel();
-        lblCapacidadeMax = new javax.swing.JLabel();
-        lblKgMetal = new javax.swing.JLabel();
-        txtCapMetal = new javax.swing.JTextField();
-        lblTipos1 = new javax.swing.JLabel();
-        txtCapPapel = new javax.swing.JTextField();
-        lblKgPapel = new javax.swing.JLabel();
-        txtCapPlastico = new javax.swing.JTextField();
-        lblKgPlastico = new javax.swing.JLabel();
-        txtCapVidro = new javax.swing.JTextField();
-        lblKgVidro = new javax.swing.JLabel();
-        btnVoltarTipoResiduos = new javax.swing.JLabel();
-        btnSaibaMais = new javax.swing.JButton();
-        lblErroTipoResiduo = new javax.swing.JLabel();
-        lblFundoTipoResiduos = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         cardPane.setPreferredSize(new java.awt.Dimension(1366, 750));
         cardPane.setLayout(new java.awt.CardLayout());
+
+        tipoResiduos.setBackground(new java.awt.Color(255, 255, 255));
+        tipoResiduos.setPreferredSize(new java.awt.Dimension(1366, 750));
+        tipoResiduos.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        rbtnVidro.setBackground(new java.awt.Color(255, 255, 255));
+        rbtnVidro.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        rbtnVidro.setText("VIDRO");
+        rbtnVidro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbtnVidroActionPerformed(evt);
+            }
+        });
+        tipoResiduos.add(rbtnVidro, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 430, 210, 40));
+
+        rbtnMetal.setBackground(new java.awt.Color(255, 255, 255));
+        rbtnMetal.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        rbtnMetal.setText("METAL");
+        rbtnMetal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbtnMetalActionPerformed(evt);
+            }
+        });
+        tipoResiduos.add(rbtnMetal, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 280, 210, 40));
+
+        rbtnPapel.setBackground(new java.awt.Color(255, 255, 255));
+        rbtnPapel.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        rbtnPapel.setText("PAPEL");
+        rbtnPapel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbtnPapelActionPerformed(evt);
+            }
+        });
+        tipoResiduos.add(rbtnPapel, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 330, 210, 40));
+
+        rbtnPlastico.setBackground(new java.awt.Color(255, 255, 255));
+        rbtnPlastico.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        rbtnPlastico.setText("PLÁSTICO");
+        rbtnPlastico.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbtnPlasticoActionPerformed(evt);
+            }
+        });
+        tipoResiduos.add(rbtnPlastico, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 380, 210, 40));
+
+        lblTitleTiposResiduos.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
+        lblTitleTiposResiduos.setText("QUE SUA EMPRESA TRABALHA:");
+        tipoResiduos.add(lblTitleTiposResiduos, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 140, 780, -1));
+
+        lblTitleTiposResiduos1.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
+        lblTitleTiposResiduos1.setText("INFORME OS TIPOS DE RESÍDUOS");
+        tipoResiduos.add(lblTitleTiposResiduos1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 80, 810, -1));
+
+        lblCapacidadeMax.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        lblCapacidadeMax.setText("CAPACIDADE MÁXIMA:");
+        lblCapacidadeMax.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        tipoResiduos.add(lblCapacidadeMax, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 230, 260, -1));
+
+        lblKgMetal.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        lblKgMetal.setText("kg");
+        tipoResiduos.add(lblKgMetal, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 280, 70, -1));
+
+        txtCapMetal.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        txtCapMetal.setToolTipText("");
+        txtCapMetal.setDisabledTextColor(new java.awt.Color(153, 153, 153));
+        txtCapMetal.setEnabled(false);
+        tipoResiduos.add(txtCapMetal, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 280, 160, -1));
+
+        lblTipos1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        lblTipos1.setText("   TIPOS:");
+        lblTipos1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        tipoResiduos.add(lblTipos1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 230, 120, -1));
+
+        txtCapPapel.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        txtCapPapel.setEnabled(false);
+        tipoResiduos.add(txtCapPapel, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 330, 160, -1));
+
+        lblKgPapel.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        lblKgPapel.setText("kg");
+        tipoResiduos.add(lblKgPapel, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 330, 70, -1));
+
+        txtCapPlastico.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        txtCapPlastico.setEnabled(false);
+        tipoResiduos.add(txtCapPlastico, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 380, 160, -1));
+
+        lblKgPlastico.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        lblKgPlastico.setText("kg");
+        tipoResiduos.add(lblKgPlastico, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 380, 70, -1));
+
+        txtCapVidro.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        txtCapVidro.setEnabled(false);
+        tipoResiduos.add(txtCapVidro, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 430, 160, -1));
+
+        lblKgVidro.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        lblKgVidro.setText("kg");
+        tipoResiduos.add(lblKgVidro, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 430, 70, -1));
+
+        btnVoltarTipoResiduos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/voltarLaranja.png"))); // NOI18N
+        btnVoltarTipoResiduos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnVoltarTipoResiduosMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnVoltarTipoResiduosMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnVoltarTipoResiduosMouseExited(evt);
+            }
+        });
+        tipoResiduos.add(btnVoltarTipoResiduos, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 90, 70));
+
+        btnSaibaMais.setBackground(new java.awt.Color(7, 99, 36));
+        btnSaibaMais.setFont(new java.awt.Font("Arial Black", 0, 24)); // NOI18N
+        btnSaibaMais.setForeground(new java.awt.Color(255, 255, 255));
+        btnSaibaMais.setText("Próximo");
+        btnSaibaMais.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSaibaMaisActionPerformed(evt);
+            }
+        });
+        tipoResiduos.add(btnSaibaMais, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 570, 290, 80));
+
+        lblErroTipoResiduo.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        lblErroTipoResiduo.setForeground(new java.awt.Color(255, 0, 51));
+        lblErroTipoResiduo.setText("Selecione ao menos 1 tipo de resíduo");
+        tipoResiduos.add(lblErroTipoResiduo, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 530, 330, -1));
+
+        lblFundoTipoResiduos.setBackground(new java.awt.Color(255, 255, 255));
+        lblFundoTipoResiduos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/fundoTiposResiduo.png"))); // NOI18N
+        tipoResiduos.add(lblFundoTipoResiduos, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, 1350, -1));
+
+        cardPane.add(tipoResiduos, "tipoResiduos");
 
         pessoaJuridica.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -329,89 +466,90 @@ public class FrmCadastrar extends javax.swing.JFrame {
         lblErroCampoNuloEndereco.setForeground(new java.awt.Color(255, 0, 51));
         lblErroCampoNuloEndereco.setText("Preencha todos os campos obrigatórios");
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(69, 69, 69)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblUf)
-                            .addComponent(lblCidade)
-                            .addComponent(lblBairro)
-                            .addComponent(lblRua)
-                            .addComponent(lblNumero)
-                            .addComponent(lblComplemento))
-                        .addGap(6, 6, 6)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtUf, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtCidade, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtBairro, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtRua, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtNumero, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtComplemento)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(102, 102, 102)
-                                .addComponent(lblCep)
-                                .addGap(72, 72, 72)
-                                .addComponent(txtCep, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(120, 120, 120)
-                                .addComponent(lblTitleLocalizacao))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(90, 90, 90)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblErroCampoNuloEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, 334, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(btnProximoEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+        javax.swing.GroupLayout encloseLocalizacaoLayout = new javax.swing.GroupLayout(encloseLocalizacao);
+        encloseLocalizacao.setLayout(encloseLocalizacaoLayout);
+        encloseLocalizacaoLayout.setHorizontalGroup(
+            encloseLocalizacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(encloseLocalizacaoLayout.createSequentialGroup()
+                .addGroup(encloseLocalizacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(encloseLocalizacaoLayout.createSequentialGroup()
+                        .addGap(102, 102, 102)
+                        .addComponent(lblCep)
+                        .addGap(72, 72, 72)
+                        .addComponent(txtCep, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(encloseLocalizacaoLayout.createSequentialGroup()
+                        .addGap(120, 120, 120)
+                        .addComponent(lblTitleLocalizacao)))
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(encloseLocalizacaoLayout.createSequentialGroup()
+                .addGap(69, 69, 69)
+                .addGroup(encloseLocalizacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblUf)
+                    .addComponent(lblCidade)
+                    .addComponent(lblBairro)
+                    .addComponent(lblRua)
+                    .addComponent(lblNumero)
+                    .addComponent(lblComplemento))
+                .addGap(6, 6, 6)
+                .addGroup(encloseLocalizacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtUf, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtCidade, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtBairro, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtRua, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtNumero, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtComplemento))
                 .addGap(36, 36, 36))
+            .addGroup(encloseLocalizacaoLayout.createSequentialGroup()
+                .addGap(137, 137, 137)
+                .addComponent(btnProximoEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, encloseLocalizacaoLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblErroCampoNuloEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(115, 115, 115))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        encloseLocalizacaoLayout.setVerticalGroup(
+            encloseLocalizacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(encloseLocalizacaoLayout.createSequentialGroup()
                 .addGap(30, 30, 30)
                 .addComponent(lblTitleLocalizacao)
                 .addGap(79, 79, 79)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(encloseLocalizacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblCep, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addGroup(encloseLocalizacaoLayout.createSequentialGroup()
                         .addGap(6, 6, 6)
                         .addComponent(txtCep, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(62, 62, 62)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(encloseLocalizacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(encloseLocalizacaoLayout.createSequentialGroup()
                         .addGap(8, 8, 8)
                         .addComponent(lblUf))
                     .addComponent(txtUf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(10, 10, 10)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(encloseLocalizacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(encloseLocalizacaoLayout.createSequentialGroup()
                         .addGap(5, 5, 5)
                         .addComponent(lblCidade))
                     .addComponent(txtCidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(12, 12, 12)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(encloseLocalizacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(encloseLocalizacaoLayout.createSequentialGroup()
                         .addGap(12, 12, 12)
                         .addComponent(lblBairro))
                     .addComponent(txtBairro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(6, 6, 6)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(encloseLocalizacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(encloseLocalizacaoLayout.createSequentialGroup()
                         .addGap(9, 9, 9)
                         .addComponent(lblRua))
                     .addComponent(txtRua, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(6, 6, 6)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(encloseLocalizacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblNumero)
                     .addComponent(txtNumero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(15, 15, 15)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(encloseLocalizacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(encloseLocalizacaoLayout.createSequentialGroup()
                         .addGap(3, 3, 3)
                         .addComponent(lblComplemento))
                     .addComponent(txtComplemento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -421,7 +559,7 @@ public class FrmCadastrar extends javax.swing.JFrame {
                 .addComponent(btnProximoEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        endereco.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 50, 480, 660));
+        endereco.add(encloseLocalizacao, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 50, 480, 660));
 
         btnVoltarEndereco.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/voltarVerde.png"))); // NOI18N
         btnVoltarEndereco.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -502,138 +640,6 @@ public class FrmCadastrar extends javax.swing.JFrame {
         seuInteresse.add(lblFundo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 720));
 
         cardPane.add(seuInteresse, "interesse");
-
-        tipoResiduos.setBackground(new java.awt.Color(255, 255, 255));
-        tipoResiduos.setPreferredSize(new java.awt.Dimension(1366, 750));
-        tipoResiduos.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        rbtnVidro.setBackground(new java.awt.Color(255, 255, 255));
-        rbtnVidro.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        rbtnVidro.setText("VIDRO");
-        rbtnVidro.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rbtnVidroActionPerformed(evt);
-            }
-        });
-        tipoResiduos.add(rbtnVidro, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 430, 210, 40));
-
-        rbtnMetal.setBackground(new java.awt.Color(255, 255, 255));
-        rbtnMetal.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        rbtnMetal.setText("METAL");
-        rbtnMetal.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rbtnMetalActionPerformed(evt);
-            }
-        });
-        tipoResiduos.add(rbtnMetal, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 280, 210, 40));
-
-        rbtnPapel.setBackground(new java.awt.Color(255, 255, 255));
-        rbtnPapel.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        rbtnPapel.setText("PAPEL");
-        rbtnPapel.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rbtnPapelActionPerformed(evt);
-            }
-        });
-        tipoResiduos.add(rbtnPapel, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 330, 210, 40));
-
-        rbtnPlastico.setBackground(new java.awt.Color(255, 255, 255));
-        rbtnPlastico.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        rbtnPlastico.setText("PLÁSTICO");
-        rbtnPlastico.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rbtnPlasticoActionPerformed(evt);
-            }
-        });
-        tipoResiduos.add(rbtnPlastico, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 380, 210, 40));
-
-        lblTitleTiposResiduos.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
-        lblTitleTiposResiduos.setText("QUE SUA EMPRESA TRABALHA:");
-        tipoResiduos.add(lblTitleTiposResiduos, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 140, 780, -1));
-
-        lblTitleTiposResiduos1.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
-        lblTitleTiposResiduos1.setText("INFORME OS TIPOS DE RESÍDUOS");
-        tipoResiduos.add(lblTitleTiposResiduos1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 80, 810, -1));
-
-        lblCapacidadeMax.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        lblCapacidadeMax.setText("CAPACIDADE MÁXIMA:");
-        lblCapacidadeMax.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        tipoResiduos.add(lblCapacidadeMax, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 230, 260, -1));
-
-        lblKgMetal.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        lblKgMetal.setText("kg");
-        tipoResiduos.add(lblKgMetal, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 280, 70, -1));
-
-        txtCapMetal.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        txtCapMetal.setToolTipText("");
-        txtCapMetal.setDisabledTextColor(new java.awt.Color(153, 153, 153));
-        txtCapMetal.setEnabled(false);
-        tipoResiduos.add(txtCapMetal, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 280, 160, -1));
-
-        lblTipos1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        lblTipos1.setText("   TIPOS:");
-        lblTipos1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        tipoResiduos.add(lblTipos1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 230, 120, -1));
-
-        txtCapPapel.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        txtCapPapel.setEnabled(false);
-        tipoResiduos.add(txtCapPapel, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 330, 160, -1));
-
-        lblKgPapel.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        lblKgPapel.setText("kg");
-        tipoResiduos.add(lblKgPapel, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 330, 70, -1));
-
-        txtCapPlastico.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        txtCapPlastico.setEnabled(false);
-        tipoResiduos.add(txtCapPlastico, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 380, 160, -1));
-
-        lblKgPlastico.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        lblKgPlastico.setText("kg");
-        tipoResiduos.add(lblKgPlastico, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 380, 70, -1));
-
-        txtCapVidro.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        txtCapVidro.setEnabled(false);
-        tipoResiduos.add(txtCapVidro, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 430, 160, -1));
-
-        lblKgVidro.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        lblKgVidro.setText("kg");
-        tipoResiduos.add(lblKgVidro, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 430, 70, -1));
-
-        btnVoltarTipoResiduos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/voltarLaranja.png"))); // NOI18N
-        btnVoltarTipoResiduos.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnVoltarTipoResiduosMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btnVoltarTipoResiduosMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                btnVoltarTipoResiduosMouseExited(evt);
-            }
-        });
-        tipoResiduos.add(btnVoltarTipoResiduos, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 90, 70));
-
-        btnSaibaMais.setBackground(new java.awt.Color(7, 99, 36));
-        btnSaibaMais.setFont(new java.awt.Font("Arial Black", 0, 24)); // NOI18N
-        btnSaibaMais.setForeground(new java.awt.Color(255, 255, 255));
-        btnSaibaMais.setText("Próximo");
-        btnSaibaMais.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSaibaMaisActionPerformed(evt);
-            }
-        });
-        tipoResiduos.add(btnSaibaMais, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 570, 290, 80));
-
-        lblErroTipoResiduo.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        lblErroTipoResiduo.setForeground(new java.awt.Color(255, 0, 51));
-        lblErroTipoResiduo.setText("Selecione ao menos 1 tipo de resíduo");
-        tipoResiduos.add(lblErroTipoResiduo, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 530, 330, -1));
-
-        lblFundoTipoResiduos.setBackground(new java.awt.Color(255, 255, 255));
-        lblFundoTipoResiduos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/fundoTiposResiduo.png"))); // NOI18N
-        tipoResiduos.add(lblFundoTipoResiduos, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, 1350, -1));
-
-        cardPane.add(tipoResiduos, "tipoResiduos");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -740,10 +746,12 @@ public class FrmCadastrar extends javax.swing.JFrame {
         // de que quer adquirir resíduos. Card Layout muda a prioridade dos frames que aparecem na tela.
         CardLayout cl = (CardLayout) cardPane.getLayout();
         cl.show(cardPane, "tipoResiduos");
+        empresa.interesse = empresa.COMPRA;
     }//GEN-LAST:event_btnAdquirirMouseClicked
 
     private void btnDescartarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnDescartarMouseClicked
         // Na tela seuInteresse se a pessoa clicar que é produtora de resíduos ela já conclui o cadastro e é levada direto ao menu principal. 
+        empresa.interesse = empresa.VENDA;
         this.dispose();
         FrmMenu menu = new FrmMenu();
         menu.setVisible(true);
@@ -793,19 +801,21 @@ public class FrmCadastrar extends javax.swing.JFrame {
     }//GEN-LAST:event_rbtnVidroActionPerformed
 
     private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
+        // Validação da senha
         if (Arrays.equals(pwdConfirmarSenha.getPassword(), pwdSenha.getPassword())) {
             usuario.senha = String.valueOf(pwdSenha.getPassword());
         }else {
             JOptionPane.showMessageDialog(this, "O valor do campo SENHA e CONFIRMAR SENHA devem ser iguais", "Diveregência entre as senhas", JOptionPane.ERROR_MESSAGE);
             return;
-        } // TN Validando campos nulos comparando se a string está vazia
-        if (new String(txtRazaoSocial.getText() ).equals("") 
-            || new String(txtCnpj.getText()).equals("")
-            || new String(txtNomeFantasia.getText()).equals("")
-            || new String(txtEmail.getText()).equals("")
-            || new String(txtTelefone.getText()).equals("")
-            ){
-                lblErroCampoNulo.setVisible(true);
+        } 
+        // TN Validando campos nulos comparando se a string está vazia
+        if (txtRazaoSocial.getText().isBlank() 
+            || txtCnpj.getText().isBlank()
+            || txtNomeFantasia.getText().isBlank()
+            || txtEmail.getText().isBlank()
+            || txtTelefone.getText().isBlank()
+        ){
+            lblErroCampoNulo.setVisible(true);
         }
         
         else{
@@ -813,9 +823,6 @@ public class FrmCadastrar extends javax.swing.JFrame {
             cl.show(cardPane, "endereco");
             lblErroCampoNulo.setVisible(false);
         }
-            
-            
-            
         empresa.razaoSocial = txtRazaoSocial.getText();
         empresa.nomeFantasia = txtNomeFantasia.getText();
         empresa.cnpj = txtCnpj.getText();
@@ -844,41 +851,46 @@ public class FrmCadastrar extends javax.swing.JFrame {
     }//GEN-LAST:event_pwdSenhaFocusLost
 
     private void btnSaibaMaisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaibaMaisActionPerformed
-        if (   new String(txtCapMetal.getText() ).equals("") 
-            || new String(txtCapPapel.getText()).equals("")
-            || new String(txtCapPlastico.getText()).equals("")
-            || new String(txtCapVidro.getText()).equals("")
-                
-            )
-        {
-                lblErroTipoResiduo.setVisible(true);
-                
-                
+        if (   txtCapMetal.getText().isBlank() 
+            || txtCapPapel.getText().isBlank()
+            || txtCapPlastico.getText().isBlank()
+            || txtCapVidro.getText().isBlank()
+        ){
+            lblErroTipoResiduo.setVisible(true);
         }
         else{
-            FrmMenu menu = new FrmMenu();
-            menu.setVisible(true);
-            this.dispose();
-            JOptionPane.showMessageDialog(this, "Conta criada com sucesso! Bem vindo. Para negociar clique em 'Procurar Empresas'. ");
+            lblErroTipoResiduo.setVisible(false);
             
+            JOptionPane.showMessageDialog(this, "Conta criada com sucesso! Bem vindo. Para negociar clique em 'Procurar Empresas'. ");
+//            FrmMenu menu = new FrmMenu();
+//            menu.setVisible(true);
+//            this.dispose();
         }
     }//GEN-LAST:event_btnSaibaMaisActionPerformed
 
     private void btnProximoEnderecoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProximoEnderecoActionPerformed
-        if (new String(txtCep.getText() ).equals("") 
-            || new String(txtUf.getText()).equals("")
-            || new String(txtCidade.getText()).equals("")
-            || new String(txtBairro.getText()).equals("")
-            || new String(txtRua.getText()).equals("")
-            || new String(txtNumero.getText()).equals("")
-            ){
-                lblErroCampoNuloEndereco.setVisible(true);
+        if (
+            txtCep.getText().isBlank()
+            || txtUf.getText().isBlank()
+            || txtCidade.getText().isBlank()
+            || txtBairro.getText().isBlank()
+            || txtRua.getText().isBlank()
+            || txtNumero.getText().isBlank()
+        ){ 
+            lblErroCampoNuloEndereco.setVisible(true);
         }
-        
         else{
             CardLayout cl = (CardLayout) cardPane.getLayout();
             cl.show(cardPane, "interesse");
             lblErroCampoNuloEndereco.setVisible(false);
+            
+            empresa.cep = txtCep.getText();
+            empresa.uf = txtUf.getText();
+            empresa.cidade = txtCidade.getText();
+            empresa.bairro = txtBairro.getText();
+            empresa.rua = txtRua.getText();
+            empresa.numero = txtNumero.getText();
+            empresa.complemento = txtComplemento.getText();
         }
             
     }//GEN-LAST:event_btnProximoEnderecoActionPerformed
@@ -932,8 +944,8 @@ public class FrmCadastrar extends javax.swing.JFrame {
     private javax.swing.JLabel btnVoltarInteresse;
     private javax.swing.JLabel btnVoltarTipoResiduos;
     private javax.swing.JPanel cardPane;
+    private javax.swing.JPanel encloseLocalizacao;
     private javax.swing.JPanel endereco;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblBairro;
     private javax.swing.JLabel lblCapacidadeMax;
     private javax.swing.JLabel lblCep;
