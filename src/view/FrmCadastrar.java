@@ -909,6 +909,7 @@ public class FrmCadastrar extends javax.swing.JFrame {
         empresa.telefone = txtTelefone.getText();
         usuario.login = empresa.email;
         usuario.cnpjEmpresa = empresa.cnpj;
+        usuario.tipo = Usuario.EMPRESA;
     }//GEN-LAST:event_btnCadastrarActionPerformed
 
     private void pwdConfirmarSenhaFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_pwdConfirmarSenhaFocusLost

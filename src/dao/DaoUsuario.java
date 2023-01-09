@@ -41,6 +41,31 @@ public class DaoUsuario {
         return userList;
     }
     
+    public Usuario getUsuarioFromLogin(String login, String senha) {
+        connection = new Conexao().conectarBD();
+        try{
+            pstm = connection.prepareStatement("SELECT * FROM Usuario WHERE login=? AND senha=?", ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
+            pstm.setString(1, login);
+            pstm.setString(2, senha);
+            ResultSet rs = pstm.executeQuery();
+            if(rs.first()) {
+                Usuario user = new Usuario();
+                user.idUsuario = rs.getInt("idUsuario");
+                user.login = rs.getString("login");
+                user.senha = rs.getString("senha");
+                user.tipo  = rs.getInt("tipo");
+                user.foto = rs.getString("foto");
+                user.cnpjEmpresa = rs.getString("cnpjEmpresa");
+                return user;
+            }
+            pstm.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(DaoUsuario.class.getName()).log(Level.SEVERE, "Erro ao coletar os dados: ", ex);
+        }
+        return null;
+        
+    }
+    
     public void addUsuario(Usuario user) {
         connection = new Conexao().conectarBD();
         try {
