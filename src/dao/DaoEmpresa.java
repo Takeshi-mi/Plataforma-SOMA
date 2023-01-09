@@ -17,7 +17,45 @@ public class DaoEmpresa {
         List<Empresa> empresaList = new ArrayList<>();
         connection = new Conexao().conectarBD();
         try{
-            pstm = connection.prepareStatement("SELECT * FROM Usuario", ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
+            pstm = connection.prepareStatement("SELECT * FROM Empresa", ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
+            ResultSet rs = pstm.executeQuery();
+            if(rs.first()) {
+                do{
+                    Empresa empresa = new Empresa();
+                    empresa.cnpj = rs.getString("cnpj");
+                    empresa.razaoSocial = rs.getString("razaosocial");
+                    empresa.nomeFantasia = rs.getString("nomefantasia");
+                    empresa.interesse = rs.getInt("interesse");
+                    empresa.cep = rs.getString("cep");
+                    empresa.uf = rs.getString("uf");                    
+                    empresa.cidade = rs.getString("cidade");
+                    empresa.bairro = rs.getString("bairro");
+                    empresa.rua = rs.getString("rua");                    
+                    empresa.numero = rs.getString("numero");                    
+                    empresa.complemento = rs.getString("complemento");                    
+                    empresa.telefone = rs.getString("telefone");
+                    empresa.site = rs.getString("telefone");
+                    empresa.email = rs.getString("telefone");
+
+                    empresaList.add(empresa);
+                }while(rs.next());
+            }
+            pstm.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(DaoUsuario.class.getName()).log(Level.SEVERE, "Erro ao selecionar dados: ", ex);
+        }
+        return empresaList;
+    }
+    
+    public List<Empresa> searchEmpresa(String cidade, String estado, int tipo, Double quantidade) {
+        List<Empresa> empresaList = new ArrayList<>();
+        connection = new Conexao().conectarBD();
+        try{
+            pstm = connection.prepareStatement("SELECT * FROM Empresa WHERE cidade=?, uf=?, tipo=?, quantidade=?", ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
+            pstm.setString(1, cidade);
+            pstm.setString(2, estado);
+            pstm.setInt(3, tipo);
+            pstm.setDouble(4, quantidade);
             ResultSet rs = pstm.executeQuery();
             if(rs.first()) {
                 do{
