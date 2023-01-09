@@ -93,30 +93,27 @@ public class FrmTransacao extends javax.swing.JFrame {
     }
     
     public void preencherTabela(){
-    //TN Preenche a tabela de acordo com o banco de dados.    
-        
-    tblDescartarResíduos.getColumnModel().getColumn(0).setWidth(2); //PreferredWidth é a largura medida em pixels
-    tblDescartarResíduos.getColumnModel().getColumn(1).setPreferredWidth(2);
-    tblDescartarResíduos.getColumnModel().getColumn(2).setPreferredWidth(30);
-    tblDescartarResíduos.getColumnModel().getColumn(3).setPreferredWidth(20);
-    tblDescartarResíduos.getColumnModel().getColumn(4).setPreferredWidth(20);
-    
-    DefaultTableModel modelo = (DefaultTableModel)tblDescartarResíduos.getModel();
-    modelo.setNumRows(0); //Limpar a tabela
-    
-    
-    for(int i=0;i<lista.size();i++){
-        modelo.addRow(new Object[]{
-            lista.get(i).nomeFantasia,
-            resList.get(i).tipoResiduo,
-            resList.get(i).capacidade,
-            lista.get(i).cidade,
-            resList.get(i).preco,
-     
-        });
+        //TN Preenche a tabela de acordo com o banco de dados.    
+
+        tblDescartarResíduos.getColumnModel().getColumn(0).setWidth(2); //PreferredWidth é a largura medida em pixels
+        tblDescartarResíduos.getColumnModel().getColumn(1).setPreferredWidth(2);
+        tblDescartarResíduos.getColumnModel().getColumn(2).setPreferredWidth(30);
+        tblDescartarResíduos.getColumnModel().getColumn(3).setPreferredWidth(20);
+        tblDescartarResíduos.getColumnModel().getColumn(4).setPreferredWidth(20);
+
+        DefaultTableModel modelo = (DefaultTableModel)tblDescartarResíduos.getModel();
+        modelo.setNumRows(0); //Limpar a tabela
+
+        for(int i=0;i<lista.size();i++){
+            modelo.addRow(new Object[]{
+                lista.get(i).nomeFantasia,
+                resList.get(i).tipoResiduo,
+                resList.get(i).capacidade,
+                lista.get(i).cidade,
+                resList.get(i).preco,
+            });
         }
     }
-
 
     
     
@@ -487,7 +484,7 @@ public class FrmTransacao extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnVoltarTransacaoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVoltarTransacaoMouseClicked
-        Window.getOwnerlessWindows()[0].setVisible(true);
+        Window.getOwnerlessWindows()[1].setVisible(true);
         dispose();
     }//GEN-LAST:event_btnVoltarTransacaoMouseClicked
 

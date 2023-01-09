@@ -292,7 +292,7 @@ public class FrmLogin extends javax.swing.JFrame {
         if(user != null){
             FrmMenu menu = new FrmMenu(user);
             menu.setVisible(true);
-            dispose();
+            this.dispose();
         }
         else {
 //            JOptionPane.showMessageDialog(this, "Usuário ou senha incorretos!", "Erro", JOptionPane.ERROR_MESSAGE);

@@ -131,7 +131,7 @@ public class FrmHistoricoTransacoes extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnVoltarHistoricoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVoltarHistoricoMouseClicked
-        Window.getOwnerlessWindows()[0].setVisible(true);
+        FrmMenu.visible(true);
         dispose();
     }//GEN-LAST:event_btnVoltarHistoricoMouseClicked
 

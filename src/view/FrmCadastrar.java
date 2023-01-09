@@ -774,7 +774,7 @@ public class FrmCadastrar extends javax.swing.JFrame {
     }//GEN-LAST:event_btnVoltarInteresseMouseClicked
 
     private void btnVoltarCadastroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVoltarCadastroMouseClicked
-        Window.getOwnerlessWindows()[0].setVisible(true);
+        FrmMenu.visible(true);
         this.dispose();
     }//GEN-LAST:event_btnVoltarCadastroMouseClicked
 
@@ -821,7 +821,7 @@ public class FrmCadastrar extends javax.swing.JFrame {
         empresa.interesse = empresa.VENDA;
         adicionarAoBD();
         this.dispose();
-        Window.getOwnerlessWindows()[0].setVisible(true);
+        Window.getOwnerlessWindows()[1].setVisible(true);
         JOptionPane.showMessageDialog(this, "Conta criada com sucesso! Bem vindo(a)"+empresa.nomeFantasia+". Para negociar clique em 'Procurar Empresas'. ");
     }//GEN-LAST:event_btnDescartarMouseClicked
 
@@ -967,7 +967,7 @@ public class FrmCadastrar extends javax.swing.JFrame {
         }
         
         JOptionPane.showMessageDialog(this, "Conta criada com sucesso! Bem vindo(a)"+empresa.nomeFantasia+". Para negociar clique em 'Procurar Empresas'. ");
-        Window.getOwnerlessWindows()[0].setVisible(true);
+        Window.getOwnerlessWindows()[1].setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnProximoResiduoActionPerformed
 

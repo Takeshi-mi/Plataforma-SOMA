@@ -155,7 +155,7 @@ public class InFrmMais extends javax.swing.JInternalFrame {
     private void btnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairActionPerformed
         FrmLogin login = new FrmLogin();
         login.setVisible(true);
-        SwingUtilities.getWindowAncestor(this).dispose();
+        FrmMenu.visible(false);
     }//GEN-LAST:event_btnSairActionPerformed
 
     private void formMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseExited
@@ -167,30 +167,30 @@ public class InFrmMais extends javax.swing.JInternalFrame {
     private void btnTransacoesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTransacoesActionPerformed
         FrmHistoricoTransacoes historico = new FrmHistoricoTransacoes();
         historico.setVisible(true);
-        SwingUtilities.getWindowAncestor(this).setVisible(false);
+        FrmMenu.visible(false);
     }//GEN-LAST:event_btnTransacoesActionPerformed
 
     private void btnProcurarEmpresasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProcurarEmpresasActionPerformed
         FrmTransacao transacao = new FrmTransacao();
         transacao.setVisible(true);
-        SwingUtilities.getWindowAncestor(this).setVisible(false);
+        FrmMenu.visible(false);
     }//GEN-LAST:event_btnProcurarEmpresasActionPerformed
 
     private void btnUsuariosCadastradosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUsuariosCadastradosActionPerformed
         FrmUsuariosCadastrados usuarios = new FrmUsuariosCadastrados();
         usuarios.setVisible(true);
-        SwingUtilities.getWindowAncestor(this).setVisible(false);
+        FrmMenu.visible(false);
     }//GEN-LAST:event_btnUsuariosCadastradosActionPerformed
 
     private void btnMapaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMapaActionPerformed
         FrmMapa mapa = new FrmMapa();
         mapa.setVisible(true);
-        SwingUtilities.getWindowAncestor(this).setVisible(false);
+        FrmMenu.visible(false);
     }//GEN-LAST:event_btnMapaActionPerformed
 
     private void btnPerfilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPerfilActionPerformed
         new FrmPerfil().setVisible(true);
-        SwingUtilities.getWindowAncestor(this).setVisible(false);
+        FrmMenu.visible(false);
     }//GEN-LAST:event_btnPerfilActionPerformed
 
 

@@ -132,7 +132,7 @@ public class FrmUsuariosCadastrados extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnVoltarUsuariosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVoltarUsuariosMouseClicked
-        Window.getOwnerlessWindows()[0].setVisible(true);
+        FrmMenu.visible(true);
         this.dispose();
     }//GEN-LAST:event_btnVoltarUsuariosMouseClicked
 

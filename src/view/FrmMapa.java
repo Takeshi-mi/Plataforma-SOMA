@@ -87,7 +87,7 @@ public class FrmMapa extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnVoltarMapaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVoltarMapaMouseClicked
-        Window.getOwnerlessWindows()[0].setVisible(true);
+        FrmMenu.visible(true);
         dispose();
     }//GEN-LAST:event_btnVoltarMapaMouseClicked
 

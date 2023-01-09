@@ -50,8 +50,9 @@ public class DaoEmpresa {
     public List<Empresa> searchEmpresa(String cidade, String estado, int tipo, Double quantidade) {
         List<Empresa> empresaList = new ArrayList<>();
         connection = new Conexao().conectarBD();
+        String query = "SELECT * FROM Empresa JOIN WHERE cidade=?, uf=?, tipo=?, quantidade=?";
         try{
-            pstm = connection.prepareStatement("SELECT * FROM Empresa WHERE cidade=?, uf=?, tipo=?, quantidade=?", ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
+            pstm = connection.prepareStatement(query, ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
             pstm.setString(1, cidade);
             pstm.setString(2, estado);
             pstm.setInt(3, tipo);

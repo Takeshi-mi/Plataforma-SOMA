@@ -340,7 +340,7 @@ public class FrmPerfil extends javax.swing.JFrame {
     }//GEN-LAST:event_btnVoltarPerfilMouseEntered
 
     private void btnVoltarPerfilMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVoltarPerfilMouseClicked
-        Window.getOwnerlessWindows()[0].setVisible(true);
+        FrmMenu.visible(true);
         this.dispose();
     }//GEN-LAST:event_btnVoltarPerfilMouseClicked
 
