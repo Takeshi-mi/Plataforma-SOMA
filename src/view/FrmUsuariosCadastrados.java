@@ -3,16 +3,13 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package view;
-
-import dao.DaoEmpresa;
 import dao.DaoUsuario;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.ImageIcon;
-
 import javax.swing.table.*;
 import model.Usuario;
-import model.Empresa;
+
 
 /**
  *
@@ -21,22 +18,16 @@ import model.Empresa;
 public class FrmUsuariosCadastrados extends javax.swing.JFrame {
     
     DaoUsuario daoUsuario = new DaoUsuario();
-    DaoEmpresa daoEmpresa = new DaoEmpresa();
-    
     List<Usuario> lista = new ArrayList<>();
-    List<Empresa> list = new ArrayList<>();
-  
-    /**
-     * Creates new form FrmUsuarios
-     */
+
+
     public FrmUsuariosCadastrados() {
         initComponents();
+        
         lista = daoUsuario.getAll();
-        list = daoEmpresa.getEmpresas();
         preencherTabela();
     }
    
-    
     public void preencherTabela(){
     //TN Preenche a tabela de acordo com o banco de dados.    
         
@@ -44,7 +35,6 @@ public class FrmUsuariosCadastrados extends javax.swing.JFrame {
     tblUsuarios.getColumnModel().getColumn(1).setPreferredWidth(2);
     tblUsuarios.getColumnModel().getColumn(2).setPreferredWidth(30);
     tblUsuarios.getColumnModel().getColumn(3).setPreferredWidth(20);
-    tblUsuarios.getColumnModel().getColumn(4).setPreferredWidth(20);
     
     DefaultTableModel modelo = (DefaultTableModel)tblUsuarios.getModel();
     modelo.setNumRows(0); //Limpar a tabela
@@ -55,7 +45,7 @@ public class FrmUsuariosCadastrados extends javax.swing.JFrame {
             lista.get(i).tipo,
             lista.get(i).login,
             lista.get(i).cnpjEmpresa,
-            list.get(5).telefone
+
           
         });
         }
@@ -102,13 +92,13 @@ public class FrmUsuariosCadastrados extends javax.swing.JFrame {
 
         tblUsuarios.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
             },
             new String [] {
-                "IdUser", "Tipo", "Login", "cnpjEmpresa", "Telefone"
+                "IdUser", "Tipo", "Login", "cnpjEmpresa"
             }
         ));
         scrollPane.setViewportView(tblUsuarios);
