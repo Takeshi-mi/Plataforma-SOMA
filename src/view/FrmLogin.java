@@ -51,6 +51,7 @@ public class FrmLogin extends javax.swing.JFrame {
         btnCadastre = new javax.swing.JButton();
         lblErro = new javax.swing.JLabel();
         btnEsqueceu = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         dialogTroll.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         dialogTroll.setTitle("Vish mermão ");
@@ -100,6 +101,7 @@ public class FrmLogin extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocation(new java.awt.Point(0, 0));
+        setUndecorated(true);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -179,6 +181,21 @@ public class FrmLogin extends javax.swing.JFrame {
             }
         });
 
+        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(0, 102, 0));
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/iconExit40px.png"))); // NOI18N
+        jButton1.setText("Sair");
+        jButton1.setBorder(null);
+        jButton1.setBorderPainted(false);
+        jButton1.setContentAreaFilled(false);
+        jButton1.setDefaultCapable(false);
+        jButton1.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -210,11 +227,14 @@ public class FrmLogin extends javax.swing.JFrame {
                 .addGap(225, 225, 225)
                 .addComponent(btnEsqueceu, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jButton1))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(39, 39, 39)
+                .addGap(72, 72, 72)
                 .addComponent(LogoSoma, javax.swing.GroupLayout.PREFERRED_SIZE, 263, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(lblImagePadlock)
@@ -236,7 +256,8 @@ public class FrmLogin extends javax.swing.JFrame {
                 .addComponent(btnCadastre)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnEsqueceu)
-                .addGap(35, 35, 35))
+                .addGap(8, 8, 8)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         lblErro.getAccessibleContext().setAccessibleName("credencial incorreta");
@@ -310,6 +331,10 @@ public class FrmLogin extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnEsqueceuActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -358,6 +383,7 @@ public class FrmLogin extends javax.swing.JFrame {
     private javax.swing.JButton btnCadastre;
     private javax.swing.JButton btnEsqueceu;
     private javax.swing.JDialog dialogTroll;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JSeparator jSeparator1;
