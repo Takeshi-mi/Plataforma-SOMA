@@ -49,6 +49,13 @@ public class FrmHistoricoTransacoes extends javax.swing.JFrame {
     for(int i=0;i<lista.size();i++){
         modelo.addRow(new Object[]{
             lista.get(i).horario,
+            lista.get(i).idComprador,
+            lista.get(i).idVendedor,
+            lista.get(i).tipoResiduo,
+            lista.get(i).quantidade,
+            lista.get(i).valorUnitario,
+            lista.get(i).valorTransporte,
+            
 
 
                     });
@@ -72,8 +79,6 @@ public class FrmHistoricoTransacoes extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tblHistoricoTransacao = new javax.swing.JTable();
         btnPesquisar1 = new javax.swing.JButton();
-        cbxTipo = new javax.swing.JComboBox<>();
-        lblTipo = new javax.swing.JLabel();
         lblFundoHistorico = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -103,13 +108,13 @@ public class FrmHistoricoTransacoes extends javax.swing.JFrame {
 
         tblHistoricoTransacao.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null}
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Data/hora", "Comprador", "Vendedor", "Tipo", "Quantidade", "Valor", "Transporte"
+                "Data/hora", "Comprador", "Vendedor", "Tipo", "Quantidade", "Valor Unitário", "Transporte", "Total"
             }
         ));
         jScrollPane1.setViewportView(tblHistoricoTransacao);
@@ -122,13 +127,6 @@ public class FrmHistoricoTransacoes extends javax.swing.JFrame {
         btnPesquisar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/iconFiltrar.png"))); // NOI18N
         btnPesquisar1.setText("FILTRAR");
         mainPane.add(btnPesquisar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 180, 194, 38));
-
-        cbxTipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "PAPEL", "PLÁSTICO", "METAL", "VIDRO" }));
-        mainPane.add(cbxTipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 140, -1, -1));
-
-        lblTipo.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        lblTipo.setText("TIPO DE RESÍDUO");
-        mainPane.add(lblTipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 140, 127, -1));
 
         lblFundoHistorico.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/fundoHistoricoTransacoes.png"))); // NOI18N
         lblFundoHistorico.setToolTipText("");
@@ -196,10 +194,8 @@ public class FrmHistoricoTransacoes extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnPesquisar1;
     private javax.swing.JLabel btnVoltarHistorico;
-    private javax.swing.JComboBox<String> cbxTipo;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblFundoHistorico;
-    private javax.swing.JLabel lblTipo;
     private javax.swing.JLabel lblTitleHistorico;
     private javax.swing.JPanel mainPane;
     private javax.swing.JTable tblHistoricoTransacao;
