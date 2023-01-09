@@ -774,7 +774,7 @@ public class FrmCadastrar extends javax.swing.JFrame {
     }//GEN-LAST:event_btnVoltarInteresseMouseClicked
 
     private void btnVoltarCadastroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVoltarCadastroMouseClicked
-        FrmMenu.visible(true);
+        Window.getOwnerlessWindows()[0].setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnVoltarCadastroMouseClicked
 
@@ -820,8 +820,8 @@ public class FrmCadastrar extends javax.swing.JFrame {
         // Na tela seuInteresse se a pessoa clicar que é produtora de resíduos ela já conclui o cadastro e é levada direto ao menu principal. 
         empresa.interesse = empresa.VENDA;
         adicionarAoBD();
+        new FrmMenu(usuario).setVisible(true);
         this.dispose();
-        Window.getOwnerlessWindows()[1].setVisible(true);
         JOptionPane.showMessageDialog(this, "Conta criada com sucesso! Bem vindo(a)"+empresa.nomeFantasia+". Para negociar clique em 'Procurar Empresas'. ");
     }//GEN-LAST:event_btnDescartarMouseClicked
 
@@ -967,7 +967,7 @@ public class FrmCadastrar extends javax.swing.JFrame {
         }
         
         JOptionPane.showMessageDialog(this, "Conta criada com sucesso! Bem vindo(a)"+empresa.nomeFantasia+". Para negociar clique em 'Procurar Empresas'. ");
-        Window.getOwnerlessWindows()[1].setVisible(true);
+        new FrmMenu(usuario).setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnProximoResiduoActionPerformed
 

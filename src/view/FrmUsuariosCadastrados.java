@@ -7,7 +7,9 @@ import dao.DaoUsuario;
 import java.awt.Window;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import javax.swing.ImageIcon;
+import javax.swing.SwingConstants;
 import javax.swing.table.*;
 import model.Usuario;
 
@@ -20,6 +22,10 @@ public class FrmUsuariosCadastrados extends javax.swing.JFrame {
     
     DaoUsuario daoUsuario = new DaoUsuario();
     List<Usuario> lista = new ArrayList<>();
+    Map<Integer, String> mapTipo = Map.of(
+        Usuario.ADM, "ADMINISTRADOR", 
+        Usuario.EMPRESA, "EMPRESA"
+    );
 
 
     public FrmUsuariosCadastrados() {
@@ -29,26 +35,26 @@ public class FrmUsuariosCadastrados extends javax.swing.JFrame {
         preencherTabela();
     }
    
-    public void preencherTabela(){
-    //TN Preenche a tabela de acordo com o banco de dados.    
-        
-    tblUsuarios.getColumnModel().getColumn(0).setWidth(2); //PreferredWidth é a largura medida em pixels
-    tblUsuarios.getColumnModel().getColumn(1).setPreferredWidth(2);
-    tblUsuarios.getColumnModel().getColumn(2).setPreferredWidth(30);
-    tblUsuarios.getColumnModel().getColumn(3).setPreferredWidth(20);
-    
-    DefaultTableModel modelo = (DefaultTableModel)tblUsuarios.getModel();
-    modelo.setNumRows(0); //Limpar a tabela
-    
-    for(int i=0;i<lista.size();i++){
-        modelo.addRow(new Object[]{
-            lista.get(i).idUsuario,
-            lista.get(i).tipo,
-            lista.get(i).login,
-            lista.get(i).cnpjEmpresa,
+    //TN Preenche a tabela de acordo com o banco de dados.
+    private void preencherTabela(){
+        int[] preferedWidth = new int[]{100, 300, 500, 400};
+        DefaultTableCellRenderer centerCell = new DefaultTableCellRenderer();
+        centerCell.setHorizontalAlignment(SwingConstants.CENTER);
+        for (int i=0; i<4; i++) {
+            tblUsuarios.getColumnModel().getColumn(i).setPreferredWidth(preferedWidth[i]); //PreferredWidth é a largura medida em pixels
+            tblUsuarios.getColumnModel().getColumn(i).setCellRenderer(centerCell);
+        }
 
-          
-        });
+        DefaultTableModel modelo = (DefaultTableModel)tblUsuarios.getModel();
+        modelo.setNumRows(0); //Limpar a tabela
+    
+        for(int i=0;i<lista.size();i++){
+            modelo.addRow(new Object[]{
+                lista.get(i).idUsuario,
+                mapTipo.get(lista.get(i).tipo),
+                lista.get(i).login,
+                lista.get(i).cnpjEmpresa,
+            });
         }
     }
 
@@ -107,7 +113,7 @@ public class FrmUsuariosCadastrados extends javax.swing.JFrame {
             tblUsuarios.getColumnModel().getColumn(1).setPreferredWidth(2);
         }
 
-        jPanel1.add(scrollPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 230, 1070, 300));
+        jPanel1.add(scrollPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 250, 650, 290));
 
         lblFundoUsuarios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/fundoUsuarios.png"))); // NOI18N
         jPanel1.add(lblFundoUsuarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -173,11 +179,12 @@ public class FrmUsuariosCadastrados extends javax.swing.JFrame {
         }
         //</editor-fold>
         //</editor-fold>
-
+        
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new FrmUsuariosCadastrados().setVisible(true);
+                
             }
         });
     }
