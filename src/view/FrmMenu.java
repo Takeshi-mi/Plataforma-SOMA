@@ -399,7 +399,7 @@ public class FrmMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_btnInicioActionPerformed
 
     private void btn3PontosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn3PontosActionPerformed
-        InFrmMais mais = new InFrmMais();
+        InFrmMais mais = new InFrmMais(usuario);
         painelDesktopMain.add(mais);
         mais.setSize(400, getHeight());
         try {

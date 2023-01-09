@@ -5,18 +5,23 @@
 package view;
 
 import javax.swing.SwingUtilities;
+import model.Usuario;
 
 /**
  *
  * @author Admin
  */
 public class InFrmMais extends javax.swing.JInternalFrame {
-
+    Usuario usuario;
     /**
      * Creates new form InFrmMais
      */
-    public InFrmMais() {
+    public InFrmMais(Usuario user) {
         initComponents();
+        usuario = user;
+        if (usuario.tipo==Usuario.EMPRESA) {
+            btnUsuariosCadastrados.setVisible(false);
+        }
     }
 
     /**
@@ -32,7 +37,7 @@ public class InFrmMais extends javax.swing.JInternalFrame {
         jButton1 = new javax.swing.JButton();
         btnTransacoes = new javax.swing.JButton();
         btnProcurarEmpresas = new javax.swing.JButton();
-        btnPerfil = new javax.swing.JButton();
+        btnUsuariosCadastrados = new javax.swing.JButton();
         btnMapa = new javax.swing.JButton();
         btnPerfil1 = new javax.swing.JButton();
         lblFundo = new javax.swing.JLabel();
@@ -97,19 +102,19 @@ public class InFrmMais extends javax.swing.JInternalFrame {
         });
         jPanel1.add(btnProcurarEmpresas, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 240, 270, 50));
 
-        btnPerfil.setBackground(new java.awt.Color(118, 118, 118));
-        btnPerfil.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        btnPerfil.setForeground(new java.awt.Color(255, 255, 255));
-        btnPerfil.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/profile-user.png"))); // NOI18N
-        btnPerfil.setText("USUÁRIOS CADASTRADOS");
-        btnPerfil.setBorder(null);
-        btnPerfil.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        btnPerfil.addActionListener(new java.awt.event.ActionListener() {
+        btnUsuariosCadastrados.setBackground(new java.awt.Color(118, 118, 118));
+        btnUsuariosCadastrados.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        btnUsuariosCadastrados.setForeground(new java.awt.Color(255, 255, 255));
+        btnUsuariosCadastrados.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/profile-user.png"))); // NOI18N
+        btnUsuariosCadastrados.setText("USUÁRIOS CADASTRADOS");
+        btnUsuariosCadastrados.setBorder(null);
+        btnUsuariosCadastrados.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnUsuariosCadastrados.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnPerfilActionPerformed(evt);
+                btnUsuariosCadastradosActionPerformed(evt);
             }
         });
-        jPanel1.add(btnPerfil, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 560, 230, 50));
+        jPanel1.add(btnUsuariosCadastrados, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 560, 230, 50));
 
         btnMapa.setBackground(new java.awt.Color(118, 118, 118));
         btnMapa.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
@@ -171,11 +176,11 @@ public class InFrmMais extends javax.swing.JInternalFrame {
         SwingUtilities.getWindowAncestor(this).dispose();
     }//GEN-LAST:event_btnProcurarEmpresasActionPerformed
 
-    private void btnPerfilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPerfilActionPerformed
+    private void btnUsuariosCadastradosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUsuariosCadastradosActionPerformed
         FrmUsuariosCadastrados usuarios = new FrmUsuariosCadastrados();
         usuarios.setVisible(true);
         SwingUtilities.getWindowAncestor(this).dispose();
-    }//GEN-LAST:event_btnPerfilActionPerformed
+    }//GEN-LAST:event_btnUsuariosCadastradosActionPerformed
 
     private void btnMapaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMapaActionPerformed
         FrmMapa mapa = new FrmMapa();
@@ -190,10 +195,10 @@ public class InFrmMais extends javax.swing.JInternalFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnMapa;
-    private javax.swing.JButton btnPerfil;
     private javax.swing.JButton btnPerfil1;
     private javax.swing.JButton btnProcurarEmpresas;
     private javax.swing.JButton btnTransacoes;
+    private javax.swing.JButton btnUsuariosCadastrados;
     private javax.swing.JButton jButton1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblFundo;

@@ -8,13 +8,13 @@ import java.awt.Color;
 import javax.swing.ImageIcon;
 import view.FrmMenu;
 import javax.swing.JOptionPane;
+import model.Usuario;
 
 /**
  *
  * @author ifg
  */
 public class FrmLogin extends javax.swing.JFrame {
-
     /**
      * Creates new form TelaLogin
      */
@@ -260,14 +260,16 @@ public class FrmLogin extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+        
 
     private void btnAcessActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAcessActionPerformed
         DaoUsuario daoUsuario = new DaoUsuario();
         String login = txtUser.getText();
         String senha = String.valueOf(pwdPassword.getPassword());
-        int tipo = daoUsuario.validarUsuario(login, senha);
-        if(tipo != -1){
-            FrmMenu menu = new FrmMenu();
+        Usuario user = daoUsuario.getUsuarioFromLogin(login, senha);
+        
+        if(user != null){
+            FrmMenu menu = new FrmMenu(user);
             menu.setVisible(true);
             dispose();
         }

@@ -2,8 +2,8 @@ package model;
 
 public class Usuario {
     // evitar hardcode
-    public final int ADM = 0;
-    public final int EMPRESA = 1;
+    public static final int ADM = 0;
+    public static final int EMPRESA = 1;
     
     public int idUsuario; // PK
     public String login;
