@@ -127,4 +127,30 @@ public class DaoUsuario {
         }
         return tipo;
     }
+    
+    
+        public String getUsuarioName(String login) {
+        connection = new Conexao().conectarBD();
+        try{
+            pstm = connection.prepareStatement("SELECT * FROM Usuario WHERE login=?", ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
+            pstm.setString(1, login);
+
+            ResultSet rs = pstm.executeQuery();
+            if(rs.first()) {
+                Usuario user = new Usuario();
+                
+                user.login = rs.getString("login");
+                
+                
+                return user.login;
+            }
+            pstm.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(DaoUsuario.class.getName()).log(Level.SEVERE, "Erro ao coletar os dados: ", ex);
+        }
+        return null;
+        
+    }
+    
+    
 }

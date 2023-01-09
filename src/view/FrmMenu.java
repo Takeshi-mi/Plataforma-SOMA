@@ -15,6 +15,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import model.Usuario;
+import dao.DaoUsuario;
 
 /**
  *
@@ -22,6 +23,8 @@ import model.Usuario;
  */
 public class FrmMenu extends javax.swing.JFrame {
     Usuario usuario;
+    DaoUsuario daoUsuario = new DaoUsuario();
+    
     /**
      * Creates new form FrmMenu1
      */
@@ -36,6 +39,9 @@ public class FrmMenu extends javax.swing.JFrame {
     public FrmMenu(Usuario user) {
         initComponents();
         usuario = user;
+        String login = user.login;
+       
+        nomeUsuario.setText("Olá, "+ daoUsuario.getUsuarioName(login));
         // TN Na Janela "Saiba Mais" o scroll estava muito lento, passando uma linha de cada vez. Com esse código passará 20 por vez, deixando mais fluido. 
         jScrollPane2.getVerticalScrollBar().setUnitIncrement(20);
     }
@@ -132,13 +138,14 @@ public class FrmMenu extends javax.swing.JFrame {
         mainPane.add(UserIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(1256, 47, -1, -1));
 
         nomeUsuario.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        nomeUsuario.setText("Olá, Nome do Usuário");
+        nomeUsuario.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        nomeUsuario.setText("Olá, user");
         nomeUsuario.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 nomeUsuarioMouseClicked(evt);
             }
         });
-        mainPane.add(nomeUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(1058, 44, 192, 67));
+        mainPane.add(nomeUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 44, 630, 67));
 
         jPanelBarraVerde.setBackground(new java.awt.Color(7, 99, 36));
         jPanelBarraVerde.setForeground(new java.awt.Color(7, 99, 36));

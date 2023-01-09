@@ -40,6 +40,7 @@ public class FrmTransacao extends javax.swing.JFrame {
         lista = daoEmpresa.getEmpresas();
         resList = daoResiduo.getAll();
         preencherTabela();
+        
     }
 
     /**
@@ -484,7 +485,7 @@ public class FrmTransacao extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnVoltarTransacaoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVoltarTransacaoMouseClicked
-        Window.getOwnerlessWindows()[1].setVisible(true);
+        FrmMenu.visible(true);
         dispose();
     }//GEN-LAST:event_btnVoltarTransacaoMouseClicked
 
