@@ -4,20 +4,30 @@
  */
 package view;
 
+import dao.DaoEmpresa;
+import dao.DaoResiduo;
 import java.awt.Color;
 import java.awt.Desktop;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import model.Empresa;
+import model.Residuo;
 
 /**
  *
  * @author Takeshi
  */
 public class FrmTransacao extends javax.swing.JFrame {
+    DaoEmpresa daoEmpresa = new DaoEmpresa();
+    DaoResiduo daoResiduo = new DaoResiduo();
+    List<Empresa> lista = new ArrayList<>();
+    List<Residuo> resList = new ArrayList<>();
 
     /**
      * Creates new form FrmMovimentacao
@@ -25,6 +35,13 @@ public class FrmTransacao extends javax.swing.JFrame {
     public FrmTransacao() {
         initComponents();
         this.setLocationRelativeTo(null);  // Tk Para surgir no centro da tela
+        
+        lista = daoEmpresa.getEmpresas();
+        resList = daoResiduo.getAll();
+        preencherTabela();
+        
+        
+        
         
     }
 
@@ -36,7 +53,7 @@ public class FrmTransacao extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     
     public void preencherContatoByTable(){
-    
+        
         int lineChoose = tblDescartarResíduos.getSelectedRow();
         txtEmpresaNome.setText(tblDescartarResíduos.getValueAt(lineChoose, 0).toString());
         txtTelefone.setText(tblDescartarResíduos.getValueAt(lineChoose, 1).toString());
@@ -74,20 +91,35 @@ public class FrmTransacao extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Digite um número válido em Quantidade. Use ponto ao invés de vírgula. /n Selecione uma linha da tabela");
             
              // Takeshi-Naoki cairá aqui se a string não for um valor 
-             //que possa ser convertido em inteiro
-            
-}
-
-        
-        
-        
-        //float valor = preco* Float.parseFloat((String) txtQtd.getValue());
-       // JOptionPane.showMessageDialog(this, valor);
-        //txtValor.setText(tblDescartarResíduos.getValueAt(lineChoose, 4).toString());
-        //txtTotal.setText((tblDescartarResíduos.getValueAt(lineChoose, 1)*(txtQtd.getValue())).toString());
-       
-        
+             //que possa ser convertido em inteiro   
+            }
     }
+    
+    public void preencherTabela(){
+    //TN Preenche a tabela de acordo com o banco de dados.    
+        
+    tblDescartarResíduos.getColumnModel().getColumn(0).setWidth(2); //PreferredWidth é a largura medida em pixels
+    tblDescartarResíduos.getColumnModel().getColumn(1).setPreferredWidth(2);
+    tblDescartarResíduos.getColumnModel().getColumn(2).setPreferredWidth(30);
+    tblDescartarResíduos.getColumnModel().getColumn(3).setPreferredWidth(20);
+    tblDescartarResíduos.getColumnModel().getColumn(4).setPreferredWidth(20);
+    
+    DefaultTableModel modelo = (DefaultTableModel)tblDescartarResíduos.getModel();
+    modelo.setNumRows(0); //Limpar a tabela
+    
+    
+    for(int i=0;i<lista.size();i++){
+        modelo.addRow(new Object[]{
+            lista.get(i).nomeFantasia,
+            resList.get(i).tipoResiduo,
+            resList.get(i).capacidade,
+            lista.get(i).cidade,
+            resList.get(i).preco,
+     
+        });
+        }
+    }
+
 
     
     
@@ -418,6 +450,11 @@ public class FrmTransacao extends javax.swing.JFrame {
         painelDeCima.add(jToggleButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 130, -1, -1));
 
         txtQtd.setText("0");
+        txtQtd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtQtdActionPerformed(evt);
+            }
+        });
         painelDeCima.add(txtQtd, new org.netbeans.lib.awtextra.AbsoluteConstraints(174, 160, 70, -1));
 
         btnPesquisar1.setBackground(new java.awt.Color(255, 102, 0));
@@ -425,6 +462,11 @@ public class FrmTransacao extends javax.swing.JFrame {
         btnPesquisar1.setForeground(new java.awt.Color(255, 255, 255));
         btnPesquisar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/lupa.png"))); // NOI18N
         btnPesquisar1.setText("PESQUISAR");
+        btnPesquisar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPesquisar1ActionPerformed(evt);
+            }
+        });
         painelDeCima.add(btnPesquisar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 189, 194, 38));
 
         lblFundoTransacao.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/fundoTransacao.png"))); // NOI18N
@@ -484,6 +526,14 @@ public class FrmTransacao extends javax.swing.JFrame {
             System.out.println(erro);
         }
     }//GEN-LAST:event_lblSiteAzulMouseClicked
+
+    private void txtQtdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtQtdActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtQtdActionPerformed
+
+    private void btnPesquisar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisar1ActionPerformed
+        preencherTabela();
+    }//GEN-LAST:event_btnPesquisar1ActionPerformed
 
     /**
      * @param args the command line arguments
