@@ -15,19 +15,28 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+import model.Usuario;
 
 /**
  *
  * @author Takeshi
  */
 public class FrmMenu extends javax.swing.JFrame {
-
+    Usuario usuario;
     /**
      * Creates new form FrmMenu1
      */
     public FrmMenu() {
         initComponents();
         
+        // TN Na Janela "Saiba Mais" o scroll estava muito lento, passando uma linha de cada vez. Com esse código passará 20 por vez, deixando mais fluido. 
+        jScrollPane2.getVerticalScrollBar().setUnitIncrement(20);
+    }
+    
+    // Override para saber que tipo de usuário logou
+    public FrmMenu(Usuario user) {
+        initComponents();
+        usuario = user;
         // TN Na Janela "Saiba Mais" o scroll estava muito lento, passando uma linha de cada vez. Com esse código passará 20 por vez, deixando mais fluido. 
         jScrollPane2.getVerticalScrollBar().setUnitIncrement(20);
     }
