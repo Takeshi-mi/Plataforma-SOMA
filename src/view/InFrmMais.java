@@ -34,6 +34,7 @@ public class InFrmMais extends javax.swing.JInternalFrame {
         btnProcurarEmpresas = new javax.swing.JButton();
         btnPerfil = new javax.swing.JButton();
         btnMapa = new javax.swing.JButton();
+        btnPerfil1 = new javax.swing.JButton();
         lblFundo = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(7, 99, 36));
@@ -97,9 +98,10 @@ public class InFrmMais extends javax.swing.JInternalFrame {
         jPanel1.add(btnProcurarEmpresas, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 240, 270, 50));
 
         btnPerfil.setBackground(new java.awt.Color(118, 118, 118));
-        btnPerfil.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        btnPerfil.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         btnPerfil.setForeground(new java.awt.Color(255, 255, 255));
-        btnPerfil.setText("MEU PERFIL");
+        btnPerfil.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/profile-user.png"))); // NOI18N
+        btnPerfil.setText("USUÁRIOS CADASTRADOS");
         btnPerfil.setBorder(null);
         btnPerfil.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         btnPerfil.addActionListener(new java.awt.event.ActionListener() {
@@ -107,7 +109,7 @@ public class InFrmMais extends javax.swing.JInternalFrame {
                 btnPerfilActionPerformed(evt);
             }
         });
-        jPanel1.add(btnPerfil, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 180, 50));
+        jPanel1.add(btnPerfil, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 560, 230, 50));
 
         btnMapa.setBackground(new java.awt.Color(118, 118, 118));
         btnMapa.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
@@ -121,6 +123,19 @@ public class InFrmMais extends javax.swing.JInternalFrame {
             }
         });
         jPanel1.add(btnMapa, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 360, 330, 50));
+
+        btnPerfil1.setBackground(new java.awt.Color(118, 118, 118));
+        btnPerfil1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        btnPerfil1.setForeground(new java.awt.Color(255, 255, 255));
+        btnPerfil1.setText("MEU PERFIL");
+        btnPerfil1.setBorder(null);
+        btnPerfil1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnPerfil1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPerfil1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnPerfil1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 180, 50));
 
         lblFundo.setBackground(new java.awt.Color(0, 102, 51));
         lblFundo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/internalFrameMenuFundo.png"))); // NOI18N
@@ -157,8 +172,8 @@ public class InFrmMais extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnProcurarEmpresasActionPerformed
 
     private void btnPerfilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPerfilActionPerformed
-        FrmPerfil perfil  = new FrmPerfil();
-        perfil.setVisible(true);
+        FrmUsuariosCadastrados usuarios = new FrmUsuariosCadastrados();
+        usuarios.setVisible(true);
         SwingUtilities.getWindowAncestor(this).dispose();
     }//GEN-LAST:event_btnPerfilActionPerformed
 
@@ -168,10 +183,15 @@ public class InFrmMais extends javax.swing.JInternalFrame {
         SwingUtilities.getWindowAncestor(this).dispose();
     }//GEN-LAST:event_btnMapaActionPerformed
 
+    private void btnPerfil1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPerfil1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnPerfil1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnMapa;
     private javax.swing.JButton btnPerfil;
+    private javax.swing.JButton btnPerfil1;
     private javax.swing.JButton btnProcurarEmpresas;
     private javax.swing.JButton btnTransacoes;
     private javax.swing.JButton jButton1;
