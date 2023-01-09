@@ -821,8 +821,7 @@ public class FrmCadastrar extends javax.swing.JFrame {
         empresa.interesse = empresa.VENDA;
         adicionarAoBD();
         this.dispose();
-        FrmMenu menu = new FrmMenu(usuario);
-        menu.setVisible(true);
+        Window.getOwnerlessWindows()[0].setVisible(true);
         JOptionPane.showMessageDialog(this, "Conta criada com sucesso! Bem vindo(a)"+empresa.nomeFantasia+". Para negociar clique em 'Procurar Empresas'. ");
     }//GEN-LAST:event_btnDescartarMouseClicked
 
@@ -968,8 +967,7 @@ public class FrmCadastrar extends javax.swing.JFrame {
         }
         
         JOptionPane.showMessageDialog(this, "Conta criada com sucesso! Bem vindo(a)"+empresa.nomeFantasia+". Para negociar clique em 'Procurar Empresas'. ");
-        FrmMenu menu = new FrmMenu();
-        menu.setVisible(true);
+        Window.getOwnerlessWindows()[0].setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnProximoResiduoActionPerformed
 

@@ -4,6 +4,7 @@
  */
 package view;
 import dao.DaoUsuario;
+import java.awt.Window;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.ImageIcon;
@@ -131,9 +132,7 @@ public class FrmUsuariosCadastrados extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnVoltarUsuariosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVoltarUsuariosMouseClicked
-        FrmMenu menu = new FrmMenu();
-        menu.setVisible(true);
-        menu.setExtendedState(this.getExtendedState());
+        Window.getOwnerlessWindows()[0].setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnVoltarUsuariosMouseClicked
 

@@ -6,7 +6,6 @@ package view;
 
 import java.awt.CardLayout;
 import java.awt.Desktop;
-import java.awt.Frame;
 import java.beans.PropertyVetoException;
 import java.io.IOException;
 import java.net.URI;
@@ -14,7 +13,6 @@ import java.net.URISyntaxException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
-import javax.swing.JFrame;
 import model.Usuario;
 
 /**
@@ -390,7 +388,7 @@ public class FrmMenu extends javax.swing.JFrame {
         FrmTransacao descartar = new FrmTransacao();
         descartar.setVisible(true);
         descartar.setExtendedState(this.getExtendedState());
-        this.dispose();
+        this.setVisible(false);
     }//GEN-LAST:event_btnProcurarEmpresasActionPerformed
 
     private void btnInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInicioActionPerformed
@@ -432,14 +430,14 @@ public class FrmMenu extends javax.swing.JFrame {
         FrmPerfil perfil = new FrmPerfil();
         perfil.setVisible(true);
         perfil.setExtendedState(this.getExtendedState());
-        this.dispose();
+        this.setVisible(false);
     }//GEN-LAST:event_UserIconMouseClicked
 
     private void nomeUsuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_nomeUsuarioMouseClicked
         FrmPerfil perfil = new FrmPerfil();
         perfil.setVisible(true);
         perfil.setExtendedState(this.getExtendedState());
-        this.dispose();
+        this.setVisible(false);
     }//GEN-LAST:event_nomeUsuarioMouseClicked
 
     private void btnQuemSomosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnQuemSomosActionPerformed

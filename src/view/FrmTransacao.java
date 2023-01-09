@@ -8,6 +8,7 @@ import dao.DaoEmpresa;
 import dao.DaoResiduo;
 import java.awt.Color;
 import java.awt.Desktop;
+import java.awt.Window;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -39,10 +40,6 @@ public class FrmTransacao extends javax.swing.JFrame {
         lista = daoEmpresa.getEmpresas();
         resList = daoResiduo.getAll();
         preencherTabela();
-        
-        
-        
-        
     }
 
     /**
@@ -490,10 +487,7 @@ public class FrmTransacao extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnVoltarTransacaoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVoltarTransacaoMouseClicked
-        FrmMenu menu = new FrmMenu();
-        menu.setVisible(true);
-        menu.setExtendedState(this.getExtendedState());
-
+        Window.getOwnerlessWindows()[0].setVisible(true);
         dispose();
     }//GEN-LAST:event_btnVoltarTransacaoMouseClicked
 

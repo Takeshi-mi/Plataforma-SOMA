@@ -6,6 +6,7 @@ package view;
 
 import java.awt.CardLayout;
 import java.awt.Desktop;
+import java.awt.Window;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -339,9 +340,7 @@ public class FrmPerfil extends javax.swing.JFrame {
     }//GEN-LAST:event_btnVoltarPerfilMouseEntered
 
     private void btnVoltarPerfilMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVoltarPerfilMouseClicked
-        FrmMenu menu = new FrmMenu();
-        menu.setVisible(true);
-        menu.setExtendedState(this.getExtendedState());
+        Window.getOwnerlessWindows()[0].setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnVoltarPerfilMouseClicked
 

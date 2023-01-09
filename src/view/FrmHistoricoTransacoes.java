@@ -5,6 +5,7 @@
 package view;
 
 import dao.DaoTransacao;
+import java.awt.Window;
 import static java.awt.image.ImageObserver.WIDTH;
 
 import java.util.ArrayList;
@@ -55,19 +56,10 @@ public class FrmHistoricoTransacoes extends javax.swing.JFrame {
             lista.get(i).quantidade,
             lista.get(i).valorUnitario,
             lista.get(i).valorTransporte,
-            
-
-
                     });
     }
 }
 
-
-    
-    
-    
-    
-    
     
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -139,10 +131,7 @@ public class FrmHistoricoTransacoes extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnVoltarHistoricoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVoltarHistoricoMouseClicked
-        FrmMenu menu = new FrmMenu();
-        menu.setVisible(true);
-        menu.setExtendedState(this.getExtendedState());
-
+        Window.getOwnerlessWindows()[0].setVisible(true);
         dispose();
     }//GEN-LAST:event_btnVoltarHistoricoMouseClicked
 

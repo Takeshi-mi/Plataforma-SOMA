@@ -34,12 +34,12 @@ public class InFrmMais extends javax.swing.JInternalFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
+        btnSair = new javax.swing.JButton();
         btnTransacoes = new javax.swing.JButton();
         btnProcurarEmpresas = new javax.swing.JButton();
         btnUsuariosCadastrados = new javax.swing.JButton();
         btnMapa = new javax.swing.JButton();
-        btnPerfil1 = new javax.swing.JButton();
+        btnPerfil = new javax.swing.JButton();
         lblFundo = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(7, 99, 36));
@@ -62,19 +62,19 @@ public class InFrmMais extends javax.swing.JInternalFrame {
         jPanel1.setBackground(new java.awt.Color(7, 99, 36));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton1.setBackground(new java.awt.Color(59, 56, 58));
-        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/iconExit.png"))); // NOI18N
-        jButton1.setText("Sair");
-        jButton1.setBorder(null);
-        jButton1.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnSair.setBackground(new java.awt.Color(59, 56, 58));
+        btnSair.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        btnSair.setForeground(new java.awt.Color(255, 255, 255));
+        btnSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/iconExit.png"))); // NOI18N
+        btnSair.setText("Sair");
+        btnSair.setBorder(null);
+        btnSair.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+        btnSair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnSairActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 620, 120, 60));
+        jPanel1.add(btnSair, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 620, 120, 60));
 
         btnTransacoes.setBackground(new java.awt.Color(118, 118, 118));
         btnTransacoes.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
@@ -129,18 +129,18 @@ public class InFrmMais extends javax.swing.JInternalFrame {
         });
         jPanel1.add(btnMapa, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 360, 330, 50));
 
-        btnPerfil1.setBackground(new java.awt.Color(118, 118, 118));
-        btnPerfil1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        btnPerfil1.setForeground(new java.awt.Color(255, 255, 255));
-        btnPerfil1.setText("MEU PERFIL");
-        btnPerfil1.setBorder(null);
-        btnPerfil1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        btnPerfil1.addActionListener(new java.awt.event.ActionListener() {
+        btnPerfil.setBackground(new java.awt.Color(118, 118, 118));
+        btnPerfil.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        btnPerfil.setForeground(new java.awt.Color(255, 255, 255));
+        btnPerfil.setText("MEU PERFIL");
+        btnPerfil.setBorder(null);
+        btnPerfil.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnPerfil.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnPerfil1ActionPerformed(evt);
+                btnPerfilActionPerformed(evt);
             }
         });
-        jPanel1.add(btnPerfil1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 180, 50));
+        jPanel1.add(btnPerfil, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 180, 50));
 
         lblFundo.setBackground(new java.awt.Color(0, 102, 51));
         lblFundo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/internalFrameMenuFundo.png"))); // NOI18N
@@ -152,11 +152,11 @@ public class InFrmMais extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairActionPerformed
         FrmLogin login = new FrmLogin();
         login.setVisible(true);
         SwingUtilities.getWindowAncestor(this).dispose();
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnSairActionPerformed
 
     private void formMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseExited
         if (this.getMousePosition(true)==null) {
@@ -167,39 +167,40 @@ public class InFrmMais extends javax.swing.JInternalFrame {
     private void btnTransacoesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTransacoesActionPerformed
         FrmHistoricoTransacoes historico = new FrmHistoricoTransacoes();
         historico.setVisible(true);
-        SwingUtilities.getWindowAncestor(this).dispose();
+        SwingUtilities.getWindowAncestor(this).setVisible(false);
     }//GEN-LAST:event_btnTransacoesActionPerformed
 
     private void btnProcurarEmpresasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProcurarEmpresasActionPerformed
         FrmTransacao transacao = new FrmTransacao();
         transacao.setVisible(true);
-        SwingUtilities.getWindowAncestor(this).dispose();
+        SwingUtilities.getWindowAncestor(this).setVisible(false);
     }//GEN-LAST:event_btnProcurarEmpresasActionPerformed
 
     private void btnUsuariosCadastradosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUsuariosCadastradosActionPerformed
         FrmUsuariosCadastrados usuarios = new FrmUsuariosCadastrados();
         usuarios.setVisible(true);
-        SwingUtilities.getWindowAncestor(this).dispose();
+        SwingUtilities.getWindowAncestor(this).setVisible(false);
     }//GEN-LAST:event_btnUsuariosCadastradosActionPerformed
 
     private void btnMapaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMapaActionPerformed
         FrmMapa mapa = new FrmMapa();
         mapa.setVisible(true);
-        SwingUtilities.getWindowAncestor(this).dispose();
+        SwingUtilities.getWindowAncestor(this).setVisible(false);
     }//GEN-LAST:event_btnMapaActionPerformed
 
-    private void btnPerfil1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPerfil1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnPerfil1ActionPerformed
+    private void btnPerfilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPerfilActionPerformed
+        new FrmPerfil().setVisible(true);
+        SwingUtilities.getWindowAncestor(this).setVisible(false);
+    }//GEN-LAST:event_btnPerfilActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnMapa;
-    private javax.swing.JButton btnPerfil1;
+    private javax.swing.JButton btnPerfil;
     private javax.swing.JButton btnProcurarEmpresas;
+    private javax.swing.JButton btnSair;
     private javax.swing.JButton btnTransacoes;
     private javax.swing.JButton btnUsuariosCadastrados;
-    private javax.swing.JButton jButton1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblFundo;
     // End of variables declaration//GEN-END:variables

@@ -4,6 +4,7 @@
  */
 package view;
 
+import java.awt.Window;
 import javax.swing.ImageIcon;
 
 /**
@@ -86,10 +87,7 @@ public class FrmMapa extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnVoltarMapaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVoltarMapaMouseClicked
-        FrmMenu menu = new FrmMenu();
-        menu.setVisible(true);
-        menu.setExtendedState(this.getExtendedState());
-
+        Window.getOwnerlessWindows()[0].setVisible(true);
         dispose();
     }//GEN-LAST:event_btnVoltarMapaMouseClicked
 
