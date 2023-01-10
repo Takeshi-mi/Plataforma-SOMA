@@ -25,6 +25,7 @@ import model.Empresa;
  */
 public class FrmMenu extends javax.swing.JFrame {
     DaoUsuario daoUsuario = new DaoUsuario();
+    DaoEmpresa daoEmp = new DaoEmpresa();
     Usuario usuario;
     Empresa empresa;
     
@@ -42,9 +43,9 @@ public class FrmMenu extends javax.swing.JFrame {
     public FrmMenu(Usuario user) {
         initComponents();
         usuario = user;
-        empresa = new DaoEmpresa().getEmpresa(user.cnpjEmpresa);
+        empresa = daoEmp.getEmpresa(user.cnpjEmpresa);
         
-        nomeUsuario.setText("Olá, "+empresa.nomeFantasia);
+        nomeUsuario.setText("Olá, "+((user.cnpjEmpresa == null) ? "administrador" : empresa.nomeFantasia));
         // TN Na Janela "Saiba Mais" o scroll estava muito lento, passando uma linha de cada vez. Com esse código passará 20 por vez, deixando mais fluido. 
         jScrollPane2.getVerticalScrollBar().setUnitIncrement(20);
     }
