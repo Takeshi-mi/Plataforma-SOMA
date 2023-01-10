@@ -410,7 +410,7 @@ public class FrmMenu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnProcurarEmpresasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProcurarEmpresasActionPerformed
-        FrmTransacao descartar = new FrmTransacao();
+        FrmProcurarEmpresas descartar = new FrmProcurarEmpresas();
         descartar.setVisible(true);
         descartar.setExtendedState(this.getExtendedState());
         this.setVisible(false);

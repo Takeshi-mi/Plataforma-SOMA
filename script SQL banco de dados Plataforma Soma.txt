@@ -1,0 +1,136 @@
+-- CRIAÇÃO DO BANCO
+CREATE SCHEMA IF NOT EXISTS SOMA;
+SET search_path to SOMA;
+
+CREATE TABLE IF NOT EXISTS EMPRESA (
+ cnpj VARCHAR(18) NOT NULL,
+ razaoSocial VARCHAR(150) NOT NULL,
+ nomeFantasia VARCHAR(100),
+ interesse INT NOT NULL,
+ cep VARCHAR(10),
+ uf VARCHAR(3),
+ cidade VARCHAR(100),
+ bairro VARCHAR(100),
+ rua VARCHAR(100),
+ numero VARCHAR(20),
+ complemento VARCHAR(20),
+ telefone VARCHAR(16),
+ site VARCHAR(100),
+ email VARCHAR(100) NOT NULL,
+ PRIMARY KEY (cnpj)
+);
+COMMENT ON COLUMN EMPRESA.interesse IS '1:Comprar;  2:vender';
+
+CREATE TABLE IF NOT EXISTS RESIDUO (
+ tipoResiduo INT NOT NULL,
+ cnpjEmpresa VARCHAR(18) NOT NULL,
+ capacidade DOUBLE PRECISION,
+ quantidadeAtual DOUBLE PRECISION,
+ preco DOUBLE PRECISION,
+ PRIMARY KEY (tipoResiduo, cnpjEmpresa),
+ FOREIGN KEY (cnpjEmpresa) REFERENCES EMPRESA (cnpj)
+);
+COMMENT ON COLUMN RESIDUO.tipoResiduo IS '1:Metal; 2:Papel; 3: Plástico; 4: Vidro';
+
+
+CREATE TABLE IF NOT EXISTS USUARIO (
+ idUsuario SERIAL,
+ login VARCHAR(100) NOT NULL UNIQUE,
+ senha VARCHAR(100) NOT NULL,
+ tipo INT NOT NULL,
+ foto VARCHAR(100),
+ cnpjEmpresa VARCHAR(18),
+ PRIMARY KEY (idUsuario),
+ FOREIGN KEY (cnpjEmpresa) REFERENCES EMPRESA (cnpj)
+);
+COMMENT ON COLUMN USUARIO.tipo IS '0:adm; 1:empresa';
+
+CREATE TABLE IF NOT EXISTS TRANSACAO (
+ idTransacao SERIAL,
+ horario timestamp DEFAULT NOW()::TIMESTAMP,
+ tipoResiduo INT NOT NULL,
+ quantidade DOUBLE PRECISION NOT NULL,
+ valorUnitario DOUBLE PRECISION NOT NULL,
+ valorTransporte DOUBLE PRECISION,
+ idComprador VARCHAR(18) NOT NULL,
+ idVendedor VARCHAR(18) NOT NULL,
+ PRIMARY KEY (idTransacao),
+ FOREIGN KEY (idComprador) REFERENCES EMPRESA (cnpj),
+ FOREIGN KEY (idVendedor) REFERENCES EMPRESA (cnpj)
+);
+
+
+-- INSERINDO DADOS USUÁRIO
+
+
+INSERT INTO USUARIO (login, senha, tipo) VALUES
+('admin','admin',0),
+('fiscalsjc@sjcbioenergia.com.br','123',1),
+('gabinete.formosa@ifg.edu.br','123',1),
+('pipo@pipoca.com.br','123',1),
+('ouvidoria@Syngent.com','123',1),
+('marcos@hidropatos.com.br','123',1),
+('recicla+@rec.com','123',1),
+('cooperativa@gmail.com','123',1);
+
+-- INSERINDO DADOS EMPRESA (produtora de resíduo. Interesse 2. )
+
+INSERT INTO empresa VALUES
+
+('10.300.419/0001-00', 'Pipocas do além LTDA', 'Clube da pipoca', 2, '73802-030', 'GO', 'FORMOSA', 'FORMOSINHA', 'Rua 17', '15', 'Escritório 1', '(61) 99876-3434', 'clubedapipoca.com', 'pipo@pipoca.com.br'),
+
+('10.870.883/0007-30', 'INSTITUTO FEDERAL DE EDUCACAO, CIENCIA E TECNOLOGIA DE GOIAS', 'IFG - CAMPUS FORMOSA', 2, '73.800-000', 'GO', 'FORMOSA', 'SAO BENEDITO', 'Rua Parque Lago', 'S/N', '', '(61) 3642-9450', 'www.ifg.edu.br', 'gabinete.formosa@ifg.edu.br'),
+
+('10.400.883/0001-10', 'SYNGENTA SEEDS LTDA', 'Syngenta', 2, '73.801-970', 'GO', 'FORMOSA', 'Rodovia BR 020', 'Km 14', 'S/N', '', '(61) 3642-9000', 'www.syngenta.com.br', 'ouvidoria@Syngent.com'),
+
+('26.159.640/0001-32', 'HIDROPATOS LTDA', 'HIDROPATOS', 2, '38700-062', 'MG', 'PATOS DE MINAS', 'J PAULISTANO', 'Avenida Juscelino K de Oliveira', '970', '', '(34) 3823-7080', 'www.instagram.com/hidropatos/', 'marcos@hidropatos.com.br');
+
+
+
+
+-- INSERINDO DADOS EMPRESA (recicladora. Interesse 1. )
+
+INSERT INTO empresa VALUES
+('10.111.111/0001-00', 'Recicla + LTDA', 'Recicla +', 1, '75560-000', 'GO', 'BRASÍLIA',  'Asa Sul', 'L2', '12', 'Bloco A', '(64) 93615-8765', 'www.reciclagem.com.br', 'recicla+@rec.com'),
+
+('20.222.222/0002-00', 'Cooperativa de Reciclagem', 'Cooperativa Sustentável', 1, '73802-030', 'GO', 'FORMOSA', 'FORMOSINHA', 'Rua 17', '15', 'Escritório 1', '(61) 99326-9850', 'clubedapipoca.com', 'cooperativa@gmail.com'),
+
+('10.249.419/0003-05', 'SJC Bioenergia LTDA', 'SJC Bioenergia', 1, '75560-000', 'GO', 'CACHOEIRA DOURADA', 'BOA VISTA', 'Rodovia Go-206', 'Km 25', 'Bloco A', '(64) 99615-2130', 'www.sjcbioenergia.com.br', 'fiscalsjc@sjcbioenergia.com.br');
+
+-- ATUALIZANDO USUARIOS: INSERIR FK DA EMPRESA
+
+UPDATE usuario
+SET cnpjempresa = (
+SELECT cnpj
+FROM empresa
+WHERE empresa.email = usuario.login
+);
+
+
+
+-- INSERINDO RESÍDUOS
+
+INSERT INTO residuo VALUES
+(1, '10.111.111/0001-00', 5000, 1000, 12.00),
+(2, '10.111.111/0001-00', 3000, 1000, 8.88),
+(3, '10.111.111/0001-00', 7000, 1000, 10.55),
+(4, '10.111.111/0001-00', 2000, 500, 6.95),
+
+(1, '20.222.222/0002-00', 2000, 1000, 11.00),
+(2, '20.222.222/0002-00', 3000, 1000, 7.88),
+(3, '20.222.222/0002-00', 1200, 500, 9.55),
+(4, '20.222.222/0002-00', 1000, 700, 5.95),
+
+(1, '10.249.419/0003-05', 4000, 1000, 13.00),
+(2, '10.249.419/0003-05', 2000, 1000, 10.88),
+(3, '10.249.419/0003-05', 4000, 1000, 15.55),
+(4, '10.249.419/0003-05', 1000, 500, 9.95);
+
+INSERT TRANSACOES
+INSERT INTO transacao VALUES
+(DEFAULT, DEFAULT, 0, 150.6, 2.5, 10.5, '10.300.419/0001-00', '10.111.111/0001-00'),
+(DEFAULT, DEFAULT, 1, 150.6, 1.4, 10.5, '10.300.419/0001-00', '10.111.111/0001-00'),
+(DEFAULT, DEFAULT, 2, 150.6, 1.8, 10.5, '10.300.419/0001-00', '10.111.111/0001-00'),
+(DEFAULT, DEFAULT, 3, 150.6, 2.0, 10.5, '10.300.419/0001-00', '10.111.111/0001-00');
+
+

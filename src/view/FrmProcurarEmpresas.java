@@ -26,27 +26,31 @@ import model.Transacao;
  *
  * @author Takeshi
  */
-public class FrmTransacao extends javax.swing.JFrame {
+public class FrmProcurarEmpresas extends javax.swing.JFrame {
     DaoEmpresa daoEmpresa = new DaoEmpresa();
     DaoResiduo daoResiduo = new DaoResiduo();
-    List<Empresa> empresas = new ArrayList<>();
+    List<Empresa> empresas = daoEmpresa.getAll();
     Transacao transacao = new Transacao();
     
-    Map<String, Integer> mapTipo = Map.of(
-        "METAL",Residuo.METAL,
-        "PAPEL",Residuo.PAPEL,
-        "PLASTICO",Residuo.PLASTICO,
-        "VIDRO",Residuo.VIDRO
+    Map<Integer, String> mapTipo = Map.of(
+        Residuo.METAL, "METAL",
+        Residuo.PAPEL, "PAPEL",
+        Residuo.PLASTICO, "PLASTICO",
+        Residuo.VIDRO, "VIDRO"
     );
     
 
     /**
      * Creates new form FrmMovimentacao
      */
-    public FrmTransacao() {
+    public FrmProcurarEmpresas() {
         initComponents();
         this.setLocationRelativeTo(null);  // Tk Para surgir no centro da tela
         
+        // TN preenche o comboBox de acordo com o banco de dados
+        for (Object uf: daoEmpresa.getDistinct("uf")) {
+            cbxUf.addItem((String) uf);
+        }
         preencherTabela();
     }
 
@@ -57,70 +61,69 @@ public class FrmTransacao extends javax.swing.JFrame {
      */
     @SuppressWarnings("unchecked")
     
-    public void preencherContatoByTable(){
+    public void preencherContatoByTable(){            
+        // TN Este método preenche o cartão de contato de acordo com a linha selecionada na tabela. Puxa as informações do banco.
+        txtEmpresaNome.setText(empresas.get(tblDescartarResíduos.getSelectedRow()).nomeFantasia);
+        txtTelefone.setText(empresas.get(tblDescartarResíduos.getSelectedRow()).telefone);
+        lblEmailAdress.setText(empresas.get(tblDescartarResíduos.getSelectedRow()).email);
+        lblSiteAzul.setText(empresas.get(tblDescartarResíduos.getSelectedRow()).site);
         
-        int lineChoose = tblDescartarResíduos.getSelectedRow();
-        txtEmpresaNome.setText(tblDescartarResíduos.getValueAt(lineChoose, 0).toString());
-        txtTelefone.setText(tblDescartarResíduos.getValueAt(lineChoose, 1).toString());
-        lblEmail.setText(tblDescartarResíduos.getValueAt(lineChoose,2).toString());
-        lblSiteAzul.setText(tblDescartarResíduos.getValueAt(lineChoose,3).toString());
-        lblSite.setText(tblDescartarResíduos.getValueAt(lineChoose,4).toString());
     }
     
-        public void preencherValorByTable(){
-       // T-N Método para preencher o valor da transação para o cliente saber quanto irá ganhar de acordo com a empresa que ele selecionou na tabela. Fica no cartão no canto inferior direito.
-       // T-N Além do valor preenche a distância e o transporte. No futuro usaremos alguma API para calcular isso. No momento estamos usando números aleatórios só para simular. 
-       
-        int lineChoose = tblDescartarResíduos.getSelectedRow();
-        Double preco = Double.valueOf((String) tblDescartarResíduos.getValueAt(lineChoose, 4));
-        int aleatorio = (int) (Math.random()*100);
+    
+    public void preencherValorByTable(){
+   // T-N Método para preencher o valor da transação para o cliente saber quanto irá ganhar de acordo com a empresa que ele selecionou na tabela. Fica no cartão no canto inferior direito.
+   // T-N Além do valor preenche a distância e o transporte. No futuro usaremos alguma API para calcular isso. No momento estamos usando números aleatórios só para simular. 
 
-        try{
-            double qtd = Double.valueOf(txtQtd.getText()).doubleValue();
-            double valor = preco*qtd;
-            txtValor.setText(String.valueOf(String.format("%.2f",valor)));
-            txtDistancia.setText(aleatorio+" km");
-            txtTransporte.setText(String.valueOf(String.format("-%.2f", aleatorio*0.8))); //Takeshi-Naoki Formatar para ficar com 2 casas decimais e ao invés de infinitos números decimais na tela
-            txtTotal.setText(String.valueOf(String.format("%.2f", (valor-(aleatorio*0.8)))));
-            if((valor-(aleatorio*0.8))<0){
-                txtTotal.setForeground(Color.RED);
-            }else{
-                txtTotal.setForeground(Color.GREEN);
-                
-               
-                
-            }
-            
-            
-        }catch(NumberFormatException ex) {
-            JOptionPane.showMessageDialog(this, "Digite um número válido em Quantidade. Use ponto ao invés de vírgula. /n Selecione uma linha da tabela");
-            
-             // Takeshi-Naoki cairá aqui se a string não for um valor 
-             //que possa ser convertido em inteiro   
-            }
+    int lineChoose = tblDescartarResíduos.getSelectedRow();
+    Double preco = (Double) tblDescartarResíduos.getValueAt(lineChoose, 4);
+    int aleatorio = (int) (Math.random()*100);
+
+    try{
+        double qtd = Double.parseDouble(txtQtd.getText());
+        double valor = preco*qtd;
+        txtValor.setText(String.valueOf(String.format("%.2f",valor)));
+        txtDistancia.setText(aleatorio+" km");
+        txtTransporte.setText(String.valueOf(String.format("-%.2f", aleatorio*0.8))); //Takeshi-Naoki Formatar para ficar com 2 casas decimais e ao invés de infinitos números decimais na tela
+        txtTotal.setText(String.valueOf(String.format("%.2f", (valor-(aleatorio*0.8)))));
+        if((valor-(aleatorio*0.8))<0){
+            txtTotal.setForeground(Color.RED);
+        }else{
+            txtTotal.setForeground(txtValor.getForeground());  
+        }
+    }catch(NumberFormatException ex) {
+        JOptionPane.showMessageDialog(this, "Digite um número válido em Quantidade. Use ponto ao invés de vírgula. /n Selecione uma linha da tabela");
+
+         // Takeshi-Naoki cairá aqui se a string não for um valor 
+         //que possa ser convertido em inteiro   
+        }
     }
     
     public void preencherTabela(){
         //TN Preenche a tabela de acordo com o banco de dados.  
+        tblDescartarResíduos.getColumnModel().getColumn(0).setPreferredWidth(100); //PreferredWidth é a largura medida em pixels
+        tblDescartarResíduos.getColumnModel().getColumn(1).setPreferredWidth(100);
+        tblDescartarResíduos.getColumnModel().getColumn(2).setPreferredWidth(75);
+        tblDescartarResíduos.getColumnModel().getColumn(3).setPreferredWidth(400);
+        tblDescartarResíduos.getColumnModel().getColumn(4).setPreferredWidth(100);
+        
+        // TN Cria a lista de mapas que são uma combinação de empresa com residuos
         String cidade = txtCidade.getText();
         String estado = (String) cbxUf.getSelectedItem();
-        int tipo = mapTipo.get(cbxTipo.getSelectedItem());
-        Double qtd = Double.parseDouble(txtQtd.getText());
+        int tipo = cbxTipo.getSelectedIndex();
+        Double qtd = Double.valueOf(txtQtd.getText());
         List<Map<String, Object>> listMapER = daoEmpresa.searchEmpresa(cidade, estado, tipo, qtd);
-        tblDescartarResíduos.getColumnModel().getColumn(0).setWidth(2); //PreferredWidth é a largura medida em pixels
-        tblDescartarResíduos.getColumnModel().getColumn(1).setPreferredWidth(2);
-        tblDescartarResíduos.getColumnModel().getColumn(2).setPreferredWidth(30);
-        tblDescartarResíduos.getColumnModel().getColumn(3).setPreferredWidth(20);
-        tblDescartarResíduos.getColumnModel().getColumn(4).setPreferredWidth(20);
-
+        
         DefaultTableModel modelo = (DefaultTableModel)tblDescartarResíduos.getModel();
         modelo.setNumRows(0); //Limpar a tabela
-
-        for(Empresa e: empresas){
-            List<Residuo> resList = daoEmpresa.getResiduos(e.cnpj);
+        
+        for(Map er: listMapER){
             modelo.addRow(new Object[]{
-                e.nomeFantasia,
-                e.cidade,
+                er.get("nomeFantasia"),
+                mapTipo.get(er.get("tipoResiduo")),
+                String.format("%.2f/%.2f", er.get("quantidadeAtual"), er.get("capacidade")),
+                er.get("cidade")+" - "+er.get("uf"),
+                er.get("preco")
             });
         }
     }
@@ -207,14 +210,13 @@ public class FrmTransacao extends javax.swing.JFrame {
         lblQuantidade.setText("QUANTIDADE:");
         painelDeCima.add(lblQuantidade, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 161, 100, -1));
 
-        cbxTipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "PAPEL", "PLÁSTICO", "METAL", "VIDRO" }));
+        cbxTipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "METAL", "PAPEL", "PLÁSTICO", "VIDRO" }));
         painelDeCima.add(cbxTipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(173, 132, -1, -1));
 
         txtCidade.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         txtCidade.setText("Formosa");
         painelDeCima.add(txtCidade, new org.netbeans.lib.awtextra.AbsoluteConstraints(173, 88, 140, -1));
 
-        cbxUf.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         painelDeCima.add(cbxUf, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 90, -1, -1));
 
         lblTipo.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -223,15 +225,21 @@ public class FrmTransacao extends javax.swing.JFrame {
 
         tblDescartarResíduos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {"Suricato", "4141412", "333@gmail.com", "Rua 40, avenida tal, n13FormosaGO", "5"},
-                {"12", "2222", "we@gmail", "333", "3.90"},
                 {null, null, null, null, null},
                 {null, null, null, null, null}
             },
             new String [] {
                 "Empresa", "Tipo", "Capacidade", "Localização", "Preço/kg"
             }
-        ));
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Double.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
         tblDescartarResíduos.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tblDescartarResíduosMouseClicked(evt);
@@ -243,7 +251,7 @@ public class FrmTransacao extends javax.swing.JFrame {
             tblDescartarResíduos.getColumnModel().getColumn(2).setPreferredWidth(30);
         }
 
-        painelDeCima.add(jScrollTabela, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 245, 1343, 283));
+        painelDeCima.add(jScrollTabela, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 250, 1240, 250));
 
         infoContato.setMaximumSize(new java.awt.Dimension(500, 780));
         infoContato.setPreferredSize(new java.awt.Dimension(500, 157));
@@ -259,6 +267,11 @@ public class FrmTransacao extends javax.swing.JFrame {
 
         txtEmpresaNome.setEditable(false);
         txtEmpresaNome.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        txtEmpresaNome.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtEmpresaNomeActionPerformed(evt);
+            }
+        });
 
         lblSite.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         lblSite.setText("SITE");
@@ -293,12 +306,12 @@ public class FrmTransacao extends javax.swing.JFrame {
                     .addComponent(lblTelefone)
                     .addComponent(lblEmpresa))
                 .addGap(27, 27, 27)
-                .addGroup(infoContatoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtEmpresaNome)
-                    .addComponent(txtTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblSiteAzul, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(lblEmailAdress, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(347, 347, 347))
+                .addGroup(infoContatoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(lblEmailAdress, javax.swing.GroupLayout.DEFAULT_SIZE, 372, Short.MAX_VALUE)
+                    .addComponent(txtTelefone, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtEmpresaNome, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblSiteAzul, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(59, Short.MAX_VALUE))
         );
         infoContatoLayout.setVerticalGroup(
             infoContatoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -343,12 +356,12 @@ public class FrmTransacao extends javax.swing.JFrame {
         lblValor.setText("VALOR");
 
         txtValor.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        txtValor.setForeground(new java.awt.Color(51, 255, 0));
+        txtValor.setForeground(new java.awt.Color(38, 151, 10));
         txtValor.setText("0.00");
         txtValor.setToolTipText("");
 
         txtTotal.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        txtTotal.setForeground(new java.awt.Color(51, 255, 0));
+        txtTotal.setForeground(new java.awt.Color(38, 151, 10));
         txtTotal.setText("0.00");
 
         txtDistancia.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -514,6 +527,7 @@ public class FrmTransacao extends javax.swing.JFrame {
 
     private void tblDescartarResíduosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblDescartarResíduosMouseClicked
         preencherValorByTable();
+        preencherContatoByTable();
     }//GEN-LAST:event_tblDescartarResíduosMouseClicked
 
     private void btnLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimparActionPerformed
@@ -540,6 +554,10 @@ public class FrmTransacao extends javax.swing.JFrame {
         preencherTabela();
     }//GEN-LAST:event_btnPesquisar1ActionPerformed
 
+    private void txtEmpresaNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEmpresaNomeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtEmpresaNomeActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -557,14 +575,18 @@ public class FrmTransacao extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(FrmTransacao.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmProcurarEmpresas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(FrmTransacao.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmProcurarEmpresas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(FrmTransacao.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmProcurarEmpresas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(FrmTransacao.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmProcurarEmpresas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -573,7 +595,7 @@ public class FrmTransacao extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new FrmTransacao().setVisible(true);
+                new FrmProcurarEmpresas().setVisible(true);
             }
         });
     }

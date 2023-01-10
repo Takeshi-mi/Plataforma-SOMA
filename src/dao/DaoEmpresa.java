@@ -36,8 +36,8 @@ public class DaoEmpresa {
                     empresa.numero = rs.getString("numero");                    
                     empresa.complemento = rs.getString("complemento");                    
                     empresa.telefone = rs.getString("telefone");
-                    empresa.site = rs.getString("telefone");
-                    empresa.email = rs.getString("telefone");
+                    empresa.site = rs.getString("site");
+                    empresa.email = rs.getString("email");
 
                     empresaList.add(empresa);
                 }while(rs.next());
@@ -79,52 +79,6 @@ public class DaoEmpresa {
             Logger.getLogger(DaoUsuario.class.getName()).log(Level.SEVERE, "Erro ao selecionar dados: ", ex);
         }
         return null;
-    }
-    
-    public List<Map<String, Object>> searchEmpresa(String cidade, String estado, int tipo, Double quantidade) {
-        List<Map<String, Object>> listMapER = new ArrayList<>();
-        connection = new Conexao().conectarBD();
-        String query = """
-            SELECT * 
-            FROM Empresa JOIN Residuo ON cnpj=cnpjEmpresa
-            WHERE cidade=?, uf=?, tipo=?, quantidade>?
-        """;
-        try{
-            pstm = connection.prepareStatement(query, ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
-            pstm.setString(1, cidade);
-            pstm.setString(2, estado);
-            pstm.setInt(3, tipo);
-            pstm.setDouble(4, quantidade);
-            ResultSet rs = pstm.executeQuery();
-            if(rs.first()) {
-                do{
-                    Map<String, Object> mapER = new HashMap<>();
-                    mapER.put("cnpj", rs.getString("cnpj"));
-                    mapER.put("razaoSocial", rs.getString("razaosocial"));
-                    mapER.put("nomeFantasia", rs.getString("nomefantasia"));
-                    mapER.put("interesse", rs.getInt("interesse"));
-                    mapER.put("cep", rs.getString("cep"));
-                    mapER.put("uf", rs.getString("uf"));                    
-                    mapER.put("cidade", rs.getString("cidade"));
-                    mapER.put("bairro", rs.getString("bairro"));
-                    mapER.put("rua", rs.getString("rua"));                    
-                    mapER.put("numero", rs.getString("numero"));                    
-                    mapER.put("complemento", rs.getString("complemento"));                    
-                    mapER.put("telefone", rs.getString("telefone"));
-                    mapER.put("site", rs.getString("telefone"));
-                    mapER.put("tipoResiduo", rs.getString("tipoResiduo"));
-                    mapER.put("capacidade", rs.getDouble("capacidade"));
-                    mapER.put("quantidade", rs.getDouble("telefone"));
-                    mapER.put("preco", rs.getDouble("telefone"));
-                    
-                    listMapER.add(mapER);
-                }while(rs.next());
-            }
-            pstm.close();
-        } catch (SQLException ex) {
-            Logger.getLogger(DaoUsuario.class.getName()).log(Level.SEVERE, "Erro ao selecionar dados: ", ex);
-        }
-        return listMapER;
     }
     
     public void addEmpresa(Empresa empresa) {
@@ -230,5 +184,78 @@ public class DaoEmpresa {
             Logger.getLogger(DaoUsuario.class.getName()).log(Level.SEVERE, "Erro ao selecionar dados: ", ex);
         }
         return residuoList;
+    }
+    
+    // Combinação de empresa com residuo
+    public List<Map<String, Object>> searchEmpresa(String cidade, String estado, int tipo, Double quantidade) {
+        List<Map<String, Object>> listMapER = new ArrayList<>();
+        connection = new Conexao().conectarBD();
+        String query = """
+            SELECT * 
+            FROM Empresa JOIN Residuo ON cnpj=cnpjEmpresa
+            WHERE (
+                LOWER(cidade) LIKE LOWER(?) AND 
+                uf=? AND 
+                tipoResiduo=? AND 
+                (capacidade-quantidadeAtual)>=? AND
+                interesse=1
+            )
+        """;
+        try{
+            pstm = connection.prepareStatement(query, ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
+            pstm.setString(1, "%"+cidade+"%");
+            pstm.setString(2, estado);
+            pstm.setInt(3, tipo);
+            pstm.setDouble(4, quantidade);
+            ResultSet rs = pstm.executeQuery();
+            if(rs.first()) {
+                do{
+                    Map<String, Object> mapER = new HashMap<>();
+                    mapER.put("cnpj", rs.getString("cnpj"));
+                    mapER.put("razaoSocial", rs.getString("razaosocial"));
+                    mapER.put("nomeFantasia", rs.getString("nomefantasia"));
+                    mapER.put("interesse", rs.getInt("interesse"));
+                    mapER.put("cep", rs.getString("cep"));
+                    mapER.put("uf", rs.getString("uf"));                    
+                    mapER.put("cidade", rs.getString("cidade"));
+                    mapER.put("bairro", rs.getString("bairro"));
+                    mapER.put("rua", rs.getString("rua"));                    
+                    mapER.put("numero", rs.getString("numero"));                    
+                    mapER.put("complemento", rs.getString("complemento"));                    
+                    mapER.put("telefone", rs.getString("telefone"));
+                    mapER.put("site", rs.getString("site"));
+                    mapER.put("tipoResiduo", rs.getString("tipoResiduo"));
+                    mapER.put("capacidade", rs.getDouble("capacidade"));
+                    mapER.put("quantidadeAtual", rs.getDouble("quantidadeAtual"));
+                    mapER.put("preco", rs.getDouble("preco"));
+                    
+                    listMapER.add(mapER);
+                }while(rs.next());
+            }
+            pstm.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(DaoUsuario.class.getName()).log(Level.SEVERE, "Erro ao pesquisar empresa: ", ex);
+        }
+        return listMapER;
+    }
+    
+    // Pega valores de uma coluna em uma lista sem repetição
+    public List<Object> getDistinct(String coluna) {
+        List<Object> resultado = new ArrayList<>();
+        connection = new Conexao().conectarBD();
+        String query = String.format("SELECT DISTINCT %s FROM empresa", coluna);
+        try{
+            pstm = connection.prepareStatement(query, ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
+            ResultSet rs = pstm.executeQuery();
+            if(rs.first()) {
+                do{
+                    resultado.add(rs.getObject(coluna));
+                }while(rs.next());
+            }
+            pstm.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(DaoUsuario.class.getName()).log(Level.SEVERE, "Erro ao selecionar dados distintos: ", ex);
+        }
+        return resultado;
     }
 }
