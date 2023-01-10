@@ -20,6 +20,7 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import model.Empresa;
 import model.Residuo;
+import model.Transacao;
 
 /**
  *
@@ -28,8 +29,16 @@ import model.Residuo;
 public class FrmProcurarEmpresas extends javax.swing.JFrame {
     DaoEmpresa daoEmpresa = new DaoEmpresa();
     DaoResiduo daoResiduo = new DaoResiduo();
-    List<Empresa> lista = new ArrayList<>();
-    List<Residuo> resList = new ArrayList<>();
+    List<Empresa> empresas = daoEmpresa.getAll();
+    Transacao transacao = new Transacao();
+    
+    Map<Integer, String> mapTipo = Map.of(
+        Residuo.METAL, "METAL",
+        Residuo.PAPEL, "PAPEL",
+        Residuo.PLASTICO, "PLASTICO",
+        Residuo.VIDRO, "VIDRO"
+    );
+    
 
     /**
      * Creates new form FrmMovimentacao
@@ -38,10 +47,11 @@ public class FrmProcurarEmpresas extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);  // Tk Para surgir no centro da tela
         
-        lista = daoEmpresa.getAll();
-        resList = daoResiduo.getAll();
-        
-        
+        // TN preenche o comboBox de acordo com o banco de dados
+        for (Object uf: daoEmpresa.getDistinct("uf")) {
+            cbxUf.addItem((String) uf);
+        }
+        preencherTabela();
     }
 
     /**
@@ -52,66 +62,68 @@ public class FrmProcurarEmpresas extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     
     public void preencherContatoByTable(){            
-                // TN Este método preenche o cartão de contato de acordo com a linha selecionada na tabela. Puxa as informações do banco.
-                txtEmpresaNome.setText(lista.get(tblDescartarResíduos.getSelectedRow()).nomeFantasia);
-                txtTelefone.setText(lista.get(tblDescartarResíduos.getSelectedRow()).telefone);
-                lblEmailAdress.setText(lista.get(tblDescartarResíduos.getSelectedRow()).email);
-                lblSiteAzul.setText(lista.get(tblDescartarResíduos.getSelectedRow()).site);
+        // TN Este método preenche o cartão de contato de acordo com a linha selecionada na tabela. Puxa as informações do banco.
+        txtEmpresaNome.setText(empresas.get(tblDescartarResíduos.getSelectedRow()).nomeFantasia);
+        txtTelefone.setText(empresas.get(tblDescartarResíduos.getSelectedRow()).telefone);
+        lblEmailAdress.setText(empresas.get(tblDescartarResíduos.getSelectedRow()).email);
+        lblSiteAzul.setText(empresas.get(tblDescartarResíduos.getSelectedRow()).site);
         
     }
     
-        public void preencherValorByTable(){
-       // T-N Método para preencher o valor da transação para o cliente saber quanto irá ganhar de acordo com a empresa que ele selecionou na tabela. Fica no cartão no canto inferior direito.
-       // T-N Além do valor preenche a distância e o transporte. No futuro usaremos alguma API para calcular isso. No momento estamos usando números aleatórios só para simular. 
-       
-        int lineChoose = tblDescartarResíduos.getSelectedRow();
-        Double preco = (Double) tblDescartarResíduos.getValueAt(lineChoose, 4);
-        int aleatorio = (int) (Math.random()*100);
+    
+    public void preencherValorByTable(){
+   // T-N Método para preencher o valor da transação para o cliente saber quanto irá ganhar de acordo com a empresa que ele selecionou na tabela. Fica no cartão no canto inferior direito.
+   // T-N Além do valor preenche a distância e o transporte. No futuro usaremos alguma API para calcular isso. No momento estamos usando números aleatórios só para simular. 
 
-        try{
-            double qtd = Double.valueOf(txtQtd.getText()).doubleValue();
-            double valor = preco*qtd;
-            txtValor.setText(String.valueOf(String.format("%.2f",valor)));
-            txtDistancia.setText(aleatorio+" km");
-            txtTransporte.setText(String.valueOf(String.format("-%.2f", aleatorio*0.8))); //Takeshi-Naoki Formatar para ficar com 2 casas decimais e ao invés de infinitos números decimais na tela
-            txtTotal.setText(String.valueOf(String.format("%.2f", (valor-(aleatorio*0.8)))));
-            if((valor-(aleatorio*0.8))<0){
-                txtTotal.setForeground(Color.RED);
-            }else{
-                txtTotal.setForeground(txtValor.getForeground());
-                
-               
-                
-            }
-            
-            
-        }catch(NumberFormatException ex) {
-            JOptionPane.showMessageDialog(this, "Digite um número válido em Quantidade. Use ponto ao invés de vírgula. /n Selecione uma linha da tabela");
-            
-             // Takeshi-Naoki cairá aqui se a string não for um valor 
-             //que possa ser convertido em inteiro   
-            }
+    int lineChoose = tblDescartarResíduos.getSelectedRow();
+    Double preco = (Double) tblDescartarResíduos.getValueAt(lineChoose, 4);
+    int aleatorio = (int) (Math.random()*100);
+
+    try{
+        double qtd = Double.parseDouble(txtQtd.getText());
+        double valor = preco*qtd;
+        txtValor.setText(String.valueOf(String.format("%.2f",valor)));
+        txtDistancia.setText(aleatorio+" km");
+        txtTransporte.setText(String.valueOf(String.format("-%.2f", aleatorio*0.8))); //Takeshi-Naoki Formatar para ficar com 2 casas decimais e ao invés de infinitos números decimais na tela
+        txtTotal.setText(String.valueOf(String.format("%.2f", (valor-(aleatorio*0.8)))));
+        if((valor-(aleatorio*0.8))<0){
+            txtTotal.setForeground(Color.RED);
+        }else{
+            txtTotal.setForeground(txtValor.getForeground());  
+        }
+    }catch(NumberFormatException ex) {
+        JOptionPane.showMessageDialog(this, "Digite um número válido em Quantidade. Use ponto ao invés de vírgula. /n Selecione uma linha da tabela");
+
+         // Takeshi-Naoki cairá aqui se a string não for um valor 
+         //que possa ser convertido em inteiro   
+        }
     }
     
     public void preencherTabela(){
-        //TN Preenche a tabela de acordo com o banco de dados.    
-
-        tblDescartarResíduos.getColumnModel().getColumn(0).setWidth(2); //PreferredWidth é a largura medida em pixels
-        tblDescartarResíduos.getColumnModel().getColumn(1).setPreferredWidth(2);
-        tblDescartarResíduos.getColumnModel().getColumn(2).setPreferredWidth(30);
-        tblDescartarResíduos.getColumnModel().getColumn(3).setPreferredWidth(20);
-        tblDescartarResíduos.getColumnModel().getColumn(4).setPreferredWidth(20);
-
+        //TN Preenche a tabela de acordo com o banco de dados.  
+        tblDescartarResíduos.getColumnModel().getColumn(0).setPreferredWidth(100); //PreferredWidth é a largura medida em pixels
+        tblDescartarResíduos.getColumnModel().getColumn(1).setPreferredWidth(100);
+        tblDescartarResíduos.getColumnModel().getColumn(2).setPreferredWidth(75);
+        tblDescartarResíduos.getColumnModel().getColumn(3).setPreferredWidth(400);
+        tblDescartarResíduos.getColumnModel().getColumn(4).setPreferredWidth(100);
+        
+        // TN Cria a lista de mapas que são uma combinação de empresa com residuos
+        String cidade = txtCidade.getText();
+        String estado = (String) cbxUf.getSelectedItem();
+        int tipo = cbxTipo.getSelectedIndex();
+        Double qtd = Double.valueOf(txtQtd.getText());
+        List<Map<String, Object>> listMapER = daoEmpresa.searchEmpresa(cidade, estado, tipo, qtd);
+        
         DefaultTableModel modelo = (DefaultTableModel)tblDescartarResíduos.getModel();
         modelo.setNumRows(0); //Limpar a tabela
-
-        for(int i=0;i<lista.size();i++){
+        
+        for(Map er: listMapER){
             modelo.addRow(new Object[]{
-                lista.get(i).nomeFantasia,
-                resList.get(i).tipoResiduo,
-                resList.get(i).capacidade,
-                lista.get(i).cidade,
-                resList.get(i).preco,
+                er.get("nomeFantasia"),
+                mapTipo.get(er.get("tipoResiduo")),
+                String.format("%.2f/%.2f", er.get("quantidadeAtual"), er.get("capacidade")),
+                er.get("cidade")+" - "+er.get("uf"),
+                er.get("preco")
             });
         }
     }
@@ -130,7 +142,8 @@ public class FrmProcurarEmpresas extends javax.swing.JFrame {
         lblLocalizacao = new javax.swing.JLabel();
         lblQuantidade = new javax.swing.JLabel();
         cbxTipo = new javax.swing.JComboBox<>();
-        txtLocalizacao = new javax.swing.JTextField();
+        txtCidade = new javax.swing.JTextField();
+        cbxUf = new javax.swing.JComboBox<>();
         lblTipo = new javax.swing.JLabel();
         jScrollTabela = new javax.swing.JScrollPane();
         tblDescartarResíduos = new javax.swing.JTable();
@@ -197,12 +210,14 @@ public class FrmProcurarEmpresas extends javax.swing.JFrame {
         lblQuantidade.setText("QUANTIDADE:");
         painelDeCima.add(lblQuantidade, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 161, 100, -1));
 
-        cbxTipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "PAPEL", "PLÁSTICO", "METAL", "VIDRO" }));
+        cbxTipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "METAL", "PAPEL", "PLÁSTICO", "VIDRO" }));
         painelDeCima.add(cbxTipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(173, 132, -1, -1));
 
-        txtLocalizacao.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        txtLocalizacao.setText("Cidade - UF");
-        painelDeCima.add(txtLocalizacao, new org.netbeans.lib.awtextra.AbsoluteConstraints(173, 88, 406, -1));
+        txtCidade.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        txtCidade.setText("Formosa");
+        painelDeCima.add(txtCidade, new org.netbeans.lib.awtextra.AbsoluteConstraints(173, 88, 140, -1));
+
+        painelDeCima.add(cbxUf, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 90, -1, -1));
 
         lblTipo.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         lblTipo.setText("TIPO DE RESÍDUO");
@@ -236,7 +251,7 @@ public class FrmProcurarEmpresas extends javax.swing.JFrame {
             tblDescartarResíduos.getColumnModel().getColumn(2).setPreferredWidth(30);
         }
 
-        painelDeCima.add(jScrollTabela, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 245, 1343, 283));
+        painelDeCima.add(jScrollTabela, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 250, 1240, 250));
 
         infoContato.setMaximumSize(new java.awt.Dimension(500, 780));
         infoContato.setPreferredSize(new java.awt.Dimension(500, 157));
@@ -592,6 +607,7 @@ public class FrmProcurarEmpresas extends javax.swing.JFrame {
     private javax.swing.JLabel btnVoltarTransacao;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JComboBox<String> cbxTipo;
+    private javax.swing.JComboBox<String> cbxUf;
     private javax.swing.JPanel infoContato;
     private javax.swing.JScrollPane jScrollTabela;
     private javax.swing.JToggleButton jToggleButton1;
@@ -618,9 +634,9 @@ public class FrmProcurarEmpresas extends javax.swing.JFrame {
     private javax.swing.JLabel lblValor3;
     private javax.swing.JPanel painelDeCima;
     private javax.swing.JTable tblDescartarResíduos;
+    private javax.swing.JTextField txtCidade;
     private javax.swing.JTextField txtDistancia;
     private javax.swing.JTextField txtEmpresaNome;
-    private javax.swing.JTextField txtLocalizacao;
     private javax.swing.JTextField txtQtd;
     private javax.swing.JFormattedTextField txtTelefone;
     private javax.swing.JTextField txtTotal;
