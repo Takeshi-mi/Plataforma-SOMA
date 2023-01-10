@@ -24,7 +24,7 @@ import model.Residuo;
  *
  * @author Takeshi
  */
-public class FrmTransacao extends javax.swing.JFrame {
+public class FrmProcurarEmpresas extends javax.swing.JFrame {
     DaoEmpresa daoEmpresa = new DaoEmpresa();
     DaoResiduo daoResiduo = new DaoResiduo();
     List<Empresa> lista = new ArrayList<>();
@@ -33,13 +33,13 @@ public class FrmTransacao extends javax.swing.JFrame {
     /**
      * Creates new form FrmMovimentacao
      */
-    public FrmTransacao() {
+    public FrmProcurarEmpresas() {
         initComponents();
         this.setLocationRelativeTo(null);  // Tk Para surgir no centro da tela
         
         lista = daoEmpresa.getEmpresas();
         resList = daoResiduo.getAll();
-        preencherTabela();
+        
         
     }
 
@@ -50,14 +50,13 @@ public class FrmTransacao extends javax.swing.JFrame {
      */
     @SuppressWarnings("unchecked")
     
-    public void preencherContatoByTable(){
+    public void preencherContatoByTable(){            
+                // TN Este método preenche o cartão de contato de acordo com a linha selecionada na tabela. Puxa as informações do banco.
+                txtEmpresaNome.setText(lista.get(tblDescartarResíduos.getSelectedRow()).nomeFantasia);
+                txtTelefone.setText(lista.get(tblDescartarResíduos.getSelectedRow()).telefone);
+                lblEmailAdress.setText(lista.get(tblDescartarResíduos.getSelectedRow()).email);
+                lblSiteAzul.setText(lista.get(tblDescartarResíduos.getSelectedRow()).site);
         
-        int lineChoose = tblDescartarResíduos.getSelectedRow();
-        txtEmpresaNome.setText(tblDescartarResíduos.getValueAt(lineChoose, 0).toString());
-        txtTelefone.setText(tblDescartarResíduos.getValueAt(lineChoose, 1).toString());
-        lblEmail.setText(tblDescartarResíduos.getValueAt(lineChoose,2).toString());
-        lblSiteAzul.setText(tblDescartarResíduos.getValueAt(lineChoose,3).toString());
-        lblSite.setText(tblDescartarResíduos.getValueAt(lineChoose,4).toString());
     }
     
         public void preencherValorByTable(){
@@ -65,7 +64,7 @@ public class FrmTransacao extends javax.swing.JFrame {
        // T-N Além do valor preenche a distância e o transporte. No futuro usaremos alguma API para calcular isso. No momento estamos usando números aleatórios só para simular. 
        
         int lineChoose = tblDescartarResíduos.getSelectedRow();
-        Double preco = Double.valueOf((String) tblDescartarResíduos.getValueAt(lineChoose, 4));
+        Double preco = (Double) tblDescartarResíduos.getValueAt(lineChoose, 4);
         int aleatorio = (int) (Math.random()*100);
 
         try{
@@ -210,15 +209,21 @@ public class FrmTransacao extends javax.swing.JFrame {
 
         tblDescartarResíduos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {"Suricato", "4141412", "333@gmail.com", "Rua 40, avenida tal, n13FormosaGO", "5"},
-                {"12", "2222", "we@gmail", "333", "3.90"},
                 {null, null, null, null, null},
                 {null, null, null, null, null}
             },
             new String [] {
                 "Empresa", "Tipo", "Capacidade", "Localização", "Preço/kg"
             }
-        ));
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Double.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
         tblDescartarResíduos.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tblDescartarResíduosMouseClicked(evt);
@@ -246,6 +251,11 @@ public class FrmTransacao extends javax.swing.JFrame {
 
         txtEmpresaNome.setEditable(false);
         txtEmpresaNome.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        txtEmpresaNome.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtEmpresaNomeActionPerformed(evt);
+            }
+        });
 
         lblSite.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         lblSite.setText("SITE");
@@ -280,12 +290,12 @@ public class FrmTransacao extends javax.swing.JFrame {
                     .addComponent(lblTelefone)
                     .addComponent(lblEmpresa))
                 .addGap(27, 27, 27)
-                .addGroup(infoContatoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtEmpresaNome)
-                    .addComponent(txtTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblSiteAzul, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(lblEmailAdress, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(347, 347, 347))
+                .addGroup(infoContatoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(lblEmailAdress, javax.swing.GroupLayout.DEFAULT_SIZE, 372, Short.MAX_VALUE)
+                    .addComponent(txtTelefone, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtEmpresaNome, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblSiteAzul, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(59, Short.MAX_VALUE))
         );
         infoContatoLayout.setVerticalGroup(
             infoContatoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -501,6 +511,7 @@ public class FrmTransacao extends javax.swing.JFrame {
 
     private void tblDescartarResíduosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblDescartarResíduosMouseClicked
         preencherValorByTable();
+        preencherContatoByTable();
     }//GEN-LAST:event_tblDescartarResíduosMouseClicked
 
     private void btnLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimparActionPerformed
@@ -527,6 +538,10 @@ public class FrmTransacao extends javax.swing.JFrame {
         preencherTabela();
     }//GEN-LAST:event_btnPesquisar1ActionPerformed
 
+    private void txtEmpresaNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEmpresaNomeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtEmpresaNomeActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -544,14 +559,18 @@ public class FrmTransacao extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(FrmTransacao.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmProcurarEmpresas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(FrmTransacao.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmProcurarEmpresas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(FrmTransacao.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmProcurarEmpresas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(FrmTransacao.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmProcurarEmpresas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -560,7 +579,7 @@ public class FrmTransacao extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new FrmTransacao().setVisible(true);
+                new FrmProcurarEmpresas().setVisible(true);
             }
         });
     }

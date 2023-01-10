@@ -171,7 +171,7 @@ public class InFrmMais extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnTransacoesActionPerformed
 
     private void btnProcurarEmpresasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProcurarEmpresasActionPerformed
-        FrmTransacao transacao = new FrmTransacao();
+        FrmProcurarEmpresas transacao = new FrmProcurarEmpresas();
         transacao.setVisible(true);
         FrmMenu.visible(false);
     }//GEN-LAST:event_btnProcurarEmpresasActionPerformed

@@ -34,8 +34,8 @@ public class DaoEmpresa {
                     empresa.numero = rs.getString("numero");                    
                     empresa.complemento = rs.getString("complemento");                    
                     empresa.telefone = rs.getString("telefone");
-                    empresa.site = rs.getString("telefone");
-                    empresa.email = rs.getString("telefone");
+                    empresa.site = rs.getString("site");
+                    empresa.email = rs.getString("email");
 
                     empresaList.add(empresa);
                 }while(rs.next());
@@ -190,4 +190,6 @@ public class DaoEmpresa {
         }
         return residuoList;
     }
+    
+    
 }
