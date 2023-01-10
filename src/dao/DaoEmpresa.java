@@ -4,7 +4,9 @@ import connection.Conexao;
 import model.Empresa;
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import model.Residuo;
@@ -79,10 +81,14 @@ public class DaoEmpresa {
         return null;
     }
     
-    public List<Empresa> searchEmpresa(String cidade, String estado, int tipo, Double quantidade) {
-        List<Empresa> empresaList = new ArrayList<>();
+    public List<Map<String, Object>> searchEmpresa(String cidade, String estado, int tipo, Double quantidade) {
+        List<Map<String, Object>> listMapER = new ArrayList<>();
         connection = new Conexao().conectarBD();
-        String query = "SELECT * FROM Empresa JOIN WHERE cidade=?, uf=?, tipo=?, quantidade=?";
+        String query = """
+            SELECT * 
+            FROM Empresa JOIN Residuo ON cnpj=cnpjEmpresa
+            WHERE cidade=?, uf=?, tipo=?, quantidade>?
+        """;
         try{
             pstm = connection.prepareStatement(query, ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
             pstm.setString(1, cidade);
@@ -92,30 +98,33 @@ public class DaoEmpresa {
             ResultSet rs = pstm.executeQuery();
             if(rs.first()) {
                 do{
-                    Empresa empresa = new Empresa();
-                    empresa.cnpj = rs.getString("cnpj");
-                    empresa.razaoSocial = rs.getString("razaosocial");
-                    empresa.nomeFantasia = rs.getString("nomefantasia");
-                    empresa.interesse = rs.getInt("interesse");
-                    empresa.cep = rs.getString("cep");
-                    empresa.uf = rs.getString("uf");                    
-                    empresa.cidade = rs.getString("cidade");
-                    empresa.bairro = rs.getString("bairro");
-                    empresa.rua = rs.getString("rua");                    
-                    empresa.numero = rs.getString("numero");                    
-                    empresa.complemento = rs.getString("complemento");                    
-                    empresa.telefone = rs.getString("telefone");
-                    empresa.site = rs.getString("telefone");
-                    empresa.email = rs.getString("telefone");
-
-                    empresaList.add(empresa);
+                    Map<String, Object> mapER = new HashMap<>();
+                    mapER.put("cnpj", rs.getString("cnpj"));
+                    mapER.put("razaoSocial", rs.getString("razaosocial"));
+                    mapER.put("nomeFantasia", rs.getString("nomefantasia"));
+                    mapER.put("interesse", rs.getInt("interesse"));
+                    mapER.put("cep", rs.getString("cep"));
+                    mapER.put("uf", rs.getString("uf"));                    
+                    mapER.put("cidade", rs.getString("cidade"));
+                    mapER.put("bairro", rs.getString("bairro"));
+                    mapER.put("rua", rs.getString("rua"));                    
+                    mapER.put("numero", rs.getString("numero"));                    
+                    mapER.put("complemento", rs.getString("complemento"));                    
+                    mapER.put("telefone", rs.getString("telefone"));
+                    mapER.put("site", rs.getString("telefone"));
+                    mapER.put("tipoResiduo", rs.getString("tipoResiduo"));
+                    mapER.put("capacidade", rs.getDouble("capacidade"));
+                    mapER.put("quantidade", rs.getDouble("telefone"));
+                    mapER.put("preco", rs.getDouble("telefone"));
+                    
+                    listMapER.add(mapER);
                 }while(rs.next());
             }
             pstm.close();
         } catch (SQLException ex) {
             Logger.getLogger(DaoUsuario.class.getName()).log(Level.SEVERE, "Erro ao selecionar dados: ", ex);
         }
-        return empresaList;
+        return listMapER;
     }
     
     public void addEmpresa(Empresa empresa) {

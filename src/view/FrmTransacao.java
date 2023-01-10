@@ -20,6 +20,7 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import model.Empresa;
 import model.Residuo;
+import model.Transacao;
 
 /**
  *
@@ -28,8 +29,16 @@ import model.Residuo;
 public class FrmTransacao extends javax.swing.JFrame {
     DaoEmpresa daoEmpresa = new DaoEmpresa();
     DaoResiduo daoResiduo = new DaoResiduo();
-    List<Empresa> lista = new ArrayList<>();
-    List<Residuo> resList = new ArrayList<>();
+    List<Empresa> empresas = new ArrayList<>();
+    Transacao transacao = new Transacao();
+    
+    Map<String, Integer> mapTipo = Map.of(
+        "METAL",Residuo.METAL,
+        "PAPEL",Residuo.PAPEL,
+        "PLASTICO",Residuo.PLASTICO,
+        "VIDRO",Residuo.VIDRO
+    );
+    
 
     /**
      * Creates new form FrmMovimentacao
@@ -38,10 +47,7 @@ public class FrmTransacao extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);  // Tk Para surgir no centro da tela
         
-        lista = daoEmpresa.getAll();
-        resList = daoResiduo.getAll();
         preencherTabela();
-        
     }
 
     /**
@@ -95,8 +101,12 @@ public class FrmTransacao extends javax.swing.JFrame {
     }
     
     public void preencherTabela(){
-        //TN Preenche a tabela de acordo com o banco de dados.    
-
+        //TN Preenche a tabela de acordo com o banco de dados.  
+        String cidade = txtCidade.getText();
+        String estado = (String) cbxUf.getSelectedItem();
+        int tipo = mapTipo.get(cbxTipo.getSelectedItem());
+        Double qtd = Double.parseDouble(txtQtd.getText());
+        List<Map<String, Object>> listMapER = daoEmpresa.searchEmpresa(cidade, estado, tipo, qtd);
         tblDescartarResíduos.getColumnModel().getColumn(0).setWidth(2); //PreferredWidth é a largura medida em pixels
         tblDescartarResíduos.getColumnModel().getColumn(1).setPreferredWidth(2);
         tblDescartarResíduos.getColumnModel().getColumn(2).setPreferredWidth(30);
@@ -106,13 +116,11 @@ public class FrmTransacao extends javax.swing.JFrame {
         DefaultTableModel modelo = (DefaultTableModel)tblDescartarResíduos.getModel();
         modelo.setNumRows(0); //Limpar a tabela
 
-        for(int i=0;i<lista.size();i++){
+        for(Empresa e: empresas){
+            List<Residuo> resList = daoEmpresa.getResiduos(e.cnpj);
             modelo.addRow(new Object[]{
-                lista.get(i).nomeFantasia,
-                resList.get(i).tipoResiduo,
-                resList.get(i).capacidade,
-                lista.get(i).cidade,
-                resList.get(i).preco,
+                e.nomeFantasia,
+                e.cidade,
             });
         }
     }
@@ -131,7 +139,8 @@ public class FrmTransacao extends javax.swing.JFrame {
         lblLocalizacao = new javax.swing.JLabel();
         lblQuantidade = new javax.swing.JLabel();
         cbxTipo = new javax.swing.JComboBox<>();
-        txtLocalizacao = new javax.swing.JTextField();
+        txtCidade = new javax.swing.JTextField();
+        cbxUf = new javax.swing.JComboBox<>();
         lblTipo = new javax.swing.JLabel();
         jScrollTabela = new javax.swing.JScrollPane();
         tblDescartarResíduos = new javax.swing.JTable();
@@ -201,9 +210,12 @@ public class FrmTransacao extends javax.swing.JFrame {
         cbxTipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "PAPEL", "PLÁSTICO", "METAL", "VIDRO" }));
         painelDeCima.add(cbxTipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(173, 132, -1, -1));
 
-        txtLocalizacao.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        txtLocalizacao.setText("Cidade - UF");
-        painelDeCima.add(txtLocalizacao, new org.netbeans.lib.awtextra.AbsoluteConstraints(173, 88, 406, -1));
+        txtCidade.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        txtCidade.setText("Formosa");
+        painelDeCima.add(txtCidade, new org.netbeans.lib.awtextra.AbsoluteConstraints(173, 88, 140, -1));
+
+        cbxUf.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        painelDeCima.add(cbxUf, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 90, -1, -1));
 
         lblTipo.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         lblTipo.setText("TIPO DE RESÍDUO");
@@ -573,6 +585,7 @@ public class FrmTransacao extends javax.swing.JFrame {
     private javax.swing.JLabel btnVoltarTransacao;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JComboBox<String> cbxTipo;
+    private javax.swing.JComboBox<String> cbxUf;
     private javax.swing.JPanel infoContato;
     private javax.swing.JScrollPane jScrollTabela;
     private javax.swing.JToggleButton jToggleButton1;
@@ -599,9 +612,9 @@ public class FrmTransacao extends javax.swing.JFrame {
     private javax.swing.JLabel lblValor3;
     private javax.swing.JPanel painelDeCima;
     private javax.swing.JTable tblDescartarResíduos;
+    private javax.swing.JTextField txtCidade;
     private javax.swing.JTextField txtDistancia;
     private javax.swing.JTextField txtEmpresaNome;
-    private javax.swing.JTextField txtLocalizacao;
     private javax.swing.JTextField txtQtd;
     private javax.swing.JFormattedTextField txtTelefone;
     private javax.swing.JTextField txtTotal;
