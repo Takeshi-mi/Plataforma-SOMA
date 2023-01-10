@@ -37,7 +37,7 @@ public class FrmTransacao extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);  // Tk Para surgir no centro da tela
         
-        lista = daoEmpresa.getEmpresas();
+        lista = daoEmpresa.getAll();
         resList = daoResiduo.getAll();
         preencherTabela();
         

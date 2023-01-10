@@ -13,7 +13,7 @@ public class DaoEmpresa {
     Connection connection;
     PreparedStatement pstm;
 
-    public List<Empresa> getEmpresas() {
+    public List<Empresa> getAll() {
         List<Empresa> empresaList = new ArrayList<>();
         connection = new Conexao().conectarBD();
         try{
@@ -45,6 +45,38 @@ public class DaoEmpresa {
             Logger.getLogger(DaoUsuario.class.getName()).log(Level.SEVERE, "Erro ao selecionar dados: ", ex);
         }
         return empresaList;
+    }
+    
+    // TN pega empresa a partir do cnpj
+    public Empresa getEmpresa(String cnpj) {
+        connection = new Conexao().conectarBD();
+        try{
+            pstm = connection.prepareStatement("SELECT * FROM Empresa WHERE cnpj=?", ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
+            pstm.setString(1, cnpj);
+            ResultSet rs = pstm.executeQuery();
+            if(rs.first()) {
+                Empresa empresa = new Empresa();
+                empresa.cnpj = rs.getString("cnpj");
+                empresa.razaoSocial = rs.getString("razaosocial");
+                empresa.nomeFantasia = rs.getString("nomefantasia");
+                empresa.interesse = rs.getInt("interesse");
+                empresa.cep = rs.getString("cep");
+                empresa.uf = rs.getString("uf");                    
+                empresa.cidade = rs.getString("cidade");
+                empresa.bairro = rs.getString("bairro");
+                empresa.rua = rs.getString("rua");                    
+                empresa.numero = rs.getString("numero");                    
+                empresa.complemento = rs.getString("complemento");                    
+                empresa.telefone = rs.getString("telefone");
+                empresa.site = rs.getString("telefone");
+                empresa.email = rs.getString("telefone");
+                return empresa;
+            }
+            pstm.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(DaoUsuario.class.getName()).log(Level.SEVERE, "Erro ao selecionar dados: ", ex);
+        }
+        return null;
     }
     
     public List<Empresa> searchEmpresa(String cidade, String estado, int tipo, Double quantidade) {

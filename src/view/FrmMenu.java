@@ -4,6 +4,7 @@
  */
 package view;
 
+import dao.DaoEmpresa;
 import java.awt.CardLayout;
 import java.awt.Desktop;
 import java.awt.Window;
@@ -16,14 +17,16 @@ import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import model.Usuario;
 import dao.DaoUsuario;
+import model.Empresa;
 
 /**
  *
  * @author Takeshi
  */
 public class FrmMenu extends javax.swing.JFrame {
-    Usuario usuario;
     DaoUsuario daoUsuario = new DaoUsuario();
+    Usuario usuario;
+    Empresa empresa;
     
     /**
      * Creates new form FrmMenu1
@@ -39,9 +42,8 @@ public class FrmMenu extends javax.swing.JFrame {
     public FrmMenu(Usuario user) {
         initComponents();
         usuario = user;
-        String login = user.login;
-       
-        nomeUsuario.setText("Olá, "+ daoUsuario.getUsuarioName(login));
+        empresa = new DaoEmpresa().getEmpresa(user.cnpjEmpresa);
+        
         // TN Na Janela "Saiba Mais" o scroll estava muito lento, passando uma linha de cada vez. Com esse código passará 20 por vez, deixando mais fluido. 
         jScrollPane2.getVerticalScrollBar().setUnitIncrement(20);
     }
