@@ -10,8 +10,12 @@ import static java.awt.image.ImageObserver.WIDTH;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import javax.swing.ImageIcon;
+import javax.swing.SwingConstants;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
+import model.Residuo;
 import model.Transacao;
 
 
@@ -22,43 +26,47 @@ import model.Transacao;
 public class FrmHistoricoTransacoes extends javax.swing.JFrame {
     
     DaoTransacao daoTransacao = new DaoTransacao();
-    List<Transacao> lista = new ArrayList<>();
+    List<Transacao> lista = daoTransacao.getAll();
+    Map<Integer, String> mapTipo = Map.of(
+        Residuo.METAL, "METAL",
+        Residuo.PAPEL, "PAPEL",
+        Residuo.PLASTICO, "PLASTICO",
+        Residuo.VIDRO, "VIDRO"
+    );
 
     
     public FrmHistoricoTransacoes() {
         initComponents();
         
-        lista = daoTransacao.getAll();
         preencherTabela();
     }
 
-    
     public void preencherTabela(){
-    //TN Preenche a tabela de acordo com o banco de dados.    
+        int[] preferedWidth = new int[]{400, 400, 400, 200, 200, 150, 150, 150};
+        DefaultTableCellRenderer centerCell = new DefaultTableCellRenderer();
+        centerCell.setHorizontalAlignment(SwingConstants.CENTER);
         
-    tblHistoricoTransacao.getColumnModel().getColumn(0).setPreferredWidth(20); //PreferredWidth é a largura medida em pixels
-    tblHistoricoTransacao.getColumnModel().getColumn(1).setPreferredWidth(50); 
-    tblHistoricoTransacao.getColumnModel().getColumn(2).setPreferredWidth(2);
-    tblHistoricoTransacao.getColumnModel().getColumn(3).setPreferredWidth(20);
-    tblHistoricoTransacao.getColumnModel().getColumn(4).setPreferredWidth(20);
-    tblHistoricoTransacao.getColumnModel().getColumn(5).setPreferredWidth(20);
-    tblHistoricoTransacao.getColumnModel().getColumn(6).setPreferredWidth(20);
+        for (int i=0; i<tblHistoricoTransacao.getColumnCount(); i++) {
+            tblHistoricoTransacao.getColumnModel().getColumn(i).setPreferredWidth(preferedWidth[i]); //PreferredWidth é a largura medida em pixels
+            tblHistoricoTransacao.getColumnModel().getColumn(i).setCellRenderer(centerCell);
+        }
+
+        DefaultTableModel modelo = (DefaultTableModel)tblHistoricoTransacao.getModel();
+        modelo.setNumRows(0); //Limpar a tabela
     
-    DefaultTableModel modelo = (DefaultTableModel)tblHistoricoTransacao.getModel();
-    modelo.setNumRows(0); //Limpar a tabela
-    
-    for(int i=0;i<lista.size();i++){
-        modelo.addRow(new Object[]{
-            lista.get(i).horario,
-            lista.get(i).idComprador,
-            lista.get(i).idVendedor,
-            lista.get(i).tipoResiduo,
-            lista.get(i).quantidade,
-            lista.get(i).valorUnitario,
-            lista.get(i).valorTransporte,
-                    });
+        for(Transacao t: lista){
+            modelo.addRow(new Object[]{
+                t.horario.toString(),
+                t.idComprador,
+                t.idVendedor,
+                mapTipo.get(t.tipoResiduo),
+                t.quantidade,
+                t.valorUnitario,
+                t.valorTransporte,
+                (t.quantidade*t.valorUnitario)-t.valorTransporte
+            });
+        }
     }
-}
 
     
     @SuppressWarnings("unchecked")
@@ -108,7 +116,22 @@ public class FrmHistoricoTransacoes extends javax.swing.JFrame {
             new String [] {
                 "Data/hora", "Comprador", "Vendedor", "Tipo", "Quantidade", "Valor Unitário", "Transporte", "Total"
             }
-        ));
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Object.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.Double.class, java.lang.Double.class, java.lang.Double.class, java.lang.Double.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jScrollPane1.setViewportView(tblHistoricoTransacao);
 
         mainPane.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 230, 1230, 400));
