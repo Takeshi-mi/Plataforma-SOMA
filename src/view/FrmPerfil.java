@@ -406,6 +406,7 @@ public class FrmPerfil extends javax.swing.JFrame {
         rbtnAdquirir.setEnabled(true);
         btnSalvar.setVisible(true);
         
+        
     }//GEN-LAST:event_btnEditarActionPerformed
 
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed

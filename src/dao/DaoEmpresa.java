@@ -115,8 +115,10 @@ public class DaoEmpresa {
     
     public void updateEmpresa(Empresa empresa) {
         connection = new Conexao().conectarBD();
-        String query = "UPDATE Empresa SET razaoSocial=?, nomeFantasia=?, interesse=?, cep=?, uf, cidade=?, bairro=?, rua=?, "
-                + "numero=?, complemento=?, telefone=?, site=?, email=? WHERE cnpj=?";
+        String query = """
+                       UPDATE Empresa SET razaoSocial=?, nomeFantasia=?, interesse=?, cep=?, uf, cidade=?, bairro=?, rua=?,
+                        numero=?, complemento=?, telefone=?, site=?, email=? 
+                       WHERE cnpj=?""";
         try {
             pstm = connection.prepareStatement(query);
             pstm.setString(1, empresa.razaoSocial);
