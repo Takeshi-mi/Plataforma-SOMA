@@ -481,7 +481,7 @@
                   <Font name="Segoe UI" size="18" style="1"/>
                 </Property>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="0" green="ff" red="33" type="rgb"/>
+                  <Color blue="a" green="97" red="26" type="rgb"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="0.00"/>
                 <Property name="toolTipText" type="java.lang.String" value=""/>
@@ -493,7 +493,7 @@
                   <Font name="Segoe UI" size="18" style="1"/>
                 </Property>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="0" green="ff" red="33" type="rgb"/>
+                  <Color blue="a" green="97" red="26" type="rgb"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="0.00"/>
               </Properties>

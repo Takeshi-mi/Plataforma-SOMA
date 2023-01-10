@@ -77,7 +77,7 @@ public class FrmProcurarEmpresas extends javax.swing.JFrame {
             if((valor-(aleatorio*0.8))<0){
                 txtTotal.setForeground(Color.RED);
             }else{
-                txtTotal.setForeground(Color.GREEN);
+                txtTotal.setForeground(txtValor.getForeground());
                 
                
                 
@@ -340,12 +340,12 @@ public class FrmProcurarEmpresas extends javax.swing.JFrame {
         lblValor.setText("VALOR");
 
         txtValor.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        txtValor.setForeground(new java.awt.Color(51, 255, 0));
+        txtValor.setForeground(new java.awt.Color(38, 151, 10));
         txtValor.setText("0.00");
         txtValor.setToolTipText("");
 
         txtTotal.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        txtTotal.setForeground(new java.awt.Color(51, 255, 0));
+        txtTotal.setForeground(new java.awt.Color(38, 151, 10));
         txtTotal.setText("0.00");
 
         txtDistancia.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
