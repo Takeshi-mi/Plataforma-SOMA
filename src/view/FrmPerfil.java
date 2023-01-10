@@ -5,7 +5,6 @@
 package view;
 
 import dao.DaoEmpresa;
-import dao.DaoUsuario;
 
 import java.awt.CardLayout;
 import java.awt.Desktop;
@@ -18,17 +17,13 @@ import java.util.List;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import model.Empresa;
-import model.Usuario;
-
 /**
  *
  * @author Takeshi
  */
 public class FrmPerfil extends javax.swing.JFrame {
-    DaoUsuario daoUsuario = new DaoUsuario();
     DaoEmpresa daoEmpresa = new DaoEmpresa();
     List<Empresa> lista = new ArrayList<>();
-    Usuario usuario;
     Empresa empresa;
     
     /**
@@ -38,9 +33,8 @@ public class FrmPerfil extends javax.swing.JFrame {
     public FrmPerfil(){
         initComponents();
         btnSalvar.setVisible(false); // Esse botão só aparece caso clique em editar dados
-       
         
-        empresa = daoEmpresa.getEmpresa("10.870.883/0007-30");
+        empresa = FrmMenu.getEmpresa();
         
         txtRazaoSocial.setText(empresa.razaoSocial);
         txtNomeFantasia.setText(empresa.nomeFantasia);
@@ -50,24 +44,6 @@ public class FrmPerfil extends javax.swing.JFrame {
         txtEndereco.setText(empresa.cidade);
         txtSite.setText(empresa.site);
         }
-    
-//    public FrmPerfil(Usuario user) {
-//        // Mostrar os dados na tela perfil de acordo com o usuário logado. Não tá pronto. Vou deixar o outro por enquanto
-//        initComponents();
-//        btnSalvar.setVisible(false); // Esse botão só aparece caso clique em editar dados
-//        usuario = user;
-//        empresa = daoEmpresa.getEmpresa(user.cnpjEmpresa);
-//        
-//        txtRazaoSocial.setText(empresa.razaoSocial);
-//        txtNomeFantasia.setText(empresa.nomeFantasia);
-//        txtTelefone.setText(empresa.telefone);
-//        txtCnpj.setText(empresa.cnpj);
-//        txtEmail.setText(empresa.email);
-//        txtEndereco.setText(empresa.cidade);
-//        txtSite.setText(empresa.site);
-//        
-//        
-//    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -410,7 +386,8 @@ public class FrmPerfil extends javax.swing.JFrame {
     }//GEN-LAST:event_btnEditarActionPerformed
 
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
-     
+        daoEmpresa.addEmpresa(empresa);
+        
         txtRazaoSocial.setEnabled(false);
         txtNomeFantasia.setEnabled(false);
         txtCnpj.setEnabled(false);

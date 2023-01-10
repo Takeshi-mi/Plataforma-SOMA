@@ -17,6 +17,7 @@ import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import model.Usuario;
 import dao.DaoUsuario;
+import javax.swing.JOptionPane;
 import model.Empresa;
 
 /**
@@ -69,7 +70,7 @@ public class FrmMenu extends javax.swing.JFrame {
         }
     }
     
-    // retorna a primeira instancia ativa de FrmMenu
+    // retorna a empresa da primeira instancia ativa de FrmMenu
     public static Empresa getEmpresa() {
         for (Window w: Window.getOwnerlessWindows()) {
             if (w.getName().equals("frameMenu")) {
@@ -79,6 +80,7 @@ public class FrmMenu extends javax.swing.JFrame {
         return null;
     }
     
+    // retorna o usuario da primeira instancia ativa de FrmMenu
     public static Usuario getUsuario() {
         for (Window w: Window.getOwnerlessWindows()) {
             if (w.getName().equals("frameMenu")) {
@@ -472,6 +474,10 @@ public class FrmMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void UserIconMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_UserIconMouseClicked
+        if (empresa==null) {
+            JOptionPane.showMessageDialog(this, "Você está logado como administrador. Esse tipo de usuário não tem empresas cadastradas");
+            return;
+        }
         FrmPerfil perfil = new FrmPerfil();
         perfil.setVisible(true);
         perfil.setExtendedState(this.getExtendedState());

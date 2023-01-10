@@ -11,7 +11,7 @@ public class Conexao {
     private final String driver = "org.postgresql.Driver";
     private final String url = "jdbc:postgresql://localhost:5432/projetoSoma";
     private final String user = "postgres";
-    private final String pass = "admin";
+    private final String pass = "1234";
     
     public Connection conectarBD() {
         try {

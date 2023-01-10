@@ -566,6 +566,9 @@ public class FrmProcurarEmpresas extends javax.swing.JFrame {
         int op = JOptionPane.showConfirmDialog(this, "Tem certeza que quer realizar a compra?", "Confirmar compra", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
         if (op==0) {
             new DaoTransacao().addTransacao(t);
+            Residuo residuo = daoResiduo.getResiduo(t.tipoResiduo, t.idComprador);
+            residuo.quantidadeAtual += t.quantidade;
+            daoResiduo.updateResiduo(residuo);
             JOptionPane.showMessageDialog(this, "Compra realizada com sucesso");
         }
     }//GEN-LAST:event_btnConfirmarActionPerformed

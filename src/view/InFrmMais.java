@@ -4,8 +4,10 @@
  */
 package view;
 
+import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
 import model.Usuario;
+import static view.FrmMenu.empresa;
 
 /**
  *
@@ -189,6 +191,10 @@ public class InFrmMais extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnMapaActionPerformed
 
     private void btnPerfilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPerfilActionPerformed
+        if (FrmMenu.getEmpresa()==null) {
+            JOptionPane.showMessageDialog(this, "Você está logado como administrador. Esse tipo de usuário não tem empresas cadastradas");
+            return;
+        }
         new FrmPerfil().setVisible(true);
         FrmMenu.visible(false);
     }//GEN-LAST:event_btnPerfilActionPerformed

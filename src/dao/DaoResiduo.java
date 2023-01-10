@@ -37,6 +37,28 @@ public class DaoResiduo {
         return resList;
     }
     
+    public Residuo getResiduo(int tipo, String cnpj) {
+        Residuo residuo = new Residuo();
+        connection = new Conexao().conectarBD();
+        try{
+            pstm = connection.prepareStatement("SELECT * FROM Residuo WHERE tipoResiduo=? AND cnpjEmpresa=?", ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
+            pstm.setInt(1, tipo);
+            pstm.setString(2, cnpj);
+            ResultSet rs = pstm.executeQuery();
+            if(rs.first()) {
+                    residuo.tipoResiduo = rs.getInt("tipoResiduo");
+                    residuo.cnpjEmpresa = rs.getString("cnpjEmpresa");
+                    residuo.capacidade = rs.getDouble("capacidade");
+                    residuo.quantidadeAtual = rs.getDouble("quantidadeAtual");
+                    residuo.preco = rs.getDouble("preco");
+            }
+            pstm.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(DaoUsuario.class.getName()).log(Level.SEVERE, "Erro ao coletar o residuo: ", ex);
+        }
+        return residuo;
+    }
+    
     public void addResiduo(Residuo residuo) {
         connection = new Conexao().conectarBD();
         try {
