@@ -6,6 +6,7 @@ package view;
 
 import dao.DaoEmpresa;
 import dao.DaoResiduo;
+import dao.DaoTransacao;
 import java.awt.Color;
 import java.awt.Desktop;
 import java.awt.Window;
@@ -30,7 +31,7 @@ public class FrmProcurarEmpresas extends javax.swing.JFrame {
     DaoEmpresa daoEmpresa = new DaoEmpresa();
     DaoResiduo daoResiduo = new DaoResiduo();
     List<Empresa> empresas = daoEmpresa.getAll();
-    Transacao transacao = new Transacao();
+    List<Map<String, Object>> listMapER;
     
     Map<Integer, String> mapTipo = Map.of(
         Residuo.METAL, "METAL",
@@ -46,6 +47,13 @@ public class FrmProcurarEmpresas extends javax.swing.JFrame {
     public FrmProcurarEmpresas() {
         initComponents();
         this.setLocationRelativeTo(null);  // Tk Para surgir no centro da tela
+        
+        // TN se o usuário não for empresa compradora, não pode tentar comprar
+        if (FrmMenu.getEmpresa()!= null) {
+            if (FrmMenu.getEmpresa().interesse== Empresa.VENDA) {
+                btnConfirmar.setEnabled(true);
+            }
+        }
         
         // TN preenche o comboBox de acordo com o banco de dados
         for (Object uf: daoEmpresa.getDistinct("uf")) {
@@ -112,7 +120,7 @@ public class FrmProcurarEmpresas extends javax.swing.JFrame {
         String estado = (String) cbxUf.getSelectedItem();
         int tipo = cbxTipo.getSelectedIndex();
         Double qtd = Double.valueOf(txtQtd.getText());
-        List<Map<String, Object>> listMapER = daoEmpresa.searchEmpresa(cidade, estado, tipo, qtd);
+        listMapER = daoEmpresa.searchEmpresa(cidade, estado, tipo, qtd);
         
         DefaultTableModel modelo = (DefaultTableModel)tblDescartarResíduos.getModel();
         modelo.setNumRows(0); //Limpar a tabela
@@ -120,7 +128,7 @@ public class FrmProcurarEmpresas extends javax.swing.JFrame {
         for(Map er: listMapER){
             modelo.addRow(new Object[]{
                 er.get("nomeFantasia"),
-                mapTipo.get(er.get("tipoResiduo")),
+                mapTipo.get(Integer.parseInt((String) er.get("tipoResiduo"))),
                 String.format("%.2f/%.2f", er.get("quantidadeAtual"), er.get("capacidade")),
                 er.get("cidade")+" - "+er.get("uf"),
                 er.get("preco")
@@ -171,10 +179,6 @@ public class FrmProcurarEmpresas extends javax.swing.JFrame {
         txtTransporte = new javax.swing.JTextField();
         btnLimpar = new javax.swing.JButton();
         btnConfirmar = new javax.swing.JButton();
-        jToggleButton1 = new javax.swing.JToggleButton();
-        jToggleButton2 = new javax.swing.JToggleButton();
-        jToggleButton3 = new javax.swing.JToggleButton();
-        jToggleButton4 = new javax.swing.JToggleButton();
         txtQtd = new javax.swing.JTextField();
         btnPesquisar1 = new javax.swing.JButton();
         lblFundoTransacao = new javax.swing.JLabel();
@@ -211,6 +215,11 @@ public class FrmProcurarEmpresas extends javax.swing.JFrame {
         painelDeCima.add(lblQuantidade, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 161, 100, -1));
 
         cbxTipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "METAL", "PAPEL", "PLÁSTICO", "VIDRO" }));
+        cbxTipo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbxTipoActionPerformed(evt);
+            }
+        });
         painelDeCima.add(cbxTipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(173, 132, -1, -1));
 
         txtCidade.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -225,7 +234,7 @@ public class FrmProcurarEmpresas extends javax.swing.JFrame {
 
         tblDescartarResíduos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
+                {"exemplo", "METAL", "EXEMPLO", "exemplo EX",  new Double(10.0)},
                 {null, null, null, null, null}
             },
             new String [] {
@@ -233,11 +242,18 @@ public class FrmProcurarEmpresas extends javax.swing.JFrame {
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Double.class
+                java.lang.String.class, java.lang.Object.class, java.lang.Object.class, java.lang.String.class, java.lang.Double.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
             }
         });
         tblDescartarResíduos.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -267,11 +283,6 @@ public class FrmProcurarEmpresas extends javax.swing.JFrame {
 
         txtEmpresaNome.setEditable(false);
         txtEmpresaNome.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        txtEmpresaNome.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtEmpresaNomeActionPerformed(evt);
-            }
-        });
 
         lblSite.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         lblSite.setText("SITE");
@@ -452,28 +463,18 @@ public class FrmProcurarEmpresas extends javax.swing.JFrame {
         btnConfirmar.setBackground(new java.awt.Color(0, 102, 51));
         btnConfirmar.setForeground(new java.awt.Color(255, 255, 255));
         btnConfirmar.setText("CONFIRMAR");
+        btnConfirmar.setEnabled(false);
+        btnConfirmar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnConfirmarActionPerformed(evt);
+            }
+        });
         painelDeCima.add(btnConfirmar, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 550, 138, 57));
 
-        buttonGroup1.add(jToggleButton1);
-        jToggleButton1.setText("PAPEL");
-        painelDeCima.add(jToggleButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 130, -1, -1));
-
-        buttonGroup1.add(jToggleButton2);
-        jToggleButton2.setText("METAL");
-        painelDeCima.add(jToggleButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 130, -1, -1));
-
-        buttonGroup1.add(jToggleButton3);
-        jToggleButton3.setText("VIDRO");
-        painelDeCima.add(jToggleButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 130, -1, -1));
-
-        buttonGroup1.add(jToggleButton4);
-        jToggleButton4.setText("PLASTICO");
-        painelDeCima.add(jToggleButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 130, -1, -1));
-
         txtQtd.setText("0");
-        txtQtd.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtQtdActionPerformed(evt);
+        txtQtd.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtQtdKeyReleased(evt);
             }
         });
         painelDeCima.add(txtQtd, new org.netbeans.lib.awtextra.AbsoluteConstraints(174, 160, 70, -1));
@@ -546,17 +547,39 @@ public class FrmProcurarEmpresas extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_lblSiteAzulMouseClicked
 
-    private void txtQtdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtQtdActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtQtdActionPerformed
-
     private void btnPesquisar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisar1ActionPerformed
         preencherTabela();
     }//GEN-LAST:event_btnPesquisar1ActionPerformed
 
-    private void txtEmpresaNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEmpresaNomeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtEmpresaNomeActionPerformed
+    private void btnConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmarActionPerformed
+        Transacao t = new Transacao();
+        int select = tblDescartarResíduos.getSelectedRow();
+        if (select==-1)
+            return;
+        t.tipoResiduo = cbxTipo.getSelectedIndex();
+        t.quantidade = Double.valueOf(txtQtd.getText());
+        t.valorUnitario = (Double)tblDescartarResíduos.getValueAt(select, 4);
+        t.valorTransporte = Double.valueOf(txtTransporte.getText().replaceFirst("-", "").replaceFirst(",", "."));
+        t.idComprador = FrmMenu.getEmpresa().cnpj;
+        t.idVendedor = (String) listMapER.get(select).get("cnpj");
+        
+        int op = JOptionPane.showConfirmDialog(this, "Tem certeza que quer realizar a compra?", "Confirmar compra", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
+        if (op==0) {
+            new DaoTransacao().addTransacao(t);
+            JOptionPane.showMessageDialog(this, "Compra realizada com sucesso");
+        }
+    }//GEN-LAST:event_btnConfirmarActionPerformed
+
+    private void cbxTipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxTipoActionPerformed
+        preencherTabela();
+    }//GEN-LAST:event_cbxTipoActionPerformed
+
+    private void txtQtdKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtQtdKeyReleased
+        if (tblDescartarResíduos.getSelectedRow()!=-1) {
+            preencherValorByTable();
+            preencherTabela();
+        }
+    }//GEN-LAST:event_txtQtdKeyReleased
 
     /**
      * @param args the command line arguments
@@ -610,10 +633,6 @@ public class FrmProcurarEmpresas extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> cbxUf;
     private javax.swing.JPanel infoContato;
     private javax.swing.JScrollPane jScrollTabela;
-    private javax.swing.JToggleButton jToggleButton1;
-    private javax.swing.JToggleButton jToggleButton2;
-    private javax.swing.JToggleButton jToggleButton3;
-    private javax.swing.JToggleButton jToggleButton4;
     private javax.swing.JLabel lblDistancia;
     private javax.swing.JLabel lblEmail;
     private javax.swing.JLabel lblEmailAdress;

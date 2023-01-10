@@ -2,8 +2,8 @@ package model;
 
 
 public class Empresa {
-    final public int COMPRA = 1;
-    final public int VENDA = 2;
+    public static final int COMPRA = 1;
+    public static final int VENDA = 2;
     
     public String cnpj; //PK
     public String razaoSocial;

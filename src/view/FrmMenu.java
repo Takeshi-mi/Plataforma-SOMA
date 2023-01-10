@@ -26,8 +26,8 @@ import model.Empresa;
 public class FrmMenu extends javax.swing.JFrame {
     DaoUsuario daoUsuario = new DaoUsuario();
     DaoEmpresa daoEmp = new DaoEmpresa();
-    Usuario usuario;
-    Empresa empresa;
+    public static Usuario usuario;
+    public static Empresa empresa;
     
     /**
      * Creates new form FrmMenu1
@@ -58,7 +58,8 @@ public class FrmMenu extends javax.swing.JFrame {
     
     // TN FrmMenu é a única classe que guarda o usuário que fez login. 
     //Ela precisa ficar sempre ativa, apenas ficando invisivel quando abrir as outras telas
-    // Para isso, showMenu pode ser chamado de qualquer lugar para mostrá-la de novo
+    // Para isso, visible pode ser chamado de qualquer lugar para mostrá-la de novo
+    
     public static void visible(boolean visible) {
         for (Window w: Window.getOwnerlessWindows()) {
             if (w.getName().equals("frameMenu")) {
@@ -66,6 +67,25 @@ public class FrmMenu extends javax.swing.JFrame {
                 break;
             }
         }
+    }
+    
+    // retorna a primeira instancia ativa de FrmMenu
+    public static Empresa getEmpresa() {
+        for (Window w: Window.getOwnerlessWindows()) {
+            if (w.getName().equals("frameMenu")) {
+                return empresa;
+            }
+        }
+        return null;
+    }
+    
+    public static Usuario getUsuario() {
+        for (Window w: Window.getOwnerlessWindows()) {
+            if (w.getName().equals("frameMenu")) {
+                return usuario;
+            }
+        }
+        return null;
     }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
