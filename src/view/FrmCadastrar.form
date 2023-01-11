@@ -103,7 +103,7 @@
                           <EmptySpace pref="79" max="32767" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
-                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          <EmptySpace min="0" pref="424" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="1" attributes="0">
                                   <Component id="btnCadastrar" min="-2" pref="219" max="-2" attributes="0"/>
@@ -425,7 +425,10 @@
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
                           <EmptySpace max="32767" attributes="0"/>
-                          <Component id="lblErroCampoNuloEndereco" min="-2" pref="246" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="lblCamposObrigatorios" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblErroCampoNuloEndereco" min="-2" pref="246" max="-2" attributes="0"/>
+                          </Group>
                           <EmptySpace min="-2" pref="115" max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -488,7 +491,9 @@
                               </Group>
                               <Component id="txtComplemento" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
+                          <Component id="lblCamposObrigatorios" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
                           <Component id="lblErroCampoNuloEndereco" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Component id="btnProximoEndereco" min="-2" pref="50" max="-2" attributes="0"/>
@@ -648,6 +653,14 @@
                       <Color blue="33" green="0" red="ff" type="rgb"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="Preencha todos os campos obrigat&#xf3;rios"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="lblCamposObrigatorios">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Segoe UI" size="14" style="0"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="* :campos obrigat&#xf3;rios"/>
                   </Properties>
                 </Component>
               </SubComponents>

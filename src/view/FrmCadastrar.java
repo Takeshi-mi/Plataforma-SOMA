@@ -82,6 +82,7 @@ public class FrmCadastrar extends javax.swing.JFrame {
         lblComplemento = new javax.swing.JLabel();
         txtComplemento = new javax.swing.JTextField();
         lblErroCampoNuloEndereco = new javax.swing.JLabel();
+        lblCamposObrigatorios = new javax.swing.JLabel();
         btnVoltarEndereco = new javax.swing.JLabel();
         lblFundoLocalizacao = new javax.swing.JLabel();
         seuInteresse = new javax.swing.JPanel();
@@ -207,7 +208,7 @@ public class FrmCadastrar extends javax.swing.JFrame {
                             .addComponent(pwdConfirmarSenha))))
                 .addContainerGap(79, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pessoaJuridicaPaneLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
+                .addGap(0, 424, Short.MAX_VALUE)
                 .addGroup(pessoaJuridicaPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pessoaJuridicaPaneLayout.createSequentialGroup()
                         .addComponent(btnCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -342,6 +343,9 @@ public class FrmCadastrar extends javax.swing.JFrame {
         lblErroCampoNuloEndereco.setForeground(new java.awt.Color(255, 0, 51));
         lblErroCampoNuloEndereco.setText("Preencha todos os campos obrigatórios");
 
+        lblCamposObrigatorios.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lblCamposObrigatorios.setText("* :campos obrigatórios");
+
         javax.swing.GroupLayout encloseLocalizacaoLayout = new javax.swing.GroupLayout(encloseLocalizacao);
         encloseLocalizacao.setLayout(encloseLocalizacaoLayout);
         encloseLocalizacaoLayout.setHorizontalGroup(
@@ -381,7 +385,9 @@ public class FrmCadastrar extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, encloseLocalizacaoLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(lblErroCampoNuloEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(encloseLocalizacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblCamposObrigatorios)
+                    .addComponent(lblErroCampoNuloEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(115, 115, 115))
         );
         encloseLocalizacaoLayout.setVerticalGroup(
@@ -429,7 +435,9 @@ public class FrmCadastrar extends javax.swing.JFrame {
                         .addGap(3, 3, 3)
                         .addComponent(lblComplemento))
                     .addComponent(txtComplemento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(38, 38, 38)
+                .addGap(16, 16, 16)
+                .addComponent(lblCamposObrigatorios)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblErroCampoNuloEndereco)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnProximoEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -1050,6 +1058,7 @@ public class FrmCadastrar extends javax.swing.JFrame {
     private javax.swing.JPanel encloseLocalizacao;
     private javax.swing.JPanel endereco;
     private javax.swing.JLabel lblBairro;
+    private javax.swing.JLabel lblCamposObrigatorios;
     private javax.swing.JLabel lblCapacidadeMax1;
     private javax.swing.JLabel lblCep;
     private javax.swing.JLabel lblCidade;
