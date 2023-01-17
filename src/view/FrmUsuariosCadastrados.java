@@ -72,6 +72,7 @@ public class FrmUsuariosCadastrados extends javax.swing.JFrame {
         btnVoltarUsuarios = new javax.swing.JLabel();
         scrollPane = new javax.swing.JScrollPane();
         tblUsuarios = new javax.swing.JTable();
+        jButton1 = new javax.swing.JButton();
         lblFundoUsuarios = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -113,7 +114,11 @@ public class FrmUsuariosCadastrados extends javax.swing.JFrame {
             tblUsuarios.getColumnModel().getColumn(1).setPreferredWidth(2);
         }
 
-        jPanel1.add(scrollPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 250, 650, 290));
+        jPanel1.add(scrollPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 250, 790, 300));
+
+        jButton1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        jButton1.setText("Banir Usuário");
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 600, 220, 50));
 
         lblFundoUsuarios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/fundoUsuarios.png"))); // NOI18N
         jPanel1.add(lblFundoUsuarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -191,6 +196,7 @@ public class FrmUsuariosCadastrados extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel btnVoltarUsuarios;
+    private javax.swing.JButton jButton1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblFundoUsuarios;
     private javax.swing.JLabel lblTitleUsuarios;
