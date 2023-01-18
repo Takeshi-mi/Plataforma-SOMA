@@ -76,6 +76,7 @@ public class FrmPerfil extends javax.swing.JFrame {
         btnEditarFoto = new javax.swing.JButton();
         btnExcluirConta = new javax.swing.JButton();
         lblFundoPerfil = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -322,6 +323,9 @@ public class FrmPerfil extends javax.swing.JFrame {
         lblFundoPerfil.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/fundoPerfil.png"))); // NOI18N
         perfil.add(lblFundoPerfil, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, -1, -1));
 
+        jButton1.setText("jButton1");
+        perfil.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 410, -1, -1));
+
         cardPane.add(perfil, "card2");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -467,6 +471,7 @@ public class FrmPerfil extends javax.swing.JFrame {
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JPanel cardPane;
     private javax.swing.JLabel fotoPerfil;
+    private javax.swing.JButton jButton1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblFundoPerfil;
     private javax.swing.JPanel perfil;
